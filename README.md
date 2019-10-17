@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## [Welcome to this initiative!](https://mqtt2go.github.io/convention/)
 
 You can use the [editor on GitHub](https://github.com/mqtt2go/convention/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
