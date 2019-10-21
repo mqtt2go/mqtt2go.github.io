@@ -1,6 +1,6 @@
 ## [Welcome to this initiative!](https://mqtt2go.github.io/convention/)
 
-A convention for joint requirements for MQTT brokers and clients, as well as for platform providers, manufacturers of IoT devices and/or developers of end-user applications, to foster synergies between industries and within projects.
+A convention for joint requirements to utilize MQTT brokers and clients, as well as for platform providers, manufacturers of IoT devices and/or developers of end-user applications, to foster synergies between industries and within projects.
 
 ------
 You can use the [editor on GitHub](https://github.com/mqtt2go/convention/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
