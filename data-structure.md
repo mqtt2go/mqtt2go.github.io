@@ -19,11 +19,11 @@ The general MQTT2GO topic structure is created to be as efficient as possible, g
 ```
 
 <p align="justify">
-where the **\<home_id\>** stands for the unique identificator of the home (this is used for the identification of a group of users, that are sharing one or more gateways and corresponding amount of devices connected to them),
-**\<gateway_id\>** is the unique identificator of the gateway,
-**\<group_id\>** is the unique identificator of the group of devices,
-**\<device_type\>** defines to which category the device belongs,
-and **\<dev_id\>** is device’s own unique identificator.
+where the \<home_id\> stands for the unique identificator of the home (this is used for the identification of a group of users, that are sharing one or more gateways and corresponding amount of devices connected to them),
+\<gateway_id\> is the unique identificator of the gateway,
+\<group_id\> is the unique identificator of the group of devices,
+\<device_type\> defines to which category the device belongs,
+and \<dev_id\> is device’s own unique identificator.
 </p>
 
 <p align="justify">
@@ -35,11 +35,11 @@ To access a multiple devices or a whole group. Wildcard masks from the MQTT stan
 ```
 
 <p align="justify">
-Which means that the subscribe / publish will be done to all groups, where the **\<device_type\>/\<dev_id\>** matches inserted data.
+Which means that the subscribe / publish will be done to all groups, where the \<device_type\>/\<dev_id\> matches inserted data.
 </p>
 
 <p align="justify">
-If the subscribe/publish should be to a larger group of end devices, a **\#** wildcard mask is used. This means that all topics after the **\#** are used:
+If the subscribe/publish should be to a larger group of end devices, a \# wildcard mask is used. This means that all topics after the \# are used:
 </p>
 
 ```
