@@ -70,6 +70,166 @@ The command_type defines what information should be expected in the value key-pa
 Based on previous examples, the value key-pair can contain either a simple command such as on, off and similar, or more advanced commands represented by an array (i.e., the array for HSB information for setting the light color).
 </p>
 
+The general commands that are common for all devices are: 
+* QueryOn, 
+* QueryBattery, 
+* QueryState, 
+* QueryTamper, 
+* QueryStatus.
 
+### MQTT Commands
+<p align="justify">
+The report message structure is used for replies coming from the devices. The report messages can also contain a periodic update from the device. They are marked by the report type, which contains priority level to differentiate between critical reports (such as alarms), standard periodic messages and replies to commands.
+</p>
+
+```json
+{
+	"type": "report",
+	"priority_level":"priority_level_value",
+	"report_type":"report_type_name",
+	"timestamp":"timestamp_value",
+	"report_name":"report_name",
+	"value":"value_body" 
+}
+
+```
+
+<p align="justify">
+The priority_level is used to set a message priority. It can be between 1-5, where 1 is the lowest and 5 the highest.
+The report_type defines the type of report, there are four types of reports: (i) Status, (ii) CommandResponse, (iii) PeriodicReport,  and  (iv) Error.
+The timestamp defines the datetime of the message sent event. It is in Unix format.
+The <strong>report_name</strong> carries information about the value format. It can be any of the names from the afore presented tables. For example, when the <strong>report_name</strong> has a value of temperature, the value key-pair will carry an integer which corresponds to a degrees of celsius.
+value_body can be either a simple response (OK), an integer, or array of values.
+</p>
+
+The general reports that are common for all devices are:
+* OK
+* BatteryBad
+
+## System, Users, and Device Initialization/Management
+<p align="justify">
+This section describes the topic connected with the system, users, and device initialization and management. It is divided into three main parts: user management, network join, and device configuration.
+</p>
+
+### User Management
+<p align="justify">
+This section describes the topics that deal with user management. That being said, the core functionality of this module is to add, delete or update users inside a one MQTT2GO smart-home household (that does not necessarily mean one SH-GW). We distinguish between two user roles: (i) adult, who has the “administrator” access and therefore can control whole household without any restrictions, and (ii) children, which has a restricted access to selected features (i.e cannot arm/disarm the alarm or control any other security features).
+</p>
+
+#### Topics Structure
+The base topic for user management is defined as: 
+
+```
+<home_id>/users
+```
+
+<p align="justify">
+Inside this topic, the MQTT2GO commands are sent if any user-related operation is to be performed.
+</p>
+
+#### MQTT Commands
+<p align="justify">
+The MQTT commands for user management are based on the commands template from 2.1.2, where the MQTT <strong>command_type</strong> will be one of the following:
+</p>
+
+* add_user,
+* updt_user
+* del_user.
+
+The JSON body for first two commands will be:
+
+```json
+{
+	"user_id": "id",
+	"email": "email",
+	"user_name": "name",
+	"role": "role"
+}
+```
+
+and for the deletion operation:
+
+```json
+{
+	"user_id": "id"
+}
+```
+
+The concrete value of each parameter depends on the specific use-case.
+
+#### MQTT Reports
+<p align="justify">
+The MQTT reports for the user management are based on the commands template from 2.1.3, where the MQTT report_type corresponds to the commands from: MQTT Commands, with the JSON body containing the operation results:
+</p>
+
+```json
+{
+	"result": "result"
+}
+```
+
+The result itself can be:
+* OK,
+* Error.
+
+#### Examples
+The example of a user add operation can look like:
+
+```json
+{
+	"user_id": 123456789,
+	"email": "john.doe@mail.com",
+	"user_name": "John Doe",
+	"role": "adult"
+}
+```
+
+and the response will be:
+
+```json
+{
+	"result": "ok" 
+}
+
+```
+
+### Network Join
+<p align="justify">
+The operation of adding a new device into the network / household is utilizing a special topics. These topics are only temporary and utilized only for this specific use-case. This means that, aside from one, they are not a part of the standard topic structure. This simplifies the implementation at the end devices as they have no idea of the current structure of the MQTT2GO household. This topics and needed commands and reports are described in this section.
+</p>
+
+#### Topics Structure
+<p align="justify">
+As aforementioned, network join topics are unique inside the MTT2GO standard and are solely used for the initial connection of new devices. The topics are further divided into two groups based on who is communicating:
+</p>
+
+*Controlling App / SH-GW*
+<p align="justify">
+The controlling App / SH-GW utilizes a special topic for the addition of new devices. This topic is structured as follows:
+</p>
+
+```
+<home_id>/<gw_id>/add_device
+```
+
+<p align="justify">
+Its main purpose is to publish information that initialize and finalize the adding process.
+</p>
+
+
+*End device*
+<p align="justify">
+The end device itself utilizes a unique topics for the initialization communication. They are:
+</p>
+
+* __\<dev_id\>/activation__ for the initial key exchange,
+* __\<dev_id\>/wifi__ for the Wi-Fi credentials exchange,
+* __\<dev_id\>/credentials__ for the MQTT login information exchange, and
+* __\<dev_id\>/topics used__ to get the list of the topics to which the devices has to be subscribed.
+
+#### MQTT Commands
+<p align="justify">
+The MQTT commands for the network join are again based on the general structure from 2.1.2. And the most important change is in the value key of the command, which can be further divided by the function of the message (the numbering here corresponds to the one in Fig.
+</p>
 
 [Back](./)
