@@ -231,18 +231,18 @@ The end device itself utilizes a unique topics for the initialization communicat
 The MQTT commands for the network join are again based on the general structure from 2.1.2. And the most important change is in the value key of the command, which can be further divided by the function of the message (the numbering here corresponds to the one in Fig.
 </p>
 
-**Activation Code**
+##### Activation Code
 <p align="justify">
 Activation code which is used for the whole add a new device process initialization. This message is the only one from the network join section, which is sent to the <strong>&lt;home_id&gt;/&lt;gw_id&gt;/add_device</strong> topic. Its value is set to the activation code, which is a unique identifier provided by a manufacturer on the being added device.
 </p>
 
-**Get encryption keys**
+##### Get encryption keys
 Get encryption keys is used to obtain the encryption key, this commands value is simple GET_ENCRYPTION_KEYS string.
 
-**Get Wifi Credentials**
+##### Get Wifi Credentials
 Get Wifi credentials which is used to obtain the Wi-Fi credentials, again the command value is GET_WIFI_CREDENTIALS string.
 
-**Get MQTT credentials**
+##### Get MQTT credentials
 Get MQTT credentials, utilized to request the MQTT credentials by sending a command with value o GET_MQTT_CREDENTIALS.
 
 #### MQTT Reports
@@ -250,7 +250,7 @@ Get MQTT credentials, utilized to request the MQTT credentials by sending a comm
 These reports are specifically designed for the initialization process of the network join. The again follow the general structure from 2.1.3. The are again labeled with numbers that are corresponding with the Fig.
 </p>
 
-**Key A, g, p**
+##### Key A, g, p
 <p align="justify">
 Key A, g, p this message is used to exchange the key between the device and SH-GW. Its value is a JSON with following structure.
 </p>
@@ -264,12 +264,36 @@ Key A, g, p this message is used to exchange the key between the device and SH-G
 }
 ```
 
-**Key B**
+##### Key B
 Key B, which has the same structure as previous, but there is only.
 
 ```json
 {
 	"key_b" : "b_value"
+}
+```
+
+##### Wi-Fi credentials
+<p align="justify">
+Wi-Fi credentials, this message is used to send the Wi-Fi credentials back to the end device. The values of this message are encrypted via AES. Its value is again a JSON with following structure.
+</p>
+
+```json
+{
+	"SSID": "wifi_ssid",
+	"password": "password"
+}
+```
+
+##### MQTT credentials
+<p align="justify">
+MQTT credentials which is also AES encrypted and used to obtain the correct MQTT client credentials.
+</p>
+
+```json
+{
+	"login": "device_id",
+	"password": "password"
 }
 ```
 
