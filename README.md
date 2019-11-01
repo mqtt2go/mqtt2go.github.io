@@ -9,7 +9,7 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ### Markdown
 
-[Link to another page](./another-page.md).
+### [Link to another page](./another-page.md)
 
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
