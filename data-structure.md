@@ -50,4 +50,26 @@ If the subscribe/publish should be to a larger group of end devices, a <strong>&
 Therefore means that the messages will go to all devices and all groups under selected gateway.
 </p>
 
+
+### MQTT Commands
+<p align="justify">
+The command messages are composed of four fields: (i) type, which is used to distinguish between the command and report type, (ii) timestamp, (iii) command type which is used to select the correct type of command (i.e., set, query, etc.) and (iv) command structure, containing the actual command. The command itself can be either a simple name-value pair or a complex structure, which is usually used for complex operations such as device setup.
+</p>
+
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "command_type_value",
+	"value": "value_body"
+}
+```
+<p align="justify">
+The timestamp defines the datetime of the message sent event. It is in Unix format.
+The command_type defines what information should be expected in the value key-pair. It can be any of the command types defined in the tables from sections 2.2.1.2, 2.2.2.2, 2.2.3.2, 2.3.2, 2.4.2. If the command_type_value will contain a set, a value of simple commands such as on can be expected. If command_type_value will contain a color keyword, the value will contain an array, which will describe the HSB information needed to set up the chosen color.<br>
+Based on previous examples, the value key-pair can contain either a simple command such as on, off and similar, or more advanced commands represented by an array (i.e., the array for HSB information for setting the light color).
+</p>
+
+
+
 [Back](./)
