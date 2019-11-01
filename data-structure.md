@@ -12,11 +12,11 @@ The general MQTT2GO topic structure is created to be as efficient as possible, g
 <home_id>/<gateway_id>/<group_id>/<device_type>/<dev_id>
 ```
 
-where the `<home_id>` stands for the unique identificator of the home (this is used for the identification of a group of users, that are sharing one or more gateways and corresponding amount of devices connected to them),
-`<gateway_id>` is the unique identificator of the gateway,
-`<group_id>` is the unique identificator of the group of devices,
-`<device_type>` defines to which category the device belongs,
-and `<dev_id>` is device’s own unique identificator.
+where the \<home_id\> stands for the unique identificator of the home (this is used for the identification of a group of users, that are sharing one or more gateways and corresponding amount of devices connected to them),
+\<gateway_id\> is the unique identificator of the gateway,
+\<group_id\> is the unique identificator of the group of devices,
+\<device_type\> defines to which category the device belongs,
+and \<dev_id\> is device’s own unique identificator.
 
 
 [Back](./)
