@@ -8,8 +8,8 @@ This proposal is a complete guide for an MQTT-enabled smart home setup. It was c
 </p>
 
 ![Image](mqtt_architecture.png "Smart-Home Architecture")
-<p align="center">
-*Architecture of MQTT2GO System*
+<p align="center" >
+<em>Architecture of MQTT2GO System</em>
 </p>
 
 ## Multipurpose Smart Home Enabler
