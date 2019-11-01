@@ -19,15 +19,15 @@ The general MQTT2GO topic structure is created to be as efficient as possible, g
 ```
 
 <p align="justify">
-where the **&lt;home_id&gt;** stands for the unique identificator of the home (this is used for the identification of a group of users, that are sharing one or more gateways and corresponding amount of devices connected to them),
-**&lt;gateway_id&gt;** is the unique identificator of the gateway,
-**&lt;group_id&gt;** is the unique identificator of the group of devices,
-**&lt;device_type&gt;** defines to which category the device belongs,
-and **&lt;dev_id&gt;** is device’s own unique identificator.
+where the <strong>&lt;home_id&gt;</strong> stands for the unique identificator of the home (this is used for the identification of a group of users, that are sharing one or more gateways and corresponding amount of devices connected to them),
+<strong>&lt;gateway_id&gt;</strong> is the unique identificator of the gateway,
+<strong>&lt;group_id&gt;</strong> is the unique identificator of the group of devices,
+<strong>&lt;device_type&gt;</strong> defines to which category the device belongs,
+and <strong>&lt;dev_id&gt;</strong> is device’s own unique identificator.
 </p>
 
 <p align="justify">
-To access a multiple devices or a whole group. Wildcard masks from the MQTT standard needs to be used. If we want to substitute only one level, a *+* wildcard can be used. This means that the topic would look like:
+To access a multiple devices or a whole group. Wildcard masks from the MQTT standard needs to be used. If we want to substitute only one level, a <strong>+</strong> wildcard can be used. This means that the topic would look like:
 </p>
 
 ```
@@ -35,11 +35,11 @@ To access a multiple devices or a whole group. Wildcard masks from the MQTT stan
 ```
 
 <p align="justify">
-Which means that the subscribe/publish will be done to all groups, where the **&lt;device_type&gt;/&lt;dev_id&gt;** matches inserted data.
+Which means that the subscribe/publish will be done to all groups, where the <strong>&lt;device_type&gt;/&lt;dev_id&gt;</strong> matches inserted data.
 </p>
 
 <p align="justify">
-If the subscribe/publish should be to a larger group of end devices, a *&#35;* wildcard mask is used. This means that all topics after the *&#35;* are used:
+If the subscribe/publish should be to a larger group of end devices, a <strong>&#35;</strong> wildcard mask is used. This means that all topics after the <strong>&#35;</strong> are used:
 </p>
 
 ```
