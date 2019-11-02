@@ -384,7 +384,7 @@ The command types used in the MQTT Commands are describing the targeted function
 #### Table with commands
 | Name | Device type | Command Type | Command |
 | ---- | ----------- | ------------ | ------- |
-|Garage door|garage_doo|set<br/>set_timer|Up, Down, Stop<br/>\<Timer\>|
+|Garage door|garage_door|set set_timer|Up, Down, Stop &lt;Timer&gt;|
 
 
 [Back](./)
