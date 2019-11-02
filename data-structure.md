@@ -382,9 +382,15 @@ The command types used in the MQTT Commands are describing the targeted function
 * Query commands, which are used to query information from the end devices. They are used to force the readout out of the periodic report time cycle.
 
 #### Table with commands
+
 | Name | Device type | Command Type | Command |
 | --- | --- | --- | --- |
 |Garage door|garage_door|set set_timer|Up, Down, Stop Timer|
 
+
+| Left-aligned | Center-aligned | Right-aligned |
+| :---         |     :---:      |          ---: |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
 
 [Back](./)
