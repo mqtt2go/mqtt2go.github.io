@@ -418,6 +418,6 @@ The command types used in the MQTT Commands are describing the targeted function
 | Door / Window sensors | door | set <br/> query | On, Off <br/> State |
 | Weather Stations | weather | set <br/> setup <br/><br/> query | On, Off <br/> &lt;Setup&gt; <br/> Temperature, CurrentWeather, Humidity, Wind, UV, Forecast |
 | Alarm | alarm | set <br/> <br/> query <br/> setup | On, Off, SirenOn, SirenOff, SirenWalkin, SirenWalkOut, Arm, Disarm <br/> State <br/> &lt;Setup&gt; |
-| Utility meter | utility_meter | set <br/> setup <br/> <br/> <br/> query | On, Off <br/> &lt;Setup&gt; <br/> Voltage, Frequency, Tarif, CurrentConsumption, State, WeeklyConsumption, MonthlyConsumption |
+| Utility meter | utility_meter | set <br/> setup <br/> <br/> query | On, Off <br/> &lt;Setup&gt; <br/> Voltage, Frequency, Tarif, CurrentConsumption, State, WeeklyConsumption, MonthlyConsumption |
 
 [Back](./)
