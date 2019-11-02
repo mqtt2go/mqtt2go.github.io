@@ -383,8 +383,6 @@ The command types used in the MQTT Commands are describing the targeted function
 
 #### Table with commands
 
-<center>
-
 | Name | Device type | Command Type | Command |
 | --- | --- | --- | --- |
 | Garage door | garage_door | set <br/> set_timer | Up, Down, Stop <br/> &lt;Timer&gt; |
@@ -421,7 +419,5 @@ The command types used in the MQTT Commands are describing the targeted function
 | Weather Stations |  |  |  |
 | Alarm |  |  |  |
 | Utility meter |  |  |  |
-
-</center>
 
 [Back](./)
