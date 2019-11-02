@@ -77,7 +77,7 @@ The general commands that are common for all devices are:
 * QueryTamper, 
 * QueryStatus.
 
-### MQTT Commands
+### MQTT Reports
 <p align="justify">
 The report message structure is used for replies coming from the devices. The report messages can also contain a periodic update from the device. They are marked by the report type, which contains priority level to differentiate between critical reports (such as alarms), standard periodic messages and replies to commands.
 </p>

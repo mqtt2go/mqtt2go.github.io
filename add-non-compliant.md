@@ -16,3 +16,5 @@ In the ideal world, the setup mentioned and depicted above can be simplified. Th
 1. The user will open the MQTT2GO App in which he will select add a new unsupported device.
 1. A device manufacturer will be chosen in the MQTT2GO App, after which the corresponding application will be launched. In this application, user will set up the device as in the previous example, but the result will be sent back to the MQTT2GO App via the intent and therefore the user will be redirected back to the MQTT2GO App.
 1. The device will be successfully added to the MQTT2GO ecosystem and is ready to be controlled.
+
+[Back](./)

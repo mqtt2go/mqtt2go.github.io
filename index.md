@@ -58,6 +58,7 @@ In this chapter, we are going to present a few ways how to add a new device. Fir
 This section is dedicated to the MQTT2GO topic naming convention. The structure is organized into subsections based on the device types to provide an easier understanding of the division and key roles of each entity inside the MQTT2GO standard.
 </p>
 
-* [General Commands and Reports](./add-wifi.md)
-* [MQTT Objects](./add-wps.md)
-* [MQTT Controllers](./add-non-compliant.md)
+* [General Commands and Reports](./mqtt2go-commands.md)
+* [System, Users, and Device Initialization/Management](./mqtt2go-management.md)
+* [MQTT Objects](./mqtt2go-objects.md)
+* [MQTT Controllers](./mqtt2go-controllers.md)

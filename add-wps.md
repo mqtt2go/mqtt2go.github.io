@@ -22,3 +22,5 @@ The process of adding a new device using the WPS is very similar to the previous
 <p align="center" >
 	<em>Proccess of adding a new MQTT2GO Device using the WPS.</em>
 </p>
+
+[Back](./)

@@ -25,3 +25,5 @@ The ideal process of adding new device should be considered as the right way how
 <p align="center" >
 	<em>Proccess of adding a new MQTT2GO Device.</em>
 </p>
+
+[Back](./)
