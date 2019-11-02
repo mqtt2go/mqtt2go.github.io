@@ -383,9 +383,45 @@ The command types used in the MQTT Commands are describing the targeted function
 
 #### Table with commands
 
+<center>
+
 | Name | Device type | Command Type | Command |
 | --- | --- | --- | --- |
-|Garage door|garage_door|set<br/>set_timer|Up, Down, Stop<br/>&lt;Timer&gt;|
+|Garage door|garage_door|set <br/> set_timer|Up, Down, Stop <br/> &lt;Timer&gt; |
+| Smart Watering | smart_water | set <br/> set_timer | On, Off<br/> &lt;Timer&gt; |
+| Lawnmowers | lawnmower | set <br/> setup | On, Off, Start, Stop <br/> &lt;Setup&gt; |
+| Security Cameras | camera | set <br/> query | On, Off <br/> Stream |
+| Doorbell | doorbell | set <br/> query | Disable, Enable <br/> Stream |
+| Doorlock | doorlock | set <br/> setup | Lock, Unlock <br/> &lt;Setup&gt; |
+| Blinds and Sunscreens |  |  |  |
+| Smart Sockets |  |  |  |
+| Smart Plant Pots |  |  |  |
+| Motion Sensors |  |  |  |
+| Temperature Sensors |  |  |  |
+| Multi Sensors |  |  |  |
+| Smart Speakers |  |  |  |
+| Smart TVs |  |  |  |
+| Thermostat |  |  |  |
+| Vacuum Cleaners |  |  |  |
+| Flood / Water Sensor |  |  |  |
+| Health Sensors |  |  |  |
+| Washers & Dryers |  |  |  |
+| Smart Spots / Lights |  |  |  |
+| Radiator Valve |  |  |  |
+| Solar Panels |  |  |  |
+| Curtains |  |  |  |
+| Climate Control |  |  |  |
+| Smoke Detector |  |  |  |
+| Coffee Machines |  |  |  |
+| Voice Assistants |  |  |  |
+| Dishwasher |  |  |  |
+| Keyfob & Remotes |  |  |  |
+| Ovens |  |  |  |
+| Door / Window sensors |  |  |  |
+| Weather Stations |  |  |  |
+| Alarm |  |  |  |
+| Utility meter |  |  |  |
 
+</center>
 
 [Back](./)
