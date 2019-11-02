@@ -297,4 +297,94 @@ MQTT credentials which is also AES encrypted and used to obtain the correct MQTT
 }
 ```
 
+### Device Configuration
+<p align="justify">
+The device configuration is happening over topics that are unique to each device. This way it is secured that all the configuration will be done to the correct device. The only exception is the initialization process, where the topic is universal for the whole process, but in this case it is secured via the ability of adding only one device at a time. 
+</p>
+
+#### Topics Structure
+<p align="justify">
+The topics for the device configuration presented in this section are for the initial device configuration only. The device update and similar topics are presented in MQTT Objects section. Here, the topics are divided into two parts depending on which device is utilizing them:
+</p>
+
+1. __/user_id/gw_id/add_device__ utilized by the controlling apps,
+2. __/dev_id/topics reserved for the end devices__.
+
+#### MQTT Commands
+<p align="justify">
+The MQTT Commands mentioned below are used in adding a new device process. The command structure is based on the structure from 2.1.2.  Again, the numbering in this section is coherent with the numbering in Fig. ADD FIG REF.
+</p>
+
+##### Get device topics
+<p align="justify">
+Get device topics command is used to get device topics from the SH-GW. This command has value of GET_DEVICE_TOPICS.
+</p>
+
+
+##### Get Device group and name
+<p align="justify">
+Get Device group and name is used to request the configuration information from the controlling app. Its value is JSON body with following structure.
+</p>
+
+```json
+{
+	"device_type": "device_type",
+	"device_id":"device_id"
+}
+```
+
+#### MQTT Reports
+<p align="justify">
+The MQTT reports presented here are designed as a “responses” to aforementioned commands. Their structure is also coherent with the general structure from 2.1.3 and the numbering is matching the one in Fig: ADD FIG REF.
+</p>
+
+##### Successfully added device
+<p align="justify">
+Successfully added device is topic utilized for the confirmation from the controlling app with the final device name and group. It value is JSON body of following structure.
+</p>
+
+```json
+{
+	"device_id":"device_id",
+	"device_name": "device_name",
+	"device_group": "device_group"
+}
+```
+
+##### Device topics
+To Do
+
+## MQTT Objects
+<p align="justify">
+MQTT objects are describing all end devices that are connected to the MQTT2GO system. Their primary purpose is to either periodically report measurement results back to the SH-GW or to fulfill their role in the smart home.
+</p>
+
+### Topics Structure
+<p align="justify">
+The topic structure for MQTT objects is in line with the general structure described in 2.1.1. The topic structure is following.
+</p>
+
+```
+<home_id>/<gateway_id>/<group_id>/<device_type>/<dev_id>
+```
+
+### MQTT Commands
+<p align="justify">
+The MQTT Commands described in this section are device specific and therefore they are arranged in tables for better understanding. The structure of the command is again compliant to the general structure from  2.1.2.
+</p>
+
+#### Description of command types
+<p align="justify">
+The command types used in the MQTT Commands are describing the targeted functionality of the whole command. The command types are:
+</p>
+
+* Set commands, which can be further specified by underscore to match a certain command. I.e., set_temperature.
+* Query commands, which are used to query information from the end devices. They are used to force the readout out of the periodic report time cycle.
+
+#### Table with commands
+| Name | Device type | Command Type | Command |
+| ---- | ----------- | ------------ | ------- |
+|Garage door|garage_doo|set<br/>set_timer|Up, Down, Stop<br/>\<Timer\>|
+
+
 [Back](./)
