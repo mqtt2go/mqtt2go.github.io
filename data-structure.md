@@ -308,7 +308,7 @@ The topics for the device configuration presented in this section are for the in
 </p>
 
 1. __/user_id/gw_id/add_device__ utilized by the controlling apps,
-2. __/dev_id/topics reserved for the end devices__.
+2. __/dev_id/topics__ reserved for the end devices.
 
 #### MQTT Commands
 <p align="justify">
@@ -441,11 +441,11 @@ To provide some examples of the MQTT Commands usage, we provide simple and compl
 	"type": "command",
 	"timestamp":1567677926,
 	"command_type":"setColor",
-	"value":  {
-		"h": 100, 
-		"s": 100,
-		"b": 50
-		}
+	"value": {
+				"h": 100, 
+				"s": 100,
+				"b": 50
+			 }
 }
 ```
 
@@ -489,15 +489,15 @@ The report types are used to distinguish between different reports based on thei
 | Washers & Dryers | washer_dryer | state <br/> <br/> timer | On, Off, InProgress, WaterError, RepairNeeded <br/> &lt;Timer&gt; |
 | Smart Spots / Lights | light | state <br/> color <br/> brightness <br/> temperature | On, Off <br/> &lt;Color&gt; <br/> &lt;Brightness&gt; <br/> &lt;Temperature&gt; |
 | Radiator Valve | radiator | state <br/> current_temperature <br/> set_temperature | On, Off <br/> &lt;CurrTemperature&gt; <br/> &lt;SetTemperature&gt; |
-| Solar Panels | solar | state <br/> <br/> power | On, Off, PanelError, BatteryError <br/> &lt;CurrPower&gt; |
+| Solar Panels | solar | state <br/> power | On, Off, PanelError, BatteryError <br/> &lt;CurrPower&gt; |
 | Wall Switches / Built-in Switches | switch | state <br/> timer | On, Off, Mode <br/> &lt;SetTimer&gt; |
 | Curtains | curtains | state | Closed, Open, Stopped, Stucked |
 | Climate Control | climate | state <br/> timer <br/> humidity | On, Off <br/> &lt;SetTimer&gt; <br/> &lt;Humidity&gt; |
 | Smoke Detector | smoke | state | SmokeAlarm |
-| Coffee Machines | coffee | state <br/> <br/> <br/> <br/> timer | On, Off, WaterLow, WaterOK, CoffeeLow, CoffeeOK, MilkLow, MilkOK, CleaningNeeded,
+| Coffee Machines | coffee | state <br/> <br/> timer | On, Off, WaterLow, WaterOK, CoffeeLow, CoffeeOK, MilkLow, MilkOK, CleaningNeeded,
 RepairNeeded <br/> &lt;SetTimer&gt; |
 | Voice Assistants | voice_assistant | state <br/> setup | On, Off <br/> &lt;Setup&gt; |
-| Dishwasher | dishwasher | state <br/> <br/> time | On, Off, InProgress, WaterError, RepairNeeded <br/> &lt;SetTimer&gt; |
+| Dishwasher | dishwasher | state <br/> <br/> timer | On, Off, InProgress, WaterError, RepairNeeded <br/> &lt;SetTimer&gt; |
 | Keyfob & Remotes | keyfob_remote | state <br/> mode | On, Off <br/> &lt;Mode&gt; |
 | Ovens | oven | state <br/> timer <br/> mode <br/> temperature <br/> | On, Off, LightOn, LightOff <br/> &lt;SetTimer&gt; <br/> &lt;Mode&gt; <br/> &lt;Temperature&gt; |
 | Door / Window sensors | door | state | Open, Closed |
@@ -505,6 +505,199 @@ RepairNeeded <br/> &lt;SetTimer&gt; |
 | Alarm | alarm | state | AlarmButtonPressed, AlarmOffButtonPressed, ArcAlert, ArcAlertArmStatus, ArcAlertDeprovision, ArcAlertRevision, ArcError, ArcTestResult, ArmStatusChange, GlassBreakage, PanicButtonPressed, TamperCleared, TamperDetected |
 | Utility meter | utility_meter | state <br/> value | On, Off <br/> UtilityValue |
 
+#### MQTT Reports Examples
+<p align="justify">
+As for the commands, here we present two examples of the reports:
+</p>
 
+##### Simple Report Example
+```json
+{
+	"type": "report",
+	"priority_level":1,
+	"timestamp":1567677946,
+	"report_type":"OnReport",
+	"report":"on"
+}
+```
+
+##### Complex Report Example
+```json
+{
+	"type": "report",
+	"priority_level": 1,
+	"timestamp":1567677956,
+	"report_type":"ColorReport",
+	"report": {
+				"h": 100, 
+				"s": 100,
+				"b": 50
+			  }
+}
+```
+
+## MQTT Controllers
+<p align="justify">
+MQTT Controllers are devices which are primarily serving as a controlling units. These devices can be either a physical device (touchscreen controller, smartphone, etc.) or a software controllers, which are accessible from the network (i.e., via HTTP).
+</p>
+
+### Topics Structure
+<p align="justify">
+The basic topic structure is based on the general MQTT2GO topic structure. The only difference here is that the controller can either control the end devices directly, or indirectly through groups and gateways.
+</p>
+
+```
+<home_id>/<gateway_id>/<group_id>/<device_type>/<dev_id>
+```
+
+### MQTT Commands
+<p align="justify">
+The MQTT commands for the controllers are used to control the end devices. This means that most of the commands are targeted at setting up selected parameters of the end devices or changing the structure of the MQTT2GO households. Their structure is based on the  2.1.2.
+</p>
+
+#### Set commands
+
+The set commands are used to change / add device parameters and information. They are exactly the same as in Table with MQTT2GO commands with the addition of the set_group command type, which is used to set / change the group of selected end device. Its JSON body is:
+
+```json
+{
+	"group_id": "group_id"
+}
+```
+
+Where the __\<group_id\>__ can be either a value or field of values.
+
+#### Add Commands
+<p align="justify">
+The add commands are primarily used to create new objects like groups, users, and devices. They also utilize suffixes for differentiation. In the following paragraphs, all of the add commands will be described.
+</p>
+
+##### Group Creation
+<p align="justify">
+Group creation is done via <strong>add_group</strong> command type with value body of a JSON structure with the following format.	
+</p>
+
+```json
+{
+	"group_id": "group_id"
+}
+```
+
+##### Add User
+<p align="justify">
+For adding a new user, the <strong>add_user</strong> command type with JSON body with following format is used.
+</p>
+
+```json
+{
+	"user_id": "id",
+	"email": "email",
+	"user_name": "name",
+	"role": "role"
+}
+```
+
+#### Edit Commands
+<p align="justify">
+The edit commands are used to edit parameters of objects such as users, groups, and devices.
+</p>
+
+##### User Editing
+<p align="justify">
+User editing is done by commands with type of <strong>updt_use</strong> with JSON body of:
+</p>
+
+```json
+{
+	"user_id": "id",
+	"email": "email",
+	"user_name": "name",
+	"role": "role"
+}
+```
+
+##### Group Editing
+<p align="justify">
+Group editing is done by the commands with type of <strong>updt_group</strong> with JSON body of:
+</p>
+
+```json
+{
+	"group_id": "group_id"
+}
+```
+
+#### Delete Commands
+<p align="justify">
+Delete commands are primarily used to remove objects such as groups, devices, and users.Their suffixes are again based on the targeted functionality and are used as follows.
+</p>
+
+##### Remove Group
+<p align="justify">
+To remove a group, <strong>del_group</strong> command type is exploited and the format is of the JSON body is:
+</p>
+
+```json
+{
+	"group_id": "group_id"
+}
+```
+
+where the __\<group_id\>__ can be either a single value or array.
+
+##### Remove User
+<p align="justify">
+To remove a user, a <strong>del_user</strong> command type is used, with a JSON body of:
+</p>
+
+```json
+{
+	"user_id": "user_id"
+}
+```
+
+##### Remove Device
+<p align="justify">
+To remove a device, a <strong>del_device</strong> command type is used. Its JSON body is:
+</p>
+
+```json
+{
+	"dev_id": "dev_id"
+}
+```
+
+#### Query Commands
+<p align="justify">
+The query commands utilized by the controllers are following the extension typology as the aforementioned set commands. The command type is therefore in form of <strong>query_querytype</strong>. They can be divided by their command type.
+</p>
+
+##### Query All Devices
+<p align="justify">
+Query all devices is used to request all available devices, its value will be <strong>all</strong>.
+</p>
+
+##### Query Device Info
+<p align="justify">
+Query device info requests information about selected device. Its value will be the selected <strong>dev_id</strong>.
+</p>
+
+##### Query User Info
+<p align="justify">
+Query user info is used to recall information about selected user. Its value field contains the selected <strong>user_id</strong>.
+</p>
+
+##### Query All Devices in Group
+<p align="justify">
+Query devices in group asks for all devices in specified group. Its value field is filled with <strong>group_id</strong>.
+</p>
+
+##### Query User's Topics
+<p align="justify">
+Query user’s topics requests the topics that selected user is subscribed to. Its value field contains the <strong>user_id</strong>.
+</p>
+
+### MQTT Reports
+To Do
 
 [Back](./)
