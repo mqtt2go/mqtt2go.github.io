@@ -385,12 +385,7 @@ The command types used in the MQTT Commands are describing the targeted function
 
 | Name | Device type | Command Type | Command |
 | --- | --- | --- | --- |
-|Garage door|garage_door|set set_timer|Up, Down, Stop Timer|
+|Garage door|garage_door|set</br>set_timer|Up, Down, Stop</br>&lt;Timer&gt;|
 
-
-| Left-aligned | Center-aligned | Right-aligned |
-| :---         |     :---:      |          ---: |
-| git status   | git status     | git status    |
-| git diff     | git diff       | git diff      |
 
 [Back](./)
