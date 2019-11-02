@@ -4,8 +4,8 @@
 This proposal is a complete guide for an MQTT-enabled smart home setup. It was created based on the MQTT best practices from the available literature and commercially available frameworks [add references]. The structure of this document is as follows: the whole description starts with a diagram of the whole system composition, followed by a description of each element. Further, there is a description of a whole system message flow, together with the initialization setup process.
 </p>
 
-![Image](mqtt_architecture.svg "Smart-Home Architecture")
 <p align="center" >
+![Image](mqtt_architecture.svg "Smart-Home Architecture")
 <em>Architecture of MQTT2GO System.</em>
 </p>
 

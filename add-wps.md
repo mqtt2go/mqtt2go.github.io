@@ -18,8 +18,8 @@ The process of adding a new device using the WPS is very similar to the previous
 1. The end device then subscribes to the received topics.
 1. Further on, the end device communicates with the MQTT broker in a standardized manner.
 
-![Add via WPS](mqtt_wps_setup_2.svg "Proccess of adding a new WPS MQTT2GO device")
 <p align="center" >
+![Add via WPS](mqtt_wps_setup_2.svg "Proccess of adding a new WPS MQTT2GO device")
 	<em>Proccess of adding a new MQTT2GO Device using the WPS.</em>
 </p>
 

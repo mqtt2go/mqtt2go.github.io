@@ -21,8 +21,8 @@ The ideal process of adding new device should be considered as the right way how
 1. In the last phase, MQTT broker publishes the message containing type and the id of the newly added end device.
 1. Further on, the end device communicates with the MQTT broker in a standardized manner.
 
-![Add via Wi-Fi](mqtt_setup.png "Proccess of adding a new MQTT2GO device")
 <p align="center" >
+![Add via Wi-Fi](mqtt_setup.svg "Proccess of adding a new MQTT2GO device")
 	<em>Proccess of adding a new MQTT2GO Device.</em>
 </p>
 

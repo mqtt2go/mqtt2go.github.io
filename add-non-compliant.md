@@ -6,8 +6,8 @@ This setup is providing an example of adding a new non-MQTT2GO compliant device,
 1. Open the App that is compatible with the MQTT2GO standard and go through the add a new unsupported MQTT-enabled device. Insert there a Device ID provided by the vendor's App and complete the setup.
 1. Now the device is successfully registered into our MQTT2GO ecosystem and can be controlled via the MQTT, this is possible due to the SH-GW containing multiple MQTT Brokers and a “translation middleware” which is utilized for translation of the MQTT commands between different topic and command structures.
 
-![Add non compliant](mqtt_setup_not_compatible.png "Proccess of adding a new MQTT2GO incompatible device")
 <p align="center" >
+![Add non compliant](mqtt_setup_not_compatible.svg "Proccess of adding a new MQTT2GO incompatible device")
 	<em>Proccess of adding a new MQTT2GO-incompatible Device.</em>
 </p>
 
