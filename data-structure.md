@@ -391,33 +391,33 @@ The command types used in the MQTT Commands are describing the targeted function
 | Security Cameras | camera | set <br/> query | On, Off <br/> Stream |
 | Doorbell | doorbell | set <br/> query | Disable, Enable <br/> Stream |
 | Doorlock | doorlock | set <br/> setup | Lock, Unlock <br/> &lt;Setup&gt; |
-| Blinds and Sunscreens |  |  |  |
-| Smart Sockets |  |  |  |
-| Smart Plant Pots |  |  |  |
-| Motion Sensors |  |  |  |
-| Temperature Sensors |  |  |  |
-| Multi Sensors |  |  |  |
-| Smart Speakers |  |  |  |
-| Smart TVs |  |  |  |
-| Thermostat |  |  |  |
-| Vacuum Cleaners |  |  |  |
-| Flood / Water Sensor |  |  |  |
-| Health Sensors |  |  |  |
-| Washers & Dryers |  |  |  |
-| Smart Spots / Lights |  |  |  |
-| Radiator Valve |  |  |  |
-| Solar Panels |  |  |  |
-| Curtains |  |  |  |
-| Climate Control |  |  |  |
-| Smoke Detector |  |  |  |
-| Coffee Machines |  |  |  |
-| Voice Assistants |  |  |  |
-| Dishwasher |  |  |  |
-| Keyfob & Remotes |  |  |  |
-| Ovens |  |  |  |
-| Door / Window sensors |  |  |  |
-| Weather Stations |  |  |  |
-| Alarm |  |  |  |
-| Utility meter |  |  |  |
+| Blinds and Sunscreens | blinds | set <br/> set_timer | Up, Down, Stop <br/> &lt;Timer&gt; |
+| Smart Sockets | socket | set <br/> set_timer <br/> query | On, Off <br/> &lt;Timer&gt; <br/> Consumption |
+| Smart Plant Pots | plant_pot | setup <br/> set <br/> set_timer <br/> query | &lt;Setup&gt; <br/> WateringStart, WateringStop <br/> &lt;Timer&gt; <br/> Moisture, PH, WaterLevel |
+| Motion Sensors | motion | set <br/> query | On, Off <br/> Motion |
+| Temperature Sensors | temperature | set <br/> query | On, Off <br/> Temperature |
+| Multi Sensors | multi_sensor | set <br/> query | On, Off <br/> Temperature, Motion, Smoke, Water |
+| Smart Speakers | speaker | set | On, Off, Play, Shuffle, VolumeUp, VolumeDown, VolumeLevel |
+| Smart TVs | tv | set <br/> set_channe <br/> set_volume_level | On, Off, VolumeUp, VolumeDown, Play, Pause <br/> &lt;Channel&gt; <br/> &lt;Volume&gt; |
+| Thermostat | thermostat | query <br/> set_temperature <br/> setup | Temperature <br/> &lt;Temperature&gt; <br/> &lt;Setup&gt; |
+| Vacuum Cleaners | vacuum | set <br/> setup | On, Off, SendToDock <br/> &lt;Setup&gt; |
+| Flood / Water Sensor | flood | set | On, Off |
+| Health Sensors | health | set <br/> query <br/> setup | On, Off <br/> Weight, Temperature, BMI, Pressure <br/> &lt;Setup&gt; |
+| Washers & Dryers | washer_dryer | set <br/> set_timer <br/> setup | On, Off <br/> &lt;Timer&gt; <br/> &lt;Setup&gt; |
+| Smart Spots / Lights | light | set <br/> set_color <br/> set_brigtness <br/> set_temperature | On, Off <br/> &lt;Color&gt; <br/> &lt;Brightness&gt; <br/> &lt;Temperature&gt; |
+| Radiator Valve | radiator | set <br/> set_temperature <br/> setup | On, Off <br/> SetTemperature <br/> &lt;Setup&gt; |
+| Solar Panels | solar | set <br/> query <br/> setup | On, Off <br/> CurrentPower <br/> &lt;Setup&gt; |
+| Curtains | curtains | set <br/> setup | Up, Down, Stop <br/> &lt;Setup&gt; |
+| Climate Control | climate | set <br/> setup <br/> set_timer | On, Off <br/> &lt;Setup&gt; <br/> &lt;Timer&gt; |
+| Smoke Detector | smoke | set <br/> query | On, Off <br/> Smoke |
+| Coffee Machines | coffee | set <br/> set_timer <br/> setup | On, Off <br/> &lt;Timer&gt; <br/> &lt;Setup&gt; |
+| Voice Assistants | voice_assistant | set <br/> setup | On, Off <br/> &lt;Setup&gt; |
+| Dishwasher | dishwasher | set <br/> set_timer <br/> setup | On, Off <br/> &lt;Timer&gt; <br/> &lt;Setup&gt; |
+| Keyfob & Remotes | keyfob_remote | set <br/> set_button <br/> setup | On, Off <br/> &lt;ButtonPress&gt; <br/> &lt;Setup&gt; |
+| Ovens | oven | set <br/> set_timer <br/> setup | On, Off <br/> &lt;Timer&gt; <br/> &lt;Setup&gt; |
+| Door / Window sensors | door | set <br/> query | On, Off <br/> State |
+| Weather Stations | weather | set <br/> setup <br/> query | On, Off <br/> &lt;Setup&gt; <br/> Temperature, CurrentWeather, Humidity, Wind, UV, Forecast |
+| Alarm | alarm | set <br/> query <br/> setup | On, Off, SirenOn, SirenOff, SirenWalkin, SirenWalkOut, Arm, Disarm <br/> State <br/> &lt;Setup&gt; |
+| Utility meter | utility_meter | set <br/> setup <br/> query | On, Off <br/> &lt;Setup&gt; <br/> Voltage, Frequency, Tarif, CurrentConsumption, State, WeeklyConsumption, MonthlyConsumption |
 
 [Back](./)
