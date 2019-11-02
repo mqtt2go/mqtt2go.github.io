@@ -52,3 +52,12 @@ In this chapter, we are going to present a few ways how to add a new device. Fir
 * [Setup via Guest WiFi](./add-wifi.md)
 * [Setup via WPS](./add-wps.md)
 * [Setup of New MQTT2GO Non-Compliant Devices](./add-non-compliant.md)
+
+# MQTT2GO Data Structure
+<p align="justify">
+This section is dedicated to the MQTT2GO topic naming convention. The structure is organized into subsections based on the device types to provide an easier understanding of the division and key roles of each entity inside the MQTT2GO standard.
+</p>
+
+* [General Commands and Reports](./add-wifi.md)
+* [MQTT Objects](./add-wps.md)
+* [MQTT Controllers](./add-non-compliant.md)
