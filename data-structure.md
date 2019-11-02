@@ -381,7 +381,7 @@ The command types used in the MQTT Commands are describing the targeted function
 * Set commands, which can be further specified by underscore to match a certain command. I.e., set_temperature.
 * Query commands, which are used to query information from the end devices. They are used to force the readout out of the periodic report time cycle.
 
-#### Table with commands
+#### Table with Commands
 
 | Name | Device type | Command Type | Command |
 | --- | --- | --- | --- |
@@ -419,5 +419,92 @@ The command types used in the MQTT Commands are describing the targeted function
 | Weather Stations | weather | set <br/> setup <br/> query <br/> | On, Off <br/> &lt;Setup&gt; <br/> Temperature, CurrentWeather, Humidity, Wind, UV, Forecast |
 | Alarm | alarm | set <br/> <br/> query <br/> setup | On, Off, SirenOn, SirenOff, SirenWalkin, SirenWalkOut, Arm, Disarm <br/> State <br/> &lt;Setup&gt; |
 | Utility meter | utility_meter | set <br/> setup <br/> query <br/> <br/>  <br/>  <br/> | On, Off <br/> &lt;Setup&gt; <br/> Voltage, Frequency, Tarif, CurrentConsumption, State, WeeklyConsumption, MonthlyConsumption |
+
+#### MQTT Commands Examples
+<p align="justify">
+To provide some examples of the MQTT Commands usage, we provide simple and complex examples.
+</p>
+
+##### Simple Command Example
+```json
+{
+	"type": "command",
+	"timestamp": 1567677926,
+	"command_type": "set",
+	"value": "on" 
+}
+```
+
+##### Complex Command Example
+```json
+{
+	"type": "command",
+	"timestamp":1567677926,
+	"command_type":"setColor",
+	"value":  {
+		"h": 100, 
+		"s": 100,
+		"b": 50
+		}
+}
+```
+
+### MQTT Reports
+<p align="justify">
+The MQTT Reports are used for the periodic and forced reports (replies). Their main purpose is therefore to report the measured values or action results back to the controlling app.
+</p>
+
+#### Description of Report Types
+<p align="justify">
+The report types are used to distinguish between different reports based on their purpose. They are further divided into:
+</p>
+
+* __Status__, which is reporting the current status of the device,
+* __Command response__ used to immediately report after the command request,
+* __Periodic report used__ to periodically publish current data/state into subscribed topics,
+* __Error__ used to inform about critical states or malfunctions.
+
+#### Table with Reports
+
+| Name | Device type | Report name | Report |
+| --- | --- | --- | --- |
+| Garage door | garage_door | state | Closed, Open, Stopped, RepairNeeded |
+| Smart Watering | smart_water | state | OutOfWater |
+| Lawnmowers | lawnmower | state | Mowing, BatteryLow, BatteryOk, RepairNeeded |
+| Security Cameras | camera | stream <br/> state | &lt;Stream_URL&gt; <br/> StreamFailed |
+| Doorbell | doorbell | stream <br/> state | &lt;Stream_URL&gt; <br/> Ringing, StreamFailed |
+| Doorlock | doorlock | state | Locked, Unlocked, LockBreach, LockJammed, LockFailed, UnlockFailed |
+| Blinds and Sunscreens | blinds | state | Closed, Open, Stopped, RepairNeeded |
+| Smart Sockets | socket | state <br/> consumption | On, Off <br/> &lt;Consumption&gt; |
+| Smart Plant Pots | plant_pot | state | OutOfWater |
+| Motion Sensors | motion | state | MotionPresent |
+| Temperature Sensors | temperature | temperature | &lt;Temperature&gt; |
+| Multi Sensors | multi_sensor | state <br/> temperature <br/> motion <br/> smoke <br/> water | On, Off, RepairNeeded  <br/> &lt;Temperature&gt; <br/> Motion <br/> Smoke <br/> Water |
+| Smart Speakers | speaker | state | On, Off, NoMedia, Playing, StreamingError, RepairNeeded |
+| Smart TVs | tv | state <br/> channel_number <br/> volume_level | On, Off, RepairNeeded <br/> &lt;ChannelNumber&gt; <br/> &lt;VolumeLevel&gt; |
+| Thermostat | thermostat | current_temperature <br/> set_temperature <br/> state | &lt;CurrTemperature&gt; <br/> &lt;SetTemperature&gt; <br/> &lt;Mode&gt; |
+| Vacuum Cleaners | vacuum | state | On, Off, Vacuuming, BatteryLow, Stuck, RepairNeeded |
+| Flood / Water Sensor | flood | state | Flood |
+| Health Sensors | health | state <br/> weight <br/> temperature <br/> bmi <br/> pressure | On, Off, SensorError <br/> &lt;Weigh&gt; <br/> &lt;Temperature&gt; <br/> &lt;BMI&gt; <br/> &lt;Pressure&gt; |
+| Washers & Dryers | washer_dryer | state <br/> <br/> timer | On, Off, InProgress, WaterError, RepairNeeded <br/> &lt;Timer&gt; |
+| Smart Spots / Lights | light | state <br/> color <br/> brightness <br/> temperature | On, Off <br/> &lt;Color&gt; <br/> &lt;Brightness&gt; <br/> &lt;Temperature&gt; |
+| Radiator Valve | radiator | state <br/> current_temperature <br/> set_temperature | On, Off <br/> &lt;CurrTemperature&gt; <br/> &lt;SetTemperature&gt; |
+| Solar Panels | solar | state <br/> <br/> power | On, Off, PanelError, BatteryError <br/> &lt;CurrPower&gt; |
+| Wall Switches / Built-in Switches | switch | state <br/> timer | On, Off, Mode <br/> &lt;SetTimer&gt; |
+| Curtains | curtains | state | Closed, Open, Stopped, Stucked |
+| Climate Control | climate | state <br/> timer <br/> humidity | On, Off <br/> &lt;SetTimer&gt; <br/> &lt;Humidity&gt; |
+| Smoke Detector | smoke | state | SmokeAlarm |
+| Coffee Machines | coffee | state <br/> <br/> <br/> <br/> timer | On, Off, WaterLow, WaterOK, CoffeeLow, CoffeeOK, MilkLow, MilkOK, CleaningNeeded,
+RepairNeeded <br/> &lt;SetTimer&gt; |
+| Voice Assistants | voice_assistant | state <br/> setup | On, Off <br/> &lt;Setup&gt; |
+| Dishwasher | dishwasher | state <br/> <br/> time | On, Off, InProgress, WaterError, RepairNeeded <br/> &lt;SetTimer&gt; |
+| Keyfob & Remotes | keyfob_remote | state <br/> mode | On, Off <br/> &lt;Mode&gt; |
+| Ovens | oven | state <br/> timer <br/> mode <br/> temperature <br/> | On, Off, LightOn, LightOff <br/> &lt;SetTimer&gt; <br/> &lt;Mode&gt; <br/> &lt;Temperature&gt; |
+| Door / Window sensors | door | state | Open, Closed |
+| Weather Stations | weather | state <br/> temperature <br/> current_weather <br/> humidity <br/> wind <br/> uv <br/> forecast | On, Off <br/> &lt;Temperature&gt; <br/> &lt;CurrentWeather&gt; <br/> &lt;Humidity&gt; <br/> &lt;Wind&gt; <br/> &lt;UV&gt; <br/> &lt;Forecast&gt; |
+| Alarm | alarm | state | AlarmButtonPressed, AlarmOffButtonPressed, ArcAlert, ArcAlertArmStatus, ArcAlertDeprovision, ArcAlertRevision, ArcError, ArcTestResult, ArmStatusChange, GlassBreakage, PanicButtonPressed, TamperCleared, TamperDetected |
+| Utility meter | utility_meter | state <br/> value | On, Off <br/> UtilityValue |
+
+
 
 [Back](./)
