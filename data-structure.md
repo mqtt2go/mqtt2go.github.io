@@ -416,8 +416,8 @@ The command types used in the MQTT Commands are describing the targeted function
 | Keyfob & Remotes | keyfob_remote | set <br/> set_button <br/> setup | On, Off <br/> &lt;ButtonPress&gt; <br/> &lt;Setup&gt; |
 | Ovens | oven | set <br/> set_timer <br/> setup | On, Off <br/> &lt;Timer&gt; <br/> &lt;Setup&gt; |
 | Door / Window sensors | door | set <br/> query | On, Off <br/> State |
-| Weather Stations | weather | set <br/> setup <br/><br/> query | On, Off <br/> &lt;Setup&gt; <br/> Temperature, CurrentWeather, Humidity, Wind, UV, Forecast |
+| Weather Stations | weather | set <br/> setup <br/> query <br/> | On, Off <br/> &lt;Setup&gt; <br/> Temperature, CurrentWeather, Humidity, Wind, UV, Forecast |
 | Alarm | alarm | set <br/> <br/> query <br/> setup | On, Off, SirenOn, SirenOff, SirenWalkin, SirenWalkOut, Arm, Disarm <br/> State <br/> &lt;Setup&gt; |
-| Utility meter | utility_meter | set <br/> setup <br/> <br/> query | On, Off <br/> &lt;Setup&gt; <br/> Voltage, Frequency, Tarif, CurrentConsumption, State, WeeklyConsumption, MonthlyConsumption |
+| Utility meter | utility_meter | set <br/> setup <br/> query <br/> <br/> <br/> | On, Off <br/> &lt;Setup&gt; <br/> Voltage, Frequency, Tarif, CurrentConsumption, State, WeeklyConsumption, MonthlyConsumption |
 
 [Back](./)
