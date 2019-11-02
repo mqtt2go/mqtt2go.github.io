@@ -8,6 +8,8 @@ This setup is providing an example of adding a new non-MQTT2GO compliant device,
 
 <p align="center" >
 	<img src="mqtt_setup_not_compatible.svg" alt="Proccess of adding a new MQTT2GO incompatible device">
+</p>
+<p align="center" >
 	<em>Proccess of adding a new MQTT2GO-incompatible Device.</em>
 </p>
 
