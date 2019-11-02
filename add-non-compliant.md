@@ -7,7 +7,7 @@ This setup is providing an example of adding a new non-MQTT2GO compliant device,
 1. Now the device is successfully registered into our MQTT2GO ecosystem and can be controlled via the MQTT, this is possible due to the SH-GW containing multiple MQTT Brokers and a “translation middleware” which is utilized for translation of the MQTT commands between different topic and command structures.
 
 <p align="center" >
-![Add non compliant](mqtt_setup_not_compatible.svg "Proccess of adding a new MQTT2GO incompatible device")
+	<img src="mqtt_setup_not_compatible.svg" alt="Proccess of adding a new MQTT2GO incompatible device">
 	<em>Proccess of adding a new MQTT2GO-incompatible Device.</em>
 </p>
 
