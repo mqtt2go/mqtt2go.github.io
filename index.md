@@ -44,3 +44,11 @@ The non-MQTT devices are all devices working on any other standards than MQTT. H
 <p align="justify">
 MQTT2GO standard defines a special group of devices, called an MQTT Controllers. These special devices are used to control a part of the MQTT2GO ecosystem or devices, respectively. The reason why they are mentioned here is the fact, that their purpose is vastly different from the other devices, which are in most situations, pure subscribers/listeners.
 </p>
+
+
+#  Process of Adding New Devices
+In this chapter, we are going to present a few ways how to add a new device. Firstly, the ideal process is described. Then the other ways of adding devices are introduced.
+
+* [Setup via Guest WiFi](./add-device.md)
+* [Setup via WPS](./add-device.md)
+* [Setup of New MQTT2GO Non-Compliant Devices](./add-device.md)
