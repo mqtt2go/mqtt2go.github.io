@@ -1,6 +1,6 @@
 [Back](./index.md#add-devices)
 # Setup via Guest WiFi
-<p align="center" >
+<p align="justify" >
 The ideal process of adding new device should be considered as the right way how to go through this process. Keeping this in mind, some of the steps detailed below can be reduced using a specific technology that can provide the needed functionality (i.e., WPS). The idealprocess to add a new device is based on the following steps.
 </p>
 
