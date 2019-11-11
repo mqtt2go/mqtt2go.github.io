@@ -4,25 +4,22 @@ The ideal process of adding new device should be considered as the right way how
 
 ## Setup Steps
 
-1. MQTT Controller (Mobile/Web App) initiates the process of adding a new device by subscribing to __/user_id/gw_id/add_device__. Then it  publishes an activation request containing activation code. This code can be found on the newly installed device in the form of a number or QR code.
-1. In response to the request, SH-GW enables the Guest Wi-Fi and sets the password inputted as an activation code.
-1. MQTT end device then connects to the Guest Wi-Fi and further utilizes mDNS to resolve address __MQTT2GO.local__, which is the address of the MQTT broker.
-1. The MQTT end device connects to the initialization MQTT broker with login MQTT2GO with a password corresponding to device activation code and subscribes to __/dev_id/activation topic__.
-1. The end device then publishes __GET_ENCRYPTION_KEYS__ request to the same topic.
-1. As a result, the MQTT broker publishes initial modulus __p__ and base __g__ together with its public encryption key __Key A__.
-1. The end device as a response generates its private __Key B__ and publishes it to the shared topic. In this phase, both sides have a pair of public and private keys for encryption.
-1. MQTT end device then subscribes to the __/dev_id/wifi topic__ and publishes __GET_WIFI_CREDENTIALS__ request.
-1. MQTT broker responses to this request with a message containing credentials for home Wi-Fi encrypted with key established in the previous steps (128b AES cipher in CTR mode is used).
-1. The end device closes the connection to the initialization MQTT broker and reconnects to the home Wi-Fi. As a result, the MQTT broker disables the Guest Wi-Fi, which is not needed at this time.
-1. MQTT end device connects to the initialization broken one more time and subscribes to the __/dev_id/credentials__ topic.
-1. The end device publishes __GET_MQTT_CREDENTIALS__ request and broker responses with login and password for the local MQTT broker. Credentials are encrypted with the key established in step 7.
-1. MQTT end device closes the connection to the initialization broker and reconnects to the local broker with previously provided credentials.
-1. The end device subscribes to __/dev_id/topics__ and publishes __GET_DEVICE_TOPICS__ request.
-1. The user of the MQTT controller app is then requested to entitle the device and put it into the appropriate group. The controller app further publishes acquired data to the MQTT broker.
-1. As a response, the MQTT broker sends a list of topics targeted for the end device.
-1. The end device then subscribes to the received topics.
-1. In the last phase, MQTT broker publishes the message containing type and the id of the newly added end device.
-1. Further on, the end device communicates with the MQTT broker in a standardized manner.
+1.	MQTT Controller (Mobile/Web App) initiates the process of adding a new device by subscribing to __/\<home_id\>/\<gw_id\>/add_device__. Then it publishes an activation request containing activation code and device id. These codes can be found on the newly installed device in the form number or QR code.
+2.	In response to the request, SH-GW enables the Guest Wi-Fi and sets the password inputted as an activation code.
+3.	MQTT end device then connects to the Guest Wi-Fi and further utilizes mDNS (multicast DNS) to resolve address __MQTT2GO.local__, which equals to the address of the MQTT broker.
+4.	The MQTT end device then connects to the initialization MQTT broker. The MQTT end device contains a pre-loaded certificate of trustworthy CA (Certification Authority), which is used to establish TLS (Transport Layer Security) communication with the MQTT broker. The chain of trust must be on both sides. Thus, the SH-GW (MQTT broker) has to contain a certificate issued by the same CA as it is contained in the MQTT end-device. If these certificates do not match, the TLS communication cannot be established.
+5.	When the TLS communication is established the MQTT end device subscribes to the __\<activation_code\>/activation__ topic and publishes _GET_CREDENTIALS_ request.
+6.	As a response, SH-GW (MQTT broker) generates a new set of certificates that will be used for ongoing communication and publishes its CA certificate to the MQTT end device.
+7.	The MQTT end device further subscribes to __\<activation_code\>/wifi__ and publishes _GET_WIFI_CREDENTIALS_ request.
+8.	In response, the MQTT broker issues WiFi credentials (SSID, Password) for the home network.
+9.	When the MQTT end device receives the credentials, connection with the initialization broker is closed. The end device then connects to the home Wi-Fi with acquired credentials.
+10.	Further MQTT end device connects to the MQTT broker with a certificate obtained in step 6 and subscribes to __\<device_id\>/topics__.
+11.	In the next step, the MQTT end device publishes _GET_DEVICE_TOPICS_ request.
+12.	As a result, MQTT broker publishes message to __\<home_id\>/\<gw_id\>/add_device__ topics with device type and device id information.
+13.	MQTT broker then expects message from MQTT Controller with the end device name, group, and id.
+14.	Based on the information from the previous step, the MQTT broker generates a topic structure for the end device and publishes the topics to the __\<dev_id\>/topics__.
+15.	In this step, the MQTT end device subscribes to its topics, and all ongoing communication happens according to the MQTT2GO standard.
+
 
 
 <p align="center" >
