@@ -12,7 +12,7 @@ This setup is providing an example of adding a new non-MQTT2GO compliant device,
 	<img src="mqtt_setup_not_compatible.svg" alt="Proccess of adding a new MQTT2GO incompatible device">
 </p>
 <p align="center" >
-	<em>Proccess of adding a new MQTT2GO-incompatible Device.</em>
+	<em>Process of adding a new MQTT2GO non-compliant device.</em>
 </p>
 
 In the ideal world, the setup mentioned and depicted above can be simplified. This needs the cooperation of the vendor at the minimum possible part - the application provided by the vendor needs to be able to return an intent with the device ID. If this will be secured, then all the setup can be “fluid” from the users' point of view in the following manner.

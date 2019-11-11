@@ -4,5 +4,5 @@
 	<img src="mqtt_remote_broker.svg" alt="Proccess of adding a new MQTT2GO device">
 </p>
 <p align="center" >
-	<em>Proccess of adding a new MQTT2GO device with remote broker.</em>
+	<em>Process of adding a new MQTT2GO device with remote broker.</em>
 </p>
