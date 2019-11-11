@@ -12,10 +12,10 @@ This section describes the topics that deal with user management. That being sai
 [logo]: https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8&s=10 "Cross"
 
 | User Role                   | Administrator | Family member | Guest |
-|-----------------------------|---------------|---------------|-------|
-| User management             | ✔ | ✔  | :x:   |
-| Security device control     | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Utility home device control | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+|-----------------------------|:---------------:|:---------------:|:-------:|
+| User management             | ✔               | 🗙              | 🗙      |
+| Security device control     | ✔ | ✔ | 🗙 |
+| Utility home device control | ✔ | ✔ | ✔  |
 
 ### Topics Structure
 The base topic for user management is defined as: 
