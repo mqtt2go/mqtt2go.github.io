@@ -11,7 +11,7 @@ This section describes the topics that deal with user management. That being sai
 
 | User Role                   | Administrator | Family member | Guest |
 |-----------------------------|---------------|---------------|-------|
-| User management             | :heavy_check_mark: | :x:      | :x:   |
+| User management             | - [x] | :x:      | :x:   |
 | Security device control     | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Utility home device control | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
