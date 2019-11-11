@@ -24,7 +24,12 @@ The set commands are used to change / add device parameters and information. The
 
 ```json
 {
-	"group_id": "group_id"
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "set_group",
+	"value": {
+		"group_id": "group_id"	
+	}
 }
 ```
 
@@ -42,7 +47,12 @@ Group creation is done via <strong>add_group</strong> command type with value bo
 
 ```json
 {
-	"group_id": "group_id"
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "add_group",
+	"value": {
+		"group_id": "group_id"	
+	}
 }
 ```
 
@@ -51,12 +61,18 @@ Group creation is done via <strong>add_group</strong> command type with value bo
 For adding a new user, the <strong>add_user</strong> command type with JSON body with following format is used.
 </p>
 
+
 ```json
 {
-	"user_id": "id",
-	"email": "email",
-	"user_name": "name",
-	"role": "role"
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "add_user",
+	"value": {
+		"user_id": "id",
+		"email": "email",
+		"user_name": "name",
+		"role": "role"
+	}
 }
 ```
 
@@ -67,15 +83,21 @@ The edit commands are used to edit parameters of objects such as users, groups, 
 
 #### User Editing
 <p align="justify">
-User editing is done by commands with type of <strong>updt_use</strong> with JSON body of:
+User editing is done by commands with type of <strong>updt_user</strong> with JSON body of:
 </p>
+
 
 ```json
 {
-	"user_id": "id",
-	"email": "email",
-	"user_name": "name",
-	"role": "role"
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "updt_user",
+	"value": {
+		"user_id": "id",
+		"email": "email",
+		"user_name": "name",
+		"role": "role"
+	}
 }
 ```
 
@@ -86,7 +108,12 @@ Group editing is done by the commands with type of <strong>updt_group</strong> w
 
 ```json
 {
-	"group_id": "group_id"
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "updt_group",
+	"value": {
+		"group_id": "group_id"
+	}
 }
 ```
 
@@ -102,7 +129,12 @@ To remove a group, <strong>del_group</strong> command type is exploited and the 
 
 ```json
 {
-	"group_id": "group_id"
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "del_group",
+	"value": {
+		"group_id": "group_id"
+	}
 }
 ```
 
@@ -115,7 +147,12 @@ To remove a user, a <strong>del_user</strong> command type is used, with a JSON 
 
 ```json
 {
-	"user_id": "user_id"
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "del_user",
+	"value": {
+		"user_id": "user_id"
+	}
 }
 ```
 
@@ -126,7 +163,12 @@ To remove a device, a <strong>del_device</strong> command type is used. Its JSON
 
 ```json
 {
-	"dev_id": "dev_id"
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "del_device",
+	"value": {
+		"dev_id": "dev_id"
+	}
 }
 ```
 
@@ -140,25 +182,70 @@ The query commands utilized by the controllers are following the extension typol
 Query all devices is used to request all available devices, its value will be <strong>all</strong>.
 </p>
 
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "query_all",
+	"value": "all"
+}
+```
+
 #### Query Device Info
 <p align="justify">
 Query device info requests information about selected device. Its value will be the selected <strong>dev_id</strong>.
 </p>
+
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "query_dev_info",
+	"value": "dev_id"
+}
+```
 
 #### Query User Info
 <p align="justify">
 Query user info is used to recall information about selected user. Its value field contains the selected <strong>user_id</strong>.
 </p>
 
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "query_user_info",
+	"value": "user_id"
+}
+```
+
 #### Query All Devices in Group
 <p align="justify">
 Query devices in group asks for all devices in specified group. Its value field is filled with <strong>group_id</strong>.
 </p>
 
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "query_all_in_group",
+	"value": "group_id"
+}
+```
+
 #### Query User's Topics
 <p align="justify">
 Query user’s topics requests the topics that selected user is subscribed to. Its value field contains the <strong>user_id</strong>.
 </p>
+
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "query_user_topics",
+	"value": "user_id"
+}
+```
 
 ## MQTT Reports
 To Do
