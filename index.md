@@ -50,7 +50,9 @@ In this chapter, we are going to present a few ways how to add a new device. Fir
 
 * [Setup via Guest WiFi](./add-wifi.md)
 * [Setup via WPS](./add-wps.md)
+* [Setup via Remote MQTT Broker](./mqtt2go-remote-broker.md)
 * [Setup of New MQTT2GO Non-Compliant Devices](./add-non-compliant.md)
+
 
 # MQTT2GO Data Structure
 <p align="justify">
@@ -61,6 +63,7 @@ This section is dedicated to the MQTT2GO topic naming convention. The structure 
 * [System, Users, and Device Initialization/Management](./mqtt2go-management.md)
 * [MQTT2GO Objects](./mqtt2go-objects.md)
 * [MQTT2GO Controllers](./mqtt2go-controllers.md)
+
 
 # MQTT2GO Requirements
 * [MQTT2GO Broker](./mqtt2go-broker-req.md)
