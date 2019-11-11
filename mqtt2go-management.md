@@ -6,8 +6,14 @@ This section describes the topic connected with the system, users, and device in
 
 ## User Management
 <p align="justify">
-This section describes the topics that deal with user management. That being said, the core functionality of this module is to add, delete or update users inside a one MQTT2GO smart-home household (that does not necessarily mean one SH-GW). We distinguish between two user roles: (i) adult, who has the “administrator” access and therefore can control whole household without any restrictions, and (ii) children, which has a restricted access to selected features (i.e cannot arm/disarm the alarm or control any other security features).
+This section describes the topics that deal with user management. That being said, the core functionality of this module is to add, delete or update users inside a one MQTT2GO smart-home (which does not necessarily mean one SH-GW). We distinguish between three user roles: (i) Administrator, who has full access to all features and therefore can control whole household without any restrictions, (ii) family member, who can control the whole smart-home but cannot manage users, and guest, who can control only utility home devices, such as lights nad smart TVs.
 </p>
+
+| User Role                   | Administrator | Family member | Guest |
+|-----------------------------|---------------|---------------|-------|
+| User management             | :heavy_check_mark: | :x:      | :x:   |
+| Security device control     | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Utility home device control | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 ### Topics Structure
 The base topic for user management is defined as: 
