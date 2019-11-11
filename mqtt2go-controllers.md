@@ -1,3 +1,4 @@
+[Back](./index.md#data-structure)
 # MQTT Controllers
 <p align="justify">
 MQTT Controllers are devices which are primarily serving as a controlling units. These devices can be either a physical device (touchscreen controller, smartphone, etc.) or a software controllers, which are accessible from the network (i.e., via HTTP).
@@ -162,4 +163,4 @@ Query user’s topics requests the topics that selected user is subscribed to. I
 ## MQTT Reports
 To Do
 
-[Back](./)
+[Back](./index.md#data-structure)

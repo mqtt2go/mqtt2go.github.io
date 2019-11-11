@@ -1,3 +1,4 @@
+[Back](./index.md#add-devices)
 # Setup via Guest WiFi
 The ideal process of adding new device should be considered as the right way how to go through this process. Keeping this in mind, some of the steps detailed below can be reduced using a specific technology that can provide the needed functionality (i.e., WPS). The idealprocess to add a new device is based on the following steps.
 
@@ -31,4 +32,4 @@ The ideal process of adding new device should be considered as the right way how
 	<em>Process of adding a new MQTT2GO device via guest WiFi.</em>
 </p>
 
-[Back](./)
+[Back](./index.md#add-devices)

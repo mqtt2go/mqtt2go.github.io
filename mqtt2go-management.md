@@ -1,3 +1,4 @@
+[Back](./index.md#data-structure)
 # System, Users, and Device Initialization/Management
 <p align="justify">
 This section describes the topic connected with the system, users, and device initialization and management. It is divided into three main parts: user management, network join, and device configuration.
@@ -246,4 +247,4 @@ Successfully added device is topic utilized for the confirmation from the contro
 #### Device topics
 To Do
 
-[Back](./)
+[Back](./index.md#data-structure)

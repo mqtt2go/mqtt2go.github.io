@@ -1,3 +1,4 @@
+[Back](./index.md#data-structure)
 # MQTT Objects
 <p align="justify">
 MQTT objects are describing all end devices that are connected to the MQTT2GO system. Their primary purpose is to either periodically report measurement results back to the SH-GW or to fulfill their role in the smart home.
@@ -180,4 +181,4 @@ As for the commands, here we present two examples of the reports:
 }
 ```
 
-[Back](./)
+[Back](./index.md#data-structure)

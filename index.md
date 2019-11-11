@@ -54,7 +54,7 @@ In this chapter, we are going to present a few ways how to add a new device. Fir
 * [Setup of New MQTT2GO Non-Compliant Devices](./add-non-compliant.md)
 
 
-# MQTT2GO Data Structure
+# <a name="data-structure">MQTT2GO Data Structure
 <p align="justify">
 This section is dedicated to the MQTT2GO topic naming convention. The structure is organized into subsections based on the device types to provide an easier understanding of the division and key roles of each entity inside the MQTT2GO standard.
 </p>
@@ -65,7 +65,7 @@ This section is dedicated to the MQTT2GO topic naming convention. The structure 
 * [MQTT2GO Controllers](./mqtt2go-controllers.md)
 
 
-# MQTT2GO Requirements
+# <a name="requirements">MQTT2GO Requirements
 * [MQTT2GO Broker](./mqtt2go-broker-req.md)
 * [MQTT2GO Controllers (Connected applications)](./mqtt2go-objects-req.md)
 * [MQTT2GO Objects (Smart-Home devices)](./mqtt2go-controllers-req.md)

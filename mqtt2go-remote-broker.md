@@ -1,3 +1,4 @@
+[Back](./index.md#add-devices)
 # Setup via WPS with Remote Broker
 
 <p align="center" >
@@ -6,3 +7,5 @@
 <p align="center" >
 	<em>Process of adding a new MQTT2GO device with remote broker.</em>
 </p>
+
+[Back](./index.md#add-devices)

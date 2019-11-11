@@ -1,3 +1,4 @@
+[Back](./index.md#data-structure)
 # General Commands and Reports
 <p align="justify">
 The general commands and reports are used to communicate device-independent messages. This means that all universal (common for all the devices) messages, such as errors and warnings are presented here. Furthermore, a general structure of command and report messages is given here. This structure is used for all MQTT2GO messages (both command and report ones).
@@ -100,4 +101,4 @@ The general reports that are common for all devices are:
 * OK,
 * BatteryBad.
 
-[Back](./)
+[Back](./index.md#data-structure)
