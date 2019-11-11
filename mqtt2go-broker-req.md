@@ -1,0 +1,1 @@
+# MQTT2GO Broker Requirements

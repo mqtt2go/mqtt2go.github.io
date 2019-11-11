@@ -59,5 +59,10 @@ This section is dedicated to the MQTT2GO topic naming convention. The structure 
 
 * [General Commands and Reports](./mqtt2go-commands.md)
 * [System, Users, and Device Initialization/Management](./mqtt2go-management.md)
-* [MQTT Objects](./mqtt2go-objects.md)
-* [MQTT Controllers](./mqtt2go-controllers.md)
+* [MQTT2GO Objects](./mqtt2go-objects.md)
+* [MQTT2GO Controllers](./mqtt2go-controllers.md)
+
+# MQTT2GO Requirements
+* [MQTT2GO Broker](./mqtt2go-broker-req.md)
+* [MQTT2GO Controllers (Connected applications)](./mqtt2go-objects-req.md)
+* [MQTT2GO Objects (Smart-Home devices)](./mqtt2go-controllers-req.md)

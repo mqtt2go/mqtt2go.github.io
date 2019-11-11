@@ -22,7 +22,7 @@ The process of adding a new device using the WPS is very similar to the previous
 
 
 <p align="center" >
-	<img src="mqtt_wps_setup_2.svg" alt="Proccess of adding a new WPS MQTT2GO device">
+	<img src="mqtt_wps_setup_cert.svg" alt="Proccess of adding a new WPS MQTT2GO device">
 </p>
 <p align="center" >
 	<em>Proccess of adding a new WPS MQTT2GO device.</em>
