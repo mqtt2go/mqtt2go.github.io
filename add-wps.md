@@ -1,4 +1,4 @@
-[Back](./#add-devices)
+[Back](./index.md#add-devices)
 # Setup via WPS
 The process of adding a new device using the WPS is very similar to the previous example. The only difference is that all the initial setup of the connection to the SH-GW is done via the WPS. The process of WPS is as follows: Both SH-GW and New Device has to activate the WPS at the same time. After the WPS is activated, the client-side device negotiates access with the access point and after the Wi-Fi connection is set up, the rest is the same as in the ideal example.
 
@@ -29,4 +29,4 @@ The process of adding a new device using the WPS is very similar to the previous
 	<em>Process of adding a new WPS MQTT2GO device.</em>
 </p>
 
-[Back](./#add-devices)
+[Back](./index.md#add-devices)
