@@ -21,4 +21,6 @@ This section is related to the requirements for a Smart-Home Gateway (SH-GW) in 
 | C3 | MUST   | At least two usable SH namespace processor cores from the CPUs of the host device with sufficient performance. |
 | C3 | MUST   | Sufficient free FLASH memory for the SH namespace. At least 256 MB of FLASH memory with minimal 20 MB available for the user. |
 
+### Installed Packages
+
 [Back](./index.md#requirements)
