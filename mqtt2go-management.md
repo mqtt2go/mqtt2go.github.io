@@ -9,11 +9,13 @@ This section describes the topic connected with the system, users, and device in
 This section describes the topics that deal with user management. That being said, the core functionality of this module is to add, delete or update users inside a one MQTT2GO smart-home (which does not necessarily mean one SH-GW). We distinguish between three user roles: (i) Administrator, who has full access to all features and therefore can control whole household without any restrictions, (ii) family member, who can control the whole smart-home but cannot manage users, and guest, who can control only utility home devices, such as lights nad smart TVs.
 </p>
 
+[logo]: https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8&s=10 "Cross"
+
 | User Role                   | Administrator | Family member | Guest |
-|-----------------------------|---------------|---------------|-------|
-| User management             | :heavy_check_mark: | :x:      | :x:   |
-| Security device control     | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Utility home device control | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+|-----------------------------|:---------------:|:---------------:|:-------:|
+| User management             | ✔               | 🗙              | 🗙      |
+| Security device control     | ✔ | ✔ | 🗙 |
+| Utility home device control | ✔ | ✔ | ✔  |
 
 ### Topics Structure
 The base topic for user management is defined as: 
