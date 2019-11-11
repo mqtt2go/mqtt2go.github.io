@@ -1,6 +1,6 @@
 [Back](./index.md#add-devices)
 # Setup of New MQTT2GO Non-Compliant Devices
-This setup is providing an example of adding a new non-MQTT2GO compliant device, which essentially means that the device manufacturer provided his own MQTT logic and topics and therefore does not want to adjust them to the MQTT2GO standard. To be still able to include this device into our MQTT2GO-enabled smart home, the following process is needed.
+This setup is providing an example of adding a new MQTT2GO non-compliant device, which essentially means that the device manufacturer provided his own MQTT logic and topics and therefore does not want to adjust them to the MQTT2GO standard. To be still able to include this device into our MQTT2GO-enabled smart home, the following process is needed.
 
 ## Setup Steps
 
