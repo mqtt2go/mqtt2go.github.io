@@ -113,7 +113,7 @@ Group editing is done by the commands with type of <strong>updt_group</strong> w
 	"command_type": "updt_group",
 	"value": {
 		"group_id": "group_id",
-		"group_name","group_name"
+		"group_name": "group_name"
 	}
 }
 ```
@@ -274,10 +274,10 @@ The MQTT reports utilized here are mostly a replies to the commands from the con
 
 , where <strong>event_name</strong> can be warning or error
 
-### Add reports
+### Add Reports
 The add reports are generally used to report the reuslt of add commands. They will be describing in following subsections.
 
-#### Group creation report
+#### Group Creation Report
 After the add_group command is received. The device proccess it and then publishes following message to the same topic:
 
 ```json
@@ -291,7 +291,7 @@ After the add_group command is received. The device proccess it and then publish
 }
 ```
 
-#### Add user report
+#### Add User Report
 After the add_user command is received, the devices processes it and then publishes following message into the same topic from which the command came:
 
 ```json
@@ -308,10 +308,10 @@ After the add_user command is received, the devices processes it and then publis
 }
 ```
 
-### Edit reports
+### Edit Reports
 The edit reports are used to report the outcome of edit commands.
 
-#### User Editing
+#### User Editing report
 After the updt_user command is issues, the following response is published into the same topic:
 
 ```json
@@ -325,7 +325,7 @@ After the updt_user command is issues, the following response is published into 
 }
 ```
 
-#### Group editing
+#### Group Editing Report
 After the updt_group command is issues, the following response is published into the same topic:
 
 ```json
@@ -339,10 +339,10 @@ After the updt_group command is issues, the following response is published into
 }
 ```
 
-### Delete reports
+### Delete Reports
 The delete reports are the primary outcome of the events started by delete commands. Their message structure also follows the general report struture. Its value follows the same pattern as the general MQTT report, described in this chapter. Therefore the value can be either a simple ok, or a JSON body with the event name and description.
 
-#### Remove group
+#### Remove Group
 Is the report which is pubilshed after the del_group command is issued. 
 
 ```json
@@ -356,7 +356,7 @@ Is the report which is pubilshed after the del_group command is issued.
 }
 ```
 
-#### Remove user
+#### Remove User
 Is the report which is pubilshed after the del_user command is issued. 
 
 ```json
@@ -370,7 +370,7 @@ Is the report which is pubilshed after the del_user command is issued.
 }
 ```
 
-#### Remove device
+#### Remove Device
 Is the report which is pubilshed after the del_group command is issued. 
 
 ```json
@@ -384,7 +384,7 @@ Is the report which is pubilshed after the del_group command is issued.
 }
 ```
 
-### Query reports
+### Query Reports
 Query reports are the most bulky reports from this chapter. They contain a response that is awaited by the controlled after issuing a query command. The query command is usually used to force important device information.
 
 #### Query All Devices Report
