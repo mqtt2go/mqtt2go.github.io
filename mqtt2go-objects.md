@@ -87,10 +87,10 @@ To provide some examples of the MQTT Commands usage, we provide simple and compl
 	"timestamp":1567677926,
 	"command_type":"setColor",
 	"value": {
-				"h": 100, 
-				"s": 100,
-				"b": 50
-			 }
+		"h": 100, 
+		"s": 100,
+		"b": 50
+		}
 }
 ```
 
@@ -160,8 +160,9 @@ As for the commands, here we present two examples of the reports:
 {
 	"type": "report",
 	"priority_level":1,
+	"report_type":"command_response",
 	"timestamp":1567677946,
-	"report_type":"OnReport",
+	"report_name":"OnReport",
 	"report":"on"
 }
 ```
@@ -171,13 +172,14 @@ As for the commands, here we present two examples of the reports:
 {
 	"type": "report",
 	"priority_level": 1,
+	"report_type":"command_response",
 	"timestamp":1567677956,
-	"report_type":"ColorReport",
+	"report_name":"ColorReport",
 	"report": {
-				"h": 100, 
-				"s": 100,
-				"b": 50
-			  }
+		"h": 100, 
+		"s": 100,
+		"b": 50
+		}
 }
 ```
 
