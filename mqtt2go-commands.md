@@ -46,7 +46,7 @@ If the subscribe/publish should be to a larger group of end devices, a <strong>&
 </p>
 
 
-## MQTT Commands
+## <a name="mqtt_commands">MQTT Commands
 <p align="justify">
 The command messages are composed of four fields: (i) type, which is used to distinguish between the command and report type, (ii) timestamp, (iii) command type which is used to select the correct type of command (i.e., set, query, etc.) and (iv) command structure, containing the actual command. The command itself can be either a simple name-value pair or a complex structure, which is usually used for complex operations such as device setup.
 </p>
@@ -72,7 +72,7 @@ The general commands that are common for all devices are:
 * QueryTamper, 
 * QueryStatus.
 
-## MQTT Reports
+## <a name="mqtt_reports">MQTT Reports
 <p align="justify">
 The report message structure is used for replies coming from the devices. The report messages can also contain a periodic update from the device. They are marked by the report type, which contains priority level to differentiate between critical reports (1) (such as alarms), replies to commands (2), and standard periodic messages (3).
 </p>
