@@ -61,7 +61,7 @@ The end device itself utilizes an activation topic for certificate exchange.
 
 ### MQTT Commands
 <p align="justify">
-The MQTT commands for the network join are again based on the general structure from 2.1.2. And the most important change is in the value key of the command, which can be further divided by the function of the message (the numbering here corresponds to the one in <a href="#add-devices-fig">Fig. 1</a>).
+The MQTT commands for the network join are again based on the general structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. And the most important change is in the value key of the command, which can be further divided by the function of the message (the numbering here corresponds to the one in <a href="#add-devices-fig">Fig. 1</a>).
 </p>
 
 #### Get Remote Broker Data
@@ -80,7 +80,7 @@ This command (3) is utilized to get the address of remote broker together with a
 
 ### MQTT Reports
 <p align="justify">
-These reports are specifically designed for the initialization process of remote broker discovery. Again the process follows the general structure from 2.1.3. They are again labeled with numbers that are corresponding to the <a href="#add-devices-fig">Fig. 1</a>.
+These reports are specifically designed for the initialization process of remote broker discovery. Again the process follows the general structure from <a href="./mqtt2go-commands#mqtt_reports">MQTT Reports</a>. They are again labeled with numbers that are corresponding to the <a href="#add-devices-fig">Fig. 1</a>.
 </p>
 
 #### Remote Broker Data
@@ -135,7 +135,7 @@ The end device utilizes this channel to get the list of the topics to which the 
 
 ### MQTT Commands
 <p align="justify">
-The MQTT Commands mentioned below are used in adding a new device process. The command structure is based on the structure from 2.1.2. Again, the numbering in this section is coherent with the numbering in <a href="#add-devices-fig">Fig. 1</a>.
+The MQTT Commands mentioned below are used in adding a new device process. The command structure is based on the structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. Again, the numbering in this section is coherent with the numbering in <a href="#add-devices-fig">Fig. 1</a>.
 </p>
 
 #### Activate Device
@@ -189,7 +189,7 @@ This command (7) is utilized to finalize the process of adding a new device to t
 
 ### MQTT Reports
 <p align="justify">
-The MQTT reports presented here are designed as a “responses” to aforementioned commands. Their structure is also coherent with the general structure from 2.1.3 and the numbering is matching the one in <a href="#add-devices-fig">Fig. 1</a>.
+The MQTT reports presented here are designed as a “responses” to aforementioned commands. Their structure is also coherent with the general structure from <a href="./mqtt2go-commands#mqtt_reports">MQTT Reports</a> and the numbering is matching the one in <a href="#add-devices-fig">Fig. 1</a>.
 </p>
 
 
