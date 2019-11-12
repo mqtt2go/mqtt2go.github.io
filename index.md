@@ -60,7 +60,7 @@ This section is dedicated to the MQTT2GO topic naming convention. The structure 
 </p>
 
 * [General Commands and Reports](./mqtt2go-commands.md)
-* [System and Users Management](./mqtt2go-management.md)
+* [Users Management](./mqtt2go-management.md)
 * [MQTT2GO Objects](./mqtt2go-objects.md)
 * [MQTT2GO Controllers](./mqtt2go-controllers.md)
 
