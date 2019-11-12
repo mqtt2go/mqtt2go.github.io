@@ -28,7 +28,7 @@ The set commands are used to change / add device parameters and information. The
 	"timestamp": "timestamp_value",
 	"command_type": "set_group",
 	"value": {
-		"group_id": "group_id"	
+		"group_id": "group_id"
 	}
 }
 ```
@@ -51,7 +51,8 @@ Group creation is done via <strong>add_group</strong> command type with value bo
 	"timestamp": "timestamp_value",
 	"command_type": "add_group",
 	"value": {
-		"group_id": "group_id"	
+		"group_id": "group_id",
+		"group_name": "group_name"	
 	}
 }
 ```
@@ -248,6 +249,126 @@ Query user’s topics requests the topics that selected user is subscribed to. I
 ```
 
 ## MQTT Reports
-To Do
+The MQTT reports utilized here are mostly a replies to the commands from the controlled devices. They follow the genaral report structure and addd a specific report names. The report <strong>value</strong> can be either a simple OK, or a body JSON of following structure:
 
+```json
+{
+	"event": "event_name",
+	"reason": "event_description"
+}
+```
+
+, where <strong>event_name</strong> can be warning or error
+
+###Add reports
+The add reports are generally used to report the reuslt of add commands. They will be describing in following subsections.
+
+#### Group creation report
+After the add_group command is received. The device proccess it and then publishes following message to the same topic:
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":"timestamp_value",
+	"report_name":"add_group",
+	"value":"ok" 
+}
+```
+
+#### Add user report
+After the add_user command is received, the devices processes it and then publishes following message into the same topic from which the command came:
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":"timestamp_value",
+	"report_name":"add_user",
+	"value":{
+		"event" : "error",
+		"reason" : "user_already_exists"
+	}
+}
+```
+
+### Edit reports
+The edit reports are used to report the outcome of edit commands.
+
+#### User Editing
+After the updt_user command is issues, the following response is published into the same topic:
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":"timestamp_value",
+	"report_name":"updt_user",
+	"value":"ok" 
+}
+```
+
+#### Group editing
+After the updt_group command is issues, the following response is published into the same topic:
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":"timestamp_value",
+	"report_name":"updt_group",
+	"value":"ok" 
+}
+```
+
+### Delete reports
+The delete reports are the primary outcome of the events started by delete commands. Their message structure also follows the general report struture. Its value follows the same pattern as the general MQTT report, described in this chapter. Therefore the value can be either a simple ok, or a JSON body with the event name and description.
+
+#### Remove group
+Is the report which is pubilshed after the del_group command is issued. 
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":"timestamp_value",
+	"report_name":"del_group",
+	"value":"ok" 
+}
+```
+
+#### Remove user
+Is the report which is pubilshed after the del_user command is issued. 
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":"timestamp_value",
+	"report_name":"del_user",
+	"value":"ok" 
+}
+```
+
+#### Remove device
+Is the report which is pubilshed after the del_group command is issued. 
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":"timestamp_value",
+	"report_name":"del_device",
+	"value":"ok" 
+}
+```
+
+### Query reports
 [Back](./index.md#data-structure)
