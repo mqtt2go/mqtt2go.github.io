@@ -117,9 +117,9 @@ This report (5) is used to send the Wi-Fi credentials back to the end device.
 	"timestamp": "timestamp_value",
 	"report_type": "mqtt_credentials",
 	"value": {
-				"SSID": "wifi_ssid",
-				"password": "password"
-			 }
+		"SSID": "wifi_ssid",
+		"password": "password"
+	}
 }
 ```
 
@@ -172,9 +172,9 @@ This command (1) is utilized to start the whole process of adding a new device. 
 	"timestamp": "timestamp_value",
 	"command_type": "activate_device",
 	"value": {
-				"activation_code": "activation_code",
-				"device_id": "device_id"
-			 }
+		"activation_code": "activation_code",
+		"device_id": "device_id"
+	}
 }
 ```
 
@@ -203,10 +203,10 @@ This command (8) is utilized to finalize the process of adding a new device to t
 	"timestamp": "timestamp_value",
 	"command_type": "rename_device",
 	"value": {
-				"device_id": "device_id",
-				"device_name": "device_name",
-				"group_id": "group_id"
-			 }
+		"device_id": "device_id",
+		"device_name": "device_name",
+		"group_id": "group_id"
+	}
 }
 ```
 
@@ -227,9 +227,9 @@ This report (7) is utilized to request the user of the MQTT2GO Controller app fo
 	"timestamp": "timestamp_value",
 	"report_type": "rename_device",
 	"value": {
-				"device_type": "device_type",
-				"device_id": "device_id"
-			 }
+		"device_type": "device_type",
+		"device_id": "device_id"
+	}
 }
 ```
 
