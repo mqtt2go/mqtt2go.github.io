@@ -24,6 +24,7 @@ This section is related to the requirements for a Smart-Home Gateway (SH-GW) in 
 | C6 | MUST   | 2 x SSID Wi-Fi 2.4 GHz + 5 GHz (IEEE 802.11b/g/n and 802.11a/n/ac), but SHOULD be more. The SH-GW must support the WPS functionality as it is related to the proposed functionality of the local MQTT broker.|
 
 ### Developer support requirements
+
 | ID | Status | Description                                                                                  |
 |----|--------|----------------------------------------------------------------------------------------------|
 | D1 | MUST   | Comprehensive SDK with complete documentation, code samples, toolchain, etc. |
@@ -31,6 +32,7 @@ This section is related to the requirements for a Smart-Home Gateway (SH-GW) in 
 | D3 | MUST   | List of the available packages within the provided SDK -- in case the version of the OpenWRT is no longer supported and the developers are forced to stick only with the packages within the SDK. |
 
 ### Installed Packages
+
 | ID | Status | Description                                                                                  |
 |----|--------|----------------------------------------------------------------------------------------------|
 | P1 | MUST | Python 2.7 or 3.x.                                                                         |
