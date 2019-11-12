@@ -52,11 +52,11 @@ The MQTT broker has no chance to determine what kind of device is added. Therefo
 	"timestamp": "timestamp_value",
 	"command_type": "rename_device",
 	"value": {
-				"device_id": "device_id",
-				"device_vendor": "device_type",
-				"device_name": "device_name",
-				"group_id": "group_id"
-			 }
+			"device_id": "device_id",
+			"device_vendor": "device_type",
+			"device_name": "device_name",
+			"group_id": "group_id"
+		}
 }
 ```
 

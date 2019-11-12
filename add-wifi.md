@@ -226,8 +226,8 @@ This report (7) is utilized to request the user of the MQTT2GO Controller app fo
 ```json
 {
 	"type": "report",
-	"timestamp": "timestamp_value",
 	"report_type":"command_response",
+	"timestamp": "timestamp_value",
 	"report_name": "rename_device",
 	"value": {
 		"device_type": "device_type",

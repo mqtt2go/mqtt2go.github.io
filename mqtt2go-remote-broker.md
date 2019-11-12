@@ -89,11 +89,12 @@ This report (4) is utilized to deliver a newly generated certificate from MQTT b
 ```json
 {
 	"type": "report",
+	"report_type":"command_response",
 	"timestamp": "timestamp_value",
-	"report_type": "mqtt_credentials",
+	"report_name": "mqtt_credentials",
 	"value": {
-				"broker_ip": "broker_ip",
-				"device_certificate": "device_certificate"
+			"broker_ip": "broker_ip",
+			"device_certificate": "device_certificate"
 		}
 }
 ```
@@ -148,9 +149,9 @@ This command (1) is utilized to start the whole process of adding a new device. 
 	"timestamp": "timestamp_value",
 	"command_type": "activate_device",
 	"value": {
-				"activation_code": "activation_code",
-				"device_id": "device_id"
-			 }
+		"activation_code": "activation_code",
+		"device_id": "device_id"
+		}
 }
 ```
 
@@ -179,10 +180,10 @@ This command (7) is utilized to finalize the process of adding a new device to t
 	"timestamp": "timestamp_value",
 	"command_type": "rename_device",
 	"value": {
-				"device_id": "device_id",
-				"device_name": "device_name",
-				"group_id": "group_id"
-			 }
+		"device_id": "device_id",
+		"device_name": "device_name",
+		"group_id": "group_id"
+		}
 }
 ```
 
@@ -200,12 +201,13 @@ This report (6) is utilized to request the user of the MQTT2GO Controller app fo
 ```json
 {
 	"type": "report",
+	"report_type":"command_response",
 	"timestamp": "timestamp_value",
-	"report_type": "rename_device",
+	"report_name": "rename_device",
 	"value": {
-				"device_type": "device_type",
-				"device_id": "device_id"
-			 }
+			"device_type": "device_type",
+			"device_id": "device_id"
+			}
 }
 ```
 
@@ -217,8 +219,9 @@ This report (8) is used to deliver the requested topics, in which the new device
 ```json
 {
 	"type": "report",
+	"report_type":"command_response",
 	"timestamp": "timestamp_value",
-	"report_type": "topics",
+	"report_name": "topics",
 	"value": ["topic_1", "topic_2", "topic_3"]
 }
 ```
