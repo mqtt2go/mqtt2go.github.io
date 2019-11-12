@@ -13,7 +13,7 @@ The basic topic structure is based on the general MQTT2GO topic structure. The o
 <home_id>/<gateway_id>/<group_id>/<device_type>/<dev_id>
 ```
 
-## MQTT Commands
+## <a name="controller-commands"></a>MQTT Commands
 <p align="justify">
 The MQTT commands for the controllers are used to control the end devices. This means that most of the commands are targeted at setting up selected parameters of the end devices or changing the structure of the MQTT2GO households. Their structure is based on the  <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>.
 </p>

@@ -13,7 +13,7 @@ The topic structure for MQTT objects is in line with the general structure descr
 <home_id>/<gateway_id>/<group_id>/<device_type>/<dev_id>
 ```
 
-## MQTT Commands
+## <a name="object-commands"></a>MQTT Commands
 <p align="justify">
 The MQTT Commands described in this section are device specific and therefore they are arranged in tables for better understanding. The structure of the command is again compliant to the general structure from  <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>.
 </p>
@@ -90,7 +90,7 @@ To provide some examples of the MQTT Commands usage, we provide simple and compl
 		"h": 100, 
 		"s": 100,
 		"b": 50
-		}
+	}
 }
 ```
 
@@ -179,7 +179,7 @@ As for the commands, here we present two examples of the reports:
 		"h": 100, 
 		"s": 100,
 		"b": 50
-		}
+	}
 }
 ```
 

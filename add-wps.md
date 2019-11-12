@@ -135,7 +135,7 @@ This command (1) is utilized to start the whole process of adding a new device. 
 	"value": {
 			"activation_code": "activation_code",
 			"device_id": "device_id"
-		}
+	}
 }
 ```
 
@@ -167,7 +167,7 @@ This command (6) is utilized to finalize the process of adding a new device to t
 			"device_id": "device_id",
 			"device_name": "device_name",
 			"group_id": "group_id"
-		}
+	}
 }
 ```
 
@@ -191,7 +191,7 @@ This report (5) is utilized to request the user of the MQTT2GO Controller app fo
 	"value": {
 			"device_type": "device_type",
 			"device_id": "device_id"
-		}
+	}
 }
 ```
 
