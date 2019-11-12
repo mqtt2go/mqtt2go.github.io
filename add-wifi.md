@@ -28,7 +28,223 @@ The ideal process of adding new device should be considered as the right way how
 	<img src="mqtt_setup_cert.svg" alt="Proccess of adding a new MQTT2GO device">
 </p>
 <p align="center" >
-	<em>Process of adding a new MQTT2GO device via guest WiFi.</em>
+	<a name="add-devices-fig"><em>Process of adding a new MQTT2GO device via guest WiFi.</em>
 </p>
+
+## Network Join
+<p align="justify">
+The operation of adding a new device into the network / household is utilizing a special topics. These topics are only temporary and utilized only for this specific use-case. This means that, aside from one, they are not a part of the standard topic structure. This simplifies the implementation at the end devices as they have no idea of the current structure of the MQTT2GO household. This topics and needed commands and reports are described in this section.
+</p>
+
+### Topics Structure
+<p align="justify">
+As aforementioned, network join topics are unique inside the MTT2GO standard and are solely used for the initial connection of new devices.
+</p>
+
+#### End device
+<p align="justify">
+The end device itself utilizes a unique topics for the initialization communication. They are:
+</p>
+
+```
+<activation_code>/activation
+```
+utilized for certificate exchange,
+
+```
+<activation_code>/wifi
+```
+for the Wi-Fi credentials exchange.
+
+### MQTT Commands
+<p align="justify">
+The MQTT commands for the network join are again based on the general structure from 2.1.2. And the most important change is in the value key of the command, which can be further divided by the function of the message (the numbering here corresponds to the one in [Process of adding a new MQTT2GO device via guest WiFi](#add-devices-fig)).
+</p>
+
+#### Get Credentials
+<p align="justify">
+This command (2) is utilized to get a newly generated certificate for the end device. Its command value is in form of string with value *GET_CREDENTIALS*.
+</p>
+
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "mqtt_credentials",
+	"value": "GET_CREDENTIALS"
+}
+```
+
+#### Get Wifi Credentials
+<p align="justify">
+Get Wifi credentials (4) which is used to obtain the Wi-Fi credentials, again the command value is <em>GET_WIFI_CREDENTIALS</em> string.
+</p>
+
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "wifi",
+	"value": "GET_WIFI_CREDENTIALS"
+}
+```
+
+### MQTT Reports
+<p align="justify">
+These reports are specifically designed for the initialization process of the network join. The again follow the general structure from 2.1.3. The are again labeled with numbers that are corresponding to the [Process of adding a new MQTT2GO device via guest WiFi](#add-devices-fig).
+</p>
+
+#### Credentials
+This report (3) is utilized to deliver a newly generated certificate from MQTT broker to the end device.
+
+```json
+{
+	"type": "report",
+	"timestamp": "timestamp_value",
+	"report_type": "mqtt_credentials",
+	"value": "device_certificate"
+}
+```
+
+#### Wi-Fi Credentials
+<p align="justify">
+This report (5) is used to send the Wi-Fi credentials back to the end device.
+</p>
+
+```json
+{
+	"type": "report",
+	"timestamp": "timestamp_value",
+	"report_type": "mqtt_credentials",
+	"value": {
+				"SSID": "wifi_ssid",
+				"password": "password"
+			 }
+}
+```
+
+## Device Configuration
+<p align="justify">
+The device configuration is happening over topics that are unique to each device. This way it is secured that all the configuration will be done to the correct device. The only exception is the initialization process, where the topic is universal for the whole process, but in this case it is secured via the ability of adding only one device at a time.
+</p>
+
+## Topics Structure
+<p align="justify">
+The topics for the device configuration presented in this section are for the initial device configuration only. The device update and similar topics are presented in MQTT Objects section. Here, the topics are divided into two parts depending on which device is utilizing them.
+</p>
+
+
+#### Controlling App / SH-GW
+<p align="justify">
+The controlling App / SH-GW utilizes a special topic for the addition of new devices. This topic is structured as follows:
+</p>
+
+```
+<home_id>/<gw_id>/add_device
+```
+
+<p align="justify">
+Its main purpose is to publish information that initialize and finalize the adding process.
+</p>
+
+#### End Device
+<p align="justify">
+The end device utilizes this channel to get the list of the topics to which the devices has to be subscribed.
+</p>
+
+```
+<dev_id>/topics
+```
+
+### MQTT Commands
+<p align="justify">
+The MQTT Commands mentioned below are used in adding a new device process. The command structure is based on the structure from 2.1.2. Again, the numbering in this section is coherent with the numbering in [Process of adding a new MQTT2GO device via guest WiFi](#add-devices-fig).
+</p>
+
+#### Activate Device
+<p align="justify">
+This command (1) is utilized to start the whole process of adding a new device. The command contains the activation code and id of the newly added device.
+</p>
+
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "activate_device",
+	"value": {
+				"activation_code": "activation_code",
+				"device_id": "device_id"
+			 }
+}
+```
+
+#### Get Device Topics
+<p align="justify">
+Get device topics command (6) is used to get device topics from the SH-GW. This command has value of <em>GET_DEVICE_TOPICS</em>.
+</p>
+
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "topics",
+	"value": "GET_DEVICE_TOPICS"
+}
+```
+
+#### Rename Device
+<p align="justify">
+This command (8) is utilized to finalize the process of adding a new device to the system. Via this command, the end device gains its name and inclusion to the group.
+</p>
+
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "rename_device",
+	"value": {
+				"device_id": "device_id",
+				"device_name": "device_name",
+				"group_id": "group_id"
+			 }
+}
+```
+
+### MQTT Reports
+<p align="justify">
+The MQTT reports presented here are designed as a “responses” to aforementioned commands. Their structure is also coherent with the general structure from 2.1.3 and the numbering is matching the one in [Process of adding a new MQTT2GO device via guest WiFi](#add-devices-fig).
+</p>
+
+
+#### Rename Device
+<p align="justify">
+This report (7) is utilized to request the user of the MQTT2GO Controller app for the name and group of the newly added device.
+</p>
+
+```json
+{
+	"type": "report",
+	"timestamp": "timestamp_value",
+	"report_type": "rename_device",
+	"value": {
+				"device_type": "device_type",
+				"device_id": "device_id"
+			 }
+}
+```
+
+#### Device Topics
+<p align="justify">
+This report is used to deliver the requested topics, in which the new device is intended to subscribe.
+</p>
+
+```json
+{
+	"type": "report",
+	"timestamp": "timestamp_value",
+	"report_type": "topics",
+	"value": ["topic_1", "topic_2", "topic_3"]
+}
+```
 
 [Back](./index.md#add-devices)
