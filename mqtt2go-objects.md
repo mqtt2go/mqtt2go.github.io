@@ -106,7 +106,7 @@ The report types are used to distinguish between different reports based on thei
 
 * __Status__, which is reporting the current status of the device,
 * __Command response__ used to immediately report after the command request,
-* __Periodic report used__ to periodically publish current data/state into subscribed topics,
+* __Periodic report__ used to periodically publish current data/state into subscribed topics,
 * __Error__ used to inform about critical states or malfunctions.
 
 ### Table with Reports
