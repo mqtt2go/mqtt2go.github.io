@@ -34,6 +34,9 @@ This section is related to the requirements for a Smart-Home Gateway (SH-GW) in 
 | ID | Status | Description                                                                                  |
 |----|--------|----------------------------------------------------------------------------------------------|
 | P1 | MUST | Python 2.7 or 3.x.                                                                         |
-| P2 | MUST | TBD.                                                                         |
+| P2 | MUST | Kernel modules, binaries and iptables extensions to include: Conntrack | ebtables | iptables-mod-conntrack-extra | iptables-mod-ipmark | iptables-mod-nflog | iptables-mod-nfqueue | kmod-br-netfilter | libopenssl | ca-certificates | curl |
+| P3 | SHOULD | APIs or iptables rules to control hardware acceleration.. |
+| P4 | SHOULD | LXC Containers are run in the same Network Space as the HOST for proper traffic steering. |
+| P5 | SHOULD | LXC Containers have to have an ability to run iptables commands. |
 
 [Back](./index.md#requirements)
