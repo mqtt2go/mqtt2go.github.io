@@ -31,6 +31,9 @@ This section is related to the requirements for a Smart-Home Gateway (SH-GW) in 
 | D3 | MUST   | List of the available packages within the provided SDK -- in case the version of the OpenWRT is no longer supported and the developers are forced to stick only with the packages within the SDK. |
 
 ### Installed Packages
-
+| ID | Status | Description                                                                                  |
+|----|--------|----------------------------------------------------------------------------------------------|
+| P1 | MUST | Python 2.7 or 3.x.                                                                         |
+| P2 | MUST | TBD.                                                                         |
 
 [Back](./index.md#requirements)
