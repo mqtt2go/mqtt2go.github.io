@@ -74,7 +74,7 @@ The general commands that are common for all devices are:
 
 ## MQTT Reports
 <p align="justify">
-The report message structure is used for replies coming from the devices. The report messages can also contain a periodic update from the device. They are marked by the report type, which contains priority level to differentiate between critical reports (such as alarms), standard periodic messages and replies to commands.
+The report message structure is used for replies coming from the devices. The report messages can also contain a periodic update from the device. They are marked by the report type, which contains priority level to differentiate between critical reports (1) (such as alarms), replies to commands (2), and standard periodic messages (3).
 </p>
 
 ```json
