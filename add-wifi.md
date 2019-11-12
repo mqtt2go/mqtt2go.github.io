@@ -28,7 +28,7 @@ The ideal process of adding new device should be considered as the right way how
 	<img src="mqtt_setup_cert.svg" alt="Proccess of adding a new MQTT2GO device">
 </p>
 <p align="center" >
-	<a name="add-devices-fig"></a><em>Process of adding a new MQTT2GO device via guest WiFi.</em>
+	<a name="add-devices-fig"></a><em><strong>Fig. 1:</strong> Process of adding a new MQTT2GO device via guest WiFi.</em>
 </p>
 
 ## Network Join
@@ -58,12 +58,12 @@ for the Wi-Fi credentials exchange.
 
 ### MQTT Commands
 <p align="justify">
-The MQTT commands for the network join are again based on the general structure from 2.1.2. And the most important change is in the value key of the command, which can be further divided by the function of the message (the numbering here corresponds to the one in [Process of adding a new MQTT2GO device via guest WiFi](#add-devices-fig)).
+The MQTT commands for the network join are again based on the general structure from 2.1.2. And the most important change is in the value key of the command, which can be further divided by the function of the message (the numbering here corresponds to the one in <a href="#add-devices-fig">Fig. 1</a>).
 </p>
 
 #### Get Credentials
 <p align="justify">
-This command (2) is utilized to get a newly generated certificate for the end device. Its command value is in form of string with value *GET_CREDENTIALS*.
+This command (2) is utilized to get a newly generated certificate for the end device. Its command value is in form of string with value <em>GET_CREDENTIALS</em>.
 </p>
 
 ```json
@@ -91,7 +91,7 @@ Get Wifi credentials (4) which is used to obtain the Wi-Fi credentials, again th
 
 ### MQTT Reports
 <p align="justify">
-These reports are specifically designed for the initialization process of the network join. The again follow the general structure from 2.1.3. The are again labeled with numbers that are corresponding to the [Process of adding a new MQTT2GO device via guest WiFi](#add-devices-fig).
+These reports are specifically designed for the initialization process of the network join. The again follow the general structure from 2.1.3. The are again labeled with numbers that are corresponding to the <a href="#add-devices-fig">Fig. 1</a>.
 </p>
 
 #### Credentials
@@ -158,7 +158,7 @@ The end device utilizes this channel to get the list of the topics to which the 
 
 ### MQTT Commands
 <p align="justify">
-The MQTT Commands mentioned below are used in adding a new device process. The command structure is based on the structure from 2.1.2. Again, the numbering in this section is coherent with the numbering in [Process of adding a new MQTT2GO device via guest WiFi](#add-devices-fig).
+The MQTT Commands mentioned below are used in adding a new device process. The command structure is based on the structure from 2.1.2. Again, the numbering in this section is coherent with the numbering in <a href="#add-devices-fig">Fig. 1</a>.
 </p>
 
 #### Activate Device
@@ -212,7 +212,7 @@ This command (8) is utilized to finalize the process of adding a new device to t
 
 ### MQTT Reports
 <p align="justify">
-The MQTT reports presented here are designed as a “responses” to aforementioned commands. Their structure is also coherent with the general structure from 2.1.3 and the numbering is matching the one in [Process of adding a new MQTT2GO device via guest WiFi](#add-devices-fig).
+The MQTT reports presented here are designed as a “responses” to aforementioned commands. Their structure is also coherent with the general structure from 2.1.3 and the numbering is matching the one in <a href="#add-devices-fig">Fig. 1</a>.
 </p>
 
 
