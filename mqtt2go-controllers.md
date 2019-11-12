@@ -51,7 +51,6 @@ Group creation is done via <strong>add_group</strong> command type with value bo
 	"timestamp": "timestamp_value",
 	"command_type": "add_group",
 	"value": {
-		"group_id": "group_id",
 		"group_name": "group_name"	
 	}
 }
@@ -113,7 +112,8 @@ Group editing is done by the commands with type of <strong>updt_group</strong> w
 	"timestamp": "timestamp_value",
 	"command_type": "updt_group",
 	"value": {
-		"group_id": "group_id"
+		"group_id": "group_id",
+		"group_name","group_name"
 	}
 }
 ```
@@ -234,6 +234,20 @@ Query devices in group asks for all devices in specified group. Its value field 
 }
 ```
 
+#### Query All Groups
+<p align="justify">
+Query devices in group asks for all groups. Its value field is filled with <strong>group_id</strong>.
+</p>
+
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "query_all_groups",
+	"value": "all"
+}
+```
+
 #### Query User's Topics
 <p align="justify">
 Query user’s topics requests the topics that selected user is subscribed to. Its value field contains the <strong>user_id</strong>.
@@ -260,7 +274,7 @@ The MQTT reports utilized here are mostly a replies to the commands from the con
 
 , where <strong>event_name</strong> can be warning or error
 
-###Add reports
+### Add reports
 The add reports are generally used to report the reuslt of add commands. They will be describing in following subsections.
 
 #### Group creation report
@@ -386,7 +400,23 @@ Is used to return all devices under seleced SH-GW. It has following structure:
 	"value":[ "device_1_id", "device_2_id",...]
 }
 ```
+
 The value of this report contains a field of all available devices ids.
+
+#### Query All Groups Report
+Is used to return all devices under seleced SH-GW. It has following structure:
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":"timestamp_value",
+	"report_name":"query_all_groups",
+	"value":[ "group_1_id", "group_2_id",...]
+}
+```
+
 
 #### Query Device Info Report
 This report is utilized to return all device information requested by the <strong>query_dev_info</strong> command. Its structure is following:
