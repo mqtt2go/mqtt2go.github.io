@@ -27,12 +27,12 @@ In the ideal world, the setup mentioned and depicted above can be simplified. Th
 1. The device will be successfully added to the MQTT2GO ecosystem and is ready to be controlled.
 
 
-### Device Configuration
+## Device Configuration
 <p align="justify">
 Since the end device is not MQTT2GO compliant the whole process cannot be automatized as in other cases. Therefore tho whole topic and command structure is limited to the one topic and command.
 </p>
 
-#### Topic Structure
+### Topic Structure
 <p align="justify">
 This topic is utilized add the unsupported device to the system.
 </p>
@@ -41,7 +41,7 @@ This topic is utilized add the unsupported device to the system.
 <home_id>/<gw_id>/add_unsupported
 ```
 
-#### MQTT Command
+### MQTT Command
 <p align="justify">
 The MQTT broker has no chance to determine what kind of device is added. Therefore the command contains information about the device vendor and device type, which allows MQTT broker to determine the topics which device subscribes to.
 </p>
