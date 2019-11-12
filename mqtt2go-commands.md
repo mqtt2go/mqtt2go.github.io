@@ -86,7 +86,6 @@ The report message structure is used for replies coming from the devices. The re
 	"report_name":"report_name",
 	"value":"value_body" 
 }
-
 ```
 
 <p align="justify">
