@@ -22,6 +22,15 @@ This section is related to the requirements for a Smart-Home Gateway (SH-GW) in 
 | C4 | MUST   | Sufficient free FLASH memory for the SH namespace. At least 256 MB of FLASH memory with minimal 20 MB available for the user. |
 | C5 | MUST   | Sufficient free RAM for the SH namespace. At least 512 MB RAM.|
 | C6 | MUST   | 2 x SSID Wi-Fi 2.4 GHz + 5 GHz (IEEE 802.11b/g/n and 802.11a/n/ac), but SHOULD be more. The SH-GW must support the WPS functionality as it is related to the proposed functionality of the local MQTT broker.|
+
+### Developer support requirements
+| ID | Status | Description                                                                                  |
+|----|--------|----------------------------------------------------------------------------------------------|
+| D1 | MUST   | Comprehensive SDK with complete documentation, code samples, toolchain, etc. |
+| D2 | MUST   | Provision of end-user firmware versions corresponding to the functionality of the Reference SDK devices (see D1). |
+| D3 | MUST   | List of the available packages within the provided SDK -- in case the version of the OpenWRT is no longer supported and the developers are forced to stick only with the packages within the SDK. |
+
 ### Installed Packages
+
 
 [Back](./index.md#requirements)
