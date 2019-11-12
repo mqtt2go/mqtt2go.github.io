@@ -100,8 +100,9 @@ This report (3) is utilized to deliver a newly generated certificate from MQTT b
 ```json
 {
 	"type": "report",
+	"report_type":"command_response",
 	"timestamp": "timestamp_value",
-	"report_type": "mqtt_credentials",
+	"report_name": "mqtt_credentials",
 	"value": "device_certificate"
 }
 ```
@@ -114,12 +115,13 @@ This report (5) is used to send the Wi-Fi credentials back to the end device.
 ```json
 {
 	"type": "report",
+	"report_type":"command_response",
 	"timestamp": "timestamp_value",
-	"report_type": "mqtt_credentials",
+	"report_name": "mqtt_credentials",
 	"value": {
 		"SSID": "wifi_ssid",
 		"password": "password"
-	}
+		}
 }
 ```
 
@@ -174,7 +176,7 @@ This command (1) is utilized to start the whole process of adding a new device. 
 	"value": {
 		"activation_code": "activation_code",
 		"device_id": "device_id"
-	}
+		}
 }
 ```
 
@@ -206,7 +208,7 @@ This command (8) is utilized to finalize the process of adding a new device to t
 		"device_id": "device_id",
 		"device_name": "device_name",
 		"group_id": "group_id"
-	}
+		}
 }
 ```
 
@@ -225,11 +227,12 @@ This report (7) is utilized to request the user of the MQTT2GO Controller app fo
 {
 	"type": "report",
 	"timestamp": "timestamp_value",
-	"report_type": "rename_device",
+	"report_type":"command_response",
+	"report_name": "rename_device",
 	"value": {
 		"device_type": "device_type",
 		"device_id": "device_id"
-	}
+		}
 }
 ```
 
@@ -241,8 +244,9 @@ This report (9) is used to deliver the requested topics, in which the new device
 ```json
 {
 	"type": "report",
+	"report_type":"command_response",
 	"timestamp": "timestamp_value",
-	"report_type": "topics",
+	"report_name": "topics",
 	"value": ["topic_1", "topic_2", "topic_3"]
 }
 ```
