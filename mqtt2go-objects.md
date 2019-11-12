@@ -6,7 +6,7 @@ MQTT objects are describing all end devices that are connected to the MQTT2GO sy
 
 ## Topics Structure
 <p align="justify">
-The topic structure for MQTT objects is in line with the general structure described in 2.1.1. The topic structure is following.
+The topic structure for MQTT objects is in line with the general structure described in <a href="./mqtt2go-commands#mqtt_topics">MQTT Topics</a>. The topic structure is following.
 </p>
 
 ```
@@ -15,7 +15,7 @@ The topic structure for MQTT objects is in line with the general structure descr
 
 ## MQTT Commands
 <p align="justify">
-The MQTT Commands described in this section are device specific and therefore they are arranged in tables for better understanding. The structure of the command is again compliant to the general structure from  2.1.2.
+The MQTT Commands described in this section are device specific and therefore they are arranged in tables for better understanding. The structure of the command is again compliant to the general structure from  <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>.
 </p>
 
 ### Description of command types

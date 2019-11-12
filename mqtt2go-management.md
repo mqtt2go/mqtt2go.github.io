@@ -25,7 +25,7 @@ Inside this topic, the MQTT2GO commands are sent if any user-related operation i
 
 ## MQTT Commands
 <p align="justify">
-The MQTT commands for user management are based on the commands template from 2.1.2, where the MQTT <strong>command_type</strong> will be one of the following:
+The MQTT commands for user management are based on the commands template from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>, where the MQTT <strong>command_type</strong> will be one of the following:
 </p>
 
 * add_user,
@@ -55,7 +55,7 @@ The concrete value of each parameter depends on the specific use-case.
 
 ## MQTT Reports
 <p align="justify">
-The MQTT reports for the user management are based on the commands template from 2.1.3, where the MQTT report_type corresponds to the commands from: MQTT Commands, with the JSON body containing the operation results:
+The MQTT reports for the user management are based on the commands template from <a href="./mqtt2go-commands#mqtt_reports">MQTT Reports</a>, where the MQTT report_type corresponds to the commands from: MQTT Commands, with the JSON body containing the operation results:
 </p>
 
 ```json

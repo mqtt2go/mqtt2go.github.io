@@ -4,7 +4,7 @@
 The general commands and reports are used to communicate using device-independent messages. This means that all universal (common for all the devices) messages, such as errors and warnings are presented here. Furthermore, a general structure of command and report messages is given here. This structure is used for all MQTT2GO messages (both command and report ones).
 </p>
 
-## Topics Structure
+## <a name="mqtt_topics">Topics Structure
 <p align="justify">
 The general MQTT2GO topic structure is created to be as efficient as possible, generating a reasonable amount of subtopics and therefore following the MQTT best practices. The topic itself is then composed as follows:
 </p>
