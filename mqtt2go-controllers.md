@@ -371,4 +371,88 @@ Is the report which is pubilshed after the del_group command is issued.
 ```
 
 ### Query reports
+Query reports are the most bulky reports from this chapter. They contain a response that is awaited by the controlled after issuing a query command. The query command is usually used to force important device information.
+
+#### Query All Devices Report
+Is used to return all devices under seleced SH-GW. It has following structure:
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":"timestamp_value",
+	"report_name":"query_all",
+	"value":[ "device_1_id", "device_2_id",...]
+}
+```
+The value of this report contains a field of all available devices ids.
+
+#### Query Device Info Report
+This report is utilized to return all device information requested by the <strong>query_dev_info</strong> command. Its structure is following:
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":"timestamp_value",
+	"report_name":"query_dev_info",
+	"value": {
+		"dev_id": "device_id",
+		"dev_name": "device_name",
+		"dev_group": "device_group"
+	}
+}
+```
+
+#### Query User Info Report
+This report provides information about the user. This report is invoked by the <strong>query_user_info</strong> command. Its structure is following:
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":"timestamp_value",
+	"report_name":"query_user_info",
+	"value": {
+		"user_id": "user_id",
+		"email": "john.doe@mail.com",
+		"user_name": "John Doe",
+		"role": "administrator"
+	}
+}
+```
+
+#### Query All Devices in Group Report
+Is used to return all devices in specified group. It has following structure:
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":"timestamp_value",
+	"report_name":"query_all_in_group",
+	"value":[ "device_1_id", "device_2_id",...]
+}
+```
+The value of this report contains a field of ids for all devices in specified group.
+
+#### Query User's Topics Report
+This report contains all topics of specified user. Its structure is following:
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":"timestamp_value",
+	"report_name":"query_user_topics",
+	"value":[ "topic1", "topic2",...]
+}
+```
+The value can contain a simple topic or a field of topics, as illustrated above.
+
 [Back](./index.md#data-structure)
