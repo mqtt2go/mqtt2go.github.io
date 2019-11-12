@@ -14,7 +14,7 @@ This setup is providing an example of adding a new MQTT2GO non-compliant device,
 	<img src="mqtt_setup_not_compatible.svg" alt="Proccess of adding a new MQTT2GO incompatible device">
 </p>
 <p align="center" >
-	<em>Process of adding a new MQTT2GO non-compliant device.</em>
+	<a name="add-devices-fig"></a><em><strong>Fig. 1:</strong> Process of adding a new MQTT2GO non-compliant device.</em>
 </p>
 
 <p align="justify">
@@ -25,5 +25,39 @@ In the ideal world, the setup mentioned and depicted above can be simplified. Th
 1. The user will open the MQTT2GO App in which he will select add a new unsupported device.
 1. A device manufacturer will be chosen in the MQTT2GO App, after which the corresponding application will be launched. In this application, user will set up the device as in the previous example, but the result will be sent back to the MQTT2GO App via the intent and therefore the user will be redirected back to the MQTT2GO App.
 1. The device will be successfully added to the MQTT2GO ecosystem and is ready to be controlled.
+
+
+### Device Configuration
+<p align="justify">
+Since the end device is not MQTT2GO compliant the whole process cannot be automatized as in other cases. Therefore tho whole topic and command structure is limited to the one topic and command.
+</p>
+
+#### Topic Structure
+<p align="justify">
+This topic is utilized add the unsupported device to the system.
+</p>
+
+```
+<home_id>/<gw_id>/add_unsupported
+```
+
+#### MQTT Command
+<p align="justify">
+The MQTT broker has no chance to determine what kind of device is added. Therefore the command contains information about the device vendor and device type, which allows MQTT broker to determine the topics which device subscribes to.
+</p>
+
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "rename_device",
+	"value": {
+				"device_id": "device_id",
+				"device_vendor": "device_type",
+				"device_name": "device_name",
+				"group_id": "group_id"
+			 }
+}
+```
 
 [Back](./index.md#add-devices)
