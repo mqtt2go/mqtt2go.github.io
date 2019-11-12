@@ -28,7 +28,7 @@ The ideal process of adding new device should be considered as the right way how
 	<img src="mqtt_setup_cert.svg" alt="Proccess of adding a new MQTT2GO device">
 </p>
 <p align="center" >
-	<a name="add-devices-fig"><em>Process of adding a new MQTT2GO device via guest WiFi.</em>
+	<a name="add-devices-fig"></a><em>Process of adding a new MQTT2GO device via guest WiFi.</em>
 </p>
 
 ## Network Join
