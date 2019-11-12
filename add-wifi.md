@@ -235,7 +235,7 @@ This report (7) is utilized to request the user of the MQTT2GO Controller app fo
 
 #### Device Topics
 <p align="justify">
-This report is used to deliver the requested topics, in which the new device is intended to subscribe.
+This report (9) is used to deliver the requested topics, in which the new device is intended to subscribe.
 </p>
 
 ```json
