@@ -1,7 +1,7 @@
 [Back](./index.md#data-structure)
 # General Commands and Reports
 <p align="justify">
-The general commands and reports are used to communicate device-independent messages. This means that all universal (common for all the devices) messages, such as errors and warnings are presented here. Furthermore, a general structure of command and report messages is given here. This structure is used for all MQTT2GO messages (both command and report ones).
+The general commands and reports are used to communicate using device-independent messages. This means that all universal (common for all the devices) messages, such as errors and warnings are presented here. Furthermore, a general structure of command and report messages is given here. This structure is used for all MQTT2GO messages (both command and report ones).
 </p>
 
 ## Topics Structure
@@ -22,7 +22,7 @@ and <strong>&lt;dev_id&gt;</strong> is device’s own unique identificator.
 </p>
 
 <p align="justify">
-To access a multiple devices or a whole group. Wildcard masks from the MQTT standard needs to be used. If we want to substitute only one level, a <strong>+</strong> wildcard can be used. This means that the topic would look like:
+To access a multiple devices or a whole group. Wildcard masks from the MQTT standard have to be used. If we want to substitute only one level, a <strong>+</strong> wildcard can be used. This means that the topic would look like:
 </p>
 
 ```
@@ -30,7 +30,7 @@ To access a multiple devices or a whole group. Wildcard masks from the MQTT stan
 ```
 
 <p align="justify">
-Which means that the subscribe/publish will be done to all groups, where the <strong>&lt;device_type&gt;/&lt;dev_id&gt;</strong> matches inserted data.
+,which means that the subscribe/publish will be done to all groups, where the <strong>&lt;device_type&gt;/&lt;dev_id&gt;</strong> matches inserted data.
 </p>
 
 <p align="justify">
@@ -42,7 +42,7 @@ If the subscribe/publish should be to a larger group of end devices, a <strong>&
 ```
 
 <p align="justify">
-Therefore means that the messages will go to all devices and all groups under selected gateway.
+,therefore means that the messages will go to all devices and all groups under selected gateway.
 </p>
 
 
