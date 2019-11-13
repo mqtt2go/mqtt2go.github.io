@@ -1,4 +1,4 @@
-# The Motivation of the MQTT2GO
+# The MQTT2GO Project Introduction
 When talking about the Internet of Things (IoT), communication is always mentioned in the first place. Interaction between sensors, devices, gateways, and user applications is the essential characteristic that creates the IoT landscape. But what enables all this smart stuff to talk and interact? To exchange the data, the IoT protocols are those enablers which can be seen as languages that the IoT devices use in order to communicate. Out of these transferred pieces of data, useful information can be extracted for the customers and thanks to it, the whole deployment turns into the working ecosystem.
 
 Nevertheless, the wide variety of currently available IoT protocols leads us to the point the Internet of Things needs standardized IoT protocols. They help to avoid further fragmentation of the market, thus minimizing the risk of the incompatibility and security threats. While it seems that this is an affirmation which all agree on, few efforts have been made so far to propose a world-wide standard that would unify all IoT communication. 
