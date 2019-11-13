@@ -1,7 +1,7 @@
 # Revision History
-| Date | Revision | Description |
-|------| -------- | ------------ |
-|2019-11-13| Rev 1.0 | Initial version of the MQTT2GO standard|
+| Date   | Revision | Description  |
+| ------ | -------- | ------------ |
+| 2019-11-13 | Rev 1.0 | Initial version of the MQTT2GO standard |
 
 
 # The MQTT2GO Project Introduction
