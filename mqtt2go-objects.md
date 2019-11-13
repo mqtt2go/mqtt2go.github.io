@@ -186,18 +186,56 @@ As for the commands, here we present two examples of the reports:
 ```
 
 ### MQTT2GO units
-In this section, we provide a table with all units needed by the MQTT2GO messages. If the unit needs to be specified for selected command/report, then it will be inside the value field. The units are following:
+In this section, we provide a table with all units needed by the MQTT2GO messages. If the unit needs to be specified for selected command/report (meaning the command/report is not simple on,off,etc.), then the value will be specfied inside the value field. The units are following:
 
 | Device type                                                                                                                                        | Data type           | Unit                     |
 |----------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|--------------------------|
 | Smart Socket <br/> Solar Panels                                                                                                                          | Power               | W                        |
-| Multi Sensors Thermostat Radiator Valve Health Sensors Climate Control Ovens Weather Stations                                                      | Temperature         | °C, K                    |
-| Garage Door Smart Watering Blinds and Sunscreens Smart Sockets Smart Plant Pots Washers & Dryers Climate Control Coffee Machines Dishwashers Ovens | Timer               | s                        |
-| Smart Plant Pots Weather Stations                                                                                                                  | Humidity   PH       | %  0-14                  |
-| Health Sensors                                                                                                                                     | Weight BMI Pressure | kg, lb kg/m2 mmHg        |
-| Smart Spots / Lights                                                                                                                               | Brightness Color    | % hsb, rgb               |
-| Weather Stations                                                                                                                                   | Wind UV             | m/s, km/h mW/cm2, mJ/cm2 |
+| Multi Sensors<br/> Thermostat<br/> Radiator Valve<br/> Health Sensors<br/> Climate Control<br/> Ovens<br/> Weather Stations                                                      | Temperature         | °C, K                    |
+| Garage Door<br/> Smart Watering<br/> Blinds and Sunscreens<br/> Smart Sockets<br/> Smart Plant Pots<br/> Washers & Dryers<br/> Climate Control<br/> Coffee Machines<br/> Dishwashers<br/> Ovens | Timer               | s                        |
+| Smart Plant Pots<br/> Weather Stations                                                                                                                  | Humidity<br/>   PH       | %<br/>  0-14                  |
+| Health Sensors                                                                                                                                     | Weight<br/> BMI<br/> Pressure | kg, lb <br/> kg/m2 <br/> mmHg        |
+| Smart Spots / Lights                                                                                                                               | Brightness<br/> Color    | %<br/> hsb, rgb               |
+| Weather Stations                                                                                                                                   | Wind<br/> UV             | m/s, km/h <br/>mW/cm2, mJ/cm2 |
 | Smart TVs                                                                                                                                          | Volume              | %                        |
-| Security Cameras Doorbell                                                                                                                          | Stream              | URL address              |
+| Security Cameras<br/> Doorbell                                                                                                                          | Stream              | URL address              |
+
+The units specified above are for currently supported devices. If a new type of device will be added, the unit structure should follow the MQTT2GO standard.
+
+#### MQTT2GO units example
+Here we provide sample command and report to depict the correct usage of units:
+
+##### MQTT2GO unit command
+```json
+{
+	"type": "command",
+	"timestamp":1567677926,
+	"command_type":"setColor",
+	"value": {
+		"unit": "hsb",
+		"h": 100, 
+		"s": 100,
+		"b": 50
+	}
+}
+```
+
+###### MQTT2GO unit report
+
+```json
+{
+	"type": "report",
+	"priority_level": 1,
+	"report_type":"command_response",
+	"timestamp":1567677956,
+	"report_name":"ColorReport",
+	"report": {
+		"unit": "hsb",
+		"h": 100, 
+		"s": 100,
+		"b": 50
+	}
+}
+```
 
 [Back](./index.md#data-structure)
