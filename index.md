@@ -1,7 +1,7 @@
 
 # MQTT2GO System Architecture
 <p align="justify">
-This proposal is a complete guide for an MQTT-enabled smart home setup. It was created based on the MQTT best practices from the available literature and commercially available frameworks [add references]. The structure of this document is as follows: the whole description starts with a diagram of the whole system composition, followed by a description of each element. Further, there is a description of a whole system message flow, together with the initialization setup process.
+This proposal is a complete guide for an MQTT-enabled smart home setup. It was created based on the MQTT best practices from the available literature and commercially available frameworks [<a href="#ref1">1</a>, <a href="#ref2">2</a>, <a href="#ref3">3</a>]. The structure of this document is as follows: the whole description starts with a diagram of the whole system composition, followed by a description of each element. Further, there is a description of a whole system message flow, together with the initialization setup process.
 </p>
 
 <p align="center" >
@@ -69,3 +69,8 @@ This section is dedicated to the MQTT2GO topic naming convention. The structure 
 * [MQTT2GO Broker](./mqtt2go-broker-req.md)
 * [MQTT2GO Controllers (Connected applications)](./mqtt2go-objects-req.md)
 * [MQTT2GO Objects (Smart-Home devices)](./mqtt2go-controllers-req.md)
+
+# References
+<a name="ref1">[1] MQTT Topics & Best Practices - MQTT Essentials: Part 5. Available from: [https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/)
+<a name="ref2">[2]  Understanding MQTT Topics. Available from: [http://www.steves-internet-guide.com/understanding-mqtt-topics/](http://www.steves-internet-guide.com/understanding-mqtt-topics/)
+<a name="ref3">[3] MQTT Topic Tree Design best practices, tips & examples. Available from: [https://pi3g.com/2019/05/29/mqtt-topic-tree-design-best-practices-tips-examples/](https://pi3g.com/2019/05/29/mqtt-topic-tree-design-best-practices-tips-examples/)
