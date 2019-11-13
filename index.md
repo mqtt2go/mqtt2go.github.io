@@ -1,7 +1,7 @@
 
 # MQTT2GO System Architecture
 <p align="justify">
-This proposal is a complete guide for an MQTT-enabled smart home setup. It was created based on the MQTT best practices from the available literature and commercially available frameworks [<a href="#ref1">1</a>, <a href="#ref2">2</a>, <a href="#ref3">3</a>]. The structure of this document is as follows: the whole description starts with a diagram of the whole system composition, followed by a description of each element. Further, there is a description of a whole system message flow, together with the initialization setup process.
+This proposal is a complete guide for an MQTT-enabled smart home setup. It was created based on the MQTT best practices from the available literature and commercially available frameworks [<a href="#ref1">1</a>, <a href="#ref2">2</a>, <a href="#ref3">3</a>]. The structure of this document is as follows: the whole description starts with a diagram of the whole system composition, followed by a description of each element. Further, the document contains thorough description of MQTT2GO standard message flow, together with the process of adding new device.
 </p>
 
 <p align="center" >
@@ -32,7 +32,7 @@ The term MQTT devices inside the MQTT2GO standard is used to describe any MQTT-c
 
 * MQTT2GO Compatible devices, which adhere to the MQTT2GO standard and therefore can communicate directly with the MQTT2GO gateway or backend without intermediate MQTT translating broker.
 
-* MQTT Incompatible devices are devices that do not adhere to the MQTT2GO standard directly, but they are still capable of MQTT communication. This means they can still be added into the MQTT2GO infrastructure, but they do need an MQTT-to-MQTT2GO intermediate unit (i.e., MQTT-to-MTT2GO translation layer).
+* MQTT2GO Non-compliant devices are devices that do not adhere to the MQTT2GO standard directly, but they are still capable of MQTT communication. This means they can still be added into the MQTT2GO infrastructure, but they do need an MQTT-to-MQTT2GO intermediate unit (i.e., MQTT-to-MTT2GO translation layer).
 
 ### Non-MQTT Devices
 <p align="justify">
