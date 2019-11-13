@@ -190,15 +190,15 @@ In this section, we provide a table with all units needed by the MQTT2GO message
 
 | Device type                                                                                                                                        | Data type           | Unit                     |
 |----------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|--------------------------|
-| Smart Socket <br/> Solar Panels                                                                                                                          | Power               | W                        |
-| Multi Sensors<br/> Thermostat<br/> Radiator Valve<br/> Health Sensors<br/> Climate Control<br/> Ovens<br/> Weather Stations                                                      | Temperature         | °C, K                    |
-| Garage Door<br/> Smart Watering<br/> Blinds and Sunscreens<br/> Smart Sockets<br/> Smart Plant Pots<br/> Washers & Dryers<br/> Climate Control<br/> Coffee Machines<br/> Dishwashers<br/> Ovens | Timer               | s                        |
+| Smart Sockets <br/> Solar Panels                                                                                                                          | Power               | W                        |
+| Multi Sensors<br/> Thermostats<br/> Radiator Valves<br/> Health Sensors<br/> Climate Control<br/> Ovens<br/> Weather Stations                                                      | Temperature         | °C, K                    |
+| Garage Doors<br/> Smart Watering<br/> Blinds and Sunscreens<br/> Smart Sockets<br/> Smart Plant Pots<br/> Washers & Dryers<br/> Climate Control<br/> Coffee Machines<br/> Dishwashers<br/> Ovens | Timer               | s                        |
 | Smart Plant Pots<br/> Weather Stations                                                                                                                  | Humidity<br/>   PH       | %<br/>  0-14                  |
 | Health Sensors                                                                                                                                     | Weight<br/> BMI<br/> Pressure | kg, lb <br/> kg/m2 <br/> mmHg        |
 | Smart Spots / Lights                                                                                                                               | Brightness<br/> Color    | %<br/> hsb, rgb               |
 | Weather Stations                                                                                                                                   | Wind<br/> UV             | m/s, km/h <br/>mW/cm2, mJ/cm2 |
 | Smart TVs                                                                                                                                          | Volume              | %                        |
-| Security Cameras<br/> Doorbell                                                                                                                          | Stream              | URL address              |
+| Security Cameras<br/> Doorbells                                                                                                                          | Stream              | URL address              |
 
 The units specified above are for currently supported devices. If a new type of device will be added, the unit structure should follow the MQTT2GO standard.
 
@@ -220,7 +220,7 @@ Here we provide sample command and report to depict the correct usage of units:
 }
 ```
 
-###### MQTT2GO unit report
+##### MQTT2GO unit report
 
 ```json
 {
