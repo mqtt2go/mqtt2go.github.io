@@ -19,6 +19,11 @@ The introduced MQTT2GO standard manages to handle also the non-MQTT devices, whi
 <p align="justify">
 The lessons learned gathered during the project development are further revealed in the form of the MQTT2GO requirements for vendors and/or providers of all the components within the Smart Home scenario i.e., MQTT brokers, MQTT controllers (connected applications), and MQTT objects (Smart Home devices). Therefore, the provided information should guide the potential 3rd party developers / customers to easily reach the desired implementation level to get their products compatible with the introduced MQTT2GO standard.</p>
 
+# Revision History
+| Date | Revision | Description |
+| ---- | ------ | ------------- |
+| 2019-11-13 | Rev 1.0 | Initial version of the MQTT2GO standard |
+
 # MQTT2GO System Architecture
 <p align="justify">
 This proposal is a complete guide for an MQTT-enabled smart home setup. It was created based on the MQTT best practices from the available literature and commercially available frameworks [<a href="#ref1">1</a>, <a href="#ref2">2</a>, <a href="#ref3">3</a>]. The structure of this document is as follows: the whole description starts with a diagram of the whole system composition, followed by a description of each element. Further, the document contains thorough description of MQTT2GO standard message flow, together with the process of adding new device.
