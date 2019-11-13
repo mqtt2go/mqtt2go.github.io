@@ -1,4 +1,4 @@
-# The Motoviation of the MQTT2GO
+# The Motivation of the MQTT2GO
 
 # MQTT2GO System Architecture
 <p align="justify">
