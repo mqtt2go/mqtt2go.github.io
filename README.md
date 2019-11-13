@@ -1,13 +1,13 @@
 # MQTT2GO - Project Description
 
+The main goal of the MQTT2GO project is to investigate one of the most emerging Internet of Things (IoT) protocols i.e., Message Queuing Telemetry Transport (MQTT) for Smart Home scenarios in which all the communication is done using the protocol in question. Based on the key findings gained during the thorough market overview, the introduced MQTT-enabled proof-of-concept demonstrator enables to handle both the MQTT devices and MQTT controllers, see the figure "Architecture of MQTT2GO System." 
+
 <p align="center" >
 	<img src="mqtt_architecture.svg" alt="Architecture of MQTT2GO System.">
 </p>
 <p align="center" >
 	<em>Architecture of MQTT2GO System.</em>
 </p>
-
-The main goal of the MQTT2GO project is to investigate one of the most emerging Internet of Things (IoT) protocols i.e., Message Queuing Telemetry Transport (MQTT) for Smart Home scenarios in which all the communication is done using the protocol in question. Based on the key findings gained during the thorough market overview, the introduced MQTT-enabled proof-of-concept demonstrator enables to handle both the MQTT devices and MQTT controllers, see the figure "Architecture of MQTT2GO System." 
 
 What is even more, the introduced MQTT2GO standard manages to handle also the Non-MQTT devices which can be also part of the Smart Home scenario. Relying on the current ICT trends, the MQTT2GO standard introduces two MQTT brokers which are located in the local network (local MQTT broker) and in the remote infrastructure of the service provider (cloud MQTT broker). This innovative concept opens the door to a wide variety of communication scenarios e.g., the configuration of the new smart home sensor can be done via the smartphone which is even not present in the local WLAN. Also, the MQTT2GO brings on the light the security aspects of the wired/wireless communications and introduces innovative principles that are technology-driven but at the same time easy to use for the customers.
 
