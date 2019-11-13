@@ -3,7 +3,7 @@
 The main goal of the MQTT2GO project is to investigate one of the most emerging Internet of Things (IoT) protocols i.e., Message Queuing Telemetry Transport (MQTT) for Smart Home scenarios in which all the communication is done using the protocol in question. Based on the key findings gained during the thorough market overview, the introduced MQTT-enabled proof-of-concept demonstrator enables to handle both the MQTT devices and MQTT controllers, see the figure "Architecture of MQTT2GO System." As the MQTT protocol provides a lightweight method of carrying out messaging using a publish / subscribe model it is well suited for IoT messaging such as with low power sensors or mobile devices such as smartphones, embedded devices, etc.
 
 <p align="center" >
-	<img src="mqtt_architecture.svg" alt="Architecture of MQTT2GO System.">
+	<img src="mqtt_architecture.svg" alt="Architecture of MQTT2GO System." width="600"/>
 </p>
 <p align="center" >
 	<em>Architecture of MQTT2GO System.</em>
