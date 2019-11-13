@@ -87,6 +87,7 @@ To provide some examples of the MQTT Commands usage, we provide simple and compl
 	"timestamp":1567677926,
 	"command_type":"setColor",
 	"value": {
+		"unit": "hsb",
 		"h": 100, 
 		"s": 100,
 		"b": 50
@@ -176,11 +177,27 @@ As for the commands, here we present two examples of the reports:
 	"timestamp":1567677956,
 	"report_name":"ColorReport",
 	"report": {
+		"unit": "hsb",
 		"h": 100, 
 		"s": 100,
 		"b": 50
 	}
 }
 ```
+
+### MQTT2GO units
+In this section, we provide a table with all units needed by the MQTT2GO messages. If the unit needs to be specified for selected command/report, then it will be inside the value field. The units are following:
+
+| Device type                                                                                                                                        | Data type           | Unit                     |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|--------------------------|
+| Smart Socket <br/> Solar Panels                                                                                                                          | Power               | W                        |
+| Multi Sensors Thermostat Radiator Valve Health Sensors Climate Control Ovens Weather Stations                                                      | Temperature         | °C, K                    |
+| Garage Door Smart Watering Blinds and Sunscreens Smart Sockets Smart Plant Pots Washers & Dryers Climate Control Coffee Machines Dishwashers Ovens | Timer               | s                        |
+| Smart Plant Pots Weather Stations                                                                                                                  | Humidity   PH       | %  0-14                  |
+| Health Sensors                                                                                                                                     | Weight BMI Pressure | kg, lb kg/m2 mmHg        |
+| Smart Spots / Lights                                                                                                                               | Brightness Color    | % hsb, rgb               |
+| Weather Stations                                                                                                                                   | Wind UV             | m/s, km/h mW/cm2, mJ/cm2 |
+| Smart TVs                                                                                                                                          | Volume              | %                        |
+| Security Cameras Doorbell                                                                                                                          | Stream              | URL address              |
 
 [Back](./index.md#data-structure)
