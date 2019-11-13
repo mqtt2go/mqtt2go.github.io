@@ -1,46 +1,21 @@
-## [Welcome to this initiative!](https://mqtt2go.github.io/convention/)
+# MQTT2GO - Project Description
 
-A convention for joint requirements to utilize MQTT brokers and clients, as well as for platform providers, manufacturers of IoT devices and/or developers of end-user applications, to foster synergies between industries and within projects.
+<p align="center" >
+	<img src="mqtt_architecture.svg" alt="Architecture of MQTT2GO System.">
+</p>
+<p align="center" >
+	<em>Architecture of MQTT2GO System.</em>
+</p>
 
-------
-You can use the [editor on GitHub](https://github.com/mqtt2go/convention/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+The main scope of this project is to thoroughly investigate one of the most emerging IoT protocols – Message Queuing Telemetry Transport (MQTT). As the main outcome of performed investigation, a comprehensive specification study, covering the technical capabilities, functions, connection procedures, security issues, deployment requirements and other aspects of the MQTT protocol with the focus on its usability in Smart Home environment, will be prepared. Based on the key findings gained during the performed study, the MQTT-enabled proof-of-concept demonstrator of selected smart home use cases will be developed with the main focus on practical verification of the proposed MQTT specifications, design principles, topics as well as payload formatting and other related issues.  
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The fundamental questions and issues serving as the motivation for this project are as follows:
+•	How the optimal design of MQTT framework applicable for smart home scenario should look like?
+•	What type of data can be transferred via MQTT protocol and what is the ideal format of the MQTT payload?
+•	How the MQTT topics naming model should be designed?
+•	How the overall MQTT implementation should be designed to allow easy and comprehensive interaction with any 3rd-party applications or user interfaces?
+•	How the information potentially available about the smart home environment can be efficiently combined and processed via the Machine-Learning / Artificial Intelligence tools in order to identify some irregularities in the behaviour of smart home users, e.g. as a smart care alert application?
+•	Which of the internal information/functions should not be provided via MQTT?
+•	How can the granting of access be automated with minimum requirements of user interaction/user knowledge?
 
-### Markdown
-
-### [Link to another page](./another-page.md)
-
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Test Header
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mqtt2go/convention/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
-
+Through the developed MQTT2GO demonstrator, the practical suitability of the specifications and requirements, proposed in the performed study, will be demonstrated. Moreover, following the ready-to-use principles defined also in the created specification report, the demonstrator will be ready for interaction with any 3rd party MQTT applications or services. The user guide, how to set up such interaction, will be delivered as well.
