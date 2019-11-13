@@ -1,3 +1,8 @@
+# Revision History
+| Date | Revision | Description |
+| ---- | ------ | ------------- |
+| 2019-11-13 | Rev 1.0 | Initial version of the MQTT2GO standard |
+
 # The MQTT2GO Project Introduction
 <p align="justify"> When talking about the Internet of Things (IoT), communication is always mentioned in the first place. Interaction between sensors, devices, gateways, and user applications is the essential characteristic that creates the IoT landscape. But what enables all this smart stuff to talk and interact? To exchange the data, the IoT protocols are those enablers which can be seen as languages that the IoT devices use in order to communicate. Out of these transferred pieces of data, useful information can be extracted for the customers and thanks to it, the whole deployment turns into the working ecosystem.</p>
 
@@ -12,11 +17,6 @@ The introduced MQTT2GO standard manages to handle also the non-MQTT devices, whi
 
 <p align="justify">
 The lessons learned gathered during the project development are further revealed in the form of the MQTT2GO requirements for vendors and/or providers of all the components within the Smart Home scenario i.e., MQTT brokers, MQTT controllers (connected applications), and MQTT objects (Smart Home devices). Therefore, the provided information should guide the potential 3rd party developers / customers to easily reach the desired implementation level to get their products compatible with the introduced MQTT2GO standard.</p>
-
-# Revision History
-| Date | Revision | Description |
-| ---- | ------ | ------------- |
-| 2019-11-13 | Rev 1.0 | Initial version of the MQTT2GO standard |
 
 # MQTT2GO System Architecture
 <p align="justify">
