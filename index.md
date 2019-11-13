@@ -1,8 +1,12 @@
 # Revision History
 
-| Date | Revision | Description |
-| ---- | ------ | ------------- |
-| 2019-11-13 | Rev 1.0 | Initial version of the MQTT2GO standard |
+| Status | Description                                                 |
+|--------|-------------------------------------------------------------|
+| Status | Description                                                 |
+| MUST   | Mandatory requirement.                                      |
+| SHOULD | Requirement which should be met, but which is not absolute. |
+| CAN    | Optional requirement which will strengthen the offering.    |
+
 
 # The MQTT2GO Project Introduction
 <p align="justify"> When talking about the Internet of Things (IoT), communication is always mentioned in the first place. Interaction between sensors, devices, gateways, and user applications is the essential characteristic that creates the IoT landscape. But what enables all this smart stuff to talk and interact? To exchange the data, the IoT protocols are those enablers which can be seen as languages that the IoT devices use in order to communicate. Out of these transferred pieces of data, useful information can be extracted for the customers and thanks to it, the whole deployment turns into the working ecosystem.</p>
