@@ -25,7 +25,7 @@ In this section the requirements which have to be fulfilled in order to work wit
 ## Hardware Requirements (MQTT Controllers)
 | ID | Status | Description                                                                                  |
 |----|--------|----------------------------------------------------------------------------------------------|
-| N1 | MUST   | The device in the role of the MQTT controller must enable communication with the Management Server via the wired or wireless communication interface, see Section "Setup new MQTT2GO Controller".|
+| N1 | MUST   | The device in the role of the MQTT controller must enable communication with the Management Server via the wired or wireless communication interface, see Section [Setup new MQTT2GO Controller](./add-controller.md).|
 
 ## System Requirements (Local Gateway)
 | ID | Status | Description                                                                                  |
