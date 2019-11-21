@@ -22,6 +22,10 @@ In this section the requirements which have to be fulfilled in order to work wit
 | M2 | MUST   | List of required functionality enabled by installed packages: Secure Sockets Layer (SSL); Transport Layer Security (TLS); MQTT Client.|
 | M2 | MUST   | List of optional packages based on the communication scenario: Wifi Protected Setup (WPS).|
 
+## Hardware Requirements (MQTT Controllers)
+| ID | Status | Description                                                                                  |
+|----|--------|----------------------------------------------------------------------------------------------|
+| N1 | MUST   | The device in the role of the MQTT controller must enable communication with the Management Server via the wired or wireless communication interface.|
 
 ## System Requirements (Local Gateway)
 | ID | Status | Description                                                                                  |
