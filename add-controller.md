@@ -42,4 +42,59 @@ The MQTT2GO controller creation proccess can be initialized only if at least one
 	<a name="add-devices-fig"></a><em><strong>Fig. 2:</strong> Proccess of login into MQTT2GO account (adding new MQTT2GO controller).</em>
 </p>
 
+### User authentication
+The user authentication operation inside MQTT2GO controller creation is utilizing the HTTPS API and therefore does not follow the MQTT2GO topic naming convention. The reason for this is to simplify the access proccess of a service, which will be utilized only a several times. 
+
+#### HTTPS API message structure
+Eventhough the HTTPS API is not adhering to the topic naming convention, it still utilizes the JSON data structure of the messages. This section provides examples of all utilized messages.
+
+##### user_login
+This message contains information about the user credentials. Its structure is following:
+```json
+{	
+	"username": "username",
+	"password": "pwd"
+}
+```
+
+### Configuration
+This section is utilizing the standard MQTT2GO topic naming structure together with standard MQTT2GO messages. They are described in following section.
+
+#### MQTT Commands
+In this specific implementation, the only MQTT2GO command is only one and its primary goal is to request all device topics to which the controller have to subscribe. This secures the controller to be able to controll all devices, to which the selected user has access to. The command structure is based on the structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. The numbering in this section is coherent with the numbering in <a href="#add-devices-fig">Fig. 2</a>.
+
+#### Get Device Topics
+<p align="justify">
+Get device topics command (1) is used to get device topics from the SH-GW. This command has value of <em>GET_DEVICE_TOPICS</em>.
+</p>
+
+```json
+{
+	"type": "command",
+	"timestamp": "timestamp_value",
+	"command_type": "topics",
+	"value": "GET_DEVICE_TOPICS"
+}
+```
+
+### MQTT Reports
+<p align="justify">
+The MQTT reports presented here are designed as a “responses” to aforementioned commands. Their structure is also coherent with the general structure from <a href="./mqtt2go-commands#mqtt_reports">MQTT Reports</a> and the numbering is matching the one in <a href="#add-devices-fig">Fig. 2</a>.
+</p>
+
+#### Device Topics
+<p align="justify">
+This report (2) is used to deliver the requested topics, in which the new device is intended to subscribe.
+</p>
+
+```json
+{
+	"type": "report",
+	"report_type":"command_response",
+	"timestamp": "timestamp_value",
+	"report_name": "topics",
+	"value": ["topic_1", "topic_2", "topic_3"]
+}
+```
+
 [Back](./index.md#add-devices)
