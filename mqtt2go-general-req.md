@@ -10,7 +10,7 @@ In this section the requirements which have to be fulfilled in order to work wit
 | CAN    | Optional requirement which will strengthen the offering.    |
 
 # Cloud Requirements
-## System Requirements (Cloud)
+## System Requirements
 
 | ID | Status | Description                                                                                  |
 |----|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
