@@ -2,7 +2,7 @@
 
 | Date | Revision | Description |
 | ---- | ------ | ------------- |
-| 2019-11-21 | Rev 1.1 | Initial version of the MQTT2GO standard |
+| 2019-11-21 | Rev 1.1 | Updated version of the MQTT2GO standard |
 | 2019-11-13 | Rev 1.0 | Initial version of the MQTT2GO standard |
 
 # The MQTT2GO Project Introduction
