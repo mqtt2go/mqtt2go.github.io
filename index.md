@@ -87,10 +87,6 @@ This section is dedicated to the MQTT2GO topic naming convention. The structure 
 
 
 # <a name="requirements"></a>MQTT2GO Requirements
-[//]: # (This may be the most platform independent comment)
-[//]: # [MQTT2GO Controllers (Connected applications)](./mqtt2go-objects-req.md)
-[//]: # [MQTT2GO Objects (Smart-Home devices)](./mqtt2go-controllers-req.md)
-
 * [MQTT2GO General Requirements](./mqtt2go-general-req.md)
 
 
