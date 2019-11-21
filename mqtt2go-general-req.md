@@ -13,7 +13,7 @@ In this section the requirements which have to be fulfilled in order to work wit
 | ID | Status | Description                                                                                  |
 |----|--------|----------------------------------------------------------------------------------------------|
 | C1 | MUST   | The selected operating system must enable installation of the below mentioned packages which are requested for the functionality of the MQTT2GO standard.|
-| C2 | MUST   | List of required functionality enabled by installed packages: multicast DNS (mDNS); Wifi Protected Setup (WPS); Secure Sockets Layer (SSL); Transport Layer Security (TLS); MQTT Broker.|
+| C2 | MUST   | List of required functionality enabled by installed packages: multicast DNS (mDNS); WiFi Protected Setup (WPS); Secure Sockets Layer (SSL); Transport Layer Security (TLS); MQTT Broker.|
 
 ## System Requirements (MQTT Controllers)
 | ID | Status | Description                                                                                  |
@@ -31,7 +31,7 @@ In this section the requirements which have to be fulfilled in order to work wit
 | ID | Status | Description                                                                                  |
 |----|--------|----------------------------------------------------------------------------------------------|
 | L1 | MUST   | The selected operating system must enable installation of the below mentioned packages which are requested for the functionality of the MQTT2GO standard.|
-| L2 | MUST   | List of required functionality enabled by installed packages: multicast DNS (mDNS); Wifi Protected Setup (WPS); Secure Sockets Layer (SSL); Transport Layer Security (TLS); MQTT Broker; MQTT Client.|
+| L2 | MUST   | List of required functionality enabled by installed packages: multicast DNS (mDNS); WiFi Protected Setup (WPS); Secure Sockets Layer (SSL); Transport Layer Security (TLS); MQTT Broker; MQTT Client.|
 | L3 | CAN   | List of optional packages based on the communication scenario (with or without the local MQTT broker): MQTT Client.|
 
 ## Hardware Requirements (Local Gateway)
