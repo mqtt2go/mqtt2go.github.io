@@ -7,7 +7,7 @@ From the perspective of the whole MQTT2GO communication infrastructure, the setu
 This section defines how the creation of a new MQTT2GO account and addition of a new MQTT2GO Controtroller is done.
 
 ## Creation of new MQTT2GO account
-The new MQTT2GO account creation proccess utilizes credentials provided by the MQTT2GO standard adopter entity. They are meant to be provided after the initial  client registration proccess to the adopter's system. The creation proccess steps are following:
+The new MQTT2GO account creation proccess utilizes credentials provided by the MQTT2GO standard adopter entity. They are meant to be provided after the initial client registration proccess to the adopter's system. The creation proccess steps are following:
 
 1. The MQTT2GO App / Web Interface connects to the management server via __HTTPS: /admin_login__ using the provided credetials (Username and Password).
 1. The MQTT2GO APp / Web Interface sends a request containing the Username, Password, Phone Number, Home ID, and GW ID to the Management server on the  __HTTPS: /add_user__.
@@ -21,7 +21,19 @@ The new MQTT2GO account creation proccess utilizes credentials provided by the M
 </p>
 
 ## Creation of new MQTT2GO controller
-The MQTT2GO controller creation proccess can be initialized only if the MQTT2GO account creation was successfull. If so, the initially created user is able to 
+The MQTT2GO controller creation proccess can be initialized only if at least one MQTT2GO account creation was successfull. If this requirement is satisfied, created user is able to add a new MQTT2GO controller to the system. This proccess is again utilizing the Management Server for user authentication. The reason to utilize it together with the Cloud MQTT2GO Broker is mainly the security. The process itself can be described in following steps:
+
+1. The MQTT2GO App tries to connect to __HTTPS: /user_login__ using the user credentials (username and password).
+1. If the credentials are valid, the Management Server forwards this request to the __HTTPS: / login_user__ of Cloud MQTT2GO Browser and initializes the login login proccess.
+1. The Cloud MQTT2GO Broker then sends activation code via the SMS for client verification.
+1. User enters this code into the MQTT2GO App which then sends it into the __HTTPS: /get_credentials__ of the Management Server.
+1. The Management server forwards the activation code to the __HTTPS: /get_credentials__ of Cloud MQTT2GO Broker.
+1. The Cloud MQTT2GO Broker then sends the certificate to the __HTTPS: /post_credentials__ of the Management Server.
+1. The Management server then sends a response with User ID, Broker IP, and Certificate to the __HTTPS: /get_credentials__ from which the MQTT2GO App saves it.
+1. The MQTT2GO App connects to the Cloud MQTT2GO Broker using the provided certificate, user ID and Broker IP.
+1. The MQTT2GO App subscribes to the __<user_id>/topics__ and publishes a __GET_DEVICE_TOPICS__ message.
+1. The Cloud MQTT2GO Broker publishes to the __<user_id>/topics__ message with all topics the MQTT2GO App has to subscribe to.
+1. From now on, the MQTT communication follows the MQTT2GO standard proccesss.
 
 <p align="center" >
 	<img src="mqtt_controller_login.svg" alt="Proccess of login into MQTT2GO account">
