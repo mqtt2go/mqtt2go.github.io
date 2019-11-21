@@ -47,7 +47,7 @@ In this section the requirements which have to be fulfilled in order to work wit
 |----|--------|----------------------------------------------------------------------------------------------|
 | H1 | MUST   | The device in the role of the local SH-GW must have 2x SSID Wi-Fi 2.4GHz + 5GHz (IEEE 802.11b/g/n and 802.11a/n/ac) network, but SHOULD be more. The SH-GW must support the WPS functionality (as mentioned above) as it is related to the proposed functionality of the local MQTT broker.|
 | H2 | MUST   | Sufficient amount of FLASH memory to run the solution implemented based on the MQTT2GO standard.|
-| H2 | MUST   | Sufficient amount of RAM memory to run the solution implemented based on the MQTT2GO standard.|
+| H3 | MUST   | Sufficient amount of RAM memory to run the solution implemented based on the MQTT2GO standard.|
 
 
 
