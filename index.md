@@ -87,9 +87,12 @@ This section is dedicated to the MQTT2GO topic naming convention. The structure 
 
 
 # <a name="requirements"></a>MQTT2GO Requirements
-* [MQTT2GO Broker](./mqtt2go-broker-req.md)
-* [MQTT2GO Controllers (Connected applications)](./mqtt2go-objects-req.md)
-* [MQTT2GO Objects (Smart-Home devices)](./mqtt2go-controllers-req.md)
+[//]: # (This may be the most platform independent comment)
+[//]: # [MQTT2GO Controllers (Connected applications)](./mqtt2go-objects-req.md)
+[//]: # [MQTT2GO Objects (Smart-Home devices)](./mqtt2go-controllers-req.md)
+
+* [MQTT2GO General Requirements](./mqtt2go-general-req.md)
+
 
 # References
 <a name="ref1"></a>[1] MQTT Topics & Best Practices - MQTT Essentials: Part 5. Available from: [https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/)
