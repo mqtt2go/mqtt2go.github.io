@@ -1,6 +1,7 @@
 [Back](./index.md#requirements)
 # MQTT2GO General Requirements
-This section is related to the requirements for a Smart-Home Gateway (SH-GW) in the role of the local MQTT broker, see the MQTT System Architecture. Not only the SH-GW is compliant with the software requirements given by the MQTT2GO standard i.e., acting as a local MQTT broker, MQTT proxy, and wireless access bridge, it must be also able to run 3rd party applications (in a container (SH namespace) as virtual environment) in a completely isolated environment and ensure high portability and security. 
+In this section the requirements which have to be fulfilled in order to work with the proposed MQTT2GO standard. The requirements are logically divided into groups based on their type.
 
+## 
 
 [Back](./index.md#requirements)
