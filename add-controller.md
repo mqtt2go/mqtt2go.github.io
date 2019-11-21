@@ -21,8 +21,7 @@ The new MQTT2GO account creation proccess utilizes credentials provided by the M
 </p>
 
 ## Creation of new MQTT2GO controller
-The MQTT2GO controller creation proccess can be initialized only if at least one MQTT2GO account creation was successfull. If this requirement is satisfied, created user is able to add a new MQTT2GO controller to the system. This proccess is again utilizing the Management Server for user authentication. The reason to utilize it together with the Cloud MQTT2GO Broker is mainly the security. The process itself can be described in following steps:
-
+The MQTT2GO controller creation proccess can be initialized only if at least one MQTT2GO account creation was successfull. If this requirement is satisfied, created user is able to add a new MQTT2GO controller and users to the system. It is also worthwile to be noted, that in theor users can use the same username for multiple logins, but to deal with this problem is not in scope of the MQTT2GO standard. The MQTT2GO creation proccess is again utilizing the Management Server for user authentication. The reason to utilize it together with the Cloud MQTT2GO Broker is mainly the security. The process itself can be described in following steps:
 1. The MQTT2GO App tries to connect to __HTTPS: /user_login__ using the user credentials (username and password).
 1. If the credentials are valid, the Management Server forwards this request to the __HTTPS: / login_user__ of Cloud MQTT2GO Browser and initializes the login login proccess.
 1. The Cloud MQTT2GO Broker then sends activation code via the SMS for client verification.
@@ -41,6 +40,8 @@ The MQTT2GO controller creation proccess can be initialized only if at least one
 <p align="center" >
 	<a name="add-devices-fig"></a><em><strong>Fig. 2:</strong> Proccess of login into MQTT2GO account (adding new MQTT2GO controller).</em>
 </p>
+
+This procedure is presented as the ideal implementation of the controller creation. If the user wants to utilize third party MQTT client, the green part (Authentication) that is exploited for broker IP and certificate obtaining has to implmented or used separately (i.e., using the web browser). 
 
 ### User authentication
 The user authentication operation inside MQTT2GO controller creation is utilizing the HTTPS API and therefore does not follow the MQTT2GO topic naming convention. The reason for this is to simplify the access proccess of a service, which will be utilized only a several times. 
