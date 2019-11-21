@@ -24,7 +24,7 @@ In this section the requirements which have to be fulfilled in order to work wit
 |----|--------|----------------------------------------------------------------------------------------------|
 | M1 | MUST   | The selected operating system must enable installation of the below mentioned packages which are requested for the functionality of the MQTT2GO standard.|
 | M2 | MUST   | List of required functionality enabled by installed packages: Secure Sockets Layer (SSL); Transport Layer Security (TLS); MQTT Client.|
-| M2 | MUST   | List of optional packages based on the communication scenario: WiFi Protected Setup (WPS).|
+| M3 | MUST   | List of optional packages based on the communication scenario: WiFi Protected Setup (WPS).|
 
 ## Hardware Requirements
 
