@@ -9,15 +9,14 @@ In this section the requirements which have to be fulfilled in order to work wit
 | SHOULD | Requirement which should be met, but which is not absolute. |
 | CAN    | Optional requirement which will strengthen the offering.    |
 
+# Cloud Requirements
 ## System Requirements (Cloud)
-
 | ID | Status | Description                                                                                  |
-|----|--------|----------------------------------------------------------------------------------------------|
+|----|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | C1 | MUST   | The selected operating system must enable installation of the below mentioned packages which are requested for the functionality of the MQTT2GO standard.|
 | C2 | MUST   | List of required functionality enabled by installed packages: multicast DNS (mDNS); WiFi Protected Setup (WPS); Secure Sockets Layer (SSL); Transport Layer Security (TLS); MQTT Broker.|
 
 ## System Requirements (MQTT Controllers)
-
 | ID | Status | Description                                                                                  |
 |----|--------|----------------------------------------------------------------------------------------------|
 | M1 | MUST   | The selected operating system must enable installation of the below mentioned packages which are requested for the functionality of the MQTT2GO standard.|
