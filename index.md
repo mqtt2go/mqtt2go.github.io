@@ -87,7 +87,7 @@ This section is dedicated to the MQTT2GO topic naming convention. The structure 
 
 
 # <a name="requirements"></a>MQTT2GO Requirements
-This section is related to the requirements ...
+This section is related to the requirements which have to be fulfilled in order to work with the proposed MQTT2GO standard. The given requirements do cover the key functionalities which the MQTT2GO takes into the account as the basic features of the communication system.
 * [MQTT2GO General Requirements](./mqtt2go-general-req.md)
 
 
