@@ -56,7 +56,7 @@ In this section the requirements which have to be fulfilled in order to work wit
 
 | ID | Status | Description                                                                                  |
 |----|--------|----------------------------------------------------------------------------------------------|
-| O1 | MUST   | The end-devices in the role of the MQTT Objects that are connected to the MQTT2GO system must be equipped with a QR code for the initial connection setup.|
+| O1 | MUST   | The end-devices in the role of the MQTT Objects that are connected to the MQTT2GO system i.e., to the local or cloud MQTT broker must be equipped with a QR code for the initial connection setup.|
 
 
 [Back](./index.md#requirements)
