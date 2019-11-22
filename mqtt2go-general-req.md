@@ -49,7 +49,14 @@ In this section the requirements which have to be fulfilled in order to work wit
 | H2 | MUST   | Sufficient amount of FLASH memory to run the solution implemented based on the MQTT2GO standard.|
 | H3 | MUST   | Sufficient amount of RAM memory to run the solution implemented based on the MQTT2GO standard.|
 
+# MQTT Objects
+## System Requirements 
 
+## Hardware Requirements 
+
+| ID | Status | Description                                                                                  |
+|----|--------|----------------------------------------------------------------------------------------------|
+| O1 | MUST   | The end-devices in the role of the MQTT Objects that are connected to the MQTT2GO system must be equipped with a QR code for the initial connection setup.|
 
 
 [Back](./index.md#requirements)
