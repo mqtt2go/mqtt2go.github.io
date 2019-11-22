@@ -56,6 +56,7 @@ In this section the requirements which have to be fulfilled in order to work wit
 |----|--------|----------------------------------------------------------------------------------------------|
 | O1 | MUST   | Out of the box, the end-device must act as a MQTT client; the implementation of the MQTT v3.1.1 or newer must be done.|
 | O2 | MUST   | List of required functionality: multicast DNS (mDNS); WiFi Protected Setup (WPS); Transport Layer Security (TLS v1.2 or higher; including SSLv3).|
+| O2 | MUST   | In case the end-device does not implement MQTT messaging protocol, the intermediate gateway must be provided to translate the communication between local MQTT broker and the end device.|
 
 
 ## Hardware Requirements 
