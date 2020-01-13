@@ -8,7 +8,7 @@
 		<td>2019-11-21</td><td>Rev 1.1</td><td>Updated version of the MQTT2GO standard</td><td><a href="./changelog.html">Changelog</a></td>
 	</tr>
 	<tr>
-		<td>2019-11-13</td><td><a href="./1.0/index.html">Rev 1.0</a></td><td>Initial version of the MQTT2GO standard</td><td><a href="./1.0/changelog.html">Changelog</a></td>
+		<td>2019-11-13</td><td><a href="/1.0/index.html">Rev 1.0</a></td><td>Initial version of the MQTT2GO standard</td><td><a href="./1.0/changelog.html">Changelog</a></td>
 	</tr>
 </table>
 
