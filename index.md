@@ -7,9 +7,9 @@
 
 
 <table width="100%">
-	<th>
-		<td>Date</td><td>Revision</td><td>Description</td><td>Changelog</td>
-	</th>
+	<tr>
+		<th>Date</th><th>Revision</th><th>Description</th><th>Changelog</th>
+	</tr>
 	<tr>
 		<td>2019-11-21</td><td>Rev 1.1</td><td>Updated version of the MQTT2GO standard</td><td>Changelog</td>
 	</tr>
