@@ -1,3 +1,5 @@
 theme: jekyll-theme-cayman
 title: MQTT2GO Convention
+github:
+  is_project_page: true
 description: An agreement on positions, definitions and specifications for the use of MQTT in harmonised form for service platforms, IoT devices, control nodes and user applications.
