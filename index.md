@@ -6,9 +6,9 @@
 | 2019-11-13 | [Rev 1.0](./1.0/index.md) | Initial version of the MQTT2GO standard | [Changelog](./1.0/changelog.md) |
 
 
-<table width="100%">
+<table style="width:100%">
 	<tr>
-		<th>Date</th><th>Revision</th><th>Description</th><th>Changelog</th>
+		<th style="width:10%">Date</th><th style="width:10%">Revision</th><th style="width:70%">Description</th><th style="width:10%">Changelog</th>
 	</tr>
 	<tr>
 		<td>2019-11-21</td><td>Rev 1.1</td><td>Updated version of the MQTT2GO standard</td><td>Changelog</td>
