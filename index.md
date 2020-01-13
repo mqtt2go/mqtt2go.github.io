@@ -2,6 +2,7 @@
 
 | Date | Revision | Description | Changelog |
 | ---- | -------- | ----------- | --------- |
+|<img width=200/>|<img width=200/>|<img width=500/>|<img width=200/>|
 | 2019-11-21 | Rev 1.1 | Updated version of the MQTT2GO standard | [Changelog](./changelog.md) |
 | 2019-11-13 | [Rev 1.0](./1.0/index.md) | Initial version of the MQTT2GO standard | [Changelog](./1.0/changelog.md) |
 
