@@ -1,9 +1,17 @@
 # Release Versions
 
-| Date | Revision | Description | Changelog |
-| ---- | ------ | ------------- | ---------- |
-| 2019-11-21 | [Rev 1.1](../index.md) | Updated version of the MQTT2GO standard | [Changelog](../changelog.md) |
-| 2019-11-13 | Rev 1.0 | Initial version of the MQTT2GO standard | [Changelog](./changelog.md) |
+
+<table style="width:100%">
+	<tr>
+		<th style="width:20%">Date</th><th style="width:10%">Revision</th><th style="width:60%">Description</th><th style="width:10%">Changelog</th>
+	</tr>
+	<tr>
+		<td>2019-11-21</td><td><a href="https://mqtt2go.github.io/index.html">Rev 1.1</a></td><td>Updated version of the MQTT2GO standard</td><td><a href="https://mqtt2go.github.io/changelog.html">Changelog</a></td>
+	</tr>
+	<tr>
+		<td>2019-11-13</td><td>Rev 1.0</td><td>Initial version of the MQTT2GO standard</td><td><a href="https://mqtt2go.github.io/1.0/changelog.html">Changelog</a></td>
+	</tr>
+</table>
 
 # The MQTT2GO Project Introduction
 <p align="justify"> When talking about the Internet of Things (IoT), communication is always mentioned in the first place. Interaction between sensors, devices, gateways, and user applications is the essential characteristic that creates the IoT landscape. But what enables all this smart stuff to talk and interact? To exchange the data, the IoT protocols are those enablers which can be seen as languages that the IoT devices use in order to communicate. Out of these transferred pieces of data, useful information can be extracted for the customers and thanks to it, the whole deployment turns into the working ecosystem.</p>
