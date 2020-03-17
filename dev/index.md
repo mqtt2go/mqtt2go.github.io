@@ -5,6 +5,9 @@
 		<th style="width:20%">Date</th><th style="width:10%">Revision</th><th style="width:60%">Description</th><th style="width:10%">Changelog</th>
 	</tr>
 	<tr>
+		<td>TBD</td><td>Rev 1.2</td><td>TBD</td><td>TBD</td>
+	</tr>
+	<tr>
 		<td>2019-11-21</td><td>Rev 1.1</td><td>Updated version of the MQTT2GO standard</td><td><a href="https://mqtt2go.github.io/changelog.html">Changelog</a></td>
 	</tr>
 	<tr>
