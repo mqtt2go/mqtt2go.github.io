@@ -1,19 +1,172 @@
 [Back](../mqtt2go-objects.md)
 
 # Blinds and Sunscreens
+To control the blinds and sunscreens, a user have to follow the MQTT2GO convention. To ease up the setup, this page is dedicated to the command and report messages utilized for such communication.
 
 ## <a name="commands"></a>Commands
+As specified by the MQTT2GO convention, the commands are utilized for device control. In the following subsection, we present the standardized way which is following the convention.
 
-### set
-Up, Down, Stop
+### Set Target Position
+```json
+{
+	"type": "command",
+	"timestamp":1567677926,
+	"command_type":"setTargetPosition",
+	"value": 50
+}
+```
 
-### set_timer
-\<Timer\>
+### Set Up Position
+```json
+{
+	"type": "command",
+	"timestamp":1567677926,
+	"command_type":"set",
+	"value": "up"
+}
+```
+
+### Set Down Position
+```json
+{
+	"type": "command",
+	"timestamp":1567677926,
+	"command_type":"set",
+	"value": "down"
+}
+```
+
+### Stop Position
+```json
+{
+	"type": "command",
+	"timestamp":1567677926,
+	"command_type":"set",
+	"value": "stop"
+}
+```
+
+### Set Horizontal Tilt Angle
+```json
+{
+	"type": "command",
+	"timestamp":1567677926,
+	"command_type":"setHorizontalTilt",
+	"value": 90
+}
+```
+
+### Set Vertical Tilt Angle
+```json
+{
+	"type": "command",
+	"timestamp":1567677926,
+	"command_type":"setVerticalTilt",
+	"value": 90
+}
+```
+### Set Timer
+```json
+{
+	"type": "command",
+	"timestamp":1567677926,
+	"command_type":"setTimer",
+	"value": 120
+}
+```
 
 ## <a name="reports"></a>Reports
+Reports are utilized either as responses to the commands or to report periodic or critical event.
 
-### state
-Closed, Open, Stopped, RepairNeeded
+### State Report
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":1567677956,
+	"report_name":"state",
+	"report": "closed"
+}
+```
 
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":1567677956,
+	"report_name":"state",
+	"report": "open"
+}
+```
 
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":1567677956,
+	"report_name":"state",
+	"report": "stopped"
+}
+```
+
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":1567677956,
+	"report_name":"state",
+	"report": "repairNeeded"
+}
+```
+### Current Position Report
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":1567677956,
+	"report_name":"CurrentPositionReport",
+	"report": 50
+}
+```
+
+### Current Horizontal Angle Report
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":1567677956,
+	"report_name":"CurrentHorizontalAngleReport",
+	"report": 90
+}
+```
+
+### Current Vertical Angle Report
+```json
+{
+	"type": "report",
+	"priority_level": 2,
+	"report_type":"command_response",
+	"timestamp":1567677956,
+	"report_name":"CurrentVerticalAngleReport",
+	"report": 90
+}
+```
+
+### Obstruction Detected Report
+```json
+{
+	"type": "report",
+	"priority_level": 1,
+	"report_type":"status",
+	"timestamp":1567677956,
+	"report_name":"ObstructionDetectedReport",
+	"report": "true"
+}
+```
 [Back](../mqtt2go-objects.md)
