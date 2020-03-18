@@ -36,7 +36,7 @@ The command types used in the MQTT Commands are describing the targeted function
 | Security Cameras | camera | set <br/> query | On, Off <br/> Stream |
 | Doorbell | doorbell | set <br/> query | Disable, Enable <br/> Stream |
 | Doorlock | doorlock | set <br/> setup | Lock, Unlock <br/> &lt;Setup&gt; |
-| Blinds and Sunscreens | [blinds](./examples/blinds.md) | set <br/> set_timer | Up, Down, Stop <br/> &lt;Timer&gt; |
+| Blinds and Sunscreens | [blinds](./examples/blinds.md#commands) | set <br/> set_timer | Up, Down, Stop <br/> &lt;Timer&gt; |
 | Smart Sockets | socket | set <br/> set_timer <br/> query | On, Off <br/> &lt;Timer&gt; <br/> Consumption |
 | Smart Plant Pots | plant_pot | setup <br/> set <br/> set_timer <br/> query | &lt;Setup&gt; <br/> WateringStart, WateringStop <br/> &lt;Timer&gt; <br/> Moisture, PH, WaterLevel |
 | Motion Sensors | motion | set <br/> query | On, Off <br/> Motion |
@@ -120,7 +120,7 @@ The report types are used to distinguish between different reports based on thei
 | Security Cameras | camera | stream <br/> state | &lt;Stream_URL&gt; <br/> StreamFailed |
 | Doorbell | doorbell | stream <br/> state | &lt;Stream_URL&gt; <br/> Ringing, StreamFailed |
 | Doorlock | doorlock | state | Locked, Unlocked, LockBreach, LockJammed, LockFailed, UnlockFailed |
-| Blinds and Sunscreens | blinds | state | Closed, Open, Stopped, RepairNeeded |
+| Blinds and Sunscreens | [blinds](./examples/blinds.md#reports) | state | Closed, Open, Stopped, RepairNeeded |
 | Smart Sockets | socket | state <br/> consumption | On, Off <br/> &lt;Consumption&gt; |
 | Smart Plant Pots | plant_pot | state | OutOfWater |
 | Motion Sensors | motion | state | MotionPresent |
