@@ -1,18 +1,18 @@
 [Back](./mqtt2go-objects.md)
 
-#Blinds and Sunscreens
+# Blinds and Sunscreens
 
-##Commands
+## Commands
 
-###set
+### set
 Up, Down, Stop
 
-###set_timer
+### set_timer
 \<Timer\>
 
-##Reports
+## Reports
 
-###state
+### state
 Closed, Open, Stopped, RepairNeeded
 
 
