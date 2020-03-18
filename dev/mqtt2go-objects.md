@@ -36,7 +36,7 @@ The command types used in the MQTT Commands are describing the targeted function
 | Security Cameras | camera | set <br/> query | On, Off <br/> Stream |
 | Doorbell | doorbell | set <br/> query | Disable, Enable <br/> Stream |
 | Doorlock | doorlock | set <br/> setup | Lock, Unlock <br/> &lt;Setup&gt; |
-| Blinds and Sunscreens | blinds | set <br/> set_timer | Up, Down, Stop <br/> &lt;Timer&gt; |
+| Blinds and Sunscreens | [blinds](./examples/blinds.md) | set <br/> set_timer | Up, Down, Stop <br/> &lt;Timer&gt; |
 | Smart Sockets | socket | set <br/> set_timer <br/> query | On, Off <br/> &lt;Timer&gt; <br/> Consumption |
 | Smart Plant Pots | plant_pot | setup <br/> set <br/> set_timer <br/> query | &lt;Setup&gt; <br/> WateringStart, WateringStop <br/> &lt;Timer&gt; <br/> Moisture, PH, WaterLevel |
 | Motion Sensors | motion | set <br/> query | On, Off <br/> Motion |
