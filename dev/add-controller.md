@@ -29,10 +29,10 @@ The MQTT2GO controller creation proccess can be initialized only if at least one
 1. The Management server forwards the activation code to the __HTTPS: /get_credentials__ of Cloud MQTT2GO Broker.
 1. The Cloud MQTT2GO Broker then sends the certificate to the __HTTPS: /post_credentials__ of the Management Server.
 1. The Management server then sends a response with User ID, Broker IP, and Certificate to the __HTTPS: /get_credentials__ from which the MQTT2GO App saves it.
-1. The MQTT2GO App connects to the Cloud MQTT2GO Broker using the provided certificate, user ID and Broker IP.
-1. The MQTT2GO App subscribes to the __<user_id>/topics__ and publishes a __GET_DEVICE_TOPICS__ message.
-1. The Cloud MQTT2GO Broker publishes to the __<user_id>/topics__ message with all topics the MQTT2GO App has to subscribe to.
-1. From now on, the MQTT communication follows the MQTT2GO standard proccesss.
+1. The MQTT2GO App connects to the Cloud MQTT2GO Broker using the provided __certificate__,  __user ID__, __login__, __password__, and __broker IP__.
+1. The MQTT2GO App subscribes to the __\<user_id\>/topics__ and publishes a __GET_DEVICE_TOPICS__ message.
+1. The Cloud MQTT2GO Broker publishes to the __\<user_id\>/topics__ message with all topics the MQTT2GO App has to subscribe to.
+1. From now on, the MQTT communication follows the MQTT2GO standard.
 
 <p align="center" >
 	<img src="mqtt_controller_login.svg" alt="Proccess of login into MQTT2GO account">
@@ -46,10 +46,10 @@ This procedure is presented as the ideal implementation of the controller creati
 ### User authentication
 The user authentication operation inside MQTT2GO controller creation is utilizing the HTTPS API and therefore does not follow the MQTT2GO topic naming convention. The reason for this is to simplify the access proccess of a service, which will be utilized only a several times. 
 
-#### HTTPS API message structure
+## HTTPS API message structure
 Eventhough the HTTPS API is not adhering to the topic naming convention, it still utilizes the JSON data structure of the messages. This section provides examples of all utilized messages.
 
-##### user_login
+### user_login
 This message contains information about the user credentials. Its structure is following:
 ```json
 {	
@@ -58,10 +58,10 @@ This message contains information about the user credentials. Its structure is f
 }
 ```
 
-### Configuration
+## Configuration
 This section is utilizing the standard MQTT2GO topic naming structure together with standard MQTT2GO messages. They are described in following section.
 
-#### MQTT Commands
+### MQTT Commands
 In this specific implementation, the only MQTT2GO command is only one and its primary goal is to request all device topics to which the controller have to subscribe. This secures the controller to be able to controll all devices, to which the selected user has access to. The command structure is based on the structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. The numbering in this section is coherent with the numbering in <a href="#add-devices-fig">Fig. 2</a>.
 
 #### Get Device Topics
