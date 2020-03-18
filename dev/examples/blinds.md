@@ -2,7 +2,7 @@
 
 # Blinds and Sunscreens
 
-<a name="commands"></a>## Commands
+## <a name="commands"></a>Commands
 
 ### set
 Up, Down, Stop
@@ -10,7 +10,7 @@ Up, Down, Stop
 ### set_timer
 \<Timer\>
 
-<a name="reports"></a>## Reports
+## <a name="reports"></a>Reports
 
 ### state
 Closed, Open, Stopped, RepairNeeded
