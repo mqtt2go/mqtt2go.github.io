@@ -194,16 +194,16 @@ In this section, we provide a table with all units needed by the MQTT2GO message
 		<th style="width:40%">Device type</th><th style="width:40%">Data type</th><th style="width:20%">Unit</th>
 	</tr>
 	<tr>
-		<td>Smart Sockets <br/> Solar Panels</td><td>Power</td><td>W</td>
+		<td>Smart Sockets<br/> Solar Panels</td><td>Power</td><td>W</td>
 	</tr>
 	<tr>
-		<td>Multi Sensors<br/> Thermostats<br/> Radiator Valves<br/> Health Sensors<br/> Climate Control<br/> Ovens<br/> Weather Stations</td><td>Temperature</td><td>C, F, K</td>
+		<td>Multi Sensors<br/>Thermostats<br/>Radiator Valves<br/>Health Sensors<br/>Climate Control<br/>Ovens<br/>Weather Stations</td><td>Temperature</td><td>C, F, K</td>
 	</tr>
 	<tr>
-		<td>Garage Doors<br/> Smart Watering<br/> Blinds and Sunscreens<br/> Smart Sockets<br/> Smart Plant Pots<br/> Washers & Dryers<br/> Climate Control<br/> Coffee Machines<br/> Dishwashers<br/> Ovens</td>Timer<td></td><td>s</td>
+		<td>Garage Doors<br/>Smart Watering<br/>Blinds and Sunscreens<br/>Smart Sockets<br/>Smart Plant Pots<br/>Washers & Dryers<br/>Climate Control<br/>Coffee Machines<br/>Dishwashers<br/>Ovens</td><td>Timer</td><td>s</td>
 	</tr>
 	<tr>
-		<td>Smart Plant Pots<br/> Weather Stations</td>Humidity<br/>PH<td></td><td>%<br/>0-14</td>
+		<td>Smart Plant Pots<br/> Weather Stations</td><td>Humidity<br/>PH</td><td>%<br/>0-14</td>
 	</tr>
 	<tr>
 		<td>Health Sensors</td><td>Weight<br/>BMI<br/>Pressure</td><td>kg, lb<br/>kg/m2<br/>mmHg</td>
@@ -215,7 +215,7 @@ In this section, we provide a table with all units needed by the MQTT2GO message
 		<td>Weather Stations</td><td>Wind<br/>UV</td><td>m/s, km/h<br/>mW/cm2, mJ/cm2</td>
 	</tr>
 	<tr>
-		<td>Smart TVs</td><td></td><td></td>
+		<td>Smart TVs</td><td>Volume</td><td>%</td>
 	</tr>
 	<tr>
 		<td>Security Cameras<br/>Doorbells</td><td>Stream</td><td>URL address</td>
