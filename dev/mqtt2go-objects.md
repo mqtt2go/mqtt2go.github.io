@@ -43,13 +43,13 @@ The command types used in the MQTT Commands are describing the targeted function
 | Temperature Sensors | temperature | set <br/> query | On, Off <br/> Temperature |
 | Multi Sensors | multi_sensor | set <br/> query | On, Off <br/> Temperature, Motion, Smoke, Water |
 | Smart Speakers | speaker | set | On, Off, Play, Shuffle, VolumeUp, VolumeDown, VolumeLevel |
-| Smart TVs | tv | set <br/> set_channe <br/> set_volume_level | On, Off, VolumeUp, VolumeDown, Play, Pause <br/> &lt;Channel&gt; <br/> &lt;Volume&gt; |
+| Smart TVs | tv | set <br/> set_channel <br/> set_volume_level | On, Off, VolumeUp, VolumeDown, Play, Pause <br/> &lt;Channel&gt; <br/> &lt;Volume&gt; |
 | Thermostat | thermostat | query <br/> set_temperature <br/> setup | Temperature <br/> &lt;Temperature&gt; <br/> &lt;Setup&gt; |
 | Vacuum Cleaners | vacuum | set <br/> setup | On, Off, SendToDock <br/> &lt;Setup&gt; |
 | Flood / Water Sensor | flood | set | On, Off |
 | Health Sensors | health | set <br/> query <br/> setup | On, Off <br/> Weight, Temperature, BMI, Pressure <br/> &lt;Setup&gt; |
 | Washers & Dryers | washer_dryer | set <br/> set_timer <br/> setup | On, Off <br/> &lt;Timer&gt; <br/> &lt;Setup&gt; |
-| Smart Spots / Lights | light | set <br/> set_color <br/> set_brigtness <br/> set_temperature | On, Off <br/> &lt;Color&gt; <br/> &lt;Brightness&gt; <br/> &lt;Temperature&gt; |
+| Smart Spots / Lights | light | set <br/> set_color <br/> set_brightness <br/> set_temperature | On, Off <br/> &lt;Color&gt; <br/> &lt;Brightness&gt; <br/> &lt;Temperature&gt; |
 | Radiator Valve | radiator | set <br/> set_temperature <br/> setup | On, Off <br/> SetTemperature <br/> &lt;Setup&gt; |
 | Solar Panels | solar | set <br/> query <br/> setup | On, Off <br/> CurrentPower <br/> &lt;Setup&gt; |
 | Curtains | curtains | set <br/> setup | Up, Down, Stop <br/> &lt;Setup&gt; |
@@ -62,7 +62,7 @@ The command types used in the MQTT Commands are describing the targeted function
 | Ovens | oven | set <br/> set_timer <br/> setup | On, Off <br/> &lt;Timer&gt; <br/> &lt;Setup&gt; |
 | Door / Window sensors | door | set <br/> query | On, Off <br/> State |
 | Weather Stations | weather | set <br/> setup <br/> query <br/> | On, Off <br/> &lt;Setup&gt; <br/> Temperature, CurrentWeather, Humidity, Wind, UV, Forecast |
-| Alarm | alarm | set <br/> <br/> query <br/> setup | On, Off, SirenOn, SirenOff, SirenWalkin, SirenWalkOut, Arm, Disarm <br/> State <br/> &lt;Setup&gt; |
+| Alarm | alarm | set <br/> <br/> query <br/> setup | On, Off, SirenOn, SirenOff, SirenWalkIn, SirenWalkOut, Arm, Disarm <br/> State <br/> &lt;Setup&gt; |
 | Utility meter | utility_meter | set <br/> setup <br/> query <br/> <br/>  <br/>  <br/> | On, Off <br/> &lt;Setup&gt; <br/> Voltage, Frequency, Tarif, CurrentConsumption, State, WeeklyConsumption, MonthlyConsumption |
 
 ### MQTT Commands Examples
@@ -85,7 +85,7 @@ To provide some examples of the MQTT Commands usage, we provide simple and compl
 {
 	"type": "command",
 	"timestamp":1567677926,
-	"command_type":"setColor",
+	"command_type":"set_color",
 	"value": {
 		"unit": "hsb",
 		"h": 100, 
@@ -137,7 +137,7 @@ The report types are used to distinguish between different reports based on thei
 | Radiator Valve | radiator | state <br/> current_temperature <br/> set_temperature | On, Off <br/> &lt;CurrTemperature&gt; <br/> &lt;SetTemperature&gt; |
 | Solar Panels | solar | state <br/> power | On, Off, PanelError, BatteryError <br/> &lt;CurrPower&gt; |
 | Wall Switches / Built-in Switches | switch | state <br/> timer | On, Off, Mode <br/> &lt;SetTimer&gt; |
-| Curtains | curtains | state | Closed, Open, Stopped, Stucked |
+| Curtains | curtains | state | Closed, Open, Stopped, Stuck |
 | Climate Control | climate | state <br/> timer <br/> humidity | On, Off <br/> &lt;SetTimer&gt; <br/> &lt;Humidity&gt; |
 | Smoke Detector | smoke | state | SmokeAlarm |
 | Coffee Machines | coffee | state <br/> <br/> timer | On, Off, WaterLow, WaterOK, CoffeeLow, CoffeeOK, MilkLow, MilkOK, CleaningNeeded,
@@ -160,10 +160,10 @@ As for the commands, here we present two examples of the reports:
 ```json
 {
 	"type": "report",
-	"priority_level":1,
+	"priority_level":2,
 	"report_type":"command_response",
 	"timestamp":1567677946,
-	"report_name":"OnReport",
+	"report_name":"state",
 	"report":"on"
 }
 ```
@@ -172,10 +172,10 @@ As for the commands, here we present two examples of the reports:
 ```json
 {
 	"type": "report",
-	"priority_level": 1,
+	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":1567677956,
-	"report_name":"ColorReport",
+	"report_name":"color",
 	"report": {
 		"unit": "hsb",
 		"h": 100, 
@@ -232,7 +232,7 @@ Here we provide sample command and report to depict the correct usage of units:
 {
 	"type": "command",
 	"timestamp":1567677926,
-	"command_type":"setColor",
+	"command_type":"set_color",
 	"value": {
 		"unit": "hsb",
 		"h": 100, 
@@ -247,10 +247,10 @@ Here we provide sample command and report to depict the correct usage of units:
 ```json
 {
 	"type": "report",
-	"priority_level": 1,
+	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":1567677956,
-	"report_name":"ColorReport",
+	"report_name":"color",
 	"report": {
 		"unit": "hsb",
 		"h": 100, 

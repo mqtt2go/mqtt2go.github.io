@@ -11,7 +11,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 {
 	"type": "command",
 	"timestamp":1567677926,
-	"command_type":"setTargetPosition",
+	"command_type":"set_target_position",
 	"value": 50
 }
 ```
@@ -49,20 +49,26 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Set Horizontal Tilt Angle
 ```json
 {
-	"type": "command",
-	"timestamp":1567677926,
-	"command_type":"setHorizontalTilt",
-	"value": 90
+    "type": "command",
+    "timestamp":1567677926,
+    "command_type":"set_horizontal_tilt",
+    "value": {
+        "unit": "degree",
+        "angle": 90
+    }
 }
 ```
 
 ### Set Vertical Tilt Angle
 ```json
 {
-	"type": "command",
-	"timestamp":1567677926,
-	"command_type":"setVerticalTilt",
-	"value": 90
+    "type": "command",
+    "timestamp":1567677926,
+    "command_type":"set_vertical_tilt",
+    "value": {
+            "unit": "degree",
+            "angle": 90
+    }
 }
 ```
 ### Set Timer
@@ -70,8 +76,11 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 {
 	"type": "command",
 	"timestamp":1567677926,
-	"command_type":"setTimer",
-	"value": 120
+	"command_type":"set_timer",
+	"value": {
+            "unit": "seconds",
+            "angle": 90
+    }
 }
 ```
 
@@ -119,7 +128,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 	"report_type":"command_response",
 	"timestamp":1567677956,
 	"report_name":"state",
-	"report": "repairNeeded"
+	"report": "repair_needed"
 }
 ```
 ### Current Position Report
@@ -129,7 +138,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":1567677956,
-	"report_name":"CurrentPositionReport",
+	"report_name":"current_position",
 	"report": 50
 }
 ```
@@ -137,24 +146,30 @@ Reports are utilized either as responses to the commands or to report periodic o
 ### Current Horizontal Angle Report
 ```json
 {
-	"type": "report",
-	"priority_level": 2,
-	"report_type":"command_response",
-	"timestamp":1567677956,
-	"report_name":"CurrentHorizontalAngleReport",
-	"report": 90
+    "type": "report",
+    "priority_level": 2,
+    "report_type":"command_response",
+    "timestamp":1567677956,
+    "report_name":"current_horizontal_angle",
+    "report": {
+        "unit": "degree",
+        "h": 90
+    }
 }
 ```
 
 ### Current Vertical Angle Report
 ```json
 {
-	"type": "report",
-	"priority_level": 2,
-	"report_type":"command_response",
-	"timestamp":1567677956,
-	"report_name":"CurrentVerticalAngleReport",
-	"report": 90
+    "type": "report",
+    "priority_level": 2,
+    "report_type":"command_response",
+    "timestamp":1567677956,
+    "report_name":"current_vertical_angle",
+    "report": {
+        "unit": "degree",
+        "h": 90
+    }
 }
 ```
 
@@ -165,7 +180,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 	"priority_level": 1,
 	"report_type":"status",
 	"timestamp":1567677956,
-	"report_name":"ObstructionDetectedReport",
+	"report_name":"obstruction_detected_report",
 	"report": "true"
 }
 ```
