@@ -101,6 +101,8 @@ This section is dedicated to the MQTT2GO topic naming convention. The structure 
 This section is related to the requirements which have to be fulfilled in order to work with the proposed MQTT2GO standard. The given requirements do cover the key functionalities which the MQTT2GO takes into the account as the basic features of the communication system.
 * [MQTT2GO General Requirements](./mqtt2go-general-req.md)
 
+# MQTT2GO Compatible Devices
+* [Shelly Plug S](https://github.com/mqtt2go/devices/tree/master/Shelly%20Plug%20S)
 
 # References
 <a name="ref1"></a>[1] MQTT Topics & Best Practices - MQTT Essentials: Part 5. Available from: [https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/)
