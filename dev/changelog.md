@@ -2,5 +2,6 @@
 
 # Changelog
 
-* Added revisions history
-* Added changelog tracking
+* General bugfixes in device adding procedure
+* Updated naming conventions
+* Added MQTT2GO Compatible Devices section
