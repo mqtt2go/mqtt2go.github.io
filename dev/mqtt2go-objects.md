@@ -30,40 +30,40 @@ The command types used in the MQTT Commands are describing the targeted function
 
 | Name | Device type | Command Type | Command |
 | --- | --- | --- | --- |
-| Garage door | garage_door | set <br/> set_timer | Up, Down, Stop <br/> &lt;Timer&gt; |
-| Smart Watering | smart_water | set <br/> set_timer | On, Off<br/> &lt;Timer&gt; |
-| Lawnmowers | lawnmower | set <br/> setup | On, Off, Start, Stop <br/> &lt;Setup&gt; |
-| Security Cameras | camera | set <br/> query | On, Off <br/> Stream |
-| Doorbell | doorbell | set <br/> query | Disable, Enable <br/> Stream |
-| Doorlock | doorlock | set <br/> setup | Lock, Unlock <br/> &lt;Setup&gt; |
-| Blinds and Sunscreens | [blinds](./examples/blinds.md#commands) | set <br/> set_timer | Up, Down, Stop <br/> &lt;Timer&gt; |
-| Smart Sockets | socket | set <br/> set_timer <br/> query | On, Off <br/> &lt;Timer&gt; <br/> Consumption |
-| Smart Plant Pots | plant_pot | setup <br/> set <br/> set_timer <br/> query | &lt;Setup&gt; <br/> WateringStart, WateringStop <br/> &lt;Timer&gt; <br/> Moisture, PH, WaterLevel |
-| Motion Sensors | motion | set <br/> query | On, Off <br/> Motion |
-| Temperature Sensors | temperature | set <br/> query | On, Off <br/> Temperature |
-| Multi Sensors | multi_sensor | set <br/> query | On, Off <br/> Temperature, Motion, Smoke, Water |
-| Smart Speakers | speaker | set | On, Off, Play, Shuffle, VolumeUp, VolumeDown, VolumeLevel |
-| Smart TVs | tv | set <br/> set_channe <br/> set_volume_level | On, Off, VolumeUp, VolumeDown, Play, Pause <br/> &lt;Channel&gt; <br/> &lt;Volume&gt; |
-| Thermostat | thermostat | query <br/> set_temperature <br/> setup | Temperature <br/> &lt;Temperature&gt; <br/> &lt;Setup&gt; |
-| Vacuum Cleaners | vacuum | set <br/> setup | On, Off, SendToDock <br/> &lt;Setup&gt; |
-| Flood / Water Sensor | flood | set | On, Off |
-| Health Sensors | health | set <br/> query <br/> setup | On, Off <br/> Weight, Temperature, BMI, Pressure <br/> &lt;Setup&gt; |
-| Washers & Dryers | washer_dryer | set <br/> set_timer <br/> setup | On, Off <br/> &lt;Timer&gt; <br/> &lt;Setup&gt; |
-| Smart Spots / Lights | light | set <br/> set_color <br/> set_brigtness <br/> set_temperature | On, Off <br/> &lt;Color&gt; <br/> &lt;Brightness&gt; <br/> &lt;Temperature&gt; |
-| Radiator Valve | radiator | set <br/> set_temperature <br/> setup | On, Off <br/> SetTemperature <br/> &lt;Setup&gt; |
-| Solar Panels | solar | set <br/> query <br/> setup | On, Off <br/> CurrentPower <br/> &lt;Setup&gt; |
-| Curtains | curtains | set <br/> setup | Up, Down, Stop <br/> &lt;Setup&gt; |
-| Climate Control | climate | set <br/> setup <br/> set_timer | On, Off <br/> &lt;Setup&gt; <br/> &lt;Timer&gt; |
-| Smoke Detector | smoke | set <br/> query | On, Off <br/> Smoke |
-| Coffee Machines | coffee | set <br/> set_timer <br/> setup | On, Off <br/> &lt;Timer&gt; <br/> &lt;Setup&gt; |
-| Voice Assistants | voice_assistant | set <br/> setup | On, Off <br/> &lt;Setup&gt; |
-| Dishwasher | dishwasher | set <br/> set_timer <br/> setup | On, Off <br/> &lt;Timer&gt; <br/> &lt;Setup&gt; |
-| Keyfob & Remotes | keyfob_remote | set <br/> set_button <br/> setup | On, Off <br/> &lt;ButtonPress&gt; <br/> &lt;Setup&gt; |
-| Ovens | oven | set <br/> set_timer <br/> setup | On, Off <br/> &lt;Timer&gt; <br/> &lt;Setup&gt; |
-| Door / Window sensors | door | set <br/> query | On, Off <br/> State |
-| Weather Stations | weather | set <br/> setup <br/> query <br/> | On, Off <br/> &lt;Setup&gt; <br/> Temperature, CurrentWeather, Humidity, Wind, UV, Forecast |
-| Alarm | alarm | set <br/> <br/> query <br/> setup | On, Off, SirenOn, SirenOff, SirenWalkin, SirenWalkOut, Arm, Disarm <br/> State <br/> &lt;Setup&gt; |
-| Utility meter | utility_meter | set <br/> setup <br/> query <br/> <br/>  <br/>  <br/> | On, Off <br/> &lt;Setup&gt; <br/> Voltage, Frequency, Tarif, CurrentConsumption, State, WeeklyConsumption, MonthlyConsumption |
+| Garage door | garage_door | set <br/> set_timer | up, down, stop <br/> &lt;timer&gt; |
+| Smart Watering | smart_water | set <br/> set_timer | on, off<br/> &lt;timer&gt; |
+| Lawnmowers | lawnmower | set <br/> setup | on, off, start, stop <br/> &lt;setup&gt; |
+| Security Cameras | camera | set <br/> query | on, off <br/> stream |
+| Doorbell | doorbell | set <br/> query | disable, enable <br/> stream |
+| Doorlock | doorlock | set <br/> setup | lock, unlock <br/> &lt;setup&gt; |
+| Blinds and Sunscreens | [blinds](./examples/blinds.md#commands) | set <br/> set_timer | up, down, stop <br/> &lt;timer&gt; |
+| Smart Sockets | socket | set <br/> set_timer <br/> query | on, off <br/> &lt;timer&gt; <br/> consumption |
+| Smart Plant Pots | plant_pot | setup <br/> set <br/> set_timer <br/> query | &lt;setup&gt; <br/> watering_start, watering_stop <br/> &lt;timer&gt; <br/> moisture, ph, water_level |
+| Motion Sensors | motion | set <br/> query | on, off <br/> motion |
+| Temperature Sensors | temperature | set <br/> query | on, off <br/> temperature |
+| Multi Sensors | multi_sensor | set <br/> query | on, off <br/> temperature, motion, smoke, water |
+| Smart Speakers | speaker | set | on, off, play, shuffle, volume_up, volume_down, volume_level |
+| Smart TVs | tv | set <br/> set_channel <br/> set_volume_level | on, off, volume_up, volume_down, play, pause <br/> &lt;channel&gt; <br/> &lt;volume&gt; |
+| Thermostat | thermostat | query <br/> set_temperature <br/> setup | temperature <br/> &lt;temperature&gt; <br/> &lt;setup&gt; |
+| Vacuum Cleaners | vacuum | set <br/> setup | on, off, send_to_dock <br/> &lt;setup&gt; |
+| Flood / Water Sensor | flood | set | on, off |
+| Health Sensors | health | set <br/> query <br/> setup | on, off <br/> weight, temperature, bmi, pressure <br/> &lt;setup&gt; |
+| Washers & Dryers | washer_dryer | set <br/> set_timer <br/> setup | on, off <br/> &lt;timer&gt; <br/> &lt;setup&gt; |
+| Smart Spots / Lights | light | set <br/> set_color <br/> set_brightness <br/> set_temperature | on, off <br/> &lt;color&gt; <br/> &lt;brightness&gt; <br/> &lt;temperature&gt; |
+| Radiator Valve | radiator | set <br/> set_temperature <br/> setup | on, off <br/> set_temperature <br/> &lt;setup&gt; |
+| Solar Panels | solar | set <br/> query <br/> setup | on, off <br/> current_power <br/> &lt;setup&gt; |
+| Curtains | curtains | set <br/> setup | up, down, stop <br/> &lt;setup&gt; |
+| Climate Control | climate | set <br/> setup <br/> set_timer | on, off <br/> &lt;setup&gt; <br/> &lt;timer&gt; |
+| Smoke Detector | smoke | set <br/> query | on, off <br/> smoke |
+| Coffee Machines | coffee | set <br/> set_timer <br/> setup | on, off <br/> &lt;timer&gt; <br/> &lt;setup&gt; |
+| Voice Assistants | voice_assistant | set <br/> setup | on, off <br/> &lt;setup&gt; |
+| Dishwasher | dishwasher | set <br/> set_timer <br/> setup | on, off <br/> &lt;timer&gt; <br/> &lt;setup&gt; |
+| Keyfob & Remotes | keyfob_remote | set <br/> set_button <br/> setup | on, off <br/> &lt;button_press&gt; <br/> &lt;setup&gt; |
+| Ovens | oven | set <br/> set_timer <br/> setup | on, off <br/> &lt;timer&gt; <br/> &lt;setup&gt; |
+| Door / Window sensors | door | set <br/> query | on, off <br/> state |
+| Weather Stations | weather | set <br/> setup <br/> query <br/> | on, off <br/> &lt;setup&gt; <br/> temperature, current_weather, humidity, wind, uv, forecast |
+| Alarm | alarm | set <br/> <br/> query <br/> setup | on, off, siren_on, siren_off, siren_walk_in, siren_walk_out, arm, disarm <br/> state <br/> &lt;setup&gt; |
+| Utility meter | utility_meter | set <br/> setup <br/> query <br/> <br/>  <br/>  <br/> | on, off <br/> &lt;setup&gt; <br/> voltage, frequency, tarif, current_consumption, state, weekly_consumption, monthly_consumption |
 
 ### MQTT Commands Examples
 <p align="justify">
@@ -85,7 +85,7 @@ To provide some examples of the MQTT Commands usage, we provide simple and compl
 {
 	"type": "command",
 	"timestamp":1567677926,
-	"command_type":"setColor",
+	"command_type":"set_color",
 	"value": {
 		"unit": "hsb",
 		"h": 100, 
@@ -114,42 +114,42 @@ The report types are used to distinguish between different reports based on thei
 
 | Name | Device type | Report name | Report |
 | --- | --- | --- | --- |
-| Garage door | garage_door | state | Closed, Open, Stopped, RepairNeeded |
-| Smart Watering | smart_water | state | OutOfWater |
-| Lawnmowers | lawnmower | state | Mowing, BatteryLow, BatteryOk, RepairNeeded |
-| Security Cameras | camera | stream <br/> state | &lt;Stream_URL&gt; <br/> StreamFailed |
-| Doorbell | doorbell | stream <br/> state | &lt;Stream_URL&gt; <br/> Ringing, StreamFailed |
-| Doorlock | doorlock | state | Locked, Unlocked, LockBreach, LockJammed, LockFailed, UnlockFailed |
-| Blinds and Sunscreens | [blinds](./examples/blinds.md#reports) | state | Closed, Open, Stopped, RepairNeeded |
-| Smart Sockets | socket | state <br/> consumption | On, Off <br/> &lt;Consumption&gt; |
-| Smart Plant Pots | plant_pot | state | OutOfWater |
-| Motion Sensors | motion | state | MotionPresent |
-| Temperature Sensors | temperature | temperature | &lt;Temperature&gt; |
-| Multi Sensors | multi_sensor | state <br/> temperature <br/> motion <br/> smoke <br/> water | On, Off, RepairNeeded  <br/> &lt;Temperature&gt; <br/> Motion <br/> Smoke <br/> Water |
-| Smart Speakers | speaker | state | On, Off, NoMedia, Playing, StreamingError, RepairNeeded |
-| Smart TVs | tv | state <br/> channel_number <br/> volume_level | On, Off, RepairNeeded <br/> &lt;ChannelNumber&gt; <br/> &lt;VolumeLevel&gt; |
-| Thermostat | thermostat | current_temperature <br/> set_temperature <br/> state | &lt;CurrTemperature&gt; <br/> &lt;SetTemperature&gt; <br/> &lt;Mode&gt; |
-| Vacuum Cleaners | vacuum | state | On, Off, Vacuuming, BatteryLow, Stuck, RepairNeeded |
-| Flood / Water Sensor | flood | state | Flood |
-| Health Sensors | health | state <br/> weight <br/> temperature <br/> bmi <br/> pressure | On, Off, SensorError <br/> &lt;Weigh&gt; <br/> &lt;Temperature&gt; <br/> &lt;BMI&gt; <br/> &lt;Pressure&gt; |
-| Washers & Dryers | washer_dryer | state <br/> <br/> timer | On, Off, InProgress, WaterError, RepairNeeded <br/> &lt;Timer&gt; |
-| Smart Spots / Lights | light | state <br/> color <br/> brightness <br/> temperature | On, Off <br/> &lt;Color&gt; <br/> &lt;Brightness&gt; <br/> &lt;Temperature&gt; |
-| Radiator Valve | radiator | state <br/> current_temperature <br/> set_temperature | On, Off <br/> &lt;CurrTemperature&gt; <br/> &lt;SetTemperature&gt; |
-| Solar Panels | solar | state <br/> power | On, Off, PanelError, BatteryError <br/> &lt;CurrPower&gt; |
-| Wall Switches / Built-in Switches | switch | state <br/> timer | On, Off, Mode <br/> &lt;SetTimer&gt; |
-| Curtains | curtains | state | Closed, Open, Stopped, Stucked |
-| Climate Control | climate | state <br/> timer <br/> humidity | On, Off <br/> &lt;SetTimer&gt; <br/> &lt;Humidity&gt; |
-| Smoke Detector | smoke | state | SmokeAlarm |
-| Coffee Machines | coffee | state <br/> <br/> timer | On, Off, WaterLow, WaterOK, CoffeeLow, CoffeeOK, MilkLow, MilkOK, CleaningNeeded,
-RepairNeeded <br/> &lt;SetTimer&gt; |
-| Voice Assistants | voice_assistant | state <br/> setup | On, Off <br/> &lt;Setup&gt; |
-| Dishwasher | dishwasher | state <br/> <br/> timer | On, Off, InProgress, WaterError, RepairNeeded <br/> &lt;SetTimer&gt; |
-| Keyfob & Remotes | keyfob_remote | state <br/> mode | On, Off <br/> &lt;Mode&gt; |
-| Ovens | oven | state <br/> timer <br/> mode <br/> temperature <br/> | On, Off, LightOn, LightOff <br/> &lt;SetTimer&gt; <br/> &lt;Mode&gt; <br/> &lt;Temperature&gt; |
-| Door / Window sensors | door | state | Open, Closed |
-| Weather Stations | weather | state <br/> temperature <br/> current_weather <br/> humidity <br/> wind <br/> uv <br/> forecast | On, Off <br/> &lt;Temperature&gt; <br/> &lt;CurrentWeather&gt; <br/> &lt;Humidity&gt; <br/> &lt;Wind&gt; <br/> &lt;UV&gt; <br/> &lt;Forecast&gt; |
-| Alarm | alarm | state | AlarmButtonPressed, AlarmOffButtonPressed, ArcAlert, ArcAlertArmStatus, ArcAlertDeprovision, ArcAlertRevision, ArcError, ArcTestResult, ArmStatusChange, GlassBreakage, PanicButtonPressed, TamperCleared, TamperDetected |
-| Utility meter | utility_meter | state <br/> value | On, Off <br/> UtilityValue |
+| Garage door | garage_door | state | closed, open, stopped, repair_needed |
+| Smart Watering | smart_water | state | out_of_water |
+| Lawnmowers | lawnmower | state | mowing, battery_low, battery_ok, repair_needed |
+| Security Cameras | camera | stream <br/> state | &lt;stream_url&gt; <br/> stream_failed |
+| Doorbell | doorbell | stream <br/> state | &lt;stream_url&gt; <br/> ringing, stream_failed |
+| Doorlock | doorlock | state | locked, unlocked, lock_breach, lock_jammed, lock_failed, unlock_failed |
+| Blinds and Sunscreens | [blinds](./examples/blinds.md#reports) | state | closed, open, stopped, repair_needed |
+| Smart Sockets | socket | state <br/> consumption | on, off <br/> &lt;consumption&gt; |
+| Smart Plant Pots | plant_pot | state | out_of_water |
+| Motion Sensors | motion | state | motion_present |
+| Temperature Sensors | temperature | temperature | &lt;temperature&gt; |
+| Multi Sensors | multi_sensor | state <br/> temperature <br/> motion <br/> smoke <br/> water | on, off, repair_needed  <br/> &lt;temperature&gt; <br/> motion <br/> smoke <br/> water |
+| Smart Speakers | speaker | state | on, off, no_media, playing, streaming_error, repair_needed |
+| Smart TVs | tv | state <br/> channel_number <br/> volume_level | on, off, repair_needed <br/> &lt;channel_number&gt; <br/> &lt;volume_level&gt; |
+| Thermostat | thermostat | current_temperature <br/> set_temperature <br/> state | &lt;curr_temperature&gt; <br/> &lt;set_temperature&gt; <br/> &lt;mode&gt; |
+| Vacuum Cleaners | vacuum | state | on, off, vacuuming, battery_low, stuck, repair_needed |
+| Flood / Water Sensor | flood | state | flood |
+| Health Sensors | health | state <br/> weight <br/> temperature <br/> bmi <br/> pressure | on, off, sensor_error <br/> &lt;weigh&gt; <br/> &lt;temperature&gt; <br/> &lt;bmi&gt; <br/> &lt;pressure&gt; |
+| Washers & Dryers | washer_dryer | state <br/> <br/> timer | on, off, in_progress, water_error, repair_needed <br/> &lt;timer&gt; |
+| Smart Spots / Lights | light | state <br/> color <br/> brightness <br/> temperature | on, off <br/> &lt;color&gt; <br/> &lt;brightness&gt; <br/> &lt;temperature&gt; |
+| Radiator Valve | radiator | state <br/> current_temperature <br/> set_temperature | on, off <br/> &lt;curr_temperature&gt; <br/> &lt;set_temperature&gt; |
+| Solar Panels | solar | state <br/> power | on, off, panel_error, battery_error <br/> &lt;curr_power&gt; |
+| Wall Switches / Built-in Switches | switch | state <br/> timer | on, off, mode <br/> &lt;set_timer&gt; |
+| Curtains | curtains | state | closed, open, stopped, stuck |
+| Climate Control | climate | state <br/> timer <br/> humidity | on, off <br/> &lt;set_timer&gt; <br/> &lt;humidity&gt; |
+| Smoke Detector | smoke | state | smoke_alarm |
+| Coffee Machines | coffee | state <br/> <br/> timer | on, off, water_low, water_ok, coffee_low, coffee_ok, milk_low, milk_ok, cleaning_needed,
+repair_needed <br/> &lt;set_timer&gt; |
+| Voice Assistants | voice_assistant | state <br/> setup | on, off <br/> &lt;setup&gt; |
+| Dishwasher | dishwasher | state <br/> <br/> timer | on, off, in_progress, water_error, repair_needed <br/> &lt;set_timer&gt; |
+| Keyfob & Remotes | keyfob_remote | state <br/> mode | on, off <br/> &lt;mode&gt; |
+| Ovens | oven | state <br/> timer <br/> mode <br/> temperature <br/> | on, off, light_on, light_off <br/> &lt;set_timer&gt; <br/> &lt;mode&gt; <br/> &lt;temperature&gt; |
+| Door / Window sensors | door | state | open, closed |
+| Weather Stations | weather | state <br/> temperature <br/> current_weather <br/> humidity <br/> wind <br/> uv <br/> forecast | on, off <br/> &lt;temperature&gt; <br/> &lt;current_weather&gt; <br/> &lt;humidity&gt; <br/> &lt;wind&gt; <br/> &lt;uv&gt; <br/> &lt;forecast&gt; |
+| Alarm | alarm | state | alarm_button_pressed, alarm_off_button_pressed, arc_alert, arc_alert_arm_status, arc_alert_deprovision, arc_alert_revision, arc_error, arc_test_result, arm_status_change, glass_breakage, panic_button_pressed, tamper_cleared, tamper_detected |
+| Utility meter | utility_meter | state <br/> value | on, off <br/> utility_value |
 
 ### MQTT Reports Examples
 <p align="justify">
@@ -160,10 +160,10 @@ As for the commands, here we present two examples of the reports:
 ```json
 {
 	"type": "report",
-	"priority_level":1,
+	"priority_level":2,
 	"report_type":"command_response",
 	"timestamp":1567677946,
-	"report_name":"OnReport",
+	"report_name":"state",
 	"report":"on"
 }
 ```
@@ -172,10 +172,10 @@ As for the commands, here we present two examples of the reports:
 ```json
 {
 	"type": "report",
-	"priority_level": 1,
+	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":1567677956,
-	"report_name":"ColorReport",
+	"report_name":"color",
 	"report": {
 		"unit": "hsb",
 		"h": 100, 
@@ -232,7 +232,7 @@ Here we provide sample command and report to depict the correct usage of units:
 {
 	"type": "command",
 	"timestamp":1567677926,
-	"command_type":"setColor",
+	"command_type":"set_color",
 	"value": {
 		"unit": "hsb",
 		"h": 100, 
@@ -247,10 +247,10 @@ Here we provide sample command and report to depict the correct usage of units:
 ```json
 {
 	"type": "report",
-	"priority_level": 1,
+	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":1567677956,
-	"report_name":"ColorReport",
+	"report_name":"color",
 	"report": {
 		"unit": "hsb",
 		"h": 100, 
