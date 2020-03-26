@@ -11,7 +11,7 @@
 	* all key words are now in snake_case format.
 
 * Updated _Blinds and Sunscreens_ MQTT2GO objects
-	* Added sup-page with [blinds](./examples/blinds.md) object examples.
+	* Added subpage with [blinds](./examples/blinds.md) object examples.
 
 * Added MQTT2GO Compatible Devices section:
 	* Aded Shelly Plug S with link to the FW repository, see [Link](https://github.com/mqtt2go/devices).
