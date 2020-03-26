@@ -7,8 +7,8 @@
 	* actvation topic now contains mqtt login, password, and CA certificate hash,
 	* updated Wi-Fi credentials example in [Setup via Guest WiFi](./add-wifi.md).
 
-* Updated naming conventions
-	* all key words are now in snake_case format
+* Updated naming conventions:
+	* all key words are now in snake_case format.
 
 * Updated _Blinds and Sunscreens_ MQTT2GO objects
 	* Added sup-page with [blinds](./examples/blinds.md) object examples.
