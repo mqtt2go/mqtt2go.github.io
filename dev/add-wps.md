@@ -152,8 +152,8 @@ Get device topics command (4) is used to get device topics from the SH-GW. This 
 {
 	"type": "command",
 	"timestamp": "timestamp_value",
-	"command_type": "topics",
-	"value": "GET_DEVICE_TOPICS"
+	"command_type": "topic",
+	"value": "GET_DEVICE_TOPIC"
 }
 ```
 
@@ -210,7 +210,7 @@ This report (7) is used to deliver the requested topics, in which the new device
 	"report_type":"command_response",
 	"timestamp": "timestamp_value",
 	"report_name": "topics",
-	"value": ["topic_1", "topic_2", "topic_3"]
+	"value": "topic_name"
 }
 ```
 
