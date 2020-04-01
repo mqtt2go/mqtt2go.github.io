@@ -30,7 +30,7 @@ The MQTT2GO controller creation proccess can be initialized only if at least one
 1. The Cloud MQTT2GO Broker then sends the certificate to the __HTTPS: /post_credentials__ of the Management Server.
 1. The Management server then sends a response with User ID, Broker IP, and Certificate to the __HTTPS: /get_credentials__ from which the MQTT2GO App saves it.
 1. The MQTT2GO App connects to the Cloud MQTT2GO Broker using the provided __certificate__,  __user ID__, __login__, __password__, and __broker IP__.
-1. The MQTT2GO App subscribes to the __\<user_id\>/topics__ and publishes a __GET_DEVICE_TOPICS__ message.
+1. The MQTT2GO App subscribes to the __\<user_id\>/topics__ and publishes a __GET_USER_TOPICS__ message.
 1. The Cloud MQTT2GO Broker publishes to the __\<user_id\>/topics__ message with all topics the MQTT2GO App has to subscribe to.
 1. From now on, the MQTT communication follows the MQTT2GO standard.
 
@@ -73,8 +73,8 @@ Get device topics command (1) is used to get device topics from the SH-GW. This 
 {
 	"type": "command",
 	"timestamp": "timestamp_value",
-	"command_type": "topics",
-	"value": "GET_DEVICE_TOPICS"
+	"command_type": "topic",
+	"value": "GET_USER_TOPICS"
 }
 ```
 
@@ -83,9 +83,9 @@ Get device topics command (1) is used to get device topics from the SH-GW. This 
 The MQTT reports presented here are designed as a “responses” to aforementioned commands. Their structure is also coherent with the general structure from <a href="./mqtt2go-commands#mqtt_reports">MQTT Reports</a> and the numbering is matching the one in <a href="#add-devices-fig">Fig. 2</a>.
 </p>
 
-#### Device Topics
+#### User Topics
 <p align="justify">
-This report (2) is used to deliver the requested topics, in which the new device is intended to subscribe.
+This report (2) is used to deliver the requested topics, in which the new controller is intended to subscribe.
 </p>
 
 ```json
@@ -93,8 +93,8 @@ This report (2) is used to deliver the requested topics, in which the new device
 	"type": "report",
 	"report_type":"command_response",
 	"timestamp": "timestamp_value",
-	"report_name": "topics",
-	"value": ["topic_1", "topic_2", "topic_3"]
+	"report_name": "topic",
+	"value": ["topic_1", "topic_2", ...]
 }
 ```
 

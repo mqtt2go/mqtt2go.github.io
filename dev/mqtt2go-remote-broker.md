@@ -20,12 +20,12 @@ The following steps cover the optimal case with WPS functionality. When the WPS 
 5.	The end device utilizes the pre-loaded certificate together with the activation code to connect to the MQTT broker on the Discovery server. As in the case of other activation procedures, the certificate of the server must be issued by the same CA (Certification Authority). Otherwise, the TLS (Transport Layer Security) communication cannot be established.
 6.	Further, the end device subscribes to the __\<activation_code\>/activation__ topic and publishes the _GET_BROKER_DATA_ request.
 7.	As a response MQTT broker on the Discovery server delivers the cloud __broker IP__, __login__, __password__, and the new __certificate__ obtained in step 5. The end device further closes the connection to the MQTT broker on the Discovery server.
-8.	Then the end device connects to the remote MQTT broker with the certificate and credentials from the previous step and subscribes to __\<device_id\>/topics__.
-9.	In the next step, the MQTT end device publishes _GET_DEVICE_TOPICS_ request.
-10.	As a result, the MQTT broker publishes the message to __\<home_id\>/\<gw_id\>/add_device__ topics with device type and __device id__ information.
+8.	Then the end device connects to the remote MQTT broker with the certificate and credentials from the previous step and subscribes to __\<dev_id\>/topic__.
+9.	In the next step, the MQTT end device publishes _GET_DEVICE_TOPIC_ request.
+10.	As a result, the MQTT broker publishes the message to __\<home_id\>/\<gw_id\>/add_device__ topic with device type and __device id__ information.
 11.	MQTT broker then expects a message from MQTT Controller with the end device __name__, __group__, and __id__.
-12.	Based on the information from the previous step, the MQTT broker generates a topic structure for the end device and publishes the topics to the __\<dev_id\>/topics__.
-13.	In this step, the MQTT end device subscribes to its topics, and all ongoing communication happens according to the MQTT2GO standard.
+12.	Based on the information from the previous step, the MQTT broker generates a topic structure for the end device and publishes the device topic to the __\<dev_id\>/topic__.
+13.	In this step, the MQTT end device subscribes to its topic, and all ongoing communication happens according to the MQTT2GO standard.
 
 
 <p align="center" >
@@ -37,7 +37,7 @@ The following steps cover the optimal case with WPS functionality. When the WPS 
 
 ## Network Join
 <p align="justify">
-In this phase, no MQTT communication took place, and the shole process consist of network join via the WPS process.
+In this phase, no MQTT communication took place, and the whole process consist of network join via the WPS process.
 </p>
 
 ## MQTT Broker Discovery
@@ -94,7 +94,9 @@ This report (4) is utilized to deliver a newly generated certificate from MQTT b
 	"report_name": "mqtt_credentials",
 	"value": {
 		"broker_ip": "broker_ip",
-		"device_certificate": "device_certificate"
+		"device_certificate": "device_certificate",
+		"user": "mqtt_login",
+		"password": "mqtt_password"
 	}
 }
 ```
@@ -107,7 +109,7 @@ The device configuration is happening over topics that are unique to each device
 
 ## Topics Structure
 <p align="justify">
-The topics for the device configuration presented in this section are for the initial device configuration only. The device update and similar topics are presented in MQTT Objects section. Here, the topics are divided into two parts depending on which device is utilizing them.
+The topics for the device configuration presented in this section are for the initial device configuration only. The device update and similar topics are presented in <a href="./mqtt2go-objects">MQTT Objects</a> section. Here, the topics are divided into two parts depending on which device is utilizing them.
 </p>
 
 
@@ -126,11 +128,11 @@ Its main purpose is to publish information that initialize and finalize the addi
 
 #### End Device
 <p align="justify">
-The end device utilizes this channel to get the list of the topics to which the devices has to be subscribed.
+The end device utilizes this channel to get the topic to which the devices has to be subscribed.
 </p>
 
 ```
-<dev_id>/topics
+<dev_id>/topic
 ```
 
 ### MQTT Commands
@@ -140,7 +142,7 @@ The MQTT Commands mentioned below are used in adding a new device process. The c
 
 #### Activate Device
 <p align="justify">
-This command (1) is utilized to start the whole process of adding a new device. The command contains the activation code and id of the newly added device.
+This command (1) is utilized to start the whole process of adding a new device. The command contains the <strong>activation_code</strong>, <strong>device_id</strong>, and <strong>device_type</strong> of the newly added device.
 </p>
 
 ```json
@@ -150,28 +152,29 @@ This command (1) is utilized to start the whole process of adding a new device. 
 	"command_type": "activate_device",
 	"value": {
 		"activation_code": "activation_code",
-		"device_id": "device_id"
+		"device_id": "device_id",
+		"device_type": "device_type"
 	}
 }
 ```
 
-#### Get Device Topics
+#### Get Device Topic
 <p align="justify">
-Get device topics command (5) is used to get device topics from the SH-GW. This command has value of <em>GET_DEVICE_TOPICS</em>.
+Get device topic command (5) is used to get device topic from the SH-GW. This command has value of <em>GET_DEVICE_TOPIC</em>.
 </p>
 
 ```json
 {
 	"type": "command",
 	"timestamp": "timestamp_value",
-	"command_type": "topics",
-	"value": "GET_DEVICE_TOPICS"
+	"command_type": "topic",
+	"value": "GET_DEVICE_TOPIC"
 }
 ```
 
 #### Rename Device
 <p align="justify">
-This command (7) is utilized to finalize the process of adding a new device to the system. Via this command, the end device gains its name and inclusion to the group.
+This command (7) is utilized to finalize the process of adding a new device to the system. Via this command, the end device gains its name and inclusion to the groups.
 </p>
 
 ```json
@@ -182,7 +185,7 @@ This command (7) is utilized to finalize the process of adding a new device to t
 	"value": {
 		"device_id": "device_id",
 		"device_name": "device_name",
-		"group_id": "group_id"
+		"group_id": ["group_id_1", "group_id_2", ...]
 	}
 }
 ```
@@ -205,15 +208,15 @@ This report (6) is utilized to request the user of the MQTT2GO Controller app fo
 	"timestamp": "timestamp_value",
 	"report_name": "rename_device",
 	"value": {
-		"device_type": "device_type",
-		"device_id": "device_id"
+		"device_id": "device_id",
+		"setup_result": "setup_result"
 	}
 }
 ```
 
-#### Device Topics
+#### Device Topic
 <p align="justify">
-This report (8) is used to deliver the requested topics, in which the new device is intended to subscribe.
+This report (8) is used to deliver the requested topic, in which the new device is intended to subscribe.
 </p>
 
 ```json
@@ -221,8 +224,8 @@ This report (8) is used to deliver the requested topics, in which the new device
 	"type": "report",
 	"report_type":"command_response",
 	"timestamp": "timestamp_value",
-	"report_name": "topics",
-	"value": ["topic_1", "topic_2", "topic_3"]
+	"report_name": "topic",
+	"value": "topic"
 }
 ```
 

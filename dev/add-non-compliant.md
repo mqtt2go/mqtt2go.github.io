@@ -55,7 +55,7 @@ The MQTT broker has no chance to determine what kind of device is added. Therefo
 		"device_id": "device_id",
 		"device_vendor": "device_type",
 		"device_name": "device_name",
-		"group_id": "group_id"
+		"group_id": ["group_id_1", "group_id_2", ...]
 	}
 }
 ```
