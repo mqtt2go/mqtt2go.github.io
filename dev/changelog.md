@@ -5,6 +5,7 @@
 * General bugfixes in device adding procedure:
 	* device type is now part of the first message,
 	* actvation topic now contains mqtt login, password, and CA certificate hash,
+	* updated device topic convention _topics -> topic_
 	* Wi-Fi credentials example has been updated to provide more insights into the process of adding a new MQTT2GO device via guest WiFi, see [Setup via Guest WiFi](./add-wifi.md).
 
 * Updated naming conventions:
