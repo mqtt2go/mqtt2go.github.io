@@ -13,8 +13,8 @@
 
 * Updated MQTT2GO objects
 	* Added subpage with detailed functionality description of _Blinds and Sunscreens_ ([link](./examples/blinds.md)) object examples.
-	* Added subpage with detailed functionality description of _Smart Sockets_ ([link](./examples/sockets.md)) object examples. 
-	* Added subpage with detailed functionality description of _Multi Sensors_ ([link](./examples/multi_sensors.md)) object examples. 
+	* The new subpage with description of functionality in case of _Smart Sockets_ ([link](./examples/sockets.md)) is provided in form object examples. 
+	* _Multi Sensors_ ([link](./examples/multi_sensors.md)) object examples were added into the MQTT2GO convention to extend already provided functionality description of previous objects (devices). 
 
 
 * Added MQTT2GO Compatible Devices section:
