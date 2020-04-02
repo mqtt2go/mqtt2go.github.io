@@ -41,7 +41,7 @@ The command types used in the MQTT Commands are describing the targeted function
 | Smart Plant Pots | plant_pot | setup <br/> set <br/> set_timer <br/> query | &lt;setup&gt; <br/> watering_start, watering_stop <br/> &lt;timer&gt; <br/> moisture, ph, water_level |
 | Motion Sensors | motion | set <br/> query | on, off <br/> motion |
 | Temperature Sensors | temperature | set <br/> query | on, off <br/> temperature |
-| Multi Sensors | [multi_sensor](./examples/multi_sensor.md#commands) | set <br/> query | on, off <br/> temperature, humidity, motion, smoke, water |
+| Multi Sensors | [multi_sensor](./examples/multi_sensors.md#commands) | set <br/> query | on, off <br/> temperature, humidity, motion, smoke, water |
 | Smart Speakers | speaker | set | on, off, play, shuffle, volume_up, volume_down, volume_level |
 | Smart TVs | tv | set <br/> set_channel <br/> set_volume_level | on, off, volume_up, volume_down, play, pause <br/> &lt;channel&gt; <br/> &lt;volume&gt; |
 | Thermostat | thermostat | query <br/> set_temperature <br/> setup | temperature <br/> &lt;temperature&gt; <br/> &lt;setup&gt; |
@@ -125,7 +125,7 @@ The report types are used to distinguish between different reports based on thei
 | Smart Plant Pots | plant_pot | state | out_of_water |
 | Motion Sensors | motion | state | motion_present |
 | Temperature Sensors | temperature | temperature | &lt;temperature&gt; |
-| Multi Sensors | [multi_sensor](./examples/multi_sensor.md#reports) | state <br/> temperature <br/> humidity <br/> motion <br/> smoke <br/> water | on, off, repair_needed  <br/> &lt;temperature&gt; <br/> &lt;humidity&gt; <br/> motion <br/> smoke <br/> water |
+| Multi Sensors | [multi_sensor](./examples/multi_sensors.md#reports) | state <br/> temperature <br/> humidity <br/> motion <br/> smoke <br/> water | on, off, repair_needed  <br/> &lt;temperature&gt; <br/> &lt;humidity&gt; <br/> motion <br/> smoke <br/> water |
 | Smart Speakers | speaker | state | on, off, no_media, playing, streaming_error, repair_needed |
 | Smart TVs | tv | state <br/> channel_number <br/> volume_level | on, off, repair_needed <br/> &lt;channel_number&gt; <br/> &lt;volume_level&gt; |
 | Thermostat | thermostat | current_temperature <br/> set_temperature <br/> state | &lt;curr_temperature&gt; <br/> &lt;set_temperature&gt; <br/> &lt;mode&gt; |
