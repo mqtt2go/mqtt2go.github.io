@@ -27,6 +27,8 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```
 
 ### Set Timer
+The set_timer command is utilized to setup the periodical action which will trigger at the time set via the time value. In this case, the device will turn on/off at the selected time.
+
 ```json
 {
 	"type": "command",
