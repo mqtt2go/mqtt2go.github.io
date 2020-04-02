@@ -200,7 +200,7 @@ In this section, we provide a table with all units needed by the MQTT2GO message
 		<td>Multi Sensors<br/>Thermostats<br/>Radiator Valves<br/>Health Sensors<br/>Climate Control<br/>Ovens<br/>Weather Stations</td><td>Temperature</td><td>C, F, K</td>
 	</tr>
 	<tr>
-		<td>Garage Doors<br/>Smart Watering<br/>Blinds and Sunscreens<br/>Smart Sockets<br/>Smart Plant Pots<br/>Washers & Dryers<br/>Climate Control<br/>Coffee Machines<br/>Dishwashers<br/>Ovens</td><td>Timer</td><td>s</td>
+		<td>Garage Doors<br/>Smart Watering<br/>Blinds and Sunscreens<br/>Smart Sockets<br/>Smart Plant Pots<br/>Washers & Dryers<br/>Climate Control<br/>Coffee Machines<br/>Dishwashers<br/>Ovens</td><td>Timer</td><td>hh:mm:ss</td>
 	</tr>
 	<tr>
 		<td>Smart Plant Pots<br/> Weather Stations</td><td>Humidity<br/>PH</td><td>%<br/>0-14</td>

@@ -33,8 +33,8 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 	"timestamp": 1567677926,
 	"command_type": "set_timer",
 	"value": {
-		"unit": "s",
-		"time": 55
+		"unit": "hh:mm:ss",
+		"time": "02:12:00"
 	}
 }
 ```

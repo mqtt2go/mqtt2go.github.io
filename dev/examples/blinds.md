@@ -79,7 +79,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 	"command_type": "set_timer",
 	"value": {
             "unit": "hh:mm:ss",
-            "time": 011200
+            "time": "01:12:00"
     }
 }
 ```
