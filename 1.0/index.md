@@ -9,7 +9,7 @@
 		<td>2020-04-02</td><td><a href="https://mqtt2go.github.io/index.html">Rev 1.2</a></td><td>New version where sections "MQTT2GO objects" and "MQTT2GO Compatible Devices" are added. Also, the naming conventions were updated as well as the "device adding procedure" has been updated.</td><td><a href="https://mqtt2go.github.io/dev/changelog">Changelog</a></td>
 	</tr>
 	<tr>
-		<td>2019-11-21</td><td><a href="https://mqtt2go.github.io/1.1/index.html">Rev 1.1</a></td><td>Updated version of the MQTT2GO standard</td><td><a href="https://mqtt2go.github.io/changelog.html">Changelog</a></td>
+		<td>2019-11-21</td><td><a href="https://mqtt2go.github.io/1.1/index.html">Rev 1.1</a></td><td>Updated version of the MQTT2GO standard</td><td><a href="https://mqtt2go.github.io/1.1/changelog.html">Changelog</a></td>
 	</tr>
 	<tr>
 		<td>2019-11-13</td><td>Rev 1.0</td><td>Initial version of the MQTT2GO standard</td><td><a href="https://mqtt2go.github.io/1.0/changelog.html">Changelog</a></td>
