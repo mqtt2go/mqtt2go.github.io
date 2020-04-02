@@ -272,7 +272,7 @@ The MQTT reports utilized here are mostly a replies to the commands from the con
 }
 ```
 
-, where <strong>event_name</strong> can be warning or error.
+, where <strong>event_name</strong> can be warning or error
 
 ### Add Reports
 The add reports are generally used to report the reuslt of add commands. They will be describing in following subsections.

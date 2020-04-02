@@ -90,14 +90,7 @@ The report message structure is used for replies coming from the devices. The re
 
 <p align="justify">
 The <strong>priority_level</strong> is used to set a message priority. It can be between 1-5, where 1 is the lowest and 5 the highest.
-The report_type defines the type of report, there are four types of reports:</p>
-
-1. Status,
-2. CommandResponse,
-3. PeriodicReport,
-4. Error.
-
-<p align="justify">
+The report_type defines the type of report, there are four types of reports: (i) Status, (ii) CommandResponse, (iii) PeriodicReport,  and  (iv) Error.
 The timestamp defines the datetime of the message sent event. It is in Unix format.
 The <strong>report_name</strong> carries information about the value format. It can be any of the names from the afore presented tables. For example, when the <strong>report_name</strong> has a value of temperature, the value key-pair will carry an integer which corresponds to a degrees of celsius.
 <strong>value_body</strong> can be either a simple response (OK), an integer, or array of values.

@@ -5,10 +5,16 @@
 		<th style="width:20%">Date</th><th style="width:10%">Revision</th><th style="width:60%">Description</th><th style="width:10%">Changelog</th>
 	</tr>
 	<tr>
-		<td>2019-11-21</td><td>Rev 1.1</td><td>Updated version of the MQTT2GO standard</td><td><a href="https://mqtt2go.github.io/changelog.html">Changelog</a></td>
+		<td>TBD</td><td>Rev 1.3</td><td>In progress.</td><td><a href="https://mqtt2go.github.io/dev/changelog">Changelog</a></td>
 	</tr>
 	<tr>
-		<td>2019-11-13</td><td><a href="https://mqtt2go.github.io/1.0/index.html">Rev 1.0</a></td><td>Initial version of the MQTT2GO standard</td><td><a href="https://mqtt2go.github.io/1.0/changelog.html">Changelog</a></td>
+		<td>2020-04-02</td><td>Rev 1.2</td><td>New version where sections "MQTT2GO objects" and "MQTT2GO Compatible Devices" are added. Also, the naming conventions were updated as well as the "device adding procedure" has been updated.</td><td><a href="https://mqtt2go.github.io/changelog">Changelog</a></td>
+	</tr>
+	<tr>
+		<td>2019-11-21</td><td><a href="https://mqtt2go.github.io/1.1/index">Rev 1.1</a></td><td>Updated version of the MQTT2GO standard</td><td><a href="https://mqtt2go.github.io/1.1/changelog">Changelog</a></td>
+	</tr>
+	<tr>
+		<td>2019-11-13</td><td><a href="https://mqtt2go.github.io/1.0/index">Rev 1.0</a></td><td>Initial version of the MQTT2GO standard</td><td><a href="https://mqtt2go.github.io/1.0/changelog">Changelog</a></td>
 	</tr>
 </table>
 
@@ -98,6 +104,8 @@ This section is dedicated to the MQTT2GO topic naming convention. The structure 
 This section is related to the requirements which have to be fulfilled in order to work with the proposed MQTT2GO standard. The given requirements do cover the key functionalities which the MQTT2GO takes into the account as the basic features of the communication system.
 * [MQTT2GO General Requirements](./mqtt2go-general-req.md)
 
+# MQTT2GO Compatible Devices
+* [Shelly Plug S](https://github.com/mqtt2go/devices/tree/master/Shelly%20Plug%20S)
 
 # References
 <a name="ref1"></a>[1] MQTT Topics & Best Practices - MQTT Essentials: Part 5. Available from: [https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/)

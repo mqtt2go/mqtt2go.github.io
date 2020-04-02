@@ -6,7 +6,7 @@ This setup is providing an example of adding a new MQTT2GO non-compliant device,
 
 ## Setup Steps
 1. Turn on the MQTT Device that is going to be added.
-1. Connect to the device's Wi-Fi network and set up it via the vendor app. This app is provided by every vendor for users to be able to setup the device comfortably.
+1. Connect to the device's Wi-Fi network and set up it via the vendor provided app. This app is provided by every vendor for users to be able to setup the device comfortably.
 1. Open the App that is compatible with the MQTT2GO standard and go through the add a new unsupported MQTT-enabled device.  Insert there a __device ID__ (provided by the vendor's app), device vendor, and device type and complete the setup. In this step MQTT2GO Controller app subscribes to __\<home_id\>/\<gw_id\>/add_unsupported__ topic and publishes inserted data.
 1. Now the device is successfully registered into our MQTT2GO ecosystem and can be controlled via the MQTT, this is possible due to the SH-GW containing multiple MQTT Brokers and a “translation middleware” which is utilized for translation of the MQTT commands between different topic and command structures.
 
@@ -55,7 +55,7 @@ The MQTT broker has no chance to determine what kind of device is added. Therefo
 		"device_id": "device_id",
 		"device_vendor": "device_type",
 		"device_name": "device_name",
-		"group_id": ["group_id_1", "group_id_2", ...]
+		"group_id": "group_id"
 	}
 }
 ```
