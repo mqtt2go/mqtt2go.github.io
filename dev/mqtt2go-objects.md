@@ -140,8 +140,7 @@ The report types are used to distinguish between different reports based on thei
 | Curtains | curtains | state | closed, open, stopped, stuck |
 | Climate Control | climate | state <br/> timer <br/> humidity | on, off <br/> &lt;set_timer&gt; <br/> &lt;humidity&gt; |
 | Smoke Detector | smoke | state | smoke_alarm |
-| Coffee Machines | coffee | state <br/> <br/> timer | on, off, water_low, water_ok, coffee_low, coffee_ok, milk_low, milk_ok, cleaning_needed,
-repair_needed <br/> &lt;set_timer&gt; |
+| Coffee Machines | coffee | state <br/> <br/> timer | on, off, water_low, water_ok, coffee_low, coffee_ok, milk_low, milk_ok, cleaning_needed, repair_needed <br/> &lt;set_timer&gt; |
 | Voice Assistants | voice_assistant | state <br/> setup | on, off <br/> &lt;setup&gt; |
 | Dishwasher | dishwasher | state <br/> <br/> timer | on, off, in_progress, water_error, repair_needed <br/> &lt;set_timer&gt; |
 | Keyfob & Remotes | keyfob_remote | state <br/> mode | on, off <br/> &lt;mode&gt; |
