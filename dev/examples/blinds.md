@@ -79,7 +79,8 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 	"command_type": "set_timer",
 	"value": {
             "unit": "hh:mm:ss",
-            "time": "01:12:00"
+            "time": "01:12:00",
+            "action": "up/down"
     }
 }
 ```
