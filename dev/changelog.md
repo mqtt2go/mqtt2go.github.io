@@ -11,7 +11,7 @@
 * Updated naming conventions:
 	* all key words are now in snake_case format.
 
-* Updated MQTT2GO objects
+* Updated MQTT2GO objects:
 	* Added subpage with detailed functionality description of _Blinds and Sunscreens_ ([link](./examples/blinds.md)) object examples.
 	* The new subpage with description of functionality in case of _Smart Sockets_ ([link](./examples/sockets.md)) is provided in form object examples. 
 	* _Multi Sensors_ ([link](./examples/multi_sensors.md)) object examples were added into the MQTT2GO convention to extend already provided functionality description of previous objects (devices). 
