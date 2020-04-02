@@ -10,8 +10,8 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```json
 {
 	"type": "command",
-	"timestamp":1567677926,
-	"command_type":"set_target_position",
+	"timestamp": 1567677926,
+	"command_type": "set_target_position",
 	"value": 50
 }
 ```
@@ -20,8 +20,8 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```json
 {
 	"type": "command",
-	"timestamp":1567677926,
-	"command_type":"set",
+	"timestamp": 1567677926,
+	"command_type": "set",
 	"value": "up"
 }
 ```
@@ -30,8 +30,8 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```json
 {
 	"type": "command",
-	"timestamp":1567677926,
-	"command_type":"set",
+	"timestamp": 1567677926,
+	"command_type": "set",
 	"value": "down"
 }
 ```
@@ -40,8 +40,8 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```json
 {
 	"type": "command",
-	"timestamp":1567677926,
-	"command_type":"set",
+	"timestamp": 1567677926,
+	"command_type": "set",
 	"value": "stop"
 }
 ```
@@ -50,8 +50,8 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```json
 {
     "type": "command",
-    "timestamp":1567677926,
-    "command_type":"set_horizontal_tilt",
+    "timestamp": 1567677926,
+    "command_type": "set_horizontal_tilt",
     "value": {
         "unit": "degree",
         "angle": 90
@@ -63,8 +63,8 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```json
 {
     "type": "command",
-    "timestamp":1567677926,
-    "command_type":"set_vertical_tilt",
+    "timestamp": 1567677926,
+    "command_type": "set_vertical_tilt",
     "value": {
             "unit": "degree",
             "angle": 90
@@ -76,10 +76,10 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 {
 	"type": "command",
 	"timestamp":1567677926,
-	"command_type":"set_timer",
+	"command_type": "set_timer",
 	"value": {
-            "unit": "seconds",
-            "angle": 90
+            "unit": "hh:mm:ss",
+            "time": 011200
     }
 }
 ```
@@ -92,9 +92,9 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"type": "report",
 	"priority_level": 2,
-	"report_type":"command_response",
-	"timestamp":1567677956,
-	"report_name":"state",
+	"report_type": "command_response",
+	"timestamp": 1567677956,
+	"report_name": "state",
 	"report": "closed"
 }
 ```
@@ -103,9 +103,9 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"type": "report",
 	"priority_level": 2,
-	"report_type":"command_response",
-	"timestamp":1567677956,
-	"report_name":"state",
+	"report_type": "command_response",
+	"timestamp": 1567677956,
+	"report_name": "state",
 	"report": "open"
 }
 ```
@@ -114,9 +114,9 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"type": "report",
 	"priority_level": 2,
-	"report_type":"command_response",
-	"timestamp":1567677956,
-	"report_name":"state",
+	"report_type": "command_response",
+	"timestamp": 1567677956,
+	"report_name": "state",
 	"report": "stopped"
 }
 ```
@@ -125,32 +125,35 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"type": "report",
 	"priority_level": 2,
-	"report_type":"command_response",
-	"timestamp":1567677956,
-	"report_name":"state",
+	"report_type": "command_response",
+	"timestamp": 1567677956,
+	"report_name": "state",
 	"report": "repair_needed"
 }
 ```
+
 ### Current Position Report
+
 ```json
 {
 	"type": "report",
 	"priority_level": 2,
-	"report_type":"command_response",
-	"timestamp":1567677956,
-	"report_name":"current_position",
+	"report_type": "command_response",
+	"timestamp": 1567677956,
+	"report_name": "current_position",
 	"report": 50
 }
 ```
 
 ### Current Horizontal Angle Report
+
 ```json
 {
     "type": "report",
     "priority_level": 2,
     "report_type":"command_response",
-    "timestamp":1567677956,
-    "report_name":"current_horizontal_angle",
+    "timestamp": 1567677956,
+    "report_name": "current_horizontal_angle",
     "report": {
         "unit": "degree",
         "h": 90
@@ -159,13 +162,14 @@ Reports are utilized either as responses to the commands or to report periodic o
 ```
 
 ### Current Vertical Angle Report
+
 ```json
 {
     "type": "report",
     "priority_level": 2,
-    "report_type":"command_response",
-    "timestamp":1567677956,
-    "report_name":"current_vertical_angle",
+    "report_type": "command_response",
+    "timestamp": 1567677956,
+    "report_name": "current_vertical_angle",
     "report": {
         "unit": "degree",
         "h": 90
@@ -174,13 +178,14 @@ Reports are utilized either as responses to the commands or to report periodic o
 ```
 
 ### Obstruction Detected Report
+
 ```json
 {
 	"type": "report",
 	"priority_level": 1,
-	"report_type":"status",
-	"timestamp":1567677956,
-	"report_name":"obstruction_detected_report",
+	"report_type": "status",
+	"timestamp": 1567677956,
+	"report_name": "obstruction_detected_report",
 	"report": "true"
 }
 ```

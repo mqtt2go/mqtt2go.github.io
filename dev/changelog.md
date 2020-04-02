@@ -10,8 +10,11 @@
 * Updated naming conventions:
 	* all key words are now in snake_case format.
 
-* Updated _Blinds and Sunscreens_ MQTT2GO objects
-	* Added subpage with detailed functionality description of [blinds](./examples/blinds.md) object examples. 
+* Updated MQTT2GO objects
+	* Added subpage with detailed functionality description of _Blinds and Sunscreens_ [link](./examples/blinds.md) object examples.
+	* Added subpage with detailed functionality description of _Smart Sockets_ [link](./examples/sockets.md) object examples. 
+	* Added subpage with detailed functionality description of _Multi Sensors_ [link](./examples/multi_sensors.md) object examples. 
+
 
 * Added MQTT2GO Compatible Devices section:
 	* Added Shelly Plug S device with link to the FW repository, see [Link](https://github.com/mqtt2go/devices). Additional libraries are needed, see the "includes" in main.cpp.

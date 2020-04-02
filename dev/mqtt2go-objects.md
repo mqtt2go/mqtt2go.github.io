@@ -37,11 +37,11 @@ The command types used in the MQTT Commands are describing the targeted function
 | Doorbell | doorbell | set <br/> query | disable, enable <br/> stream |
 | Doorlock | doorlock | set <br/> setup | lock, unlock <br/> &lt;setup&gt; |
 | Blinds and Sunscreens | [blinds](./examples/blinds.md#commands) | set <br/> set_timer | up, down, stop <br/> &lt;timer&gt; |
-| Smart Sockets | [socket](./examples/socket.md#commands) | set <br/> set_timer <br/> query | on, off <br/> &lt;timer&gt; <br/> consumption, current, voltage, power |
+| Smart Sockets | [socket](./examples/sockets.md#commands) | set <br/> set_timer <br/> query </br> | on, off <br/> &lt;timer&gt; <br/> consumption, current, voltage, power |
 | Smart Plant Pots | plant_pot | setup <br/> set <br/> set_timer <br/> query | &lt;setup&gt; <br/> watering_start, watering_stop <br/> &lt;timer&gt; <br/> moisture, ph, water_level |
 | Motion Sensors | motion | set <br/> query | on, off <br/> motion |
 | Temperature Sensors | temperature | set <br/> query | on, off <br/> temperature |
-| Multi Sensors | [multi_sensor](./examples/blinds.md#commands) | set <br/> query | on, off <br/> temperature, humidity, motion, smoke, water |
+| Multi Sensors | [multi_sensor](./examples/multi_sensor.md#commands) | set <br/> query | on, off <br/> temperature, humidity, motion, smoke, water |
 | Smart Speakers | speaker | set | on, off, play, shuffle, volume_up, volume_down, volume_level |
 | Smart TVs | tv | set <br/> set_channel <br/> set_volume_level | on, off, volume_up, volume_down, play, pause <br/> &lt;channel&gt; <br/> &lt;volume&gt; |
 | Thermostat | thermostat | query <br/> set_temperature <br/> setup | temperature <br/> &lt;temperature&gt; <br/> &lt;setup&gt; |
@@ -121,7 +121,7 @@ The report types are used to distinguish between different reports based on thei
 | Doorbell | doorbell | stream <br/> state | &lt;stream_url&gt; <br/> ringing, stream_failed |
 | Doorlock | doorlock | state | locked, unlocked, lock_breach, lock_jammed, lock_failed, unlock_failed |
 | Blinds and Sunscreens | [blinds](./examples/blinds.md#reports) | state | closed, open, stopped, repair_needed |
-| Smart Sockets | [socket](./examples/socket.md#reports) | state <br/> consumption <br/> current <br/> voltage <br/> power | on, off <br/> &lt;consumption&gt; <br/> &lt;current&gt; <br/> &lt;voltage&gt; <br/> &lt;power&gt; |
+| Smart Sockets | [socket](./examples/sockets.md#reports) | state <br/> consumption <br/> current <br/> voltage <br/> power | on, off <br/> &lt;consumption&gt; <br/> &lt;current&gt; <br/> &lt;voltage&gt; <br/> &lt;power&gt; |
 | Smart Plant Pots | plant_pot | state | out_of_water |
 | Motion Sensors | motion | state | motion_present |
 | Temperature Sensors | temperature | temperature | &lt;temperature&gt; |
