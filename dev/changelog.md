@@ -12,9 +12,9 @@
 	* all key words are now in snake_case format.
 
 * Updated MQTT2GO objects
-	* Added subpage with detailed functionality description of _Blinds and Sunscreens_ [link](./examples/blinds.md) object examples.
-	* Added subpage with detailed functionality description of _Smart Sockets_ [link](./examples/sockets.md) object examples. 
-	* Added subpage with detailed functionality description of _Multi Sensors_ [link](./examples/multi_sensors.md) object examples. 
+	* Added subpage with detailed functionality description of _Blinds and Sunscreens_ ([link](./examples/blinds.md)) object examples.
+	* Added subpage with detailed functionality description of _Smart Sockets_ ([link](./examples/sockets.md)) object examples. 
+	* Added subpage with detailed functionality description of _Multi Sensors_ ([link](./examples/multi_sensors.md)) object examples. 
 
 
 * Added MQTT2GO Compatible Devices section:
