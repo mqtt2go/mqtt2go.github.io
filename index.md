@@ -13,6 +13,9 @@
 	<tr>
 		<td>2019-11-13</td><td><a href="https://mqtt2go.github.io/1.0/index">Rev 1.0</a></td><td>Initial version of the MQTT2GO standard</td><td><a href="https://mqtt2go.github.io/1.0/changelog">Changelog</a></td>
 	</tr>
+	<tr>
+		<td>-</td><td><a href="https://mqtt2go.github.io/dev/index">DEV</a></td><td>Unpublished development version</td><td><a href="https://mqtt2go.github.io/dev/changelog">Changelog</a></td>
+	</tr>
 </table>
 
 # The MQTT2GO Project Introduction

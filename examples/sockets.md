@@ -103,7 +103,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 	"priority_level": 2,
 	"report_type": "report_type",
 	"timestamp": 1567677956,
-	"report_name": "consumption",
+	"report_name": "power",
 	"report": {
 		"value": 90,
 		"unit": "W"
