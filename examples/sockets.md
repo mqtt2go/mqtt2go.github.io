@@ -1,7 +1,7 @@
 [Back](../mqtt2go-objects.md)
 
 # Smart Sockets
-To control the smart sockets, a user have to follow the MQTT2GO convention. To ease up the setup, this page is dedicated to the command and report messages utilized for such communication.
+To control the smart sockets, a user has to follow the MQTT2GO convention i.e., [MQTT2GO Convention](./index.md#data-structure). To ease up the setup, this page is dedicated to the command and report messages utilized for such communication.
 
 ## <a name="commands"></a>Commands
 As specified by the MQTT2GO convention, the commands are utilized for device control. In the following subsection, we present the standardized way which is following the convention.
