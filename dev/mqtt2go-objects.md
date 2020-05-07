@@ -1,7 +1,7 @@
 [Back](./index.md#data-structure)
 # MQTT Objects
 <p align="justify">
-MQTT objects are describing all end devices that are connected to the MQTT2GO system. Their primary purpose is to either periodically report measurement results back to the SH-GW or to fulfill their role in the smart home.
+MQTT objects are describing all end devices that are connected to the MQTT2GO system. Their primary purpose is to either periodically report measurement results back to the SH-GW or to be controlled by the users and controllers to fulfill their role in the smart home.
 </p>
 
 ## Topics Structure
@@ -10,7 +10,7 @@ The topic structure for MQTT objects is in line with the general structure descr
 </p>
 
 ```
-<home_id>/<gateway_id>/<group_id>/<device_type>/<dev_id>
+<home_id>/<gateway_id>/<group_id>/<dev_id>
 ```
 
 ## <a name="object-commands"></a>MQTT Commands
@@ -23,8 +23,9 @@ The MQTT Commands described in this section are device specific and therefore th
 The command types used in the MQTT Commands are describing the targeted functionality of the whole command. The command types are:
 </p>
 
-* Set commands, which can be further specified by underscore to match a certain command. I.e., set_temperature.
-* Query commands, which are used to query information from the end devices. They are used to force the readout out of the periodic report time cycle.
+* __Set__ commands, which can be further specified by underscore to match a certain command. I.e., set_temperature.
+* __Setup__ commands, which are used for setting up complex behavior.
+* __Query__ commands, which are used to query information from the end devices. They are used to force the readout out of the periodic report time cycle.
 
 ### Table with Commands
 
@@ -67,7 +68,7 @@ The command types used in the MQTT Commands are describing the targeted function
 
 ### MQTT Commands Examples
 <p align="justify">
-To provide some examples of the MQTT Commands usage, we provide simple and complex examples.
+To provide some examples of the MQTT Commands usage, we provide simple and complex structure examples.
 </p>
 
 #### Simple Command Example
@@ -105,8 +106,8 @@ The MQTT Reports are used for the periodic and forced reports (replies). Their m
 The report types are used to distinguish between different reports based on their purpose. They are further divided into:
 </p>
 
-* __Status__, which is reporting the current status of the device,
-* __Command response__ used to immediately report after the command request,
+* __Status__, which is reporting the current status of the device (i.e., failed, batter_low,...),
+* __Command response__ used to immediately report the outcome after the command request,
 * __Periodic report__ used to periodically publish current data/state into subscribed topics,
 * __Error__ used to inform about critical states or malfunctions.
 
@@ -152,7 +153,7 @@ The report types are used to distinguish between different reports based on thei
 
 ### MQTT Reports Examples
 <p align="justify">
-As for the commands, here we present two examples of the reports:
+To provide complete example of the command - report message structure. Below we provide the example structure for simple and complex reports.
 </p>
 
 #### Simple Report Example
@@ -185,7 +186,7 @@ As for the commands, here we present two examples of the reports:
 ```
 
 ### MQTT2GO units
-In this section, we provide a table with all units needed by the MQTT2GO messages. If the unit needs to be specified for selected command/report (meaning the command/report is not simple on,off,etc.), then the value will be specfied inside the value field. The units are following:
+In this section, we provide a table with all currently utilized units in the MQTT2GO messages. If the unit needs to be specified for selected command/report (meaning the command/report is not simple on,off,etc.), then the value will be specified inside the *value* field. The utilized unit types are following:
 
 
 <table style="width:100%">
@@ -224,7 +225,7 @@ In this section, we provide a table with all units needed by the MQTT2GO message
 The units specified above are for currently supported devices. If a new type of device will be added, the unit structure should follow the MQTT2GO standard.
 
 #### MQTT2GO units example
-Here we provide sample command and report to depict the correct usage of units:
+Here we provide sample command and report structure to depict the correct usage of units inside the value object:
 
 ##### MQTT2GO unit command
 ```json

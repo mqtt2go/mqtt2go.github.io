@@ -15,14 +15,13 @@ The general MQTT2GO topic structure is created to be as efficient as possible, g
 </p>
 
 ```
-<home_id>/<gateway_id>/<group_id>/<device_type>/<dev_id>
+<home_id>/<gateway_id>/<group_id>/<dev_id>
 ```
 
 <p align="justify">
 where the <strong>&lt;home_id&gt;</strong> stands for the unique identificator of the home (this is used for the identification of a group of users, that are sharing one or more gateways and corresponding amount of devices connected to them),
 <strong>&lt;gateway_id&gt;</strong> is the unique identificator of the gateway,
 <strong>&lt;group_id&gt;</strong> is the unique identificator of the group of devices,
-<strong>&lt;device_type&gt;</strong> defines to which category the device belongs,
 and <strong>&lt;dev_id&gt;</strong> is device’s own unique identificator.
 </p>
 
@@ -31,11 +30,11 @@ To access a multiple devices or a whole group. Wildcard masks from the MQTT stan
 </p>
 
 ```
-<home_id>/<gateway_id>/+/<device_type>/<dev_id>
+<home_id>/<gateway_id>/+/<dev_id>
 ```
 
 <p align="justify">
-Which means that the subscribe/publish will be done to all groups, where the <strong>&lt;device_type&gt;/&lt;dev_id&gt;</strong> matches inserted data.
+Which means that the subscribe/publish will be done to all groups, where the <strong>&lt;dev_id&gt;</strong> matches inserted data.
 </p>
 
 <p align="justify">
@@ -53,7 +52,7 @@ Therefore means that the messages will go to all devices and all groups under se
 
 ### MQTT Commands
 <p align="justify">
-The command messages are composed of four fields: (i) type, which is used to distinguish between the command and report type, (ii) timestamp, (iii) command type which is used to select the correct type of command (i.e., set, query, etc.) and (iv) command structure, containing the actual command. The command itself can be either a simple name-value pair or a complex structure, which is usually used for complex operations such as device setup.
+The command messages are composed of four fields: (i) <strong>type</strong>, which is used to distinguish between the command and report types, (ii) <strong>timestamp</strong>, (iii) <strong>command type</strong> which is used to select the correct type of command (i.e., set, query, etc.) and (iv) <strong>value</strong> structure, containing the actual command. The command itself can be either a simple name-value pair or a complex structure, which is usually designated for complex operations such as device setup.
 </p>
 
 ```json
@@ -65,8 +64,8 @@ The command messages are composed of four fields: (i) type, which is used to dis
 }
 ```
 <p align="justify">
-The timestamp defines the datetime of the message sent event. It is in Unix format.
-The command_type defines what information should be expected in the value key-pair. It can be any of the command types defined in the tables from sections 2.2.1.2, 2.2.2.2, 2.2.3.2, 2.3.2, 2.4.2. If the command_type_value will contain a set, a value of simple commands such as on can be expected. If command_type_value will contain a color keyword, the value will contain an array, which will describe the HSB information needed to set up the chosen color.<br>
+The <strong>timestamp</strong> defines the datetime of the message sent event. It is in Unix format.
+The <strong>command_type</strong> defines what information should be expected in the value key-pair. It can be any of the command types defined in the tables from sections 2.2.1.2, 2.2.2.2, 2.2.3.2, 2.3.2, 2.4.2. If the <strong>command_type_value</strong> will contain a <strong>set</strong>, a <strong>value</strong> of simple commands such as <strong>on</strong> can be expected. If </strong>command_type_value</strong> will contain a color keyword, the value will contain an array, which will describe the HSB information needed to set up the chosen color.<br>
 Based on previous examples, the value key-pair can contain either a simple command such as on, off and similar, or more advanced commands represented by an array (i.e., the array for HSB information for setting the light color).
 </p>
 

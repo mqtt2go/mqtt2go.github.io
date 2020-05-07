@@ -1,11 +1,11 @@
 [Back](./index.md#add-devices)
 # Setup via WPS
 <p align="justify">
-The process of adding a new device using the WPS is very similar to the previous example. The only difference is that all the initial setup of the connection to the SH-GW is done via the WPS. The process of WPS is as follows: Both SH-GW and New Device has to activate the WPS at the same time. After the WPS is activated, the client-side device negotiates access with the access point and after the Wi-Fi connection is set up, the rest is the same as in the ideal example.
+The process of adding a new device using the WPS is very similar to the previous example. The only difference is that all the initial setup of the connection to the SH-GW is done via the WPS. The process of WPS is as follows: Both SH-GW and New End Device has to activate the WPS at the same time. After the WPS is activated, the client-side device negotiates access with the access point and after the Wi-Fi connection is set up, the rest is the same as in the ideal example (as described in <a href="./add-wifi">Setup via Guest WiFi</a>).
 </p>
 
 ## Setup Steps
-1.	MQTT Controller (Mobile/Web App) initiates the process of adding a new device by subscribing to __/\<home_id\>/\<gw_id\>/add_device__. Then it publishes an activation request containing __activation code, device id__, and __device type__. The __activation code__ and __device id__ codes can be found on the newly installed device in the form two numbers or QR code.
+1.	MQTT Controller (Mobile/Web App) initiates the process of adding a new device by subscribing to __/\<home_id\>/\<gw_id\>/add_device__. Then it publishes an activation request containing __activation code, device id__, and __device type__. The __activation code__ and __device id__ codes can be found on the newly installed device in the form two numbers or QR codes.
 2.	The user is prompted to activate WPS by pressing buttons on both SH-GW and newly installed end device.
 3.	MQTT end device then connects to the Guest Wi-Fi and further utilizes mDNS (multicast DNS) to resolve address __MQTT2GO.local__ (\_mqtt.\_tcp.local.), which equals to the address of the MQTT broker.
 4.	The MQTT end device then connects to the initialization MQTT broker. The MQTT end device contains a pre-loaded certificate of trustworthy CA (Certification Authority), which is used to establish TLS (Transport Layer Security) communication with the MQTT broker. The chain of trust must be on both sides. Thus, the SH-GW (MQTT broker) has to contain a certificate issued by the same CA as it is contained in the MQTT end-device. If these certificates do not match, the TLS communication cannot be established.
@@ -22,7 +22,7 @@ The process of adding a new device using the WPS is very similar to the previous
 
 
 <p align="center" >
-	<img src="mqtt_wps_setup_cert.svg" alt="Proccess of adding a new WPS MQTT2GO device">
+	<img src="mqtt_wps_setup_cert.svg" alt="Process of adding a new WPS MQTT2GO device">
 </p>
 <p align="center" >
 	<a name="add-devices-fig"></a><em><strong>Fig. 1: </strong>Process of adding a new WPS MQTT2GO device.</em>
@@ -30,7 +30,7 @@ The process of adding a new device using the WPS is very similar to the previous
 
 ## Network Join
 <p align="justify">
-The operation of adding a new device into the network / household is utilizing a special topics. These topics are only temporary and utilized only for this specific use-case. This means that, aside from one, they are not a part of the standard topic structure. This simplifies the implementation at the end devices as they have no idea of the current structure of the MQTT2GO household. This topics and needed commands and reports are described in this section.
+The operation of adding a new device into the network / household is utilizing a special topics. These topics are only temporary and utilized only for this specific use-case. This means that, aside from one, they are not a part of the standard topic structure. This simplifies the implementation at the end devices as they have no idea about the current topic structure of the MQTT2GO household. This topics and utilized commands and reports are described in this section.
 </p>
 
 ### Topics Structure
@@ -126,7 +126,7 @@ The end device utilizes this channel to get the topic name to which the devices 
 The MQTT Commands mentioned below are used in adding a new device process. The command structure is based on the structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. Again, the numbering in this section is coherent with the numbering in <a href="#add-devices-fig">Fig. 1</a>.
 </p>
 
-#### Activate Device
+#### Add New Device
 <p align="justify">
 This command (1) is utilized to start the whole process of adding a new device. The command contains the <strong>activation_code</strong>, <strong>device_id</strong>, and <strong>device_type</strong> of the newly added device.
 </p>
@@ -135,7 +135,7 @@ This command (1) is utilized to start the whole process of adding a new device. 
 {
 	"type": "command",
 	"timestamp": "timestamp_value",
-	"command_type": "activate_device",
+	"command_type": "add_device",
 	"value": {
 		"activation_code": "activation_code",
 		"device_id": "device_id",

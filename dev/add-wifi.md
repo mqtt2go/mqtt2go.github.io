@@ -1,19 +1,19 @@
 [Back](./index.md#add-devices)
 # Setup via Guest WiFi
 <p align="justify" >
-The ideal process of adding new device should be considered as the right way how to go through this process. Keeping this in mind, some of the steps detailed below can be reduced using a specific technology that can provide the needed functionality (i.e., WPS). The idealprocess to add a new device is based on the following steps.
+The ideal process of adding new device should be considered as the right way how to go through the setup procedure. Keeping this in mind, some of the steps detailed below can be reduced using a specific technology that can provide the needed functionality (i.e., WPS). The ideal process to add a new device is based on the following steps.
 </p>
 
 ## Setup Steps
 
-1.	MQTT Controller (Mobile/Web App) initiates the process of adding a new device by subscribing to __/\<home_id\>/\<gw_id\>/add_device__. Then it publishes an activation request containing __activation code, device id__, and __device type__. The __activation code__ and __device id__ codes can be found on the newly installed device in the form two numbers or QR code.
-2.	In response to the request, SH-GW enables the Guest Wi-Fi with SSID __MQTT2GO__ and sets the password inputted as an activation code.
+1.	MQTT Controller (Mobile/Web App) initiates the process of adding a new device by subscribing to __/\<home_id\>/\<gw_id\>/add_device__. Then it publishes an activation request containing __activation code, device id__, and __device type__. The __activation code__ and __device id__ codes can be found on the newly installed device in the form of two numbers or QR codes.
+2.	In response to the request, SH-GW enables the Guest Wi-Fi with SSID of __MQTT2GO__ and the inputted activation code as password.
 3.	MQTT end device then connects to the Guest Wi-Fi and further utilizes mDNS (multicast DNS) to resolve address __MQTT2GO.local__ (\_mqtt.\_tcp.local.), which equals to the address of the MQTT broker.
-4.	The MQTT end device then connects to the initialization MQTT broker. The MQTT end device contains a pre-loaded certificate fingerprint of trustworthy CA (Certification Authority), which is used to establish TLS (Transport Layer Security) communication with the MQTT broker. The chain of trust must be on both sides. Thus, the SH-GW (MQTT broker) has to contain a certificate issued by the same CA as it is contained in the MQTT end-device. If these certificates do not match, the TLS communication cannot be established.
+4.	The MQTT end device then connects to the initialization MQTT broker. The MQTT end device contains a pre-loaded certificate fingerprint of trustworthy CA (Certification Authority), which is used to establish TLS (Transport Layer Security) communication with the MQTT broker. The chain of trust must be on both sides. Thus, the SH-GW (MQTT broker) has to contain a certificate issued by the same CA as it is contained in the MQTT end-device. If these certificates do not match, the TLS communication cannot be established and the device will be refused as a non-trustworthy.
 5.	When the TLS communication is established the MQTT end device subscribes to the __\<activation_code\>/activation__ topic and publishes _GET_CREDENTIALS_ request.
 6.	As a response, SH-GW (MQTT broker) generates a new set of certificates that will be used for ongoing communication and publishes its CA certificate, login, and password to the MQTT end device.
 7.	The MQTT end device further subscribes to __\<activation_code\>/wifi__ and publishes _GET_WIFI_CREDENTIALS_ request.
-8.	In response, the MQTT broker issues WiFi credentials (SSID, Password) for the home network.
+8.	In response, the MQTT broker issues Wi-Fi credentials (SSID, Password) for the home network.
 9.	When the MQTT end device receives the credentials, connection with the initialization broker is closed. The end device then connects to the home Wi-Fi with the acquired credentials.
 10.	Further MQTT end device connects to the MQTT broker with a certificate and credentials obtained in step 6 and subscribes to __\<dev_id\>/topic__.
 11.	In the next step, the MQTT end device publishes _GET_DEVICE_TOPIC_ request. The certificate from step 6 is directly connected to the __device id__. Thus only the device with proper __device id__ value can utilize this certificate. This approach brings additional security to the device configuration process.
@@ -33,23 +33,23 @@ The ideal process of adding new device should be considered as the right way how
 
 ## Network Join
 <p align="justify">
-The operation of adding a new device into the network / household is utilizing a special topics. These topics are only temporary and utilized only for this specific use-case. This means that, aside from one, they are not a part of the standard topic structure. This simplifies the implementation at the end devices as they have no idea of the current structure of the MQTT2GO household. This topics and needed commands and reports are described in this section.
+The operation of adding a new device into the network / household is exploiting a special topics. These topics are only temporary and utilized only for this specific use-case. This means that, aside from one, they are not a part of the standard topic structure. This simplifies the implementation at the end devices as they initially have no idea about the current topic structure of the MQTT2GO household. This topics and their specific commands and reports are described in this section.
 </p>
 
 ### Topics Structure
 <p align="justify">
-As aforementioned, network join topics are unique inside the MTT2GO standard and are solely used for the initial connection of new devices.
+As aforementioned, network join topics are unique inside the MTT2GO standard and are solely used for the initial connection of new devices. Their structure is given in following subsections.
 </p>
 
 #### End device
 <p align="justify">
-The end device itself utilizes a unique topics for the initialization communication. They are:
+The end device itself utilizes a two unique topics for the initialization communication. They are:
 </p>
 
 ```
 <activation_code>/activation
 ```
-utilized for certificate exchange,
+exploited for certificate exchange, and
 
 ```
 <activation_code>/wifi
@@ -58,12 +58,12 @@ for the Wi-Fi credentials exchange.
 
 ### MQTT Commands
 <p align="justify">
-The MQTT commands for the network join are again based on the general structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. And the most important change is in the value key of the command, which can be further divided by the function of the message (the numbering here corresponds to the one in <a href="#add-devices-fig">Fig. 1</a>).
+The MQTT commands for the network join are again based on the general structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. The most important difference lies in the <i>value</i> key of the command, which can be further divided by the function of the command message (the numbering here corresponds to the one in <a href="#add-devices-fig">Fig. 1</a>).
 </p>
 
 #### Get Credentials
 <p align="justify">
-This command (2) is utilized to get a newly generated certificate for the end device. Its command value is in form of string with value <em>GET_CREDENTIALS</em>.
+This command (2) is utilized to get a newly generated certificate for the end device. Its command <i>value</i> is in form of string with value <em>GET_CREDENTIALS</em>.
 </p>
 
 ```json
@@ -77,7 +77,7 @@ This command (2) is utilized to get a newly generated certificate for the end de
 
 #### Get Wifi Credentials
 <p align="justify">
-Get Wifi credentials (4) which is used to obtain the Wi-Fi credentials, again the command value is <em>GET_WIFI_CREDENTIALS</em> string.
+Get Wifi credentials (4) which is used to obtain the Wi-Fi credentials, again the command <i>value</i> is <em>GET_WIFI_CREDENTIALS</em> string.
 </p>
 
 ```json
@@ -155,7 +155,7 @@ Its main purpose is to publish information that initialize and finalize the addi
 
 #### End Device
 <p align="justify">
-The end device utilizes this channel to get the topic name to which the devices has to be subscribed.
+The end device utilizes following topic to get the topic name to which the devices has to be subscribed to.
 </p>
 
 ```
@@ -167,7 +167,7 @@ The end device utilizes this channel to get the topic name to which the devices 
 The MQTT Commands mentioned below are used in adding a new device process. The command structure is based on the structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. Again, the numbering in this section is coherent with the numbering in <a href="#add-devices-fig">Fig. 1</a>.
 </p>
 
-#### Activate Device
+#### Add New Device
 <p align="justify">
 This command (1) is utilized to start the whole process of adding a new device. The command contains the <strong>activation_code</strong>, <strong>device_id</strong>, and <strong>device_type</strong> of the newly added device.
 </p>
@@ -176,7 +176,7 @@ This command (1) is utilized to start the whole process of adding a new device. 
 {
 	"type": "command",
 	"timestamp": "timestamp_value",
-	"command_type": "activate_device",
+	"command_type": "add_device",
 	"value": {
 		"activation_code": "activation_code",
 		"device_id": "device_id",

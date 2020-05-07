@@ -6,23 +6,25 @@ The general commands and reports are used to communicate using device-independen
 
 ## <a name="mqtt_topics"></a>Topics Structure
 <p align="justify">
-The general MQTT2GO topic structure is created to be as efficient as possible, generating a reasonable amount of subtopics and therefore following the MQTT best practices. The topic itself is then composed as follows:
+The general MQTT2GO topic structure is created to be as efficient as possible, generating a reasonable amount of subtopics and therefore following the MQTT best practices. The main topic structure itself is then composed as follows:
 </p>
 
 ```
-<home_id>/<gateway_id>/<group_id>/<device_type>/<dev_id>
+<home_id>/<gateway_id>/<dev_id>/<entity>/<msg_direction>
 ```
 
-<p align="justify">
-where the <strong>&lt;home_id&gt;</strong> stands for the unique identificator of the home (this is used for the identification of a group of users, that are sharing one or more gateways and corresponding amount of devices connected to them),
-<strong>&lt;gateway_id&gt;</strong> is the unique identificator of the gateway,
-<strong>&lt;group_id&gt;</strong> is the unique identificator of the group of devices,
-<strong>&lt;device_type&gt;</strong> defines to which category the device belongs,
-and <strong>&lt;dev_id&gt;</strong> is device’s own unique identificator.
-</p>
+
+<ul>
+ <li>where the <strong>&lt;home_id&gt;</strong> stands for the unique identificator of the home (this is used for the identification of a group of users, that are sharing one or more gateways and corresponding amount of devices connected to them),</li>
+ <li><strong>&lt;gateway_id&gt;</strong> is the unique identificator of the gateway,</li>
+ <li><strong>&lt;dev_id&gt;</strong> is device’s own unique identificator,</li>
+ <li><strong>&lt;entity&gt;</strong> is the unique identificator of the message information (i.e., humidity),</li>
+ <li>and <strong>&lt;msg_direction&gt;</strong> defines the direction of the communication, where <strong>in</strong> stands for the communication going to the device (i.e., commands) and <strong>out</strong> represents the responses from the device to the gateway / controller.</li>
+ </ul>
+
 
 <p align="justify">
-To access a multiple devices or a whole group. Wildcard masks from the MQTT standard have to be used. If we want to substitute only one level, a <strong>+</strong> wildcard can be used. This means that the topic would look like:
+To access a multiple devices or all of its entities. Wildcard masks from the MQTT standard have to be used. If we want to substitute only one level, a <strong>+</strong> wildcard can be used. This means that the topic would look like:
 </p>
 
 ```
@@ -44,6 +46,20 @@ If the subscribe/publish should be to a larger group of end devices, a <strong>&
 <p align="justify">
 ,therefore means that the messages will go to all devices and all groups under selected gateway.
 </p>
+
+Some examples of the whole topic structure are as follows:
+
+```
+<home_id>/<gateway_id>/<dev_id>/about/in
+```
+
+```
+<home_id>/<gateway_id>/<dev_id>/power/in
+```
+
+```
+<home_id>/<gateway_id>/<dev_id>/humidity/out
+```
 
 
 ## <a name="mqtt_commands"></a>MQTT Commands
