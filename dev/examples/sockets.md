@@ -9,9 +9,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Set On
 ```json
 {
-	"type": "command",
 	"timestamp": 1567677926,
-	"command_type": "set",
 	"value": "on"
 }
 ```
@@ -19,9 +17,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Set Off
 ```json
 {
-	"type": "command",
 	"timestamp": 1567677926,
-	"command_type": "set",
 	"value": "off"
 }
 ```
@@ -31,9 +27,7 @@ The set_timer command is utilized to setup the periodical action which will trig
 
 ```json
 {
-	"type": "command",
 	"timestamp": 1567677926,
-	"command_type": "set_timer",
 	"value": {
 		"unit": "hh:mm:ss",
 		"time": "02:12:00",
@@ -51,9 +45,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
-	"report_type": "report_type",
 	"timestamp": 1567677956,
 	"report_name": "consumption",
 	"report": {
@@ -67,9 +59,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
-	"report_type": "report_type",
 	"timestamp": 1567677956,
 	"report_name": "current",
 	"report": {
@@ -83,9 +73,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
-	"report_type": "report_type",
 	"timestamp": 1567677956,
 	"report_name": "voltage",
 	"report": {
@@ -99,9 +87,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
-	"report_type": "report_type",
 	"timestamp": 1567677956,
 	"report_name": "consumption",
 	"report": {

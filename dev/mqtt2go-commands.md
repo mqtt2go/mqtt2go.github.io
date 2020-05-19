@@ -70,13 +70,12 @@ Some examples of the whole topic structure are as follows:
 
 ## <a name="mqtt_commands"></a>MQTT Commands
 <p align="justify">
-The command messages are composed of three fields: (i) <strong>timestamp</strong>, (ii) <strong>command_type</strong> which is used to select the correct type of command (i.e., set, query, etc.) and (iii) <strong>value</strong> structure, containing the actual command. The command itself can be either a simple name-value pair or a complex structure, which is usually used for complex operations such as device setup.
+The command messages are composed of two fields: (i) <strong>timestamp</strong> and (ii) <strong>value</strong> structure, containing the actual command. The command itself can be either a simple name-value pair or a complex structure, which is usually used for complex operations such as device setup.
 </p>
 
 ```json
 {
 	"timestamp": "timestamp_value",
-	"command_type": "command_type_value",
 	"value": "value_body"
 }
 ```
@@ -89,23 +88,28 @@ Based on previous examples, the <strong>value</strong> key-pair can contain eith
 The general query commands that are common for all devices are as follows: 
 
 * A topics used for controlling the **on/off** status of the device (the on is in the example):
+
 ```
 <home_id>/<gateway_id>/<dev_id>/on/in
 ```
 
 * A topic used to query the battery level:
+
 ```
 <home_id>/<gateway_id>/<dev_id>/battery/in
 ```
 * A topic used to query current state of the device
+
 ```
 <home_id>/<gateway_id>/<dev_id>/state/in
 ```
 * A topic to query the tamper status of selected device:
+
 ```
 <home_id>/<gateway_id>/<dev_id>/tamper/in
 ```
 * A topic used to query the status of the device:
+
 ```
 <home_id>/<gateway_id>/<dev_id>/status/in
 ```
@@ -118,7 +122,6 @@ The report message structure is used for replies coming from the devices. The re
 ```json
 {
 	"priority_level":"priority_level_value",
-	"report_type":"report_type_name",
 	"timestamp":"timestamp_value",
 	"report_name":"report_name",
 	"value":"value_body" 

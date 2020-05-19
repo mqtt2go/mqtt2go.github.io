@@ -75,7 +75,6 @@ This report (3) is utilized to deliver a newly generated certificate and credent
 
 ```json
 {
-	"report_type":"command_response",
 	"timestamp": "timestamp_value",
 	"report_name": "mqtt_credentials",
 	"value":  {
@@ -132,7 +131,6 @@ This command (1) is utilized to start the whole process of adding a new device. 
 ```json
 {
 	"timestamp": "timestamp_value",
-	"command_type": "add_device",
 	"value": {
 		"activation_code": "activation_code",
 		"device_id": "device_id",
@@ -149,7 +147,6 @@ Get device topic command (4) is used to get device topic from the SH-GW. This co
 ```json
 {
 	"timestamp": "timestamp_value",
-	"command_type": "topic",
 	"value": "GET_DEVICE_TOPIC"
 }
 ```
@@ -162,7 +159,6 @@ This command (6) is utilized to finalize the process of adding a new device to t
 ```json
 {
 	"timestamp": "timestamp_value",
-	"command_type": "rename_device",
 	"value": {
 		"device_id": "device_id",
 		"device_name": "device_name",
@@ -184,9 +180,7 @@ This report (5) is utilized to request the user of the MQTT2GO Controller app fo
 
 ```json
 {
-	"report_type":"command_response",
 	"timestamp": "timestamp_value",
-	"report_name": "rename_device",
 	"value": {
 		"device_id": "device_id",
 		"setup_result": "setup_result"
@@ -201,9 +195,7 @@ This report (7) is used to deliver the requested topic, in which the new device 
 
 ```json
 {
-	"report_type":"command_response",
 	"timestamp": "timestamp_value",
-	"report_name": "topic",
 	"value": "topic"
 }
 ```

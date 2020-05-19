@@ -69,7 +69,6 @@ This command (2) is utilized to get a newly generated certificate for the end de
 ```json
 {
 	"timestamp": "timestamp_value",
-	"command_type": "mqtt_credentials",
 	"value": "GET_CREDENTIALS"
 }
 ```
@@ -82,7 +81,6 @@ Get Wifi credentials (4) which is used to obtain the Wi-Fi credentials, again th
 ```json
 {
 	"timestamp": "timestamp_value",
-	"command_type": "wifi",
 	"value": "GET_WIFI_CREDENTIALS"
 }
 ```
@@ -99,7 +97,6 @@ This report (3) is utilized to deliver a newly generated certificate from MQTT b
 {
 	"report_type":"command_response",
 	"timestamp": "timestamp_value",
-	"report_name": "mqtt_credentials",
 	"value":  {
 		"cert": "device_certificate",
 		"user": "mqtt_login",
@@ -115,7 +112,6 @@ This report (5) is used to send the Wi-Fi credentials back to the end device.
 
 ```json
 {
-	"report_type":"command_response",
 	"timestamp": "timestamp_value",
 	"report_name": "wifi_credentials",
 	"value": {
@@ -171,7 +167,6 @@ This command (1) is utilized to start the whole process of adding a new device. 
 ```json
 {
 	"timestamp": "timestamp_value",
-	"command_type": "add_device",
 	"value": {
 		"activation_code": "activation_code",
 		"device_id": "device_id",
@@ -188,7 +183,6 @@ Get device topic command (6) is used to get device topic from the SH-GW. This co
 ```json
 {
 	"timestamp": "timestamp_value",
-	"command_type": "topic",
 	"value": "GET_DEVICE_TOPIC"
 }
 ```
@@ -201,7 +195,6 @@ This command (8) is utilized to finalize the process of adding a new device to t
 ```json
 {
 	"timestamp": "timestamp_value",
-	"command_type": "rename_device",
 	"value": {
 		"device_id": "device_id",
 		"device_name": "device_name",
@@ -225,7 +218,6 @@ This report (7) is utilized to request the user of the <a href="./mqtt2go-contro
 {
 	"report_type":"command_response",
 	"timestamp": "timestamp_value",
-	"report_name": "rename_device",
 	"value": {
 		"device_id": "device_id",
 		"setup_result": "setup_result"

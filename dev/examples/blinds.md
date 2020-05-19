@@ -9,9 +9,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Set Target Position
 ```json
 {
-	"type": "command",
 	"timestamp": 1567677926,
-	"command_type": "set_target_position",
 	"value": 50
 }
 ```
@@ -19,9 +17,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Set Up Position
 ```json
 {
-	"type": "command",
 	"timestamp": 1567677926,
-	"command_type": "set",
 	"value": "up"
 }
 ```
@@ -29,9 +25,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Set Down Position
 ```json
 {
-	"type": "command",
 	"timestamp": 1567677926,
-	"command_type": "set",
 	"value": "down"
 }
 ```
@@ -39,9 +33,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Stop Position
 ```json
 {
-	"type": "command",
 	"timestamp": 1567677926,
-	"command_type": "set",
 	"value": "stop"
 }
 ```
@@ -49,9 +41,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Set Horizontal Tilt Angle
 ```json
 {
-    "type": "command",
     "timestamp": 1567677926,
-    "command_type": "set_horizontal_tilt",
     "value": {
         "unit": "degree",
         "angle": 90
@@ -62,9 +52,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Set Vertical Tilt Angle
 ```json
 {
-    "type": "command",
     "timestamp": 1567677926,
-    "command_type": "set_vertical_tilt",
     "value": {
             "unit": "degree",
             "angle": 90
@@ -76,9 +64,7 @@ The set_timer command is utilized to setup the periodical action which will trig
 
 ```json
 {
-	"type": "command",
 	"timestamp":1567677926,
-	"command_type": "set_timer",
 	"value": {
             "unit": "hh:mm:ss",
             "time": "01:12:00",
@@ -93,9 +79,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 ### State Report
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
-	"report_type": "command_response",
 	"timestamp": 1567677956,
 	"report_name": "state",
 	"report": "closed"
@@ -104,9 +88,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
-	"report_type": "command_response",
 	"timestamp": 1567677956,
 	"report_name": "state",
 	"report": "open"
@@ -115,9 +97,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
-	"report_type": "command_response",
 	"timestamp": 1567677956,
 	"report_name": "state",
 	"report": "stopped"
@@ -126,9 +106,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
-	"report_type": "command_response",
 	"timestamp": 1567677956,
 	"report_name": "state",
 	"report": "repair_needed"
@@ -139,9 +117,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
-	"report_type": "command_response",
 	"timestamp": 1567677956,
 	"report_name": "current_position",
 	"report": 50
@@ -152,9 +128,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ```json
 {
-    "type": "report",
     "priority_level": 2,
-    "report_type":"command_response",
     "timestamp": 1567677956,
     "report_name": "current_horizontal_angle",
     "report": {
@@ -168,9 +142,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ```json
 {
-    "type": "report",
     "priority_level": 2,
-    "report_type": "command_response",
     "timestamp": 1567677956,
     "report_name": "current_vertical_angle",
     "report": {
@@ -184,9 +156,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ```json
 {
-	"type": "report",
 	"priority_level": 1,
-	"report_type": "status",
 	"timestamp": 1567677956,
 	"report_name": "obstruction_detected_report",
 	"report": "true"
