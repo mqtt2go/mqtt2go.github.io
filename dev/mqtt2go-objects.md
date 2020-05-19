@@ -10,7 +10,7 @@ The topic structure for MQTT objects is in line with the general structure descr
 </p>
 
 ```
-<home_id>/<gateway_id>/<group_id>/<dev_id>
+<home_id>/<gateway_id>/<dev_id>/<entity>/<msg_direction>
 ```
 
 ## <a name="object-commands"></a>MQTT Commands
@@ -74,7 +74,6 @@ To provide some examples of the MQTT Commands usage, we provide simple and compl
 #### Simple Command Example
 ```json
 {
-	"type": "command",
 	"timestamp": 1567677926,
 	"command_type": "set",
 	"value": "on" 
@@ -84,7 +83,6 @@ To provide some examples of the MQTT Commands usage, we provide simple and compl
 #### Complex Command Example
 ```json
 {
-	"type": "command",
 	"timestamp":1567677926,
 	"command_type":"set_color",
 	"value": {
@@ -159,7 +157,6 @@ To provide complete example of the command - report message structure. Below we 
 #### Simple Report Example
 ```json
 {
-	"type": "report",
 	"priority_level":2,
 	"report_type":"command_response",
 	"timestamp":1567677946,
@@ -171,7 +168,6 @@ To provide complete example of the command - report message structure. Below we 
 #### Complex Report Example
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":1567677956,

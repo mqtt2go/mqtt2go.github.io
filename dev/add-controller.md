@@ -71,7 +71,6 @@ Get device topics command (1) is used to get device topics from the SH-GW. This 
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "topic",
 	"value": "GET_DEVICE_TOPICS"
@@ -90,7 +89,6 @@ This report (2) is used to deliver the requested topics, in which the new contro
 
 ```json
 {
-	"type": "report",
 	"report_type":"command_response",
 	"timestamp": "timestamp_value",
 	"report_name": "topic",

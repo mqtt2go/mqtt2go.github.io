@@ -68,7 +68,6 @@ This command (2) is utilized to get a newly generated certificate for the end de
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "mqtt_credentials",
 	"value": "GET_CREDENTIALS"
@@ -82,7 +81,6 @@ Get Wifi credentials (4) which is used to obtain the Wi-Fi credentials, again th
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "wifi",
 	"value": "GET_WIFI_CREDENTIALS"
@@ -99,7 +97,6 @@ This report (3) is utilized to deliver a newly generated certificate from MQTT b
 
 ```json
 {
-	"type": "report",
 	"report_type":"command_response",
 	"timestamp": "timestamp_value",
 	"report_name": "mqtt_credentials",
@@ -118,7 +115,6 @@ This report (5) is used to send the Wi-Fi credentials back to the end device.
 
 ```json
 {
-	"type": "report",
 	"report_type":"command_response",
 	"timestamp": "timestamp_value",
 	"report_name": "wifi_credentials",
@@ -174,7 +170,6 @@ This command (1) is utilized to start the whole process of adding a new device. 
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "add_device",
 	"value": {
@@ -192,7 +187,6 @@ Get device topic command (6) is used to get device topic from the SH-GW. This co
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "topic",
 	"value": "GET_DEVICE_TOPIC"
@@ -206,7 +200,6 @@ This command (8) is utilized to finalize the process of adding a new device to t
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "rename_device",
 	"value": {
@@ -230,7 +223,6 @@ This report (7) is utilized to request the user of the <a href="./mqtt2go-contro
 
 ```json
 {
-	"type": "report",
 	"report_type":"command_response",
 	"timestamp": "timestamp_value",
 	"report_name": "rename_device",
@@ -248,7 +240,6 @@ This report (9) is used to deliver the requested topic, in which the new device 
 
 ```json
 {
-	"type": "report",
 	"report_type":"command_response",
 	"timestamp": "timestamp_value",
 	"report_name": "topic",

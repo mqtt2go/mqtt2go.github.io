@@ -10,7 +10,7 @@ The basic topic structure is based on the general MQTT2GO topic structure. The o
 </p>
 
 ```
-<home_id>/<gateway_id>/<group_id>/<device_type>/<dev_id>
+<home_id>/<gateway_id>/<dev_id>/<entity>/<msg_direction>
 ```
 
 ## <a name="controller-commands"></a>MQTT Commands
@@ -24,7 +24,6 @@ The set commands are used to change / add device parameters and information. The
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "set_group",
 	"value": {
@@ -47,7 +46,6 @@ Group creation is done via <strong>add_group</strong> command type with value bo
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "add_group",
 	"value": {
@@ -64,7 +62,6 @@ For adding a new user, the <strong>add_user</strong> command type with JSON body
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "add_user",
 	"value": {
@@ -89,7 +86,6 @@ User editing is done by commands with type of <strong>updt_user</strong> with JS
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "updt_user",
 	"value": {
@@ -108,7 +104,6 @@ Group editing is done by the commands with type of <strong>updt_group</strong> w
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "updt_group",
 	"value": {
@@ -130,7 +125,6 @@ To remove a group, <strong>del_group</strong> command type is exploited and the 
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "del_group",
 	"value": {
@@ -148,7 +142,6 @@ To remove a user, a <strong>del_user</strong> command type is used, with a JSON 
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "del_user",
 	"value": {
@@ -164,7 +157,6 @@ To remove a device, a <strong>del_device</strong> command type is used. Its JSON
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "del_device",
 	"value": {
@@ -185,7 +177,6 @@ Query all devices is used to request all available devices, its value will be <s
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "query_all",
 	"value": "all"
@@ -199,7 +190,6 @@ Query device info requests information about selected device. Its value will be 
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "query_dev_info",
 	"value": "dev_id"
@@ -213,7 +203,6 @@ Query user info is used to recall information about selected user. Its value fie
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "query_user_info",
 	"value": "user_id"
@@ -227,7 +216,6 @@ Query devices in group asks for all devices in specified group. Its value field 
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "query_all_in_group",
 	"value": "group_id"
@@ -241,7 +229,6 @@ Query devices in group asks for all groups. Its value field is filled with <stro
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "query_all_groups",
 	"value": "all"
@@ -255,7 +242,6 @@ Query user’s topics requests the topics that selected user is subscribed to. I
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "query_user_topics",
 	"value": "user_id"
@@ -263,7 +249,7 @@ Query user’s topics requests the topics that selected user is subscribed to. I
 ```
 
 ## MQTT Reports
-The MQTT reports utilized here are mostly a replies to the commands from the controlled devices. They follow the genaral report structure and addd a specific report names. The report <strong>value</strong> can be either a simple OK, or a body JSON of following structure:
+The MQTT reports utilized here are mostly a replies to the commands from the controlled devices. They follow the general report structure and add a specific report names. The report <strong>value</strong> can be either a simple OK, or a body JSON of following structure:
 
 ```json
 {
@@ -275,14 +261,13 @@ The MQTT reports utilized here are mostly a replies to the commands from the con
 , where <strong>event_name</strong> can be warning or error.
 
 ### Add Reports
-The add reports are generally used to report the reuslt of add commands. They will be describing in following subsections.
+The add reports are generally used to report the result of add commands. They will be describing in following subsections.
 
 #### Group Creation Report
-After the add_group command is received. The device proccess it and then publishes following message to the same topic:
+After the add_group command is received. The device process it and then publishes following message to the same topic:
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":"timestamp_value",
@@ -296,7 +281,6 @@ After the add_user command is received, the devices processes it and then publis
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":"timestamp_value",
@@ -316,7 +300,6 @@ After the updt_user command is issues, the following response is published into 
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":"timestamp_value",
@@ -330,7 +313,6 @@ After the updt_group command is issues, the following response is published into
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":"timestamp_value",
@@ -340,14 +322,13 @@ After the updt_group command is issues, the following response is published into
 ```
 
 ### Delete Reports
-The delete reports are the primary outcome of the events started by delete commands. Their message structure also follows the general report struture. Its value follows the same pattern as the general MQTT report, described in this chapter. Therefore the value can be either a simple ok, or a JSON body with the event name and description.
+The delete reports are the primary outcome of the events started by delete commands. Their message structure also follows the general report structure. Its value follows the same pattern as the general MQTT report, described in this chapter. Therefore the value can be either a simple ok, or a JSON body with the event name and description.
 
 #### Remove Group
-Is the report which is pubilshed after the del_group command is issued. 
+Is the report which is published after the del_group command is issued. 
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":"timestamp_value",
@@ -357,11 +338,10 @@ Is the report which is pubilshed after the del_group command is issued.
 ```
 
 #### Remove User
-Is the report which is pubilshed after the del_user command is issued. 
+Is the report which is published after the del_user command is issued. 
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":"timestamp_value",
@@ -371,11 +351,10 @@ Is the report which is pubilshed after the del_user command is issued.
 ```
 
 #### Remove Device
-Is the report which is pubilshed after the del_group command is issued. 
+Is the report which is published after the del_group command is issued. 
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":"timestamp_value",
@@ -388,32 +367,30 @@ Is the report which is pubilshed after the del_group command is issued.
 Query reports are the most bulky reports from this chapter. They contain a response that is awaited by the controlled after issuing a query command. The query command is usually used to force important device information.
 
 #### Query All Devices Report
-Is used to return all devices under seleced SH-GW. It has following structure:
+Is used to return all devices under selected SH-GW. It has following structure:
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":"timestamp_value",
 	"report_name":"query_all",
-	"value":[ "device_1_id", "device_2_id",...]
+	"value":[ "device_1_id", "device_2_id", ...]
 }
 ```
 
 The value of this report contains a field of all available devices ids.
 
 #### Query All Groups Report
-Is used to return all devices under seleced SH-GW. It has following structure:
+Is used to return all devices under selected SH-GW. It has following structure:
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":"timestamp_value",
 	"report_name":"query_all_groups",
-	"value":[ "group_1_id", "group_2_id",...]
+	"value":[ "group_1_id", "group_2_id", ...]
 }
 ```
 
@@ -423,7 +400,6 @@ This report is utilized to return all device information requested by the <stron
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":"timestamp_value",
@@ -441,7 +417,6 @@ This report provides information about the user. This report is invoked by the <
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":"timestamp_value",
@@ -460,12 +435,11 @@ Is used to return all devices in specified group. It has following structure:
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":"timestamp_value",
 	"report_name":"query_all_in_group",
-	"value":[ "device_1_id", "device_2_id",...]
+	"value":[ "device_1_id", "device_2_id", ...]
 }
 ```
 The value of this report contains a field of ids for all devices in specified group.
@@ -475,7 +449,6 @@ This report contains all topics of specified user. Its structure is following:
 
 ```json
 {
-	"type": "report",
 	"priority_level": 2,
 	"report_type":"command_response",
 	"timestamp":"timestamp_value",

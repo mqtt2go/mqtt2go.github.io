@@ -24,19 +24,19 @@ The general MQTT2GO topic structure is created to be as efficient as possible, g
 
 
 <p align="justify">
-To access a multiple devices or all of its entities. Wildcard masks from the MQTT standard have to be used. If we want to substitute only one level, a <strong>+</strong> wildcard can be used. This means that the topic would look like:
+To access a multiple devices or all of their entities. Wildcard masks from the MQTT standard have to be used. If we want to substitute only one level, a <strong>+</strong> wildcard can be used. This means that the topic would look like:
 </p>
 
 ```
-<home_id>/<gateway_id>/+/<device_type>/<dev_id>
+<home_id>/<gateway_id>/+/<entity>/<msg_direction>
 ```
 
 <p align="justify">
-,which means that the subscribe/publish will be done to all groups, where the <strong>&lt;device_type&gt;/&lt;dev_id&gt;</strong> matches inserted data.
+,which means that the subscribe will be done to all devices, where the <strong>&lt;entity&gt;/&lt;msg_direction&gt;</strong> matches inserted data.
 </p>
 
 <p align="justify">
-If the subscribe/publish should be to a larger group of end devices, a <strong>&#35;</strong> wildcard mask is used. This means that all topics after the <strong>&#35;</strong> are used:
+If the subscribe should be to a larger group of end devices, a <strong>&#35;</strong> wildcard mask is used. This means that all topics after the <strong>&#35;</strong> are used:
 </p>
 
 ```
@@ -49,13 +49,19 @@ If the subscribe/publish should be to a larger group of end devices, a <strong>&
 
 Some examples of the whole topic structure are as follows:
 
+* Information topic of a device:
+
 ```
 <home_id>/<gateway_id>/<dev_id>/about/in
 ```
 
+* Topic used to switch on/off either the device or its relay:
+
 ```
 <home_id>/<gateway_id>/<dev_id>/power/in
 ```
+
+* Topic utilized for the humidity reports
 
 ```
 <home_id>/<gateway_id>/<dev_id>/humidity/out
@@ -64,38 +70,53 @@ Some examples of the whole topic structure are as follows:
 
 ## <a name="mqtt_commands"></a>MQTT Commands
 <p align="justify">
-The command messages are composed of four fields: (i) type, which is used to distinguish between the command and report type, (ii) timestamp, (iii) command type which is used to select the correct type of command (i.e., set, query, etc.) and (iv) command structure, containing the actual command. The command itself can be either a simple name-value pair or a complex structure, which is usually used for complex operations such as device setup.
+The command messages are composed of three fields: (i) <strong>timestamp</strong>, (ii) <strong>command_type</strong> which is used to select the correct type of command (i.e., set, query, etc.) and (iii) <strong>value</strong> structure, containing the actual command. The command itself can be either a simple name-value pair or a complex structure, which is usually used for complex operations such as device setup.
 </p>
 
 ```json
 {
-	"type": "command",
 	"timestamp": "timestamp_value",
 	"command_type": "command_type_value",
 	"value": "value_body"
 }
 ```
 <p align="justify">
-The timestamp defines the datetime of the message sent event. It is in Unix format.
-The command_type defines what information should be expected in the value key-pair. It can be any of the command types defined in the sections <a href="./mqtt2go-objects#object-commands">Objects MQTT Commands</a> and <a href="./mqtt2go-controllers#controller-commands">Controllers MQTT Commands</a>. If the command_type_value will contain a set, a value of simple commands such as on can be expected. If command_type_value will contain a color keyword, the value will contain an array, which will describe the HSB information needed to set up the chosen color.<br>
-Based on previous examples, the value key-pair can contain either a simple command such as on, off and similar, or more advanced commands represented by an array (i.e., the array for HSB information for setting the light color).
+The <strong>timestamp</strong> defines the datetime of the message sent event. It is in Unix format.
+The <strong>command_type</strong> defines what information should be expected in the <strong>value</strong> key-pair. It can be any of the command types defined in the sections <a href="./mqtt2go-objects#object-commands">Objects MQTT Commands</a> and <a href="./mqtt2go-controllers#controller-commands">Controllers MQTT Commands</a>. If the <strong>command_type_value</strong> will contain <strong>set</strong>, a value of simple commands such as <strong>on</strong> can be expected. If <strong>command_type_value</strong> will contain a <strong>color</strong> keyword, the value will contain an array, which will describe the HSB information needed to set up the chosen color.<br>
+Based on previous examples, the <strong>value</strong> key-pair can contain either a simple command such as <strong>on, off</strong> and similar, or more advanced commands represented by an array (i.e., the array for HSB information for setting the light color).
 </p>
 
-The general commands that are common for all devices are: 
-* QueryOn, 
-* QueryBattery, 
-* QueryState, 
-* QueryTamper, 
-* QueryStatus.
+The general query commands that are common for all devices are as follows: 
+
+* A topics used for controlling the **on/off** status of the device (the on is in the example):
+```
+<home_id>/<gateway_id>/<dev_id>/on/in
+```
+
+* A topic used to query the battery level:
+```
+<home_id>/<gateway_id>/<dev_id>/battery/in
+```
+* A topic used to query current state of the device
+```
+<home_id>/<gateway_id>/<dev_id>/state/in
+```
+* A topic to query the tamper status of selected device:
+```
+<home_id>/<gateway_id>/<dev_id>/tamper/in
+```
+* A topic used to query the status of the device:
+```
+<home_id>/<gateway_id>/<dev_id>/status/in
+```
 
 ## <a name="mqtt_reports"></a>MQTT Reports
 <p align="justify">
-The report message structure is used for replies coming from the devices. The report messages can also contain a periodic update from the device. They are marked by the report type, which contains priority level to differentiate between critical reports (1) (such as alarms), replies to commands (2), and standard periodic messages (3).
+The report message structure is used for replies coming from the devices. The report messages can also contain a periodic update from the device. They are marked by the report type, that helps to differentiate between aforementioned report types. Furthermore, the priority level field enables devices to divide messages by their priority (1) (such as alarms), replies to commands (2), and standard periodic messages (3).
 </p>
 
 ```json
 {
-	"type": "report",
 	"priority_level":"priority_level_value",
 	"report_type":"report_type_name",
 	"timestamp":"timestamp_value",
