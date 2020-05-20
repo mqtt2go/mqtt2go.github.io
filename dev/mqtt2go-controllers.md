@@ -52,6 +52,20 @@ Group creation is done via <strong>add_group</strong> command type with value bo
 }
 ```
 
+#### Scene Creation
+<p align="justify">
+Scene creation is done via <strong>add_scene</strong> command type with value body of a JSON structure with the following format.	
+</p>
+
+```json
+{
+	"timestamp": "timestamp_value",
+	"value": {
+		"group_name": "scene_name"	
+	}
+}
+```
+
 #### Add User
 <p align="justify">
 For adding a new user, the <strong>add_user</strong> command type with JSON body with following format is used.
@@ -82,6 +96,22 @@ For adding a new device to selected group, the <strong>add_device_to_group</stro
     "value": {
         "device_id": "id",
         "group_name": "group_name"
+    }
+}
+```
+
+#### Add Device to Scene
+<p align="justify">
+For adding a new device to selected group, the <strong>add_device_to_scene</strong> command type with JSON body with following format is used.
+</p>
+
+
+```json
+{
+    "timestamp": "timestamp_value",
+    "value": {
+        "device_id": "id",
+        "group_name": "scene_name"
     }
 }
 ```
