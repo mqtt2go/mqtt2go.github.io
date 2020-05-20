@@ -21,6 +21,7 @@ The MQTT Commands described in this section are device specific and therefore th
 ### Description of command types
 <p align="justify">
 To distinguish between the MQTT2GO commands that are going to the device, the <strong>value</strong> field is utilized. If the command is <strong>set</strong>, the <strong>value</strong> contains the value that is going to be set. If the command is <strong>query</strong>, the <strong>?</strong> character is sent inside the <strong>value</strong>. If more complex setup is needed, a JSON structure will be sent inside the <strong>value</strong>.
+</p>
 
 ### Table with Commands
 
@@ -142,7 +143,6 @@ To provide complete example of the command - report message structure. Below we 
 {
 	"priority_level":2,
 	"timestamp":1567677946,
-	"report_name":"state",
 	"report":"on"
 }
 ```
@@ -152,7 +152,6 @@ To provide complete example of the command - report message structure. Below we 
 {
 	"priority_level": 2,
 	"timestamp":1567677956,
-	"report_name":"color",
 	"report": {
 		"unit": "hsb",
 		"h": 100, 
@@ -186,7 +185,7 @@ In this section, we provide a table with all currently utilized units in the MQT
 		<td>Health Sensors</td><td>Weight<br/>BMI<br/>Pressure</td><td>kg, lb<br/>kg/m2<br/>mmHg</td>
 	</tr>
 	<tr>
-		<td>Smart Spots / Lights</td><td>Brightness<br/>Color</td><td>%<br/>hsb, rgb</td>
+		<td>Smart Spots / Lights</td><td>Brightness<br/>Color</td><td>%<br/>hsb, rgb, rgbwaf, xy</td>
 	</tr>
 	<tr>
 		<td>Weather Stations</td><td>Wind<br/>UV</td><td>m/s, km/h<br/>mW/cm2, mJ/cm2</td>
@@ -224,7 +223,6 @@ Here we provide sample command and report structure to depict the correct usage 
 {
 	"priority_level": 2,
 	"timestamp":1567677956,
-	"report_name":"color",
 	"report": {
 		"unit": "hsb",
 		"h": 100, 
@@ -233,5 +231,8 @@ Here we provide sample command and report structure to depict the correct usage 
 	}
 }
 ```
+
+#### MQTT2GO About Topic Example
+
 
 [Back](./index.md#data-structure)

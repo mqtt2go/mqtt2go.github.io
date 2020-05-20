@@ -123,7 +123,6 @@ The report message structure is used for replies coming from the devices. The re
 {
 	"priority_level":"priority_level_value",
 	"timestamp":"timestamp_value",
-	"report_name":"report_name",
 	"value":"value_body" 
 }
 ```

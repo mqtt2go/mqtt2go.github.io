@@ -71,7 +71,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "state",
 	"report": "on"
 }
 ```
@@ -80,7 +79,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "state",
 	"report": "off"
 }
 ```
@@ -89,7 +87,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "state",
 	"report": "repair_needed"
 }
 ```
@@ -100,7 +97,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "temperature",
 	"report": {
 		"value:": 21.8,
 		"unit": "C"
@@ -115,7 +111,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "humidity",
 	"report": {
 		"value": 35.5,
 		"unit": "%"
@@ -130,7 +125,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "motion",
 	"report": "motion"
 }
 ```
@@ -142,7 +136,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "smoke",
 	"report": "smoke"
 }
 ```
@@ -154,7 +147,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "water",
 	"report": "water"
 }
 ```

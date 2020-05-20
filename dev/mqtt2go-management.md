@@ -16,7 +16,7 @@ This section describes the topics that deal with user management. That being sai
 The base topic for user management is defined as: 
 
 ```
-<home_id>/users
+<home_id>/users/<command_type>
 ```
 
 <p align="justify">

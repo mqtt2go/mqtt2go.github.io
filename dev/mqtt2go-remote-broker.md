@@ -87,7 +87,6 @@ This report (4) is utilized to deliver a newly generated certificate from MQTT b
 ```json
 {
 	"timestamp": "timestamp_value",
-	"report_name": "mqtt_credentials",
 	"value": {
 		"broker_ip": "broker_ip",
 		"device_certificate": "device_certificate",
@@ -194,7 +193,6 @@ This report (6) is utilized to request the user of the MQTT2GO Controller app fo
 ```json
 {
 	"timestamp": "timestamp_value",
-	"report_name": "rename_device",
 	"value": {
 		"device_id": "device_id",
 		"setup_result": "setup_result"

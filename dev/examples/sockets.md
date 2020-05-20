@@ -47,7 +47,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "consumption",
 	"report": {
 		"value": 45,
 		"unit": "Ws"
@@ -61,7 +60,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "current",
 	"report": {
 		"value": 1.2,
 		"unit": "A"
@@ -75,7 +73,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "voltage",
 	"report": {
 		"value": 232.4,
 		"unit": "V"
@@ -89,7 +86,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "consumption",
 	"report": {
 		"value": 90,
 		"unit": "W"

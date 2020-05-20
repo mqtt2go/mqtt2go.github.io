@@ -70,6 +70,22 @@ For adding a new user, the <strong>add_user</strong> command type with JSON body
 }
 ```
 
+#### Add Device to Group
+<p align="justify">
+For adding a new device to selected group, the <strong>add_device_to_group</strong> command type with JSON body with following format is used.
+</p>
+
+
+```json
+{
+    "timestamp": "timestamp_value",
+    "value": {
+        "device_id": "id",
+        "group_name": "group_name"
+    }
+}
+```
+
 ### Edit Commands
 <p align="justify">
 The edit commands are used to edit parameters of objects such as users, groups, and devices.
@@ -256,7 +272,6 @@ After the add_group command is received. The device process it and then publishe
 {
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
-	"report_name":"add_group",
 	"value":"ok" 
 }
 ```
@@ -268,7 +283,6 @@ After the add_user command is received, the devices processes it and then publis
 {
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
-	"report_name":"add_user",
 	"value":{
 		"event" : "error",
 		"reason" : "user_already_exists"
@@ -286,7 +300,6 @@ After the updt_user command is issues, the following response is published into 
 {
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
-	"report_name":"updt_user",
 	"value":"ok" 
 }
 ```
@@ -298,7 +311,6 @@ After the updt_group command is issues, the following response is published into
 {
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
-	"report_name":"updt_group",
 	"value":"ok" 
 }
 ```
@@ -313,7 +325,6 @@ Is the report which is published after the del_group command is issued.
 {
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
-	"report_name":"del_group",
 	"value":"ok" 
 }
 ```
@@ -325,7 +336,6 @@ Is the report which is published after the del_user command is issued.
 {
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
-	"report_name":"del_user",
 	"value":"ok" 
 }
 ```
@@ -337,7 +347,6 @@ Is the report which is published after the del_group command is issued.
 {
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
-	"report_name":"del_device",
 	"value":"ok" 
 }
 ```
@@ -352,7 +361,6 @@ Is used to return all devices under selected SH-GW. It has following structure:
 {
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
-	"report_name":"query_all",
 	"value":[ "device_1_id", "device_2_id", ...]
 }
 ```
@@ -366,7 +374,6 @@ Is used to return all devices under selected SH-GW. It has following structure:
 {
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
-	"report_name":"query_all_groups",
 	"value":[ "group_1_id", "group_2_id", ...]
 }
 ```
@@ -379,7 +386,6 @@ This report is utilized to return all device information requested by the <stron
 {
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
-	"report_name":"query_dev_info",
 	"value": {
 		"dev_id": "device_id",
 		"dev_name": "device_name",
@@ -395,7 +401,6 @@ This report provides information about the user. This report is invoked by the <
 {
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
-	"report_name":"query_user_info",
 	"value": {
 		"user_id": "user_id",
 		"email": "john.doe@mail.com",
@@ -412,7 +417,6 @@ Is used to return all devices in specified group. It has following structure:
 {
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
-	"report_name":"query_all_in_group",
 	"value":[ "device_1_id", "device_2_id", ...]
 }
 ```
@@ -425,10 +429,29 @@ This report contains all topics of specified user. Its structure is following:
 {
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
-	"report_name":"query_user_topics",
 	"value":[ "topic1", "topic2",...]
 }
 ```
 The value can contain a simple topic or a field of topics, as illustrated above.
+
+### MQTT2GO Event Topic
+MQTT2GO standard also defines a special topic for designated for logging all events happening inside the smart home. This topic is:
+
+```
+<home_id>/<gateway_id>/events
+```
+
+Its primary goal is to cumulate all important events at one place. It can be utilized for example by machine-learning controller, that will be sending events about unusual activity into this topic. The structure of the event message is as follows:
+
+```json
+{
+    "priority_level": 2,
+    "timestamp":"timestamp_value",
+    "value": {
+        "event_name": "event_name",
+        "message": "message"
+    }
+}
+```
 
 [Back](./index.md#data-structure)

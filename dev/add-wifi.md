@@ -95,7 +95,6 @@ This report (3) is utilized to deliver a newly generated certificate from MQTT b
 
 ```json
 {
-	"report_type":"command_response",
 	"timestamp": "timestamp_value",
 	"value":  {
 		"cert": "device_certificate",
@@ -113,7 +112,6 @@ This report (5) is used to send the Wi-Fi credentials back to the end device.
 ```json
 {
 	"timestamp": "timestamp_value",
-	"report_name": "wifi_credentials",
 	"value": {
 		"SSID": "wifi_ssid",
 		"password": "password"
@@ -177,13 +175,15 @@ This command (1) is utilized to start the whole process of adding a new device. 
 
 #### Get Device Topic
 <p align="justify">
-Get device topic command (6) is used to get device topic from the SH-GW. This command has value of <em>GET_DEVICE_TOPIC</em>.
+Get device topic command (6) is used to send all device end-topics to the gateway and request the base topic from the SH-GW.
 </p>
 
 ```json
 {
 	"timestamp": "timestamp_value",
-	"value": "GET_DEVICE_TOPIC"
+	"value": [{"name": "topic_name",
+                "unit": "unit",
+                "type": "type"}, {...}]
 }
 ```
 
@@ -216,7 +216,6 @@ This report (7) is utilized to request the user of the <a href="./mqtt2go-contro
 
 ```json
 {
-	"report_type":"command_response",
 	"timestamp": "timestamp_value",
 	"value": {
 		"device_id": "device_id",
@@ -232,9 +231,7 @@ This report (9) is used to deliver the requested topic, in which the new device 
 
 ```json
 {
-	"report_type":"command_response",
 	"timestamp": "timestamp_value",
-	"report_name": "topic",
 	"value": "topic"
 }
 ```

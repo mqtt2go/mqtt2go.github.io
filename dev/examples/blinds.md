@@ -81,7 +81,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "state",
 	"report": "closed"
 }
 ```
@@ -90,7 +89,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "state",
 	"report": "open"
 }
 ```
@@ -99,7 +97,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "state",
 	"report": "stopped"
 }
 ```
@@ -108,7 +105,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "state",
 	"report": "repair_needed"
 }
 ```
@@ -119,7 +115,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 2,
 	"timestamp": 1567677956,
-	"report_name": "current_position",
 	"report": 50
 }
 ```
@@ -130,7 +125,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
     "priority_level": 2,
     "timestamp": 1567677956,
-    "report_name": "current_horizontal_angle",
     "report": {
         "unit": "degree",
         "h": 90
@@ -144,7 +138,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
     "priority_level": 2,
     "timestamp": 1567677956,
-    "report_name": "current_vertical_angle",
     "report": {
         "unit": "degree",
         "h": 90
@@ -158,7 +151,6 @@ Reports are utilized either as responses to the commands or to report periodic o
 {
 	"priority_level": 1,
 	"timestamp": 1567677956,
-	"report_name": "obstruction_detected_report",
 	"report": "true"
 }
 ```

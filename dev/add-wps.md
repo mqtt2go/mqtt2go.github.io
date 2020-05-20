@@ -60,7 +60,6 @@ This command (2) is utilized to get a newly generated certificate for the end de
 ```json
 {
 	"timestamp": "timestamp_value",
-	"command_type": "mqtt_credentials",
 	"value": "GET_CREDENTIALS"
 }
 ```
@@ -76,7 +75,6 @@ This report (3) is utilized to deliver a newly generated certificate and credent
 ```json
 {
 	"timestamp": "timestamp_value",
-	"report_name": "mqtt_credentials",
 	"value":  {
 		"cert": "device_certificate",
 		"user": "mqtt_login",
