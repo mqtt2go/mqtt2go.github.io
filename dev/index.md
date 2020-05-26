@@ -47,7 +47,7 @@ This proposal is a complete guide for an MQTT-enabled smart home setup. It was c
 
 ## Multipurpose Smart Home Enabler
 <p align="justify">
-This section introduces the MQTT2GO standard architecture. The two main parts are the MQTT cloud broker and MQTT2GO local broker. The latter is the core “brain” of the whole MQTT2GO standard providing functions for user management, accounting and overall administration done by the service provider. This part is mentioned in this project solely for the purposes of direct MQTT communication between the end devices and the aforementioned cloud broker. Also, as the MQTT2GO standard is targeted to data exchange inside a smart home/household, the business logic included inside the cloud broker is not covered. Aside of that, most of the traffic is planned to go through a local MQTT broker, which is the primary “gateway” for all household devices. This secures the internet-independency that offers users more flexibility and higher service availability even in outage situations.
+This section introduces the MQTT2GO standard architecture. The two main parts are the MQTT local broker and MQTT2GO cloud broker. The latter is important especially for the service providers as it provides functions for user management, accounting and overall administration. However, as the MQTT2GO standard is targeting primarily the data exchange inside a smart home/household, the business logic implemented inside the cloud broker is not covered. Aside of that, most of the traffic is planned to go through a local MQTT broker, which is the primary “gateway” for all household devices. This secures the internet-independency that offers users more flexibility and higher service availability even in outage situations.
 </p>
 
 <p align="justify">
