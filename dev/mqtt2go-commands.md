@@ -32,7 +32,7 @@ To access a multiple devices or all of their entities, wildcard masks from the M
 ```
 
 <p align="justify">
-,which means that the subscribtion will be done to all devices, where the <strong>&lt;entity&gt;/&lt;msg_direction&gt;</strong> matches inserted data.
+which means that the subscribtion will be done to all devices, where the <strong>&lt;entity&gt;/&lt;msg_direction&gt;</strong> matches inserted data.
 </p>
 
 <p align="justify">
