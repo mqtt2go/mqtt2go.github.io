@@ -64,13 +64,9 @@ The last part is the controlling applications, which can be run on any platform.
 The term MQTT devices inside the MQTT2GO standard is used to describe any MQTT-capable device. This means that if the device is capable of communication via the MQTT protocol, it belongs to the MQTT Devices group. They can be further divided into two sub-groups:
 </p>
 
-<p align="justify">
-* MQTT2GO Compatible devices, which adhere to the MQTT2GO standard and therefore can communicate directly with the MQTT2GO gateway or backend without intermediate MQTT translating broker.
-</p>
+* <p align="justify">MQTT2GO Compatible devices, which adhere to the MQTT2GO standard and therefore can communicate directly with the MQTT2GO gateway or backend without intermediate MQTT translating broker.</p>
 
-<p align="justify">
-* MQTT2GO Non-compliant devices are devices that do not adhere to the MQTT2GO standard directly, but they are still capable of MQTT communication. This means they can still be added into the MQTT2GO infrastructure, but they do need a MQTT-to-MQTT2GO intermediate unit (i.e., MQTT-to-MTT2GO translation middleware).
-</p>
+* <p align="justify">MQTT2GO Non-compliant devices are devices that do not adhere to the MQTT2GO standard directly, but they are still capable of MQTT communication. This means they can still be added into the MQTT2GO infrastructure, but they do need a MQTT-to-MQTT2GO intermediate unit (i.e., MQTT-to-MTT2GO translation middleware).</p>
 
 ### Non-MQTT Devices
 <p align="justify">
