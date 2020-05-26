@@ -70,7 +70,7 @@ Some examples of the whole topic structure are as follows:
 
 ## <a name="mqtt_commands"></a>MQTT Commands
 <p align="justify">
-The command messages are composed of two fields: (i) <strong>timestamp</strong> and (ii) <strong>value</strong> structure, containing the actual command. The command itself can be either a simple name-value pair or a complex structure, which is usually used for complex operations such as device setup.
+The command messages are composed of two fields: (i) <strong>timestamp</strong>, and (ii) <strong>value</strong> structure, containing the actual command. The command itself can be either a simple name-value pair or a complex structure, which is usually used for complex operations such as device setup.
 </p>
 
 ```json
@@ -80,7 +80,7 @@ The command messages are composed of two fields: (i) <strong>timestamp</strong> 
 }
 ```
 <p align="justify">
-The <strong>timestamp</strong> defines the datetime of the message sent event. It is in Unix format.
+The <strong>timestamp</strong> defines the datetime of the sent message event. It is in Unix format.
 The <strong>command_type</strong> defines what information should be expected in the <strong>value</strong> key-pair. It can be any of the command types defined in the sections <a href="./mqtt2go-objects#object-commands">Objects MQTT Commands</a> and <a href="./mqtt2go-controllers#controller-commands">Controllers MQTT Commands</a>. If the <strong>command_type_value</strong> will contain <strong>set</strong>, a value of simple commands such as <strong>on</strong> can be expected. If <strong>command_type_value</strong> will contain a <strong>color</strong> keyword, the value will contain an array, which will describe the HSB information needed to set up the chosen color.<br>
 Based on previous examples, the <strong>value</strong> key-pair can contain either a simple command such as <strong>on, off</strong> and similar, or more advanced commands represented by an array (i.e., the array for HSB information for setting the light color).
 </p>
