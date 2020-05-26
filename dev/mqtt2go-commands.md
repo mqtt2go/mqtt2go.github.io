@@ -15,8 +15,8 @@ The general MQTT2GO topic structure is created to be as efficient as possible, g
 
 
 <ul>
- <li>where the <strong>&lt;home_id&gt;</strong> stands for the unique identificator of the home (this is used for the identification of a group of users, that are sharing one or more gateways and corresponding amount of devices connected to them),</li>
- <li><strong>&lt;gateway_id&gt;</strong> is the unique identificator of the gateway,</li>
+ <li>where the <strong>&lt;home_id&gt;</strong> stands for the unique identificator of the home (this is used for the identification of a group of users, that are sharing one or more SH-GWs and corresponding amount of devices connected to them),</li>
+ <li><strong>&lt;gateway_id&gt;</strong> is the unique identificator of the SH-GW,</li>
  <li><strong>&lt;dev_id&gt;</strong> is device’s own unique identificator,</li>
  <li><strong>&lt;entity&gt;</strong> is the unique identificator of the message information (i.e., humidity),</li>
  <li>and <strong>&lt;msg_direction&gt;</strong> defines the direction of the communication, where <strong>in</strong> stands for the communication going to the device (i.e., commands) and <strong>out</strong> represents the responses from the device to the gateway / controller.</li>
@@ -24,7 +24,7 @@ The general MQTT2GO topic structure is created to be as efficient as possible, g
 
 
 <p align="justify">
-To access a multiple devices or all of their entities. Wildcard masks from the MQTT standard have to be used. If we want to substitute only one level, a <strong>+</strong> wildcard can be used. This means that the topic would look like:
+To access a multiple devices or all of their entities, wildcard masks from the MQTT standard have to be used. If we want to substitute only one level, a <strong>+</strong> wildcard can be used. This means that the topic would look like:
 </p>
 
 ```
@@ -32,11 +32,11 @@ To access a multiple devices or all of their entities. Wildcard masks from the M
 ```
 
 <p align="justify">
-,which means that the subscribe will be done to all devices, where the <strong>&lt;entity&gt;/&lt;msg_direction&gt;</strong> matches inserted data.
+,which means that the subscribtion will be done to all devices, where the <strong>&lt;entity&gt;/&lt;msg_direction&gt;</strong> matches inserted data.
 </p>
 
 <p align="justify">
-If the subscribe should be to a larger group of end devices, a <strong>&#35;</strong> wildcard mask is used. This means that all topics after the <strong>&#35;</strong> are used:
+If the subscribtion should be to a larger group of end devices, a <strong>&#35;</strong> wildcard mask is used. This means that all topics after the <strong>&#35;</strong> are used:
 </p>
 
 ```
@@ -44,7 +44,7 @@ If the subscribe should be to a larger group of end devices, a <strong>&#35;</st
 ```
 
 <p align="justify">
-,therefore means that the messages will go to all devices and all groups under selected gateway.
+,therefore it means that the messages will go to all devices and all groups under selected gateway.
 </p>
 
 Some examples of the whole topic structure are as follows:
