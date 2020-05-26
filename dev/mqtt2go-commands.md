@@ -44,7 +44,7 @@ If the subscribtion should be to a larger group of end devices, a <strong>&#35;<
 ```
 
 <p align="justify">
-,therefore it means that the messages will go to all devices and all groups under selected gateway.
+which means that the messages will go to all devices and all groups under selected gateway.
 </p>
 
 Some examples of the whole topic structure are as follows:
