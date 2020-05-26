@@ -61,12 +61,12 @@ The last part is the controlling applications, which can be run on any platform.
 
 ### MQTT Devices
 <p align="justify">
-The term MQTT devices inside the MQTT2GO standard is used to describe any MQTT-capable device. This means that if the device is capable of communication via the MQTT standard, it belongs to the MQTT Devices group. They can be further divided into two groups:
+The term MQTT devices inside the MQTT2GO standard is used to describe any MQTT-capable device. This means that if the device is capable of communication via the MQTT protocol, it belongs to the MQTT Devices group. They can be further divided into two sub-groups:
 </p>
 
 * MQTT2GO Compatible devices, which adhere to the MQTT2GO standard and therefore can communicate directly with the MQTT2GO gateway or backend without intermediate MQTT translating broker.
 
-* MQTT2GO Non-compliant devices are devices that do not adhere to the MQTT2GO standard directly, but they are still capable of MQTT communication. This means they can still be added into the MQTT2GO infrastructure, but they do need an MQTT-to-MQTT2GO intermediate unit (i.e., MQTT-to-MTT2GO translation layer).
+* MQTT2GO Non-compliant devices are devices that do not adhere to the MQTT2GO standard directly, but they are still capable of MQTT communication. This means they can still be added into the MQTT2GO infrastructure, but they do need a MQTT-to-MQTT2GO intermediate unit (i.e., MQTT-to-MTT2GO translation middleware).
 
 ### Non-MQTT Devices
 <p align="justify">
@@ -75,12 +75,14 @@ The non-MQTT devices are all devices working on any other standards than MQTT. H
 
 ### MQTT Controllers
 <p align="justify">
-MQTT2GO standard defines a special group of devices, called MQTT Controllers. These special devices are used to control a part of the MQTT2GO ecosystem or devices, respectively. The reason why they are mentioned here is the fact, that their purpose is vastly different from the other devices, which are in most situations, pure subscribers/listeners.
+MQTT2GO standard defines a special group of devices, called MQTT Controllers. These special devices are used to control a part of the MQTT2GO ecosystem or devices, respectively. The reason why they are mentioned here is the fact, that their purpose is vastly different from the other devices, which are mostly just pure subscribers/listeners.
 </p>
 
 
 #  <a name="add-devices"></a>Process of Adding New Devices
-In this chapter, we are going to present few ways how to add a new device. Firstly, the ideal MQTT2GO-preferred process is described. Then the other ways of adding devices are introduced.
+<p align="justify">
+In this chapter, we are going to present few ways how to add a new device into the MQTT2GO ecosystem. Firstly, the ideal MQTT2GO-preferred process is described. Then the alternative ways of adding devices are introduced.
+</p>
 
 * [Setup via Guest WiFi](./add-wifi.md)
 * [Setup via WPS](./add-wps.md)
@@ -101,7 +103,10 @@ This section is dedicated to the MQTT2GO topic naming convention. The structure 
 
 
 # <a name="requirements"></a>MQTT2GO Requirements
-This section is related to the requirements which have to be fulfilled in order to work with the proposed MQTT2GO standard. The given requirements do cover the key functionalities which the MQTT2GO takes into the account as the basic features of the communication system.
+<p align="justify">
+This section is related to the requirements which have to be fulfilled in order to work with the proposed MQTT2GO standard. The given requirements do cover the key functionalities, which the MQTT2GO takes into the account as the basic features of the communication system.
+</p>
+
 * [MQTT2GO General Requirements](./mqtt2go-general-req.md)
 
 # MQTT2GO Compatible Devices
