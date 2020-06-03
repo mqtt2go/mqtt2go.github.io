@@ -13,6 +13,8 @@ The topic structure for MQTT objects is in line with the general structure descr
 <home_id>/<gateway_id>/<dev_id>/<entity>/<msg_direction>
 ```
 
+Furthermore, as the MQTT standard allows users to define message retention, it is advised to be turned on for the MQTT2GO standard topics. This way, it can be made sure the devices will always know the last set state and behave accordingly.
+
 ## <a name="object-commands"></a>MQTT Commands
 <p align="justify">
 The MQTT Commands described in this section are device specific and therefore they are arranged in tables for better understanding. The structure of the command is again compliant to the general structure from  <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>.
