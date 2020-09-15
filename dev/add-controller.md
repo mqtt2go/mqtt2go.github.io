@@ -113,4 +113,63 @@ This report (2) is used to deliver the requested topics, in which the new contro
 }
 ```
 
+#### Controller information
+<p align="justify">
+This report is utilized for requesting all necessary information from the smarthome gateway. The report contains topics and information about all devices, configured scenes and security features, as well as alerts and home layout.
+</p>
+
+```json
+{
+    "timestamp": "timestamp_value",
+    "type": "command_response",
+    "base_topic": "baseline_topic_value",
+    "value": {
+        "scenes":[
+            {
+                "id": "id_value",
+                "name": "name_value",
+                "icon": "icon_value",
+                "active": "active_state_value"
+            }, ...
+        ],
+        "alert":[
+            {
+                "event_name": "event_name_value",
+                "message": "message_value",
+                "status":"status_value",
+                "timestamp": "timestamp_value"
+            }, ...
+        ],
+        "security":[
+             {
+                "id":"id_value",
+                "type":"type_value",
+                "name":"name_value",
+                "icon":"icon_value",
+                "active": "active_state_value"
+             }, ...
+         ],
+         "activities":[
+         
+        ],
+        "rooms":[
+         {
+            "id":"room_id_value",
+            "devices":[
+               {
+                  "id":"id_value",
+                  "name":"name_value",
+                  "type":"type_value",
+                  "image":"image_location",
+                  "events":{
+                     "message":"message_value",
+                     "timestamp":"timestamp_value"
+                  }
+               }
+            ], ...
+        }, ...
+    }
+}
+```
+
 [Back](./index.md#add-devices)

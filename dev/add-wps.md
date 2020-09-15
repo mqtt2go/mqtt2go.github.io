@@ -44,8 +44,16 @@ The end device itself utilizes an activation topic for the certificate exchange.
 </p>
 
 ```
-<activation_code>/activation
+<activation_code>/activation/in
 ```
+
+, and home topic for requesting the correct <home_id> and <gateway_id>.
+
+
+```
+<device_id>/home/in
+```
+
 
 ### MQTT Commands
 <p align="justify">
@@ -59,8 +67,9 @@ This command (2) is utilized to get a newly generated certificate for the end de
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": "GET_CREDENTIALS"
+    "timestamp": "timestamp_value",
+    "type": "mqtt_credentials",
+    "value": "GET_CREDENTIALS"
 }
 ```
 
@@ -80,6 +89,24 @@ This report (3) is utilized to deliver a newly generated certificate and credent
 		"user": "mqtt_login",
 		"password": "mqtt_password"
 	}
+}
+```
+
+#### Get Home Prefix
+<p align="justify">
+In case of Get Home Prefix (4), which is used to obtain the home prefix, that consists of <em>home_id</em> and <em>gateway_id</em>. The command <i>value</i> consists of array of the available topic names of the current device, together with unit name and type.
+</p>
+
+```json
+{
+    "timestamp": "timestamp_value",
+    "type": "home_prefix",
+    "value": [
+      {"name": "topic_name",
+       "unit": "unit_quantity",
+       "type": "unit_datatype"
+      }, ...   
+    ]
 }
 ```
 
@@ -109,12 +136,14 @@ Its main purpose is to publish information that initialize and finalize the addi
 
 #### End Device
 <p align="justify">
-The end device utilizes this channel to get the topic name, to which the devices has to be subscribed.
+The end device utilizes following topic to get the topic name, to which the devices has to be subscribed to.
 </p>
 
 ```
-<dev_id>/topic
+<dev_id>/topic/out
 ```
+
+The same topic, but ending with <em>/in</em> is utilized for the sending the responses from the device to the gateway.
 
 ### MQTT Commands
 <p align="justify">
@@ -139,13 +168,15 @@ This command (1) is utilized to start the whole process of adding a new device. 
 
 #### Get Device Topic
 <p align="justify">
-Get device topic command (4) is used to get device topic from the SH-GW. This command has value of <em>GET_DEVICE_TOPIC</em>.
+Get device topic command (6) is used to send all device end-topics to the gateway and request the base topic from the SH-GW.
 </p>
 
 ```json
 {
 	"timestamp": "timestamp_value",
-	"value": "GET_DEVICE_TOPIC"
+	"value": [{"name": "topic_name",
+                "unit": "unit",
+                "type": "type"}, {...}]
 }
 ```
 

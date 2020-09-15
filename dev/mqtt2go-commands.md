@@ -32,11 +32,11 @@ To access a multiple devices or all of their entities, wildcard masks from the M
 ```
 
 <p align="justify">
-which means that the subscribtion will be done to all devices, where the <strong>&lt;entity&gt;/&lt;msg_direction&gt;</strong> matches inserted data.
+which means that the subscription will be done to all devices, where the <strong>&lt;entity&gt;/&lt;msg_direction&gt;</strong> matches inserted data.
 </p>
 
 <p align="justify">
-If the subscribtion should be to a larger group of end devices, a <strong>&#35;</strong> wildcard mask is used. This means that all topics after the <strong>&#35;</strong> are used:
+If the subscription should be to a larger group of end devices, a <strong>&#35;</strong> wildcard mask is used. This means that all topics after the <strong>&#35;</strong> are used:
 </p>
 
 ```
@@ -52,36 +52,37 @@ Some examples of the whole topic structure are as follows:
 * Information topic of a device:
 
 ```
-<home_id>/<gateway_id>/<dev_id>/about/in
+<home_id>/<gateway_id>/<dev_id>/about/<msg_direction>
 ```
 
 * Topic used to switch on/off either the device or its relay:
 
 ```
-<home_id>/<gateway_id>/<dev_id>/power/in
+<home_id>/<gateway_id>/<dev_id>/switch/<msg_direction>
 ```
 
 * Topic utilized for the humidity reports
 
 ```
-<home_id>/<gateway_id>/<dev_id>/humidity/out
+<home_id>/<gateway_id>/<dev_id>/humidity/<msg_direction>
 ```
 
 
 ## <a name="mqtt_commands"></a>MQTT Commands
 <p align="justify">
-The commands are composed of two fields: (i) <strong>timestamp</strong>, and (ii) <strong>value</strong> containing the actual command. The command itself can be either a simple name-value pair or a complex structure, which is usually used for complex operations such as device setup.
+The commands are composed of three fields: (i) <strong>type</strong>, providing information about the type of the command, (ii) <strong>timestamp</strong>, and (iii) <strong>value</strong> containing the actual command. The command itself can be either a simple name-value pair or a complex structure, which is usually used for complex operations such as device setup.
 </p>
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": "value_body"
+    "type": "command_type",
+    "timestamp": "timestamp_value",
+    "value": "value_body"
 }
 ```
 <p align="justify">
 The <strong>timestamp</strong> defines the datetime of the event sent within the message. It is in Unix format.
-The <strong>command_type</strong> defines what information should be expected in the <strong>value</strong> key-pair. It can be any of the command types defined in the sections <a href="./mqtt2go-objects#object-commands">Objects MQTT Commands</a> and <a href="./mqtt2go-controllers#controller-commands">Controllers MQTT Commands</a>. For example, if the <strong>command_type_value</strong> contains <strong>set</strong>, a value of simple commands such as <strong>on</strong> can be expected. Id addition, if <strong>command_type_value</strong> contains a <strong>color</strong> keyword, the value should contain an array, which describes the HSB information needed to set up the chosen color.<br>
+The <strong>type</strong> defines what information should be expected in the <strong>value</strong> key-pair. It can be any of the command types defined in the sections <a href="./mqtt2go-objects#object-commands">Objects MQTT Commands</a> and <a href="./mqtt2go-controllers#controller-commands">Controllers MQTT Commands</a>. For example, if the <strong>command_type_value</strong> contains <strong>set</strong>, a value of simple commands such as <strong>on</strong> can be expected. Id addition, if <strong>command_type_value</strong> contains a <strong>color</strong> keyword, the value should contain an array, which describes the HSB information needed to set up the chosen color.<br>
 Based on previous examples, the <strong>value</strong> key-pair can contain either a simple command such as <strong>on, off</strong> and similar, or more advanced commands represented by an array (i.e., the array for HSB information for setting the light color).
 </p>
 
@@ -90,28 +91,28 @@ The general query commands that are common for all devices are as follows:
 * A topic used for controlling the **on/off** status of the device (below, the on example is shown):
 
 ```
-<home_id>/<gateway_id>/<dev_id>/on/in
+<home_id>/<gateway_id>/<dev_id>/on/<msg_direction>
 ```
 
 * A topic used to query the battery level:
 
 ```
-<home_id>/<gateway_id>/<dev_id>/battery/in
+<home_id>/<gateway_id>/<dev_id>/battery/<msg_direction>
 ```
 * A topic used to query current state of the device:
 
 ```
-<home_id>/<gateway_id>/<dev_id>/state/in
+<home_id>/<gateway_id>/<dev_id>/state/<msg_direction>
 ```
 * A topic to query the tamper status of selected device:
 
 ```
-<home_id>/<gateway_id>/<dev_id>/tamper/in
+<home_id>/<gateway_id>/<dev_id>/tamper/<msg_direction>
 ```
 * A topic used to query the status of the device:
 
 ```
-<home_id>/<gateway_id>/<dev_id>/status/in
+<home_id>/<gateway_id>/<dev_id>/status/<msg_direction>
 ```
 
 ## <a name="mqtt_reports"></a>MQTT Reports
@@ -121,9 +122,10 @@ The report message structure is used for replies coming from the devices. The re
 
 ```json
 {
-	"priority_level":"priority_level_value",
-	"timestamp":"timestamp_value",
-	"value":"value_body" 
+    "type": "report_type_value",
+    "priority_level":"priority_level_value",
+    "timestamp":"timestamp_value",
+    "value":"value_body" 
 }
 ```
 

@@ -42,18 +42,23 @@ As aforementioned, network join topics are unique inside the MTT2GO standard and
 
 #### End device
 <p align="justify">
-The end device itself utilizes a two unique topics for the initialization of the communication. They are:
+The end device itself utilizes a three unique topics for the initialization of the communication. They are:
 </p>
 
 ```
-<activation_code>/activation
+<activation_code>/activation/in
 ```
-exploited for certificate exchange, and
+exploited for certificate exchange,
 
 ```
-<activation_code>/wifi
+<activation_code>/wifi/in
 ```
-for the Wi-Fi credentials exchange.
+for the Wi-Fi credentials exchange,
+
+```
+<device_id>/home/in
+```
+for requesting the correct <home_id> and <gateway_id>.
 
 ### MQTT Commands
 <p align="justify">
@@ -67,8 +72,9 @@ This command (2) is utilized to get a newly generated certificate for the end de
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": "GET_CREDENTIALS"
+    "timestamp": "timestamp_value",
+    "type": "mqtt_credentials",
+    "value": "GET_CREDENTIALS"
 }
 ```
 
@@ -79,8 +85,27 @@ In case of Get Wifi credentials (4), which is used to obtain the Wi-Fi credentia
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": "GET_WIFI_CREDENTIALS"
+    "timestamp": "timestamp_value",
+    "type": "wifi_credentials",
+    "value": "GET_WIFI_CREDENTIALS"
+}
+```
+
+#### Get Home Prefix
+<p align="justify">
+In case of Get Home Prefix (4), which is used to obtain the home prefix, that consists of <em>home_id</em> and <em>gateway_id</em>. The command <i>value</i> consists of array of the available topic names of the current device, together with unit name and type.
+</p>
+
+```json
+{
+    "timestamp": "timestamp_value",
+    "type": "home_prefix",
+    "value": [
+      {"name": "topic_name",
+       "unit": "unit_quantity",
+       "type": "unit_datatype"
+      }, ...   
+    ]
 }
 ```
 
@@ -94,12 +119,13 @@ This report (3) is utilized to deliver a newly generated certificate from MQTT b
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value":  {
-		"cert": "device_certificate",
-		"user": "mqtt_login",
-		"password": "mqtt_password"
-	}
+    "timestamp": "timestamp_value",
+    "type": "mqtt_credentials",
+    "value":  {
+        "cert": "device_certificate",
+        "user": "mqtt_login",
+        "password": "mqtt_password"
+    }
 }
 ```
 
@@ -110,11 +136,28 @@ This report (5) is used to send the Wi-Fi credentials back to the end device.
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": {
-		"SSID": "wifi_ssid",
-		"password": "password"
-	}
+    "timestamp": "timestamp_value",
+    "type": "wifi_credentials",
+    "value": {
+        "SSID": "wifi_ssid",
+        "password": "password"
+    }
+}
+```
+
+#### Home Prefix
+<p align="justify">
+This report (5) is used to send the home prefix credentials back to the end device.
+</p>
+
+```json
+{
+    "timestamp": "timestamp_value",
+    "type": "home_prefix",
+    "value": {
+        "home_id": "home_id_value",
+        "gateway_id": "gateway_id_value"
+    }
 }
 ```
 
@@ -148,8 +191,10 @@ The end device utilizes following topic to get the topic name, to which the devi
 </p>
 
 ```
-<dev_id>/topic
+<dev_id>/topic/out
 ```
+
+The same topic, but ending with <em>/in</em> is utilized for the sending the responses from the device to the gateway.
 
 ### MQTT Commands
 <p align="justify">

@@ -24,6 +24,7 @@ The set commands are used to change / add device parameters and information. The
 
 ```json
 {
+    "type": "type_command_value",
 	"timestamp": "timestamp_value",
 	"value": {
 		"group_id": "group_id"
@@ -45,10 +46,11 @@ Group creation is done via <strong>add_group</strong> command type with value bo
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": {
-		"group_name": "group_name"	
-	}
+    "type": "create",
+    "timestamp": "timestamp_value",
+    "value": {
+        "group_name": "group_name"	
+    }
 }
 ```
 
@@ -59,10 +61,11 @@ Scene creation is done via <strong>add_scene</strong> command type with value bo
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": {
-		"group_name": "scene_name"	
-	}
+    "type": "create",
+    "timestamp": "timestamp_value",
+    "value": {
+        "group_name": "scene_name"	
+    }
 }
 ```
 
@@ -74,13 +77,14 @@ For adding a new user, the <strong>add_user</strong> command type with JSON body
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": {
-		"user_id": "id",
-		"email": "email",
-		"user_name": "name",
-		"role": "role"
-	}
+    "type": "create",
+    "timestamp": "timestamp_value",
+    "value": {
+        "user_id": "id",
+        "email": "email",
+        "user_name": "name",
+        "role": "role"
+    }
 }
 ```
 
@@ -92,6 +96,7 @@ For adding a new device to selected group, the <strong>add_device_to_group</stro
 
 ```json
 {
+    "type": "add",
     "timestamp": "timestamp_value",
     "value": {
         "device_id": "id",
@@ -108,6 +113,7 @@ For adding a new device to selected group, the <strong>add_device_to_scene</stro
 
 ```json
 {
+    "type": "add",
     "timestamp": "timestamp_value",
     "value": {
         "device_id": "id",
@@ -129,13 +135,14 @@ User editing is done by commands with type of <strong>updt_user</strong> with JS
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": {
-		"user_id": "id",
-		"email": "email",
-		"user_name": "name",
-		"role": "role"
-	}
+    "type": "edit",
+    "timestamp": "timestamp_value",
+    "value": {
+        "user_id": "id",
+        "email": "email",
+        "user_name": "name",
+        "role": "role"
+    }
 }
 ```
 
@@ -146,11 +153,12 @@ Group editing is done by the commands with type of <strong>updt_group</strong> w
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": {
-		"group_id": "group_id",
-		"group_name": "group_name"
-	}
+    "type": "edit",
+    "timestamp": "timestamp_value",
+    "value": {
+        "group_id": "group_id",
+        "group_name": "group_name"
+    }
 }
 ```
 
@@ -166,10 +174,11 @@ To remove a group, <strong>del_group</strong> command type is exploited and the 
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": {
-		"group_id": "group_id"
-	}
+    "type": "delete",
+    "timestamp": "timestamp_value",
+    "value": {
+        "group_id": "group_id"
+    }
 }
 ```
 
@@ -182,10 +191,11 @@ To remove a user, a <strong>del_user</strong> command type is used, with a JSON 
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": {
-		"user_id": "user_id"
-	}
+    "type": "delete",
+    "timestamp": "timestamp_value",
+    "value": {
+        "user_id": "user_id"
+    }
 }
 ```
 
@@ -196,10 +206,11 @@ To remove a device, a <strong>del_device</strong> command type is used. Its JSON
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": {
-		"dev_id": "dev_id"
-	}
+    "type": "delete",
+    "timestamp": "timestamp_value",
+    "value": {
+        "dev_id": "dev_id"
+    }
 }
 ```
 
@@ -215,6 +226,7 @@ Query all devices is used to request all available devices, its value will be <s
 
 ```json
 {
+    "type": "query_all",
 	"timestamp": "timestamp_value",
 	"value": "all"
 }
@@ -227,8 +239,9 @@ Query device info requests information about selected device. Its value will be 
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": "dev_id"
+    "type": "query_device_info",
+    "timestamp": "timestamp_value",
+    "value": "dev_id"
 }
 ```
 
@@ -239,8 +252,9 @@ Query user info is used to recall information about selected user. Its value fie
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": "user_id"
+    "type": "query_user_info",
+    "timestamp": "timestamp_value",
+    "value": "user_id"
 }
 ```
 
@@ -251,8 +265,9 @@ Query devices in group asks for all devices in specified group. Its value field 
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": "group_id"
+    "type": "query_all_in_group",
+    "timestamp": "timestamp_value",
+    "value": "group_id"
 }
 ```
 
@@ -263,8 +278,9 @@ Query devices in group asks for all groups. Its value field is filled with <stro
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": "all"
+    "type": "query_all_groups",
+    "timestamp": "timestamp_value",
+    "value": "all"
 }
 ```
 
@@ -275,8 +291,9 @@ Query user’s topics requests the topics that selected user is subscribed to. I
 
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": "user_id"
+    "type": "query_user_topics",
+    "timestamp": "timestamp_value",
+    "value": "user_id"
 }
 ```
 
@@ -285,8 +302,9 @@ The MQTT reports utilized here are mostly a replies to the commands from the con
 
 ```json
 {
-	"event": "event_name",
-	"reason": "event_description"
+    "type": "event",
+    "event": "event_name",
+    "reason": "event_description"
 }
 ```
 
@@ -300,9 +318,10 @@ After the add_group command is received. The device process it and then publishe
 
 ```json
 {
-	"priority_level": 2,
-	"timestamp":"timestamp_value",
-	"value":"ok" 
+    "type": "command_response",
+    "priority_level": 2,
+    "timestamp":"timestamp_value",
+    "value":"ok" 
 }
 ```
 
@@ -311,12 +330,13 @@ After the add_user command is received, the devices processes it and then publis
 
 ```json
 {
-	"priority_level": 2,
-	"timestamp":"timestamp_value",
-	"value":{
-		"event" : "error",
-		"reason" : "user_already_exists"
-	}
+    "type": "command_response",
+    "priority_level": 2,
+    "timestamp":"timestamp_value",
+    "value":{
+        "event" : "error",
+        "reason" : "user_already_exists"
+    }
 }
 ```
 
@@ -328,9 +348,10 @@ After the updt_user command is issues, the following response is published into 
 
 ```json
 {
-	"priority_level": 2,
-	"timestamp":"timestamp_value",
-	"value":"ok" 
+    "type": "command_response",
+    "priority_level": 2,
+    "timestamp":"timestamp_value",
+    "value":"ok" 
 }
 ```
 
@@ -339,9 +360,10 @@ After the updt_group command is issues, the following response is published into
 
 ```json
 {
-	"priority_level": 2,
-	"timestamp":"timestamp_value",
-	"value":"ok" 
+    "type": "command_response",
+    "priority_level": 2,
+    "timestamp":"timestamp_value",
+    "value":"ok" 
 }
 ```
 
@@ -353,9 +375,10 @@ Is the report which is published after the del_group command is issued.
 
 ```json
 {
-	"priority_level": 2,
-	"timestamp":"timestamp_value",
-	"value":"ok" 
+    "type": "command_response",
+    "priority_level": 2,
+    "timestamp":"timestamp_value",
+    "value":"ok" 
 }
 ```
 
@@ -364,9 +387,10 @@ Is the report which is published after the del_user command is issued.
 
 ```json
 {
-	"priority_level": 2,
-	"timestamp":"timestamp_value",
-	"value":"ok" 
+    "type": "command_response",
+    "priority_level": 2,
+    "timestamp":"timestamp_value",
+    "value":"ok" 
 }
 ```
 
@@ -375,9 +399,10 @@ Is the report which is published after the del_group command is issued.
 
 ```json
 {
-	"priority_level": 2,
-	"timestamp":"timestamp_value",
-	"value":"ok" 
+    "type": "command_response",
+    "priority_level": 2,
+    "timestamp":"timestamp_value",
+    "value":"ok" 
 }
 ```
 
@@ -389,9 +414,10 @@ Is used to return all devices under selected SH-GW. It has following structure:
 
 ```json
 {
-	"priority_level": 2,
-	"timestamp":"timestamp_value",
-	"value":[ "device_1_id", "device_2_id", ...]
+    "type": "command_response",
+    "priority_level": 2,
+    "timestamp":"timestamp_value",
+    "value":[ "device_1_id", "device_2_id", ...]
 }
 ```
 
@@ -402,6 +428,7 @@ Is used to return all devices under selected SH-GW. It has following structure:
 
 ```json
 {
+    "type": "command_response",
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
 	"value":[ "group_1_id", "group_2_id", ...]
@@ -414,13 +441,14 @@ This report is utilized to return all device information requested by the <stron
 
 ```json
 {
-	"priority_level": 2,
-	"timestamp":"timestamp_value",
-	"value": {
-		"dev_id": "device_id",
-		"dev_name": "device_name",
-		"dev_group": "device_group"
-	}
+    "type": "command_response",
+    "priority_level": 2,
+    "timestamp":"timestamp_value",
+    "value": {
+        "dev_id": "device_id",
+        "dev_name": "device_name",
+        "dev_group": "device_group"
+    }
 }
 ```
 
@@ -429,14 +457,15 @@ This report provides information about the user. This report is invoked by the <
 
 ```json
 {
-	"priority_level": 2,
-	"timestamp":"timestamp_value",
-	"value": {
-		"user_id": "user_id",
-		"email": "john.doe@mail.com",
-		"user_name": "John Doe",
-		"role": "administrator"
-	}
+    "type": "command_response",
+    "priority_level": 2,
+    "timestamp":"timestamp_value",
+    "value": {
+        "user_id": "user_id",
+        "email": "john.doe@mail.com",
+        "user_name": "John Doe",
+        "role": "administrator"
+    }
 }
 ```
 
@@ -445,9 +474,10 @@ Is used to return all devices in specified group. It has following structure:
 
 ```json
 {
-	"priority_level": 2,
-	"timestamp":"timestamp_value",
-	"value":[ "device_1_id", "device_2_id", ...]
+    "type": "command_response",
+    "priority_level": 2,
+    "timestamp":"timestamp_value",
+    "value":[ "device_1_id", "device_2_id", ...]
 }
 ```
 The value of this report contains a field of ids for all devices in specified group.
@@ -457,9 +487,10 @@ This report contains all topics of specified user. Its structure is following:
 
 ```json
 {
-	"priority_level": 2,
-	"timestamp":"timestamp_value",
-	"value":[ "topic1", "topic2",...]
+    "type": "command_response",
+    "priority_level": 2,
+    "timestamp":"timestamp_value",
+    "value":[ "topic1", "topic2",...]
 }
 ```
 The value can contain a simple topic or a field of topics, as illustrated above.
@@ -468,7 +499,7 @@ The value can contain a simple topic or a field of topics, as illustrated above.
 MQTT2GO standard also defines a special topic for designated for logging all events happening inside the smart home. This topic is:
 
 ```
-<home_id>/<gateway_id>/events
+<home_id>/<gateway_id>/events/<msg_direction>
 ```
 
 Its primary goal is to cumulate all important events at one place. It can be utilized for example by machine-learning controller, that will be sending events about unusual activity into this topic. The structure of the event message is as follows:

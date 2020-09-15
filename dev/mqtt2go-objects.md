@@ -22,7 +22,7 @@ The MQTT Commands described in this section are device specific and therefore th
 
 ### Description of command types
 <p align="justify">
-To distinguish between the MQTT2GO commands that are going to the device, the <strong>value</strong> field is utilized. If the command is <strong>set</strong>, the <strong>value</strong> contains the value that is going to be set. If the command is <strong>query</strong>, the <strong>?</strong> character is sent inside the <strong>value</strong>. If more complex setup is needed, a JSON structure will be sent inside the <strong>value</strong>.
+To distinguish between the MQTT2GO commands that are going to the device, the <strong>msg_direction</strong> part of the topic is utilized. Furthermore, to distinguish between different type of messages, the <strong>type</strong> is utilized. For the commands, it is mostly <strong>set</strong> type. If the type is <strong>set</strong>, the <strong>value</strong> contains the value that is going to be set. If the type is from the <strong>query</strong> "family", the <strong>value</strong> is ommited. If more complex setup is needed, a JSON structure will be sent inside the <strong>value</strong>.
 </p>
 
 ### Table with Commands
@@ -72,20 +72,21 @@ To provide some examples of the MQTT Commands usage, we provide simple and compl
 #### Simple Command Example
 ```json
 {
-	"timestamp": 1567677926,
-	"value": "on" 
+    "type": "set",
+    "timestamp": 1567677926,
+    "value": "on" 
 }
 ```
 
 #### Complex Command Example
 ```json
 {
-	"timestamp":1567677926,
-	"value": {
-		"unit": "hsb",
-		"h": 100, 
-		"s": 100,
-		"b": 50
+    "type": "color",
+    "timestamp":1567677926,
+    "value": {
+        "r": 100, 
+        "g": 100,
+        "b": 50
 	}
 }
 ```
