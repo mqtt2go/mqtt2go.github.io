@@ -22,7 +22,7 @@ The MQTT Commands described in this section are device specific and therefore th
 
 ### Description of command types
 <p align="justify">
-To distinguish between the MQTT2GO commands that are going to the device, the <strong>msg_direction</strong> part of the topic is utilized. Furthermore, to distinguish between different type of messages, the <strong>type</strong> is utilized. For the commands, it is mostly <strong>set</strong> type. If the type is <strong>set</strong>, the <strong>value</strong> contains the value that is going to be set. If the type is from the <strong>query</strong> "family", the <strong>value</strong> is ommited. If more complex setup is needed, a JSON structure will be sent inside the <strong>value</strong>.
+To distinguish between the MQTT2GO commands that are going to the device, the <strong>msg_direction</strong> part of the topic is utilized. For all the commands, the <strong>msg_direction</strong> has to be set to <strong>in</strong>. Furthermore, to distinguish between different type of messages, the <strong>type</strong> is utilized. For the commands, it is mostly <strong>set</strong> type. If the type is <strong>set</strong>, the <strong>value</strong> contains the value that is going to be set. If the type is from the <strong>query</strong> "family", the <strong>value</strong> is ommited. If more complex setup is needed, a JSON structure will be sent inside the <strong>value</strong>.
 </p>
 
 ### Table with Commands
@@ -144,23 +144,25 @@ To provide complete example of the command - report message structure. Below we 
 #### Simple Report Example
 ```json
 {
-	"priority_level":2,
-	"timestamp":1567677946,
-	"report":"on"
+    "priority_level":2,
+    "timestamp":1567677946,
+    "type":"command_response",
+    "report":"on"
 }
 ```
 
 #### Complex Report Example
 ```json
 {
-	"priority_level": 2,
-	"timestamp":1567677956,
-	"report": {
-		"unit": "hsb",
-		"h": 100, 
-		"s": 100,
-		"b": 50
-	}
+    "priority_level": 2,
+    "timestamp":1567677956,
+    "type":"command_response",
+    "report": {
+        "unit": "hsb",
+        "h": 100, 
+        "s": 100,
+        "b": 50
+    }
 }
 ```
 
@@ -204,6 +206,9 @@ In this section, we provide a table with all currently utilized units in the MQT
 The units specified above are for currently supported devices. If a new type of device will be added, the unit structure should follow the MQTT2GO standard.
 
 #### MQTT2GO units example
+
+THIS SHOULD BE OMITTED IN FINAL VERSION
+
 Here we provide sample command and report structure to depict the correct usage of units inside the value object:
 
 ##### MQTT2GO unit command

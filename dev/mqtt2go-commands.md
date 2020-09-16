@@ -36,16 +36,12 @@ which means that the subscription will be done to all devices, where the <strong
 </p>
 
 <p align="justify">
-If the subscription should be to a larger group of end devices, a <strong>&#35;</strong> wildcard mask is used. This means that all topics after the <strong>&#35;</strong> are used:
+If the subscription should be to a larger group of end devices, a <strong>&#35;</strong> wildcard mask is used. This means that all topics starting at the <strong>&#35;</strong> and further are subscribed:
 </p>
 
 ```
 <home_id>/<gateway_id>/#
 ```
-
-<p align="justify">
-which means that the messages will go to all devices and all groups under selected gateway.
-</p>
 
 Some examples of the whole topic structure are as follows:
 
@@ -55,7 +51,7 @@ Some examples of the whole topic structure are as follows:
 <home_id>/<gateway_id>/<dev_id>/about/<msg_direction>
 ```
 
-* Topic used to switch on/off either the device or its relay:
+* Topics used to switch on/off either the device or its relay and to report the status from the device back to the controller:
 
 ```
 <home_id>/<gateway_id>/<dev_id>/switch/<msg_direction>
@@ -64,7 +60,7 @@ Some examples of the whole topic structure are as follows:
 * Topic utilized for the humidity reports
 
 ```
-<home_id>/<gateway_id>/<dev_id>/humidity/<msg_direction>
+<home_id>/<gateway_id>/<dev_id>/humidity/out
 ```
 
 
@@ -82,11 +78,11 @@ The commands are composed of three fields: (i) <strong>type</strong>, providing 
 ```
 <p align="justify">
 The <strong>timestamp</strong> defines the datetime of the event sent within the message. It is in Unix format.
-The <strong>type</strong> defines what information should be expected in the <strong>value</strong> key-pair. It can be any of the command types defined in the sections <a href="./mqtt2go-objects#object-commands">Objects MQTT Commands</a> and <a href="./mqtt2go-controllers#controller-commands">Controllers MQTT Commands</a>. For example, if the <strong>command_type_value</strong> contains <strong>set</strong>, a value of simple commands such as <strong>on</strong> can be expected. Id addition, if <strong>command_type_value</strong> contains a <strong>color</strong> keyword, the value should contain an array, which describes the HSB information needed to set up the chosen color.<br>
-Based on previous examples, the <strong>value</strong> key-pair can contain either a simple command such as <strong>on, off</strong> and similar, or more advanced commands represented by an array (i.e., the array for HSB information for setting the light color).
+The <strong>type</strong> defines what information should be expected in the <strong>value</strong> field. It can be any of the command types defined in the sections <a href="./mqtt2go-objects#object-commands">Objects MQTT Commands</a> and <a href="./mqtt2go-controllers#controller-commands">Controllers MQTT Commands</a>. For example, if the <strong>command_type_value</strong> contains <strong>set</strong>, a value of simple commands such as <strong>on</strong> can be expected. Id addition, if <strong>command_type_value</strong> contains a <strong>color</strong> keyword, the value should contain an array, which describes the HSB information needed to set up the chosen color.<br>
+Based on previous examples, the <strong>value</strong> field can contain either a simple command such as <strong>on, off</strong> and similar, or more advanced commands represented by an array (i.e., the array for RGB information for setting the light color).
 </p>
 
-The general query commands that are common for all devices are as follows: 
+The general query commands that are common for all devices are identified by the **query_command** and defined as follows: 
 
 * A topic used for controlling the **on/off** status of the device (below, the on example is shown):
 
