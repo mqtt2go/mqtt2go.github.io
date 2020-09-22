@@ -78,34 +78,34 @@ The commands are composed of three fields: (i) <strong>type</strong>, providing 
 ```
 <p align="justify">
 The <strong>timestamp</strong> defines the datetime of the event sent within the message. It is in Unix format.
-The <strong>type</strong> defines what information should be expected in the <strong>value</strong> field. It can be any of the command types defined in the sections <a href="./mqtt2go-objects#object-commands">Objects MQTT Commands</a> and <a href="./mqtt2go-controllers#controller-commands">Controllers MQTT Commands</a>. For example, if the <strong>command_type_value</strong> contains <strong>set</strong>, a value of simple commands such as <strong>on</strong> can be expected. Id addition, if <strong>command_type_value</strong> contains a <strong>color</strong> keyword, the value should contain an array, which describes the HSB information needed to set up the chosen color.<br>
+The <strong>type</strong> defines what information should be expected in the <strong>value</strong> field. It can be any of the command types defined in the sections <a href="./mqtt2go-objects#object-commands">Objects MQTT Commands</a> and <a href="./mqtt2go-controllers#controller-commands">Controllers MQTT Commands</a>. For example, if the <strong>command_type_value</strong> contains <strong>set</strong>, a value of simple commands such as <strong>on</strong> can be expected. Id addition, if <strong>command_type_value</strong> contains a <strong>color</strong> keyword, the value should contain an array, which describes the RGB information needed to set up the chosen color.<br>
 Based on previous examples, the <strong>value</strong> field can contain either a simple command such as <strong>on, off</strong> and similar, or more advanced commands represented by an array (i.e., the array for RGB information for setting the light color).
 </p>
 
-The general query commands that are common for all devices are identified by the **query_command** and defined as follows: 
+The general query commands common for all devices are identified by the **query_command** and defined as follows: 
 
 * A topic used for controlling the **on/off** status of the device (below, the on example is shown):
 
 ```
-<home_id>/<gateway_id>/<dev_id>/on/<msg_direction>
+<home_id>/<gateway_id>/<dev_id>/switch/<msg_direction>
 ```
 
-* A topic used to query the battery level:
+* A topics used to query the battery level and report the value back:
 
 ```
 <home_id>/<gateway_id>/<dev_id>/battery/<msg_direction>
 ```
-* A topic used to query current state of the device:
+* A topic used to query current state of the device and report the value back:
 
 ```
 <home_id>/<gateway_id>/<dev_id>/state/<msg_direction>
 ```
-* A topic to query the tamper status of selected device:
+* A topic to query the tamper status of selected device and report the value back:
 
 ```
 <home_id>/<gateway_id>/<dev_id>/tamper/<msg_direction>
 ```
-* A topic used to query the status of the device:
+* A topic used to query the status of the device and report the value back:
 
 ```
 <home_id>/<gateway_id>/<dev_id>/status/<msg_direction>
@@ -126,7 +126,7 @@ The report message structure is used for replies coming from the devices. The re
 ```
 
 <p align="justify">
-The <strong>priority_level</strong> is used to set a message priority. It can be between 1-5, where 1 denotes the lowest and 5 the highest.
+The <strong>priority_level</strong> is used to set a message priority. It can be between 1-4, where 1 denotes the lowest and 5 the highest.
 The report_type defines the type of report, there are four types of reports:</p>
 
 1. Status,
@@ -136,12 +136,5 @@ The report_type defines the type of report, there are four types of reports:</p>
 
 <p align="justify">
 The timestamp defines the datetime of the message sent event. It is in Unix format.
-The <strong>report_name</strong> carries information about the value format. It can be any of the names from the afore presented tables. For example, when the <strong>report_name</strong> has a value of temperature, the value key-pair will carry an integer which corresponds to a degrees of celsius.
-<strong>value_body</strong> can be either a simple response (OK), an integer, or array of values.
-</p>
-
-The general reports that are common for all devices are:
-* OK,
-* BatteryBad.
 
 [Back](./index.md#data-structure)

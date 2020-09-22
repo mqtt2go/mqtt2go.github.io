@@ -20,7 +20,7 @@ The MQTT commands for the controllers are used to control the end devices. This 
 
 ### Set commands
 
-The set commands are used to change / add device parameters and information. They are exactly the same as in Table with MQTT2GO commands with the addition of the set_group command type, which is used to set / change the group of selected end device. Its JSON body is:
+The set commands are used to change / add device parameters and information. They are exactly the same as in Table with MQTT2GO commands with the addition of the <strong>set_group</strong> command type, which is used to set / change the group of selected end device. Its JSON body is:
 
 ```json
 {
@@ -39,9 +39,9 @@ Where the __\<group_id\>__ can be either a value or field of values.
 The add commands are primarily used to create new objects like groups, users, and devices. They also utilize suffixes for differentiation. In the following paragraphs, all of the add commands will be described.
 </p>
 
-#### Group Creation
+#### Room Creation
 <p align="justify">
-Group creation is done via <strong>add_group</strong> command type with value body of a JSON structure with the following format.	
+Room creation is done via <strong>add_group</strong> command type with value body of a JSON structure with the following format.	
 </p>
 
 ```json
@@ -49,7 +49,7 @@ Group creation is done via <strong>add_group</strong> command type with value bo
     "type": "create",
     "timestamp": "timestamp_value",
     "value": {
-        "group_name": "group_name"	
+        "room_name": "room_name"	
     }
 }
 ```
@@ -64,7 +64,7 @@ Scene creation is done via <strong>add_scene</strong> command type with value bo
     "type": "create",
     "timestamp": "timestamp_value",
     "value": {
-        "group_name": "scene_name"	
+        "scene_name": "scene_name"	
     }
 }
 ```
@@ -80,9 +80,9 @@ For adding a new user, the <strong>add_user</strong> command type with JSON body
     "type": "create",
     "timestamp": "timestamp_value",
     "value": {
-        "user_id": "id",
         "email": "email",
         "user_name": "name",
+        "password": "pwd",
         "role": "role"
     }
 }
@@ -99,7 +99,6 @@ For adding a new device to selected group, the <strong>add_device_to_group</stro
     "type": "add",
     "timestamp": "timestamp_value",
     "value": {
-        "device_id": "id",
         "group_name": "group_name"
     }
 }
@@ -117,7 +116,7 @@ For adding a new device to selected group, the <strong>add_device_to_scene</stro
     "timestamp": "timestamp_value",
     "value": {
         "device_id": "id",
-        "group_name": "scene_name"
+        "scene_name": "scene_name"
     }
 }
 ```
@@ -141,12 +140,13 @@ User editing is done by commands with type of <strong>updt_user</strong> with JS
         "user_id": "id",
         "email": "email",
         "user_name": "name",
+        "password": "pwd",
         "role": "role"
     }
 }
 ```
 
-#### Group Editing
+#### Room Editing
 <p align="justify">
 Group editing is done by the commands with type of <strong>updt_group</strong> with JSON body of:
 </p>
@@ -158,6 +158,22 @@ Group editing is done by the commands with type of <strong>updt_group</strong> w
     "value": {
         "group_id": "group_id",
         "group_name": "group_name"
+    }
+}
+```
+
+#### Scene Editing
+<p align="justify">
+Scene editing is done by the commands with type of <strong>updt_scene</strong> with JSON body of:
+</p>
+
+```json
+{
+    "type": "edit",
+    "timestamp": "timestamp_value",
+    "value": {
+        "scene_id": "scene_id",
+        "scene_name": "scene_name"
     }
 }
 ```
@@ -226,7 +242,7 @@ Query all devices is used to request all available devices, its value will be <s
 
 ```json
 {
-    "type": "query_all",
+    "type": "query_devices",
 	"timestamp": "timestamp_value",
 	"value": "all"
 }
@@ -260,7 +276,7 @@ Query user info is used to recall information about selected user. Its value fie
 
 #### Query All Devices in Group
 <p align="justify">
-Query devices in group asks for all devices in specified group. Its value field is filled with <strong>group_id</strong>.
+Query all devices in specified group. Its value field is filled with <strong>group_id</strong>.
 </p>
 
 ```json
@@ -278,22 +294,9 @@ Query devices in group asks for all groups. Its value field is filled with <stro
 
 ```json
 {
-    "type": "query_all_groups",
+    "type": "query_groups",
     "timestamp": "timestamp_value",
     "value": "all"
-}
-```
-
-#### Query User's Topics
-<p align="justify">
-Query user’s topics requests the topics that selected user is subscribed to. Its value field contains the <strong>user_id</strong>.
-</p>
-
-```json
-{
-    "type": "query_user_topics",
-    "timestamp": "timestamp_value",
-    "value": "user_id"
 }
 ```
 
@@ -302,9 +305,9 @@ The MQTT reports utilized here are mostly a replies to the commands from the con
 
 ```json
 {
-    "type": "event",
-    "event": "event_name",
-    "reason": "event_description"
+    "type": "command_response",
+    "priority_level": 2,
+    "timestamp":"timestamp_value"
 }
 ```
 
