@@ -111,6 +111,11 @@ This section is related to the requirements which have to be fulfilled in order 
 
 # MQTT2GO Compatible Devices
 * [Shelly Plug S](https://github.com/mqtt2go/devices/tree/master/Shelly%20Plug%20S)
+* [Shelly 2.5](https://github.com/mqtt2go/devices/tree/master/Shelly%202.5)
+* [Sonoff B1](https://github.com/mqtt2go/devices/tree/master/Sonoff%20B1)
+* [Sonoff POW R2](https://github.com/mqtt2go/devices/tree/master/Sonoff%20POW%20R2)
+* [Sonoff S26](https://github.com/mqtt2go/devices/tree/master/Sonoff%20S26)
+* [Sonoff TH16](https://github.com/mqtt2go/devices/tree/master/Sonoff%20TH16)
 
 # References
 <a name="ref1"></a>[1] MQTT Topics & Best Practices - MQTT Essentials: Part 5. Available from: [https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/)
