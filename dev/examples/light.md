@@ -7,6 +7,9 @@ To control the smart lights, a user have to follow the MQTT2GO convention. To ea
 As specified by the MQTT2GO convention, the commands are utilized for device control. In the following subsection, we present the standardized way which is following the convention.
 
 ### Turn on the light
+```
+<home_id>/<gateway_id>/<device_id>/switch/in
+```
 ```json
 { 
     "type": "set",
@@ -16,6 +19,9 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```
 
 ### Turn off the light
+```
+<home_id>/<gateway_id>/<device_id>/switch/in
+```
 ```json
 {
     "type": "set",
@@ -26,7 +32,9 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 
 ### Set Color
 The color function is utilized to set desired color to the light / bulb. 
-
+```
+<home_id>/<gateway_id>/<device_id>/color/in
+```
 ```json
 {
     "type": "color",
@@ -40,7 +48,9 @@ The color function is utilized to set desired color to the light / bulb.
 ```
 
 ### Set brightness
-
+```
+<home_id>/<gateway_id>/<device_id>/brightness/in
+```
 ```json
 {
     "type": "brightness",
@@ -50,7 +60,9 @@ The color function is utilized to set desired color to the light / bulb.
 ```
 
 ### Set color temperature
-
+```
+<home_id>/<gateway_id>/<device_id>/temperature/in
+```
 ```json
 {
     "type": "color_temp",
@@ -65,17 +77,21 @@ Reports are utilized either as responses to the commands or to report periodic o
 ### State Report
 
 ### Turn on / off response
-
+```
+<home_id>/<gateway_id>/<device_id>/switch/out
+```
 ```json
 {
     "type": "command_response",
     "timestamp": 1567677956,
-    "value": "switch_value"
+    "value": "on/off"
 }
 ```
 
 ### Set color response
-
+```
+<home_id>/<gateway_id>/<device_id>/color/out
+```
 ```json
 {
     "type": "command_response",
@@ -89,7 +105,9 @@ Reports are utilized either as responses to the commands or to report periodic o
 ```
 
 ### Set brightness response
-
+```
+<home_id>/<gateway_id>/<device_id>/brightness/out
+```
 ```json
 {
     "type": "command_response",
@@ -99,7 +117,9 @@ Reports are utilized either as responses to the commands or to report periodic o
 ```
 
 ### Set color temperature response
-
+```
+<home_id>/<gateway_id>/<device_id>/temperature/out
+```
 ```json
 {
     "type": "color_temp",
