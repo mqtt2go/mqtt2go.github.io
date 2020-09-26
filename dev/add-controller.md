@@ -106,6 +106,9 @@ The MQTT reports presented here are designed as “responses” to aforementione
 This report is utilized for requesting all necessary information from the smarthome gateway. The report contains topics and information about all devices, configured scenes and security features, as well as alerts and home layout.
 </p>
 
+```
+<home_id>/<gw_id>/id/out
+```
 ```json
 {
     "timestamp": "timestamp_value",
