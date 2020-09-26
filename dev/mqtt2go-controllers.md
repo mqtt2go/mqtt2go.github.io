@@ -117,14 +117,15 @@ For adding a new device to selected group, the <strong>add_device</strong> comma
     "type": "add_device",
     "timestamp": "timestamp_value",
     "value": {
-        "group_name": "group_name"
+        "group_name": "group_name",
+        "device_id": "device_id"
     }
 }
 ```
 
 #### Add Device to Scene
 <p align="justify">
-For adding a new device to selected group, the <strong>add_device</strong> command type with JSON body with following format is used.
+For adding a new device to selected scene, the <strong>add_device</strong> command type with JSON body with following format is used.
 </p>
 
 ```
@@ -172,7 +173,7 @@ User editing is done by commands with type of <strong>edit_user</strong> with JS
 
 #### Room Editing
 <p align="justify">
-Group editing is done by the commands with type of <strong>edit</strong> with JSON body of:
+Room editing is done by the commands with type of <strong>edit</strong> with JSON body of:
 </p>
 
 ```
@@ -184,8 +185,8 @@ Group editing is done by the commands with type of <strong>edit</strong> with JS
     "type": "edit",
     "timestamp": "timestamp_value",
     "value": {
-        "group_id": "group_id",
-        "group_name": "group_name"
+        "room_id": "room_id",
+        "room_name": "rooom_name"
     }
 }
 ```
@@ -242,34 +243,15 @@ To remove a user, a <strong>remove</strong> command type is used, with a JSON bo
 </p>
 
 ```
-<home_id>/<gw_id>/user/in
+<home_id>/in
 ```
 
 ```json
 {
-    "type": "remove",
+    "type": "remove_user",
     "timestamp": "timestamp_value",
     "value": {
         "user_id": "user_id"
-    }
-}
-```
-
-#### Remove Device
-<p align="justify">
-To remove a device, a <strong>remove</strong> command type is used. Its JSON body is:
-</p>
-
-```
-<home_id>/<gw_id>/device/in
-```
-
-```json
-{
-    "type": "remove",
-    "timestamp": "timestamp_value",
-    "value": {
-        "dev_id": "dev_id"
     }
 }
 ```
@@ -293,23 +275,6 @@ Query all devices is used to request all available devices, its value will be <s
     "type": "query_all",
 	"timestamp": "timestamp_value",
 	"value": "all"
-}
-```
-
-#### Query Device Info
-<p align="justify">
-Query device info requests information about selected device. Its value will be the selected <strong>dev_id</strong>.
-</p>
-
-```
-<home_id>/<gw_id>/devices/in
-```
-
-```json
-{
-    "type": "info",
-    "timestamp": "timestamp_value",
-    "value": "dev_id"
 }
 ```
 
@@ -360,8 +325,7 @@ Query devices in group asks for all groups. Its value field is filled with <stro
 ```json
 {
     "type": "query_all",
-    "timestamp": "timestamp_value",
-    "value": "all"
+    "timestamp": "timestamp_value"
 }
 ```
 
@@ -376,7 +340,8 @@ The MQTT reports utilized here are mostly a replies to the commands from the con
 {
     "type": "command_response",
     "priority_level": 2,
-    "timestamp":"timestamp_value"
+    "timestamp":"timestamp_value",
+    "value": "value"
 }
 ```
 
@@ -397,7 +362,7 @@ After the add_group command is received. The device process it and then publishe
     "type": "command_response",
     "priority_level": 2,
     "timestamp":"timestamp_value",
-    "value":"ok" 
+    "value":"value" 
 }
 ```
 
@@ -414,8 +379,8 @@ After the add_user command is received, the devices processes it and then publis
     "priority_level": 2,
     "timestamp":"timestamp_value",
     "value":{
-        "event" : "error",
-        "reason" : "user_already_exists"
+        "event" : "event_value",
+        "reason" : "reason_value"
     }
 }
 ```
@@ -435,7 +400,7 @@ After the updt_user command is issues, the following response is published into 
     "type": "command_response",
     "priority_level": 2,
     "timestamp":"timestamp_value",
-    "value":"ok" 
+    "value":"value" 
 }
 ```
 
@@ -451,12 +416,12 @@ After the updt_group command is issues, the following response is published into
     "type": "command_response",
     "priority_level": 2,
     "timestamp":"timestamp_value",
-    "value":"ok" 
+    "value":"value" 
 }
 ```
 
 ### Delete Reports
-The delete reports are the primary outcome of the events started by delete commands. Their message structure also follows the general report structure. Its value follows the same pattern as the general MQTT report, described in this chapter. Therefore the value can be either a simple ok, or a JSON body with the event name and description.
+The delete reports are the primary outcome of the events started by delete commands. Their message structure also follows the general report structure. Its value follows the same pattern as the general MQTT report, described in this chapter. Therefore the value can be either a simple OK, or a JSON body with the event name and description.
 
 #### Remove Group
 Is the report which is published after the del_group command is issued. 
@@ -471,7 +436,7 @@ Is the report which is published after the del_group command is issued.
     "type": "command_response",
     "priority_level": 2,
     "timestamp":"timestamp_value",
-    "value":"ok" 
+    "value":"value" 
 }
 ```
 
@@ -487,24 +452,8 @@ Is the report which is published after the del_user command is issued.
 {
     "type": "command_response",
     "priority_level": 2,
-    "timestamp":"timestamp_value",
-    "value":"ok" 
-}
-```
-
-#### Remove Device
-Is the report which is published after the del_group command is issued. 
-
-```
-<home_id>/<gw_id>/devices/out
-```
-
-```json
-{
-    "type": "command_response",
-    "priority_level": 2,
-    "timestamp":"timestamp_value",
-    "value":"ok" 
+    "timestamp": "timestamp_value",
+    "value": "value" 
 }
 ```
 
@@ -515,7 +464,7 @@ Query reports are the most bulky reports from this chapter. They contain a respo
 Is used to return all devices under selected SH-GW. It has following structure:
 
 ```
-<home_id>/<gw_id>/group/out
+<home_id>/<gw_id>/devices/out
 ```
 
 ```json
@@ -542,27 +491,6 @@ Is used to return all devices under selected SH-GW. It has following structure:
 	"priority_level": 2,
 	"timestamp":"timestamp_value",
 	"value":[ "group_1_id", "group_2_id", ...]
-}
-```
-
-
-#### Query Device Info Report
-This report is utilized to return all device information requested by the <strong>query_dev_info</strong> command. Its structure is following:
-
-```
-<home_id>/<gw_id>/devices/out
-```
-
-```json
-{
-    "type": "command_response",
-    "priority_level": 2,
-    "timestamp":"timestamp_value",
-    "value": {
-        "dev_id": "device_id",
-        "dev_name": "device_name",
-        "dev_group": "device_group"
-    }
 }
 ```
 
