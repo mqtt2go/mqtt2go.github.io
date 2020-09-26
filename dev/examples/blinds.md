@@ -14,9 +14,9 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```
 ```json
 {
-	"type": "set",
-	"timestamp":1567677926,
-	"value": 50
+    "type": "set",
+    "timestamp":1567677926,
+    "value": 50
 }
 ```
 
@@ -26,8 +26,8 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```
 ```json
 {
-	"timestamp": 1567677926,
-	"value": 100
+    "timestamp": 1567677926,
+    "value": 100
 }
 ```
 
@@ -37,8 +37,8 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```
 ```json
 {
-	"timestamp": 1567677926,
-	"value": 0
+    "timestamp": 1567677926,
+    "value": 0
 }
 ```
 
@@ -48,8 +48,8 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```
 ```json
 {
-	"timestamp": 1567677926,
-	"value": "stop"
+    "timestamp": 1567677926,
+    "value": "stop"
 }
 ```
 ### Set Horizontal Tilt Angle
@@ -80,8 +80,8 @@ The set_timer command is utilized to setup the periodical action which will trig
 ```
 ```json
 {
-	"timestamp":1567677926,
-	"value": {
+    "timestamp":1567677926,
+    "value": {
             "unit": "hh:mm:ss",
             "time": "01:12:00",
             "action": "up/down"
@@ -98,10 +98,10 @@ Reports are utilized either as responses to the commands or to report periodic o
 ```
 ```json
 {
-	"type": "report_type",
-	"priority_level": 2,
-	"timestamp": 1567677956,
-	"report": 0
+    "type": "report_type",
+    "priority_level": 2,
+    "timestamp": 1567677956,
+    "report": 0
 }
 ```
 
@@ -110,10 +110,10 @@ Reports are utilized either as responses to the commands or to report periodic o
 ```
 ```json
 {
-	"type": "report_type",
-	"priority_level": 2,
-	"timestamp": 1567677956,
-	"report": "stop"
+    "type": "report_type",
+    "priority_level": 2,
+    "timestamp": 1567677956,
+    "report": "stop"
 }
 ```
 
@@ -122,10 +122,10 @@ Reports are utilized either as responses to the commands or to report periodic o
 ```
 ```json
 {
-	"type": "report_type",
-	"priority_level": 2,
-	"timestamp": 1567677956,
-	"report": "repair_needed"
+    "type": "report_type",
+    "priority_level": 2,
+    "timestamp": 1567677956,
+    "report": "repair_needed"
 }
 ```
 
@@ -135,10 +135,10 @@ Reports are utilized either as responses to the commands or to report periodic o
 ```
 ```json
 {
-	"type": "report_type",
-	"priority_level": 2,
-	"timestamp": 1567677956,
-	"report": 50
+    "type": "report_type",
+    "priority_level": 2,
+    "timestamp": 1567677956,
+    "report": 50
 }
 ```
 
@@ -174,10 +174,10 @@ Reports are utilized either as responses to the commands or to report periodic o
 ```
 ```json
 {
-	"type": "report_type",
-	"priority_level": 1,
-	"timestamp": 1567677956,
-	"report": "true"
+    "type": "report_type",
+    "priority_level": 1,
+    "timestamp": 1567677956,
+    "report": "true"
 }
 ```
 [Back](../mqtt2go-objects.md)
