@@ -6,31 +6,46 @@ To control the blinds and sunscreens, a user have to follow the MQTT2GO conventi
 ## <a name="commands"></a>Commands
 As specified by the MQTT2GO convention, the commands are utilized for device control. In the following subsection, we present the standardized way which is following the convention.
 
+
+
 ### Set Target Position
+```
+<home_id>/<gw_id>/<device_id>/position/in
+```
 ```json
 {
-	"timestamp": 1567677926,
+	"type": "set",
+	"timestamp":1567677926,
 	"value": 50
 }
 ```
 
 ### Set Up Position
+```
+<home_id>/<gw_id>/<device_id>/position/in
+```
 ```json
 {
 	"timestamp": 1567677926,
-	"value": "up"
+	"value": 100
 }
 ```
 
 ### Set Down Position
+```
+<home_id>/<gw_id>/<device_id>/position/in
+```
 ```json
 {
 	"timestamp": 1567677926,
-	"value": "down"
+	"value": 0
 }
 ```
 
 ### Stop Position
+```
+<home_id>/<gw_id>/<device_id>/control/in
+```
 ```json
 {
 	"timestamp": 1567677926,
