@@ -13,7 +13,7 @@ The topic structure for MQTT objects is in line with the general structure descr
 <home_id>/<gateway_id>/<dev_id>/<entity>/<msg_direction>
 ```
 
-Furthermore, as the MQTT standard allows users to define message retention, it is advised to be turned on for the MQTT2GO standard topics. This way, it can be made sure the devices will always know the last set state and behave accordingly.
+Furthermore, as the MQTT standard allows users to define message retention, it is advised to turn this feature on for the MQTT2GO standard topics. This way, it can be made sure the devices will always know the last set state and behave accordingly.
 
 ## <a name="object-commands"></a>MQTT Commands
 <p align="justify">
@@ -64,12 +64,34 @@ To distinguish between the MQTT2GO commands that are going to the device, the <s
 | Alarm                 | alarm                                                | set  | on, off, siren_on, siren_off, siren_walk_in, siren_walk_out, arm, disarm <br/> state <br/> &lt;setup&gt;                         |
 | Utility meter         | utility_meter                                        | set  | on, off <br/> &lt;setup&gt; <br/> voltage, frequency, tarif, current_consumption, state, weekly_consumption, monthly_consumption |
 
+#### MQTT Device Removal Process
+<p align="justify">
+To be able to remove a device from the MQTT2GO system, a remove topic has to be used. The command structure is presented below.
+</p>
+
+```
+<home_id>/<gw_id>/<device_id>/remove/in
+```
+
+```json
+{
+    "type": "control",
+    "timestamp": 1567677926,
+    "value": "true" 
+}
+```
+
 ### MQTT Commands Examples
 <p align="justify">
 To provide some examples of the MQTT Commands usage, we provide simple and complex structure examples.
 </p>
 
 #### Simple Command Example
+
+```
+<home_id>/<gw_id>/<device_id>/switch/in
+```
+
 ```json
 {
     "type": "set",
@@ -79,6 +101,11 @@ To provide some examples of the MQTT Commands usage, we provide simple and compl
 ```
 
 #### Complex Command Example
+
+```
+<home_id>/<gw_id>/<device_id>/color/in
+```
+
 ```json
 {
     "type": "color",
@@ -93,7 +120,7 @@ To provide some examples of the MQTT Commands usage, we provide simple and compl
 
 ## MQTT Reports
 <p align="justify">
-The MQTT Reports are used for the periodic and forced reports (replies). Their main purpose is therefore to report the measured values or action results back to the controlling app.
+The MQTT Reports are used for the periodic (with type of periodic_report) and forced reports (type of command_response). Their main purpose is therefore to report the measured values or action results back to the controlling app.
 </p>
 
 ### Table with Reports
@@ -142,6 +169,11 @@ To provide complete example of the command - report message structure. Below we 
 </p>
 
 #### Simple Report Example
+
+```
+<home_id>/<gw_id>/<device_id>/switch/out
+```
+
 ```json
 {
     "priority_level":2,
@@ -152,6 +184,11 @@ To provide complete example of the command - report message structure. Below we 
 ```
 
 #### Complex Report Example
+
+```
+<home_id>/<gw_id>/<device_id>/color/out
+```
+
 ```json
 {
     "priority_level": 2,
@@ -190,7 +227,7 @@ In this section, we provide a table with all currently utilized units in the MQT
 		<td>Health Sensors</td><td>Weight<br/>BMI<br/>Pressure</td><td>kg, lb<br/>kg/m2<br/>mmHg</td>
 	</tr>
 	<tr>
-		<td>Smart Spots / Lights</td><td>Brightness<br/>Color</td><td>%<br/>hsb, rgb, rgbwaf, xy</td>
+		<td>Smart Spots / Lights</td><td>Brightness<br/>Color<br/>Temperature</td><td>%<br/>hsb, rgb, rgbwaf, xy</td>
 	</tr>
 	<tr>
 		<td>Weather Stations</td><td>Wind<br/>UV</td><td>m/s, km/h<br/>mW/cm2, mJ/cm2</td>
@@ -198,49 +235,43 @@ In this section, we provide a table with all currently utilized units in the MQT
 	<tr>
 		<td>Smart TVs</td><td>Volume</td><td>%</td>
 	</tr>
-	<tr>
-		<td>Security Cameras<br/>Doorbells</td><td>Stream</td><td>URL address</td>
-	</tr>
 </table>
 
 The units specified above are for currently supported devices. If a new type of device will be added, the unit structure should follow the MQTT2GO standard.
 
-#### MQTT2GO units example
-
-THIS SHOULD BE OMITTED IN FINAL VERSION
-
-Here we provide sample command and report structure to depict the correct usage of units inside the value object:
-
-##### MQTT2GO unit command
-
-```json
-{
-	"timestamp":1567677926,
-	"value": {
-		"unit": "hsb",
-		"h": 100, 
-		"s": 100,
-		"b": 50
-	}
-}
-```
-
-##### MQTT2GO unit report
-
-```json
-{
-	"priority_level": 2,
-	"timestamp":1567677956,
-	"report": {
-		"unit": "hsb",
-		"h": 100, 
-		"s": 100,
-		"b": 50
-	}
-}
-```
 
 #### MQTT2GO About Topic Example
 
+##### About Command
+```
+<home_id>/<gw_id>/<device_id>/about/in
+```
+
+```json
+{
+    "priority_level": 2,
+    "timestamp":1567677956,
+    "type":"query"
+}
+```
+
+##### About Response
+
+```
+<home_id>/<gw_id>/<device_id>/about/in
+```
+
+```json
+{
+    "priority_level": 2,
+    "timestamp":1567677956,
+    "type":"command_response",
+    "value": {
+         "device_id": "device_id_value",
+         "topics": ["topic_name_1", ...],
+         "status": "status_value"
+    }
+}
+```
 
 [Back](./index.md#data-structure)
