@@ -85,7 +85,7 @@ The set_timer command is utilized to setup the periodical action which will trig
             "unit": "hh:mm:ss",
             "time": "01:12:00",
             "action": "up/down"
-    }
+            }
 }
 ```
 
@@ -148,7 +148,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 ```
 ```json
 {
-	"type": "report_type",
+    "type": "report_type",
     "priority_level": 2,
     "timestamp": 1567677956,
     "report": 90
@@ -161,7 +161,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 ```
 ```json
 {
-	"type": "report_type",
+    "type": "report_type",
     "priority_level": 2,
     "timestamp": 1567677956,
     "report": 90
