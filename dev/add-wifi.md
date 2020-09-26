@@ -137,10 +137,12 @@ This report (5) is used to send the Wi-Fi credentials back to the end device.
 ## Device Configuration
 <p align="justify">
 The device configuration is happening over topics that are unique to this only process. To secure that the configuration will be done to the intended device, a unique <strong>device_ids</strong> is utilized during the process. 
+</p>
 
 ### Topics Structure
 <p align="justify">
 The topics for the device configuration presented in this section are for the initial device configuration only.
+</p>
 
 ### MQTT Commands
 <p align="justify">
@@ -155,6 +157,7 @@ This command (1) is utilized to start the whole process of adding a new device. 
 ```
 <home_id>/<gw_id>/add_device/in
 ```
+
 ```json
 {
 	"timestamp": "timestamp_value",
@@ -169,10 +172,12 @@ This command (1) is utilized to start the whole process of adding a new device. 
 #### Get Device Topic
 <p align="justify">
 Get device topic command (6) is used to send all device topics to the gateway
+</p>
 
 ```
 <home_id>/<gw_id>/<dev_id>/in
 ```
+
 ```json
 {
 	"timestamp": "timestamp_value",
@@ -187,10 +192,10 @@ Get device topic command (6) is used to send all device topics to the gateway
 In case of Get Home Prefix (4), which is used to obtain the home prefix, that consists of <em>home_id</em> and <em>gateway_id</em>. The command <i>value</i> consists of array of the available topic names of the current device, together with unit name and type.
 </p>
 
-
 ```
 <device_id>/home/in
 ```
+
 ```json
 {
     "timestamp": "timestamp_value",
@@ -212,6 +217,7 @@ This command (8) is utilized to finalize the process of adding a new device to t
 ```
 <home_id>/<gw_id>/<dev_id>/in
 ```
+
 ```json
 {
 	"timestamp": "timestamp_value",
@@ -236,6 +242,7 @@ The report consists of <em>home_id</em> and <em>gateway_id</em>.
 ```
 <device_id>/home/in
 ```
+
 ```json
 {
     "timestamp": "timestamp_value",
@@ -255,6 +262,7 @@ This report (7) is utilized to request the user of the <a href="./mqtt2go-contro
 ```
 <home_id>/<gw_id>/<dev_id>/out
 ```
+
 ```json
 {
 	"timestamp": "timestamp_value",
