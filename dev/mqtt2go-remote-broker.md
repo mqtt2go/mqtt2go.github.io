@@ -121,7 +121,7 @@ This command (1) is utilized to start the whole process of adding a new device. 
 
 #### Get Home Prefix
 <p align="justify">
-In case of Get Home Prefix (6), which is used to obtain the home prefix, that consists of <em>home_id</em> and <em>gateway_id</em>. The command <i>value</i> consists of array of the available topic names of the current device, together with unit name and type.
+In case of Get Home Prefix (5), which is used to obtain the home prefix, that consists of <em>home_id</em> and <em>gateway_id</em>. The command <i>value</i> consists of array of the available topic names of the current device, together with unit name and type.
 </p>
 
 ```
@@ -143,7 +143,7 @@ In case of Get Home Prefix (6), which is used to obtain the home prefix, that co
 
 #### Rename Device
 <p align="justify">
-This command (9) is utilized to finalize the process of adding a new device to the system. Via this report, the end device gains its name and inclusion to the groups.
+This command (8) is utilized to finalize the process of adding a new device to the system. Via this report, the end device gains its name and inclusion to the groups.
 </p>
 
 ```
@@ -168,7 +168,7 @@ The MQTT reports presented here are designed as “responses” to aforementione
 
 #### Home Prefix Report
 <p align="justify">
-The home prefix report (7) consists of <em>home_id</em> and <em>gateway_id</em>.
+The home prefix report (6) consists of <em>home_id</em> and <em>gateway_id</em>.
 </p>
 
 ```
