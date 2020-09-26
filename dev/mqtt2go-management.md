@@ -16,7 +16,7 @@ This section describes the topics that deal with user management. That being sai
 The base topic for user management is defined as: 
 
 ```
-<home_id>/users/<command_type>
+<home_id>/users/<command_type>/<msg_direction>
 ```
 
 <p align="justify">
@@ -29,10 +29,28 @@ The MQTT commands for user management are based on the commands template from <a
 </p>
 
 * add_user,
-* updt_user
+* updt_user,
 * del_user.
 
-The JSON body for first two commands will be:
+The JSON body for add_user two commands will be:
+
+```
+<home_id>/users/add_usr/<msg_direction>
+```
+```json
+{
+	"user_id": "id",
+	"email": "email",
+	"user_name": "name",
+	"role": "role"
+}
+```
+
+The JSON body for updt_user two commands will be:
+
+```
+<home_id>/users/updt_usr/<msg_direction>
+```
 
 ```json
 {
@@ -45,9 +63,13 @@ The JSON body for first two commands will be:
 
 and for the deletion operation:
 
+```
+<home_id>/users/del_usr/<msg_direction>
+```
+
 ```json
 {
-	"user_id": "id"
+	"value": "id"
 }
 ```
 
@@ -58,9 +80,13 @@ The concrete value of each parameter depends on the specific use-case.
 The MQTT reports for the user management are based on the commands template from <a href="./mqtt2go-commands#mqtt_reports">MQTT Reports</a>, where the MQTT report_type corresponds to the commands from: MQTT Commands, with the JSON body containing the operation results:
 </p>
 
+```
+<home_id>/users/<command_type>/<msg_direction>
+```
+
 ```json
 {
-	"result": "result"
+	"value": "result_value"
 }
 ```
 
@@ -70,6 +96,10 @@ The result itself can be:
 
 ## Examples
 The example of a user add operation can look like:
+
+```
+<home_id>/users/add_usr/in
+```
 
 ```json
 {
@@ -82,9 +112,13 @@ The example of a user add operation can look like:
 
 and the response will be:
 
+```
+<home_id>/users/add_usr/out
+```
+
 ```json
 {
-	"result": "ok" 
+	"value": "ok" 
 }
 ```
 
