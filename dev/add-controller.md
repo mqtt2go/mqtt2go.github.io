@@ -84,15 +84,15 @@ This section is utilizing the standard MQTT2GO topic naming structure together w
 In this specific implementation, there is only one MQTT2GO command and its primary goal is to request all device topics to which the controller have to subscribe. This secures the controller to be able to control all devices, to which the selected user has access. The command structure is based on the structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. The numbering in this section is coherent with the numbering in <a href="#add-devices-fig">Fig. 2</a>.
 </p>
 
-#### Get Device Topics
-<p align="justify">
-Get device topics command (1) is used to get device topics from the SH-GW. This command has value of <em>GET_DEVICE_TOPICS</em>.
-</p>
-
+#### Get Entities
+```
+<home_id>/<gw_id>/in
+```
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": "GET_DEVICE_TOPICS"
+    "timestamp": "timestamp_value",
+    "type": "user_entities",
+    "value": "user_id"
 }
 ```
 
@@ -101,19 +101,7 @@ Get device topics command (1) is used to get device topics from the SH-GW. This 
 The MQTT reports presented here are designed as “responses” to aforementioned commands. Their structure is also coherent with the general structure from <a href="./mqtt2go-commands#mqtt_reports">MQTT Reports</a> and the numbering is matching the one in <a href="#add-devices-fig">Fig. 2</a>.
 </p>
 
-#### User Topics
-<p align="justify">
-This report (2) is used to deliver the requested topics, in which the new controller is intended to subscribe.
-</p>
-
-```json
-{
-	"timestamp": "timestamp_value",
-	"value": ["topic_1", "topic_2", ...]
-}
-```
-
-#### Controller information
+#### Get entities
 <p align="justify">
 This report is utilized for requesting all necessary information from the smarthome gateway. The report contains topics and information about all devices, configured scenes and security features, as well as alerts and home layout.
 </p>
