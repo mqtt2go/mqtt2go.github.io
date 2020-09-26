@@ -25,7 +25,7 @@ The add commands are primarily used to create new objects like groups, users, an
 
 #### Add group
 
-Group creation is done via <strong>add_group</strong> command type with value body of a JSON structure with the following format.	
+Group creation is done via <strong>group</strong> topic with <strong>create</strong> type and value body of a JSON structure with the following format.	
 
 ```
 <home_id>/<gw_id>/group/in
@@ -45,7 +45,7 @@ Where the __\<group_id\>__ can be either a value or field of values.
 
 #### Room Creation
 <p align="justify">
-Room creation is done via <strong>add_room</strong> command type with value body of a JSON structure with the following format.	
+Room creation is done via <strong>room</strong> topic with <strong>create</strong> type and value body of a JSON structure with the following format.
 </p>
 
 ```
@@ -64,7 +64,7 @@ Room creation is done via <strong>add_room</strong> command type with value body
 
 #### Scene Creation
 <p align="justify">
-Scene creation is done via <strong>add_scene</strong> command type with value body of a JSON structure with the following format.	
+Scene creation is done via <strong>scene</strong> topic with <strong>create</strong> type and value body of a JSON structure with the following format.
 </p>
 
 ```
@@ -83,7 +83,7 @@ Scene creation is done via <strong>add_scene</strong> command type with value bo
 
 #### Add User
 <p align="justify">
-For adding a new user, the <strong>add_user</strong> command type with JSON body with following format is used.
+For adding a new user, the <strong><home_id>/in</strong> topic with command type of <strong>create_user</strong>with JSON body with following format is used.
 </p>
 
 ```
@@ -105,7 +105,7 @@ For adding a new user, the <strong>add_user</strong> command type with JSON body
 
 #### Add Device to Group
 <p align="justify">
-For adding a new device to selected group, the <strong>add_device_to_group</strong> command type with JSON body with following format is used.
+For adding a new device to selected group, the <strong>add_device</strong> command type with JSON body with following format is used.
 </p>
 
 ```
@@ -124,7 +124,7 @@ For adding a new device to selected group, the <strong>add_device_to_group</stro
 
 #### Add Device to Scene
 <p align="justify">
-For adding a new device to selected group, the <strong>add_device_to_scene</strong> command type with JSON body with following format is used.
+For adding a new device to selected group, the <strong>add_device</strong> command type with JSON body with following format is used.
 </p>
 
 ```
@@ -149,7 +149,7 @@ The edit commands are used to edit parameters of objects such as users, groups, 
 
 #### User Editing
 <p align="justify">
-User editing is done by commands with type of <strong>updt_user</strong> with JSON body of:
+User editing is done by commands with type of <strong>edit_user</strong> with JSON body of:
 </p>
 
 ```
@@ -158,7 +158,7 @@ User editing is done by commands with type of <strong>updt_user</strong> with JS
 
 ```json
 {
-    "type": "edit",
+    "type": "edit_user",
     "timestamp": "timestamp_value",
     "value": {
         "user_id": "id",
@@ -172,7 +172,7 @@ User editing is done by commands with type of <strong>updt_user</strong> with JS
 
 #### Room Editing
 <p align="justify">
-Group editing is done by the commands with type of <strong>updt_group</strong> with JSON body of:
+Group editing is done by the commands with type of <strong>edit</strong> with JSON body of:
 </p>
 
 ```
@@ -192,7 +192,7 @@ Group editing is done by the commands with type of <strong>updt_group</strong> w
 
 #### Scene Editing
 <p align="justify">
-Scene editing is done by the commands with type of <strong>updt_scene</strong> with JSON body of:
+Scene editing is done by the commands with type of <strong>edit</strong> with JSON body of:
 </p>
 
 ```
@@ -217,7 +217,7 @@ Delete commands are primarily used to remove objects such as groups, devices, an
 
 #### Remove Group
 <p align="justify">
-To remove a group, <strong>del_group</strong> command type is exploited and the format is of the JSON body is:
+To remove a group, <strong>delete</strong> command type is exploited and the format is of the JSON body is:
 </p>
 
 ```
@@ -238,7 +238,7 @@ where the __\<group_id\>__ can be either a single value or array.
 
 #### Remove User
 <p align="justify">
-To remove a user, a <strong>del_user</strong> command type is used, with a JSON body of:
+To remove a user, a <strong>remove</strong> command type is used, with a JSON body of:
 </p>
 
 ```
@@ -257,7 +257,7 @@ To remove a user, a <strong>del_user</strong> command type is used, with a JSON 
 
 #### Remove Device
 <p align="justify">
-To remove a device, a <strong>del_device</strong> command type is used. Its JSON body is:
+To remove a device, a <strong>remove</strong> command type is used. Its JSON body is:
 </p>
 
 ```
@@ -281,7 +281,7 @@ The query commands utilized by the controllers are following the extension typol
 
 #### Query All Devices
 <p align="justify">
-Query all devices is used to request all available devices, its value will be <strong>all</strong>.
+Query all devices is used to request all available devices, its value will be <strong>query_all</strong>.
 </p>
 
 ```
@@ -319,12 +319,12 @@ Query user info is used to recall information about selected user. Its value fie
 </p>
 
 ```
-<home_id>/<gw_id>/user/in
+<home_id>/in
 ```
 
 ```json
 {
-    "type": "info",
+    "type": "user_info",
     "timestamp": "timestamp_value",
     "value": "user_id"
 }
