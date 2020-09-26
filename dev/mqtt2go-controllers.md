@@ -18,31 +18,39 @@ The basic topic structure is based on the general MQTT2GO topic structure. The o
 The MQTT commands for the controllers are used to control the end devices. This means that most of the commands are targeted at setting up selected parameters of the end devices or changing the structure of the MQTT2GO households. Their structure is based on the  <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>.
 </p>
 
-### Set commands
-
-The set commands are used to change / add device parameters and information. They are exactly the same as in Table with MQTT2GO commands with the addition of the <strong>set_group</strong> command type, which is used to set / change the group of selected end device. Its JSON body is:
-
-```json
-{
-    "type": "type_command_value",
-	"timestamp": "timestamp_value",
-	"value": {
-		"group_id": "group_id"
-	}
-}
-```
-
-Where the __\<group_id\>__ can be either a value or field of values.
-
 ### Add Commands
 <p align="justify">
 The add commands are primarily used to create new objects like groups, users, and devices. They also utilize suffixes for differentiation. In the following paragraphs, all of the add commands will be described.
 </p>
 
+#### Add group
+
+Group creation is done via <strong>add_group</strong> command type with value body of a JSON structure with the following format.	
+
+```
+<home_id>/<gw_id>/group/in
+```
+
+```json
+{
+    "type": "create",
+    "timestamp": "timestamp_value",
+    "value": {
+        "group_id": "group_id"
+    }
+}
+```
+
+Where the __\<group_id\>__ can be either a value or field of values.
+
 #### Room Creation
 <p align="justify">
-Room creation is done via <strong>add_group</strong> command type with value body of a JSON structure with the following format.	
+Room creation is done via <strong>add_room</strong> command type with value body of a JSON structure with the following format.	
 </p>
+
+```
+<home_id>/<gw_id>/room/in
+```
 
 ```json
 {
@@ -59,6 +67,10 @@ Room creation is done via <strong>add_group</strong> command type with value bod
 Scene creation is done via <strong>add_scene</strong> command type with value body of a JSON structure with the following format.	
 </p>
 
+```
+<home_id>/<gw_id>/scene/in
+```
+
 ```json
 {
     "type": "create",
@@ -74,10 +86,13 @@ Scene creation is done via <strong>add_scene</strong> command type with value bo
 For adding a new user, the <strong>add_user</strong> command type with JSON body with following format is used.
 </p>
 
+```
+<home_id>/in
+```
 
 ```json
 {
-    "type": "create",
+    "type": "create_user",
     "timestamp": "timestamp_value",
     "value": {
         "email": "email",
@@ -93,10 +108,13 @@ For adding a new user, the <strong>add_user</strong> command type with JSON body
 For adding a new device to selected group, the <strong>add_device_to_group</strong> command type with JSON body with following format is used.
 </p>
 
+```
+<home_id>/<gw_id>/group/in
+```
 
 ```json
 {
-    "type": "add",
+    "type": "add_device",
     "timestamp": "timestamp_value",
     "value": {
         "group_name": "group_name"
@@ -109,10 +127,13 @@ For adding a new device to selected group, the <strong>add_device_to_group</stro
 For adding a new device to selected group, the <strong>add_device_to_scene</strong> command type with JSON body with following format is used.
 </p>
 
+```
+<home_id>/<gw_id>/scene/in
+```
 
 ```json
 {
-    "type": "add",
+    "type": "add_device",
     "timestamp": "timestamp_value",
     "value": {
         "device_id": "id",
@@ -131,6 +152,9 @@ The edit commands are used to edit parameters of objects such as users, groups, 
 User editing is done by commands with type of <strong>updt_user</strong> with JSON body of:
 </p>
 
+```
+<home_id>/in
+```
 
 ```json
 {
@@ -151,6 +175,10 @@ User editing is done by commands with type of <strong>updt_user</strong> with JS
 Group editing is done by the commands with type of <strong>updt_group</strong> with JSON body of:
 </p>
 
+```
+<home_id>/<gw_id>/room/in
+```
+
 ```json
 {
     "type": "edit",
@@ -166,6 +194,10 @@ Group editing is done by the commands with type of <strong>updt_group</strong> w
 <p align="justify">
 Scene editing is done by the commands with type of <strong>updt_scene</strong> with JSON body of:
 </p>
+
+```
+<home_id>/<gw_id>/scene/in
+```
 
 ```json
 {
@@ -188,6 +220,10 @@ Delete commands are primarily used to remove objects such as groups, devices, an
 To remove a group, <strong>del_group</strong> command type is exploited and the format is of the JSON body is:
 </p>
 
+```
+<home_id>/<gw_id>/group/in
+```
+
 ```json
 {
     "type": "delete",
@@ -205,9 +241,13 @@ where the __\<group_id\>__ can be either a single value or array.
 To remove a user, a <strong>del_user</strong> command type is used, with a JSON body of:
 </p>
 
+```
+<home_id>/<gw_id>/user/in
+```
+
 ```json
 {
-    "type": "delete",
+    "type": "remove",
     "timestamp": "timestamp_value",
     "value": {
         "user_id": "user_id"
@@ -220,9 +260,13 @@ To remove a user, a <strong>del_user</strong> command type is used, with a JSON 
 To remove a device, a <strong>del_device</strong> command type is used. Its JSON body is:
 </p>
 
+```
+<home_id>/<gw_id>/device/in
+```
+
 ```json
 {
-    "type": "delete",
+    "type": "remove",
     "timestamp": "timestamp_value",
     "value": {
         "dev_id": "dev_id"
@@ -240,9 +284,13 @@ The query commands utilized by the controllers are following the extension typol
 Query all devices is used to request all available devices, its value will be <strong>all</strong>.
 </p>
 
+```
+<home_id>/<gw_id>/devices/in
+```
+
 ```json
 {
-    "type": "query_devices",
+    "type": "query_all",
 	"timestamp": "timestamp_value",
 	"value": "all"
 }
@@ -253,9 +301,13 @@ Query all devices is used to request all available devices, its value will be <s
 Query device info requests information about selected device. Its value will be the selected <strong>dev_id</strong>.
 </p>
 
+```
+<home_id>/<gw_id>/devices/in
+```
+
 ```json
 {
-    "type": "query_device_info",
+    "type": "info",
     "timestamp": "timestamp_value",
     "value": "dev_id"
 }
@@ -266,9 +318,13 @@ Query device info requests information about selected device. Its value will be 
 Query user info is used to recall information about selected user. Its value field contains the selected <strong>user_id</strong>.
 </p>
 
+```
+<home_id>/<gw_id>/user/in
+```
+
 ```json
 {
-    "type": "query_user_info",
+    "type": "info",
     "timestamp": "timestamp_value",
     "value": "user_id"
 }
@@ -279,9 +335,13 @@ Query user info is used to recall information about selected user. Its value fie
 Query all devices in specified group. Its value field is filled with <strong>group_id</strong>.
 </p>
 
+```
+<home_id>/<gw_id>/group/in
+```
+
 ```json
 {
-    "type": "query_all_in_group",
+    "type": "query_all",
     "timestamp": "timestamp_value",
     "value": "group_id"
 }
@@ -292,9 +352,14 @@ Query all devices in specified group. Its value field is filled with <strong>gro
 Query devices in group asks for all groups. Its value field is filled with <strong>group_id</strong>.
 </p>
 
+
+```
+<home_id>/<gw_id>/group/in
+```
+
 ```json
 {
-    "type": "query_groups",
+    "type": "query_all",
     "timestamp": "timestamp_value",
     "value": "all"
 }
@@ -302,6 +367,10 @@ Query devices in group asks for all groups. Its value field is filled with <stro
 
 ## MQTT Reports
 The MQTT reports utilized here are mostly a replies to the commands from the controlled devices. They follow the general report structure and add a specific report names. The report <strong>value</strong> can be either a simple OK, or a body JSON of following structure:
+
+```
+<home_id>/<gw_id>/devices/out
+```
 
 ```json
 {
@@ -319,6 +388,10 @@ The add reports are generally used to report the result of add commands. They wi
 #### Group Creation Report
 After the add_group command is received. The device process it and then publishes following message to the same topic:
 
+```
+<home_id>/<gw_id>/group/out
+```
+
 ```json
 {
     "type": "command_response",
@@ -330,6 +403,10 @@ After the add_group command is received. The device process it and then publishe
 
 #### Add User Report
 After the add_user command is received, the devices processes it and then publishes following message into the same topic from which the command came:
+
+```
+<home_id>/out
+```
 
 ```json
 {
@@ -349,6 +426,10 @@ The edit reports are used to report the outcome of edit commands.
 #### User Editing report
 After the updt_user command is issues, the following response is published into the same topic:
 
+```
+<home_id>/out
+```
+
 ```json
 {
     "type": "command_response",
@@ -360,6 +441,10 @@ After the updt_user command is issues, the following response is published into 
 
 #### Group Editing Report
 After the updt_group command is issues, the following response is published into the same topic:
+
+```
+<home_id>/<gw_id>/group/out
+```
 
 ```json
 {
@@ -376,6 +461,11 @@ The delete reports are the primary outcome of the events started by delete comma
 #### Remove Group
 Is the report which is published after the del_group command is issued. 
 
+```
+<home_id>/<gw_id>/group/out
+```
+
+
 ```json
 {
     "type": "command_response",
@@ -388,6 +478,11 @@ Is the report which is published after the del_group command is issued.
 #### Remove User
 Is the report which is published after the del_user command is issued. 
 
+
+```
+<home_id>/<gw_id>/user/out
+```
+
 ```json
 {
     "type": "command_response",
@@ -399,6 +494,10 @@ Is the report which is published after the del_user command is issued.
 
 #### Remove Device
 Is the report which is published after the del_group command is issued. 
+
+```
+<home_id>/<gw_id>/devices/out
+```
 
 ```json
 {
@@ -415,6 +514,10 @@ Query reports are the most bulky reports from this chapter. They contain a respo
 #### Query All Devices Report
 Is used to return all devices under selected SH-GW. It has following structure:
 
+```
+<home_id>/<gw_id>/group/out
+```
+
 ```json
 {
     "type": "command_response",
@@ -429,6 +532,10 @@ The value of this report contains a field of all available devices ids.
 #### Query All Groups Report
 Is used to return all devices under selected SH-GW. It has following structure:
 
+```
+<home_id>/<gw_id>/group/out
+```
+
 ```json
 {
     "type": "command_response",
@@ -441,6 +548,10 @@ Is used to return all devices under selected SH-GW. It has following structure:
 
 #### Query Device Info Report
 This report is utilized to return all device information requested by the <strong>query_dev_info</strong> command. Its structure is following:
+
+```
+<home_id>/<gw_id>/devices/out
+```
 
 ```json
 {
@@ -457,6 +568,10 @@ This report is utilized to return all device information requested by the <stron
 
 #### Query User Info Report
 This report provides information about the user. This report is invoked by the <strong>query_user_info</strong> command. Its structure is following:
+
+```
+<home_id>/out
+```
 
 ```json
 {
@@ -475,6 +590,10 @@ This report provides information about the user. This report is invoked by the <
 #### Query All Devices in Group Report
 Is used to return all devices in specified group. It has following structure:
 
+```
+<home_id>/<gw_id>/group/out
+```
+
 ```json
 {
     "type": "command_response",
@@ -487,6 +606,10 @@ The value of this report contains a field of ids for all devices in specified gr
 
 #### Query User's Topics Report
 This report contains all topics of specified user. Its structure is following:
+
+```
+<home_id>/out
+```
 
 ```json
 {
