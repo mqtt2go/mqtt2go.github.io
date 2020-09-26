@@ -58,22 +58,6 @@ This command (2) is utilized to get a newly generated certificate for the end de
 }
 ```
 
-#### Get Wifi Credentials
-<p align="justify">
-In case of Get Wi-Fi credentials (4), which is used to obtain the Wi-Fi credentials, again the command <i>value</i> is <em>GET_WIFI_CREDENTIALS</em> string.
-</p>
-
-```
-<activation_code>/wifi/in
-```
-```json
-{
-    "timestamp": "timestamp_value",
-    "type": "wifi_credentials",
-    "value": "GET_WIFI_CREDENTIALS"
-}
-```
-
 ### MQTT Reports
 <p align="justify">
 These reports are specifically designed only for the network join. They follow the general structure from <a href="./mqtt2go-commands#mqtt_reports">MQTT Reports</a>, and they are labeled with numbers that correspond to the <a href="#add-devices-fig">Fig. 1</a>.
@@ -93,25 +77,6 @@ This report (3) is utilized to deliver a newly generated certificate, password, 
         "cert": "device_certificate",
         "user": "mqtt_login",
         "password": "mqtt_password"
-    }
-}
-```
-
-#### Wi-Fi Credentials report
-<p align="justify">
-This report (5) is used to send the Wi-Fi credentials back to the end device.
-</p>
-
-```
-<activation_code>/wifi/in
-```
-```json
-{
-    "timestamp": "timestamp_value",
-    "type": "wifi_credentials",
-    "value": {
-        "SSID": "wifi_ssid",
-        "password": "password"
     }
 }
 ```
@@ -137,7 +102,7 @@ This command (1) is utilized to start the whole process of adding a new device. 
 </p>
 
 ```
-<home_id>/<gw_id>/add_device/in
+<home_id>/<gw_id>/add_device/out
 ```
 
 ```json
@@ -153,7 +118,7 @@ This command (1) is utilized to start the whole process of adding a new device. 
 
 #### Get Home Prefix
 <p align="justify">
-In case of Get Home Prefix (6), which is used to obtain the home prefix, that consists of <em>home_id</em> and <em>gateway_id</em>. The command <i>value</i> consists of array of the available topic names of the current device, together with unit name and type.
+In case of Get Home Prefix (4), which is used to obtain the home prefix, that consists of <em>home_id</em> and <em>gateway_id</em>. The command <i>value</i> consists of array of the available topic names of the current device, together with unit name and type.
 </p>
 
 ```
@@ -175,7 +140,7 @@ In case of Get Home Prefix (6), which is used to obtain the home prefix, that co
 
 #### Rename Device
 <p align="justify">
-This report (8) is utilized to request the user of the <a href="./mqtt2go-controllers">MQTT2GO Controller</a> app for the name and group of the newly added device.
+This report (6) is utilized to request the user of the <a href="./mqtt2go-controllers">MQTT2GO Controller</a> app for the name and group of the newly added device.
 </p>
 
 
@@ -200,7 +165,7 @@ The MQTT reports presented here are designed as “responses” to aforementione
 
 #### Home Prefix Report
 <p align="justify">
-The home prefix report (7) consists of <em>home_id</em> and <em>gateway_id</em>.
+The home prefix report (5) consists of <em>home_id</em> and <em>gateway_id</em>.
 </p>
 
 ```
@@ -220,7 +185,7 @@ The home prefix report (7) consists of <em>home_id</em> and <em>gateway_id</em>.
 
 #### Rename Device Report
 <p align="justify">
-This report (9) is utilized to finalize the process of adding a new device to the system. Via this report, the end device gains its name and inclusion to the groups.
+This report (7) is utilized to finalize the process of adding a new device to the system. Via this report, the end device gains its name and inclusion to the groups.
 </p>
 
 ```

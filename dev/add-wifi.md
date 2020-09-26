@@ -140,7 +140,7 @@ This command (1) is utilized to start the whole process of adding a new device. 
 </p>
 
 ```
-<home_id>/<gw_id>/add_device/in
+<home_id>/<gw_id>/add_device/out
 ```
 
 ```json
@@ -178,12 +178,11 @@ In case of Get Home Prefix (6), which is used to obtain the home prefix, that co
 
 #### Rename Device
 <p align="justify">
-This report (8) is utilized to request the user of the <a href="./mqtt2go-controllers">MQTT2GO Controller</a> app for the name and group of the newly added device.
+This command (9) is utilized to finalize the process of adding a new device to the system. Via this report, the end device gains its name and inclusion to the groups.
 </p>
 
-
 ```
-<home_id>/<gw_id>/add_device/in
+<home_id>/<gw_id>/add_device/out
 ```
 
 ```json
@@ -191,7 +190,8 @@ This report (8) is utilized to request the user of the <a href="./mqtt2go-contro
 	"timestamp": "timestamp_value",
 	"value": {
 		"device_id": "device_id",
-		"setup_result": "setup_result"
+		"device_name": "device_name",
+		"group_id": ["group_id_1", "group_id_2", ...]
 	}
 }
 ```
@@ -223,11 +223,12 @@ The home prefix report (7) consists of <em>home_id</em> and <em>gateway_id</em>.
 
 #### Rename Device Report
 <p align="justify">
-This report (9) is utilized to finalize the process of adding a new device to the system. Via this report, the end device gains its name and inclusion to the groups.
+This report (8) is utilized to request the user of the <a href="./mqtt2go-controllers">MQTT2GO Controller</a> app for the name and group of the newly added device.
 </p>
 
+
 ```
-<home_id>/<gw_id>/add_device/out
+<home_id>/<gw_id>/add_device/in
 ```
 
 ```json
@@ -235,8 +236,7 @@ This report (9) is utilized to finalize the process of adding a new device to th
 	"timestamp": "timestamp_value",
 	"value": {
 		"device_id": "device_id",
-		"device_name": "device_name",
-		"group_id": ["group_id_1", "group_id_2", ...]
+		"setup_result": "setup_result"
 	}
 }
 ```
