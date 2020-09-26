@@ -20,7 +20,6 @@ The process of adding a new device using the WPS (WiFi Protected Setup) is very 
 13.	In what follows, the MQTT end device subscribes to its topic, and all ongoing communication happens according to the MQTT2GO standard.
 
 
-
 <p align="center" >
 	<img src="mqtt_wps_setup_cert.svg" alt="Process of adding new MQTT2GO device utilizing WPS">
 </p>
@@ -37,21 +36,6 @@ The operation of adding a new device into the network / household is exploiting 
 <p align="justify">
 As aforementioned, network join topics are unique inside the MTT2GO standard and are solely used for the initial connection of new devices. Their structure is given in following subsections.
 </p>
-
-#### End device
-<p align="justify">
-The end device itself utilizes a two unique topics for the initialization of the communication. All two are further divided by the &lt;msg_direction&gt; to <strong>in</strong> or <strong>out</strong> They are:
-</p>
-
-```
-<activation_code>/activation/<msg_direction>
-```
-exploited for the certificate, login, and password exchange, and
-
-```
-<activation_code>/wifi/<msg_direction>
-```
-for the Wi-Fi credentials exchange.
 
 ### MQTT Commands
 <p align="justify">

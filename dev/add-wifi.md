@@ -40,21 +40,6 @@ The operation of adding a new device into the network / household is exploiting 
 As aforementioned, network join topics are unique inside the MTT2GO standard and are solely used for the initial connection of new devices. Their structure is given in following subsections.
 </p>
 
-#### End device
-<p align="justify">
-The end device itself utilizes a two unique topics for the initialization of the communication. All two are further divided by the &lt;msg_direction&gt; to <strong>in</strong> or <strong>out</strong> They are:
-</p>
-
-```
-<activation_code>/activation/<msg_direction>
-```
-exploited for the certificate, login, and password exchange, and
-
-```
-<activation_code>/wifi/<msg_direction>
-```
-for the Wi-Fi credentials exchange.
-
 ### MQTT Commands
 <p align="justify">
 The MQTT commands for the network join are again based on the general structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. The most important difference is the <i>value</i> of the command, which can be further divided by the function of the command message (the numbering here corresponds to the one in <a href="#add-devices-fig">Fig. 1</a>).
