@@ -1,24 +1,23 @@
 [Back](./index.md#add-devices)
 # Setup via WPS
 <p align="justify">
-The process of adding a new device using the WPS (WiFi Protected Setup) is very similar to the previous example. The only difference is that all the initial setup of the connection to the SH-GW is done via the WPS. The process of WPS is as follows: both SH-GW and new ED (end device) have to activate the WPS at the same time. After the WPS is activated, the client-side device negotiates access with the access point and after the Wi-Fi connection is set up, the rest is the same as in the ideal example (as described in <a href="./add-wifi">Setup via Guest WiFi</a>).
+The process of adding a new device using the WPS (WiFi Protected Setup) is very similar to the setup via Wi-Fi. The only difference is that all the initial setup of the connection to the SH-GW is done via the WPS. The process of WPS is as follows: both SH-GW and new ED (end device) have to activate the WPS at the same time. After the WPS is activated, the client-side device negotiates access with the access point and after the Wi-Fi connection is set up, the rest is the same as in the setup via Wi-Fi example (as described in <a href="./add-wifi">Setup via Guest WiFi</a>).
 </p>
 
 ## Setup Steps
-1.	MQTT Controller (Mobile/Web App) initiates the process of adding a new device by subscribing to __/\<home_id\>/\<gw_id\>/add_device__. Then it publishes an activation request containing __activation code, device id__, and __device type__. The __activation code__ and __device id__ codes can be found on the newly installed device in the form of two unique numbers identifying the device or as QR code.
+1.	MQTT Controller (Mobile/Web App) initiates the process of adding a new device by subscribing to __/\<home_id\>/\<gw_id\>/add_device/in__. Then it publishes an activation request containing __activation code, device id__, and __device type__ to __/\<home_id\>/\<gw_id\>/add_device/out__. The __activation code__ and __device id__ codes can be found on the newly installed device in the form of two unique numbers identifying the device or as QR code.
 2.	The user is prompted to activate WPS by pressing buttons SH-GW.
-3.	MQTT ED then connects to the Guest Wi-Fi and further utilizes mDNS (multicast DNS) to resolve address __MQTT2GO.local__ (\_mqtt.\_tcp.local.), which equals to the address of local MQTT broker.
+3.	MQTT ED then connects to the Home Wi-Fi and further utilizes mDNS (multicast DNS) to resolve address __MQTT2GO.local__ (\_mqtt.\_tcp.local.) and port, which equal to the address and port of local MQTT broker, respectively.
 4.	The MQTT ED then connects to the initialization MQTT broker. The MQTT ED contains a pre-loaded certificate of trustworthy CA (Certification Authority), which is used to establish TLS (Transport Layer Security) communication with the MQTT broker. The chain of trust must be on both sides. Thus, the SH-GW (MQTT broker) has to contain a certificate issued by the same CA as it is contained in the MQTT ED. If these certificates do not match, the TLS communication cannot be established.
 5.	When the TLS communication is established the MQTT ED subscribes to the __\<activation_code\>/activation/in__ topic and publishes _GET_CREDENTIALS_ request to __\<activation_code\>/activation/out__.
 6.	As a response, SH-GW (MQTT broker) generates a new set of certificates that will be used for ongoing communication and publishes its CA certificate, login, and password to the MQTT ED.
 7.	When the MQTT ED receives the certificate and MQTT credentials from the __\<activation_code\>/activation/in__ topic, a connection with the initialization broker is closed.
 8.	Further MQTT ED connects to the MQTT broker with a certificate and credentials obtained in the step 6 and subscribes to __\<dev_id\>/home/in__. The certificate from the step 6 is directly connected to the __device id__. Thus only the device with proper __device id__ value can utilize this certificate. This approach brings additional security to the device configuration process.
-9.	In the next step, the MQTT ED publishes request of the _home_prefix_ type to __\<dev_id\>/home/in__ topic that contains all endpoints the ED supports with additional information of what data can be expected on the respective topic. The certificate from the step 7 is directly connected to the __device id__. Thus only the device with proper __device id__ value can utilize this certificate. This approach brings additional security to the device configuration process.
+9.	In the next step, the MQTT ED publishes request of the _home_prefix_ type to __\<dev_id\>/home/in__ topic that contains all entities the ED provides with additional information on its data type and unit. 
 10. The SH-GW publishes _home_id_ and _gw_id_ to __\<dev_id\>/home/in__.
 11.	As a result, MQTT broker publishes the message to __\<home_id\>/\<gw_id\>/add_device/in__ topic with __device id__ information to distinguish individual devices.
 12.	MQTT broker then expects a message from MQTT Controller with the end device __name__, __group__, and __device_id__.
 13.	In what follows, the MQTT end device subscribes to its topic, and all ongoing communication happens according to the MQTT2GO standard.
-
 
 
 <p align="center" >
@@ -30,35 +29,26 @@ The process of adding a new device using the WPS (WiFi Protected Setup) is very 
 
 ## Network Join
 <p align="justify">
-The operation of adding a new device into the network / household is utilizing a special topics. These topics are only temporary and utilized only for this specific use-case. This means that, aside from one, they are not a part of the standard topic structure. This simplifies the implementation at the end devices. These topics, utilized commands and reports are described in this section.
+The operation of adding a new device into the network / household is exploiting a special topics. These topics are only temporary and utilized only for this specific use-case.
 </p>
 
 ### Topics Structure
 <p align="justify">
-As aforementioned, network join topics are unique inside the MTT2GO standard and are solely used for the initial connection of new devices.
+As aforementioned, network join topics are unique inside the MTT2GO standard and are solely used for the initial connection of new devices. Their structure is given in following subsections.
 </p>
-
-#### End device
-<p align="justify">
-The end device itself utilizes an activation topic for the certificate exchange:
-</p>
-
-```
-<activation_code>/activation/in
-```
 
 ### MQTT Commands
 <p align="justify">
-The MQTT commands for the network join are based on the general structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. The most important change is in the value of the command, which can be further divided by the function of the message (the numbering here corresponds to the one in <a href="#add-devices-fig">Fig. 1</a>).
+The MQTT commands for the network join are again based on the general structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. The most important difference is the <i>value</i> of the command, which can be further divided by the function of the command message (the numbering here corresponds to the one in <a href="#add-devices-fig">Fig. 1</a>).
 </p>
 
 #### Get Credentials
 <p align="justify">
-This command (2) is utilized to get a newly generated certificate for the end device. Its command value is in form of string with value <em>GET_CREDENTIALS</em>.
+This command (2) is utilized to get a newly generated certificate for the end device. Its command <i>value</i> is in form of string with value <em>GET_CREDENTIALS</em>.
 </p>
 
 ```
-<activation_code>/activation/in
+<activation_code>/activation/out
 ```
 ```json
 {
@@ -67,103 +57,74 @@ This command (2) is utilized to get a newly generated certificate for the end de
     "value": "GET_CREDENTIALS"
 }
 ```
-#### Get Home Prefix
+
+#### Get Wifi Credentials
 <p align="justify">
-In case of Get Home Prefix (4), which is used to obtain the home prefix, that consists of <em>home_id</em> and <em>gateway_id</em>. The command <i>value</i> consists of array of the available topic names of the current device, together with unit name and type.
+In case of Get Wi-Fi credentials (4), which is used to obtain the Wi-Fi credentials, again the command <i>value</i> is <em>GET_WIFI_CREDENTIALS</em> string.
 </p>
-
-
-```
-<device_id>/home/in
-```
-```json
-{
-    "timestamp": "timestamp_value",
-    "type": "home_prefix",
-    "value": [
-      {"name": "topic_name",
-       "unit": "unit_quantity",
-       "type": "unit_datatype"
-      }, ...   
-    ]
-}
-```
-
-### MQTT Reports
-<p align="justify">
-These reports are specifically designed for the initialization process of the network join. They again follow the general structure from <a href="./mqtt2go-commands#mqtt_reports">MQTT Reports</a>, and they are labeled with numbers that are corresponding to the <a href="#add-devices-fig">Fig. 1</a>.
-</p>
-
-#### Credentials Report
-This report (3) is utilized to deliver a newly generated certificate and credentials from MQTT broker to the end device.
 
 ```
 <activation_code>/wifi/in
 ```
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value":  {
-		"cert": "device_certificate",
-		"user": "mqtt_login",
-		"password": "mqtt_password"
-	}
+    "timestamp": "timestamp_value",
+    "type": "wifi_credentials",
+    "value": "GET_WIFI_CREDENTIALS"
 }
 ```
 
-#### Home Prefix Report
+### MQTT Reports
 <p align="justify">
-The report consists of <em>home_id</em> and <em>gateway_id</em>.
+These reports are specifically designed only for the network join. They follow the general structure from <a href="./mqtt2go-commands#mqtt_reports">MQTT Reports</a>, and they are labeled with numbers that correspond to the <a href="#add-devices-fig">Fig. 1</a>.
 </p>
 
+#### Credentials Report
+This report (3) is utilized to deliver a newly generated certificate, password, and login from MQTT broker to the end device.
+
 ```
-<device_id>/home/in
+<activation_code>/activation/in
 ```
 ```json
 {
     "timestamp": "timestamp_value",
-    "type": "home_prefix",
-    "value": 
-      {"home_id": "home_id_value",
-       "gateway_id": "gateway_id_value"
-      }
+    "type": "mqtt_credentials",
+    "value":  {
+        "cert": "device_certificate",
+        "user": "mqtt_login",
+        "password": "mqtt_password"
+    }
+}
+```
+
+#### Wi-Fi Credentials report
+<p align="justify">
+This report (5) is used to send the Wi-Fi credentials back to the end device.
+</p>
+
+```
+<activation_code>/wifi/in
+```
+```json
+{
+    "timestamp": "timestamp_value",
+    "type": "wifi_credentials",
+    "value": {
+        "SSID": "wifi_ssid",
+        "password": "password"
+    }
 }
 ```
 
 ## Device Configuration
 <p align="justify">
-The device configuration is happening over topics that are unique to each device. Through this way, it is secured that all the configuration will be done to the correct device. The only exception is the initialization process, where the topic is universal for the whole process, but in this case it is secured via the ability of adding only one device at a time.
+The device configuration is happening over topics that are unique to this only process. To secure that the configuration will be done to the intended device, a unique <strong>device_ids</strong> is utilized during the process. 
 </p>
 
 ### Topics Structure
 <p align="justify">
-The topics for the device configuration presented in this section are for the initial device configuration only. The device update and similar topics are presented in <a href="./mqtt2go-objects">MQTT Objects</a> section. Here, the topics are divided into two parts depending on which device is utilizing them.
+The topics for the device configuration presented in this section are for the initial device configuration only.
 </p>
-
-
-#### Controlling App / SH-GW
-<p align="justify">
-The controlling App / SH-GW utilizes a special topic for the addition of new devices. This topic is structured as follows:
-</p>
-
-```
-<home_id>/<gw_id>/add_device/<msg_direciton>
-```
-
-<p align="justify">
-Its main purpose is to publish information that initialize and finalize the adding process.
-</p>
-
-#### End Device
-<p align="justify">
-The end device utilizes following topic to get the topic name, to which the devices has to be subscribed to.
-</p>
-
-```
-<home_id>/<gw_id>/<dev_id>/topic/out
-```
-
-The same topic, but ending with <em>/in</em> is utilized for the sending the responses from the device to the gateway.
 
 ### MQTT Commands
 <p align="justify">
@@ -178,6 +139,7 @@ This command (1) is utilized to start the whole process of adding a new device. 
 ```
 <home_id>/<gw_id>/add_device/in
 ```
+
 ```json
 {
 	"timestamp": "timestamp_value",
@@ -189,38 +151,44 @@ This command (1) is utilized to start the whole process of adding a new device. 
 }
 ```
 
-#### Get Device Topic
+#### Get Home Prefix
 <p align="justify">
-Get device topic command (6) is used to send all device end-topics to the gateway and request the base topic from the SH-GW.
+In case of Get Home Prefix (6), which is used to obtain the home prefix, that consists of <em>home_id</em> and <em>gateway_id</em>. The command <i>value</i> consists of array of the available topic names of the current device, together with unit name and type.
 </p>
 
 ```
-<home_id>/<gw_id>/<dev_id>/in
+<device_id>/home/out
 ```
+
 ```json
 {
-	"timestamp": "timestamp_value",
-	"value": [{"name": "topic_name",
-                "unit": "unit",
-                "type": "type"}, {...}]
+    "timestamp": "timestamp_value",
+    "type": "home_prefix",
+    "value": [
+      {"name": "topic_name",
+       "unit": "unit_quantity",
+       "type": "unit_datatype"
+      }, ...   
+    ]
 }
 ```
 
 #### Rename Device
 <p align="justify">
-This command (6) is utilized to finalize the process of adding a new device to the system. Via this command, the end device gains its name and inclusion to the groups.
+This report (8) is utilized to request the user of the <a href="./mqtt2go-controllers">MQTT2GO Controller</a> app for the name and group of the newly added device.
 </p>
 
+
 ```
-<home_id>/<gw_id>/<dev_id>/in
+<home_id>/<gw_id>/add_device/in
 ```
+
 ```json
 {
 	"timestamp": "timestamp_value",
 	"value": {
 		"device_id": "device_id",
-		"device_name": "device_name",
-		"group_id": ["group_id_1", "group_id_2", ...]
+		"setup_result": "setup_result"
 	}
 }
 ```
@@ -230,21 +198,42 @@ This command (6) is utilized to finalize the process of adding a new device to t
 The MQTT reports presented here are designed as “responses” to aforementioned commands. Their structure is also coherent with the general structure from <a href="./mqtt2go-commands#mqtt_reports">MQTT Reports</a> and the numbering is matching the one in <a href="#add-devices-fig">Fig. 1</a>.
 </p>
 
-
-#### Rename Device Report
+#### Home Prefix Report
 <p align="justify">
-This report (5) is utilized to request the user of the MQTT2GO Controller app for the name and group of the newly added device.
+The home prefix report (7) consists of <em>home_id</em> and <em>gateway_id</em>.
 </p>
 
 ```
-<home_id>/<gw_id>/<dev_id>/out
+<device_id>/home/in
 ```
+
+```json
+{
+    "timestamp": "timestamp_value",
+    "type": "home_prefix",
+    "value": {
+      "home_id": "home_id_value",
+       "gateway_id": "gateway_id_value"
+    }
+}
+```
+
+#### Rename Device Report
+<p align="justify">
+This report (9) is utilized to finalize the process of adding a new device to the system. Via this report, the end device gains its name and inclusion to the groups.
+</p>
+
+```
+<home_id>/<gw_id>/add_device/out
+```
+
 ```json
 {
 	"timestamp": "timestamp_value",
 	"value": {
 		"device_id": "device_id",
-		"setup_result": "setup_result"
+		"device_name": "device_name",
+		"group_id": ["group_id_1", "group_id_2", ...]
 	}
 }
 ```
