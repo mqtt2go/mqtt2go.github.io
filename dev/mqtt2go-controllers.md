@@ -20,7 +20,7 @@ The MQTT commands for the controllers are used to control the end devices. This 
 
 ### Add Commands
 <p align="justify">
-The add commands are primarily used to create new objects like groups, users, and devices. They also utilize suffixes for differentiation. In the following paragraphs, all of the add commands will be described.
+The add commands are primarily used to create new objects like groups, users, rooms, and devices. They also utilize suffixes for differentiation. In the following paragraphs, all of the add commands will be described.
 </p>
 
 #### Add group
@@ -83,7 +83,7 @@ Scene creation is done via <strong>scene</strong> topic with <strong>create</str
 
 #### Add User
 <p align="justify">
-For adding a new user, the <strong><home_id>/in</strong> topic with command type of <strong>create_user</strong>with JSON body with following format is used.
+For adding a new user, the <strong>&lt;home_id&gt;/in</strong> topic with command type of <strong>create_user</strong> with JSON body with following format is used.
 </p>
 
 ```
