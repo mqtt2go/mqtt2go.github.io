@@ -198,7 +198,7 @@ This report (8) is utilized to request the user of the <a href="./mqtt2go-contro
 
 
 ```
-<home_id>/<gw_id>/<dev_id>/out
+<home_id>/<gw_id>/add_device/in
 ```
 
 ```json
@@ -242,7 +242,7 @@ This report (9) is utilized to finalize the process of adding a new device to th
 </p>
 
 ```
-<home_id>/<gw_id>/<dev_id>/in
+<home_id>/<gw_id>/add_device/out
 ```
 
 ```json
