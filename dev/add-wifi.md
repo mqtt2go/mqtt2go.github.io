@@ -1,25 +1,25 @@
 [Back](./index.md#add-devices)
 # Setup via Guest Wi-Fi
 <p align="justify" >
-The ideal process of adding new device should be considered as the right way, how to go through the setup procedure. This way, we can provide the highest security to the users, as the Wi-Fi utilized for adding new devices is active only for the short period of time during the first step. The ideal process to add a new device is based on the following steps.
+The following process of adding new device should be considered as the optimal way, how to add new device / sensors into the MQTT2GO Smart Home ecosystem. This way, we can provide the highest security to the users, as the Wi-Fi utilized for adding new devices is active only for the short period of time during the first step. The ideal process to add a new device is based on the following steps.
 </p>
 
 ## Setup Steps
 
-1.	MQTT Controller (Mobile/Web App) initiates the process of adding a new device by subscribing to __/\<home_id\>/\<gw_id\>/add_device__. Then it publishes an activation request containing __activation code, device id__, and __device type__. The __activation code__ and __device id__ codes can be found on a newly installed device in the form of two unique numbers identifying the device or as QR code.
-2.	In response to the request, SH-GW enables the guest Wi-Fi with SSID of __MQTT2GO_Config__, the activation code servers as password.
+1.	MQTT Controller (Mobile/Web App) initiates the process of adding a new device by subscribing to __/\<home_id\>/\<gw_id\>/add_device__. Then it publishes an activation request containing __activation code, device id__, and __device type__. The __activation code__ and __device id__ codes can be found on a newly installed device as two unique numbers identifying the device (placed on a device label or inside a QR code).
+2.	In response to the request, SH-GW enables the guest Wi-Fi with SSID of __MQTT2GO_Config__, the activation code serves as password.
 3.	MQTT end device (ED) then connects to the guest Wi-Fi and further utilizes mDNS (multicast DNS) to resolve address __MQTT2GO.local__ (\_mqtt.\_tcp.local.) and port, which equals to the address and port, respectively, of the local MQTT broker.
-4.	The MQTT ED then connects to the initialization MQTT broker. The MQTT ED contains a pre-loaded certificate fingerprint of trustworthy CA (Certification Authority), which is used to establish TLS (Transport Layer Security) communication with the MQTT broker. The chain of trust must be on both sides. Thus, the SH-GW (MQTT broker) has to contain a certificate issued by the same CA as it is contained in the MQTT ED. If these certificates do not match, the TLS communication cannot be established, and the device will be refused as a non-trustworthy.
+4.	The MQTT ED then connects to the local MQTT broker under the initialization account (only a pre-loaded certificate is used for login). The MQTT ED contains a pre-loaded certificate fingerprint of trustworthy CA (Certification Authority), which is used to establish TLS (Transport Layer Security) communication with the MQTT broker. The chain of trust must be on both sides. Thus, the SH-GW (MQTT broker) has to contain a certificate issued by the same CA as it is contained in the MQTT ED. If these certificates do not match, the TLS communication cannot be established, and the device will be refused as a non-trustworthy.
 5.	When the TLS communication is established, the MQTT ED subscribes to the __\<activation_code\>/activation/in__ topic and publishes _GET_CREDENTIALS_ request to the __\<activation_code\>/activation/out__ topic.
-6.	As a response, SH-GW (MQTT broker) generates a new set of certificates that will be used for ongoing communication and publishes its CA certificate, login, and password to the MQTT ED's __\<activation_code\>/activation/in__ topic.
+6.	As a response, SH-GW (local MQTT broker) generates a new set of certificates that will be used for ongoing communication and publishes its CA certificate, login, and password to the MQTT ED's __\<activation_code\>/activation/in__ topic.
 7.	The MQTT ED further subscribes to __\<activation_code\>/wifi/in__ and publishes _GET_WIFI_CREDENTIALS_ request to __\<activation_code\>/wifi/out__.
-8.	In response, the MQTT broker issues Wi-Fi credentials (SSID, Password) for the home network.
-9.	When the MQTT ED receives the credentials, connection with the initialization broker is closed. The ED then connects to the home Wi-Fi with the acquired credentials.
-10.	Further MQTT ED connects to the MQTT broker with a certificate and credentials obtained in the step 6 and subscribes to __\<dev_id\>/home/in__. The certificate from the step 6 is directly connected to the __device id__. Thus only the device with proper __device id__ value can utilize this certificate. This approach brings additional security to the device configuration process.
+8.	In response, the local MQTT broker issues Wi-Fi credentials (SSID, Password) for the home network. The Wi-Fi password is securely stored in SH-GW, providing the credentials to the local MQTT broker.
+9.	When the MQTT ED receives the credentials, connection under the initialization account to the local broker is closed. The ED then connects to the home Wi-Fi with the acquired credentials.
+10.	Further MQTT ED connects to the local MQTT broker with a certificate and credentials obtained in the step 6 and subscribes to __\<dev_id\>/home/in__. The certificate from the step 6 is directly connected to the __device id__. Thus only the device with proper __device id__ value can utilize this certificate. This approach brings additional security to the device configuration process.
 11.	In the next step, the MQTT ED publishes request of the _home_prefix_ type to __\<dev_id\>/home/in__ topic that contains all entities the ED provides with additional information on its data type and unit. 
-12. The SH-GW publishes _home_id_ and _gw_id_ to __\<dev_id\>/home/in__.
-13.	As a result, MQTT broker publishes the message to __\<home_id\>/\<gw_id\>/add_device/in__ topic with __device id__ information to distinguish individual devices.
-14.	MQTT broker then expects a message from MQTT Controller with the end device __name__, __group__, and __device_id__.
+12. The SH-GW publishes _home_id_ and _gw_id_ to __\<dev_id\>/home/in__. The MQTT2GO ED uses these prefixes to generate unique topics for each of its entities. As the local MQTT broker possesses information about all ED entities, it can generate topics on the local broker side.
+13.	As a result, MQTT broker publishes the message to __\<home_id\>/\<gw_id\>/add_device/in__ topic with __device id__ information to distinguish individual devices. This message indicates to the controller that new ED was added to the system, and it is necessary to set a human-readable name and assign ED to the group(s).
+14.	The local MQTT broker then expects a message from MQTT Controller with the end device __name__, __group__, and __device_id__.
 15.	In what follows, the MQTT end device subscribes to its topic, and all ongoing communication happens according to the MQTT2GO standard.
 
 
@@ -102,7 +102,7 @@ This report (3) is utilized to deliver a newly generated certificate, password, 
 
 #### Wi-Fi Credentials report
 <p align="justify">
-This report (5) is used to send the Wi-Fi credentials back to the end device.
+This report (5) is used to send the Wi-Fi credentials back to the end device. As the TLS connection is active initially, the credentials are transmitted in the secure (encrypted) way.
 </p>
 
 ```

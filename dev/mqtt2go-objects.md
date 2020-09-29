@@ -26,6 +26,7 @@ To distinguish between the MQTT2GO commands that are going to the device, the <s
 </p>
 
 ### Table with Commands
+The table below summarizes the most common Smart Home devices and their device type in the MGTT2GO conventions. On top of that, also the command types and their expected values are given.
 
 | Name                  | Device type                                          | Type | Command                                                                                                                          |
 |-----------------------|------------------------------------------------------|------|----------------------------------------------------------------------------------------------------------------------------------|
@@ -124,6 +125,7 @@ The MQTT Reports are used for the periodic (with type of periodic_report) and fo
 </p>
 
 ### Table with Reports
+The table below summarizes the most common Smart Home devices and their device type in the MGTT2GO conventions. On top of that, also, the reported values (or their format) are given.
 
 | Name                              | Device type                                         | Report                                                                                                                                                                                                                                           |
 |-----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
