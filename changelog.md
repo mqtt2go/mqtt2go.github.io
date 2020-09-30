@@ -1,21 +1,21 @@
 [Back](./index.md)
 
 # Changelog
+* Improved structure of the MQTT2GO topics
+	* Each entity has in and out direction,
+	* Each command must be confirmed by message in entity out topic,
+	* New _Get entities_ command and report are added to MQTT2GO controllers,
+	* Wildcard explanation was added.
 
-* General bugfixes in device adding procedure:
-	* device type is now part of the first message,
-	* actvation topic now contains mqtt login, password, and CA certificate hash,
-	* updated device topic convention _topics -> topic_,
-	* Wi-Fi credentials example has been updated to provide more insights into the process of adding a new MQTT2GO device via guest WiFi, see [Setup via Guest WiFi](./add-wifi.md).
+* Adding procedure has been updated:
+	* New home prefix procedure was designed to obtain home_id and gateway_id,
+	* Adding procedure messages were reordered,
+	Adding procedure of non-complaint devices was slightly modified.
 
-* Updated naming conventions:
-	* all key words are now in snake_case format.
+* Added new MQTT2Go compatible devices:
+	* Shelly 2.5 ([link](https://github.com/mqtt2go/devices/tree/master/Shelly%202.5)) blinds controller,
+	* Sonoff B1 ([link](https://github.com/mqtt2go/devices/tree/master/Sonoff%20B1)) smart bulb,
+	* Sonoff POW R2 ([link](https://github.com/mqtt2go/devices/tree/master/Sonoff%20POW%20R2)) smart meter,
+	* Sonoff S26 ([link](https://github.com/mqtt2go/devices/tree/master/Sonoff%20S26)) smart socket,
+	* Sonoff TH16 ([link](https://github.com/mqtt2go/devices/tree/master/Sonoff%20TH16)) multi sensor.
 
-* Updated MQTT2GO objects:
-	* Added subpage with detailed functionality description of _Blinds and Sunscreens_ ([link](./examples/blinds.md)) object examples.
-	* The new subpage with description of functionality in case of _Smart Sockets_ ([link](./examples/sockets.md)) is provided in form object examples. 
-	* _Multi Sensors_ ([link](./examples/multi_sensors.md)) object examples were added into the MQTT2GO convention to extend already provided functionality description of previous objects (devices). 
-
-
-* Added MQTT2GO Compatible Devices section:
-	* Added Shelly Plug S device with link to the FW repository, see [Link](https://github.com/mqtt2go/devices). Additional libraries are needed, see the "includes" in main.cpp.

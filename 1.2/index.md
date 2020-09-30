@@ -1,6 +1,5 @@
 # Release Versions
 
-
 <table style="width:100%">
     <tr>
         <th style="width:20%">Date</th>
@@ -16,7 +15,7 @@
     </tr>
     <tr>
         <td>2020-04-02</td>
-        <td><a ref="https://mqtt2go.github.io/1.2/index">Rev 1.2</a></td>
+        <td>Rev 1.2</td>
         <td>New version where sections "MQTT2GO objects" and "MQTT2GO Compatible Devices" are added. Also, the naming conventions were updated as well as the "device adding procedure" has been updated.</td>
         <td><a ref="https://mqtt2go.github.io/1.2/changelog">Changelog</a></td>
     </tr>
@@ -28,7 +27,7 @@
     </tr>
     <tr>
         <td>2019-11-13</td>
-        <td>Rev 1.0</td>
+        <td><a ref="https://mqtt2go.github.io/1.0/index">Rev 1.0</a></td>
         <td>Initial version of the MQTT2GO standard</td>
         <td><a ref="https://mqtt2go.github.io/1.0/changelog">Changelog</a></td>
     </tr>
@@ -126,6 +125,8 @@ This section is dedicated to the MQTT2GO topic naming convention. The structure 
 This section is related to the requirements which have to be fulfilled in order to work with the proposed MQTT2GO standard. The given requirements do cover the key functionalities which the MQTT2GO takes into the account as the basic features of the communication system.
 * [MQTT2GO General Requirements](./mqtt2go-general-req.md)
 
+# MQTT2GO Compatible Devices
+* [Shelly Plug S](https://github.com/mqtt2go/devices/tree/master/Shelly%20Plug%20S)
 
 # References
 <a name="ref1"></a>[1] MQTT Topics & Best Practices - MQTT Essentials: Part 5. Available from: [https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/)
