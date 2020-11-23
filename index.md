@@ -149,6 +149,10 @@ The list below represents the devices fully compatible with the MQTT2GO conventi
 
 * [A1 TV Dashboard](https://github.com/mqtt2go/tv-dashboard)
 
+<p align="center" >
+    <img src="dashboard.png" alt="A1 TV Dashboard.">
+</p>
+
 # References
 <a name="ref1"></a>[1] MQTT Topics & Best Practices - MQTT Essentials: Part 5. Available from: [https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/)
 
