@@ -142,6 +142,17 @@ The list below represents the devices fully compatible with the MQTT2GO conventi
 * [Sonoff S26](https://github.com/mqtt2go/devices/tree/master/Sonoff%20S26)
 * [Sonoff TH16](https://github.com/mqtt2go/devices/tree/master/Sonoff%20TH16)
 
+# TV Dashboard
+<p align="justify">
+    TV Dashboard app specifically designed to be used with A1 STB remote control, providing an immersive experience from your smart home solution.
+</p>
+
+* [A1 TV Dashboard](https://github.com/mqtt2go/tv-dashboard)
+
+<p align="center" >
+    <img src="dashboard.png" alt="A1 TV Dashboard.">
+</p>
+
 # References
 <a name="ref1"></a>[1] MQTT Topics & Best Practices - MQTT Essentials: Part 5. Available from: [https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/)
 
