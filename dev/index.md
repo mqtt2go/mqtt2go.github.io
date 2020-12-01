@@ -110,6 +110,7 @@ In this chapter, we are going to present few ways how to add a new device into t
 * [Setup via Remote MQTT Broker](./mqtt2go-remote-broker.md)
 * [Setup of New MQTT2GO Non-Compliant Devices](./add-non-compliant.md)
 * [Setup of New MQTT2GO Controller App](./add-controller.md)
+* [Setup of New MQTT2GO Virtual Device](./add-virtual-device.md)
 
 
 # <a name="data-structure"></a>MQTT2GO Data Structure
