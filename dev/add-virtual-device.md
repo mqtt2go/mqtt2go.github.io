@@ -1,6 +1,6 @@
 [Back](./index.md#add-devices)
 
-# Setup new MQTT2GO Virtual Device
+# Setup New MQTT2GO Virtual Device
 
 <p align="center" >
 	<img src="third_party_login.svg" alt="Process of creating new MQTT2GO Virtual Device">
