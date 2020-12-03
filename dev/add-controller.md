@@ -30,15 +30,15 @@ The MQTT2GO controller creation process can be initialized only if at least one 
 </p>
 
 1. The MQTT2GO app tries to connect to __HTTPS: /user_login__ using the user credentials (username and password).
-1. If the credentials are valid, the management server forwards this request to the __HTTPS: / login_user__ of the MQTT2GO cloud broker and initializes the login login process.
+1. If the credentials are valid, the management server forwards this request to the __HTTPS: / login_user__ of the MQTT2GO cloud broker and initializes the login process.
 1. The MQTT2GO cloud broker then sends activation code via the SMS for client verification.
-1. User enters this code into the MQTT2GO app, which then sends it into the __HTTPS: /get_credentials__ of the management server.
+1. User enters this code into the third party platform, which then sends it into the __HTTPS: /get_platform_credentials__ of the management server.
 1. The management server forwards the activation code to the __HTTPS: /get_credentials__ of MQTT2GO cloud broker.
 1. The MQTT2GO cloud broker then sends the certificate to the __HTTPS: /post_credentials__ of the management server.
-1. The management server then sends a response with user ID, broker IP, and certificate to the __HTTPS: /get_credentials__ from which the MQTT2GO app saves it.
+1. The management server then sends a response with user ID, broker IP, certificate, login, and password to the __HTTPS: /get_credentials__ from which the MQTT2GO app saves it.
 1. The MQTT2GO app connects to the MQTT2GO cloud broker using the provided __certificate__,  __user ID__, __login__, __password__, and __broker IP__.
-1. The MQTT2GO app subscribes to the __\<user_id\>/topics__ and publishes a __GET_USER_TOPICS__ message.
-1. The MQTT2GO cloud broker publishes to the __\<user_id\>/topics__ message with all topics the MQTT2GO app has to subscribe to.
+1. The MQTT2GO app subscribes to the __\<home_id\>/<gw_id\>/out__ and publishes a __QUERY_GUI_DEV__ message to __\<home_id\>/<gw_id\>/in__.
+1. The MQTT2GO cloud broker publishes to the __\<home_id\>/<gw_id\>/out__ message with all available MQTT2GO entities and its language. Based on the entities, the controller subscribes to all their topics.
 1. From now on, the MQTT communication follows the MQTT2GO standard.
 
 <p align="center" >
@@ -113,7 +113,8 @@ This report is utilized for requesting all necessary information from the smarth
 {
     "timestamp": "timestamp_value",
     "type": "command_response",
-    "base_topic": "baseline_topic_value",
+    "home_prefix": "baseline_topic_value",
+    "language": "language",
     "value": {
         "scenes":[
             {

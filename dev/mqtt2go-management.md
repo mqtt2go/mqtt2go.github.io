@@ -39,10 +39,11 @@ The JSON body for add_user two commands will be:
 ```
 ```json
 {
-	"user_id": "id",
-	"email": "email",
-	"user_name": "name",
-	"role": "role"
+    "user_id": "id",
+    "email": "email",
+    "user_name": "name",
+    "role": "role",
+    "language": "language"
 }
 ```
 
@@ -54,10 +55,11 @@ The JSON body for updt_user two commands will be:
 
 ```json
 {
-	"user_id": "id",
-	"email": "email",
-	"user_name": "name",
-	"role": "role"
+    "user_id": "id",
+    "email": "email",
+    "user_name": "name",
+    "role": "role",
+    "language": "language"
 }
 ```
 
@@ -103,10 +105,11 @@ The example of a user add operation can look like:
 
 ```json
 {
-	"user_id": 123456789,
-	"email": "john.doe@mail.com",
-	"user_name": "John Doe",
-	"role": "adult"
+    "user_id": 123456789,
+    "email": "john.doe@mail.com",
+    "user_name": "John Doe",
+    "role": "adult",
+    "language": "en"
 }
 ```
 
