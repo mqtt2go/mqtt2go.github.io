@@ -16,8 +16,8 @@ This section describes the procedure of creating a new MQTT2GO virtual device. E
 1. The MQTT2GO cloud broker then sends the certificate to the __HTTPS: /get_platform__ of the management server.
 1. The management server then sends a response with user ID, broker IP, certificate, login, and password to the __HTTPS: /get_platform/credentials__ from which the third party platform saves it.
 1. The third party platform connects to the MQTT2GO cloud broker using the provided __certificate__,  __access ID__, __login__, __password__, and __broker IP__.
-1. The third party platform subscribes to the __homes/access_id/in__ and publishes a __QUERY_HOMES__ message to __homes/access_id/out__.
-1. The MQTT2GO cloud broker publishes to the __homes/access_id/in__ message with all available MQTT2GO homes and their respective gateways. 
+1. The third party platform subscribes to the __homes/\<access_id\>/in__ and publishes a __QUERY_HOMES__ message to __homes/access_id/out__.
+1. The MQTT2GO cloud broker publishes to the __homes/\<access_id\>/in__ message with all available MQTT2GO homes and their respective gateways. 
 1. The third party platform subscribes to the __\<home_id\>/\<gw_id\>/add_virtual_device/in__ and publish message with device ID, device type, name, entities to the __\<home_id\>/\<gw_id\>/add_virtual_device/out__.
 1. The third party platform receives setup result, device id, and groups. Then it publishes device_id and group name to __\<home_id\>/\<gw_id\>/add_virtual_device/out__.
 
