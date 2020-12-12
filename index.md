@@ -100,7 +100,7 @@ MQTT2GO standard defines a special group of devices, called MQTT Controllers. Th
 </p>
 
 
-#  <a name="add-devices"></a>Process of Adding New MQTT Devices and Controllers
+#  <a name="add-devices"></a>Process of Adding New Devices and Controllers
 <p align="justify">
 In this chapter, we are going to present few ways how to add a new device into the MQTT2GO ecosystem. Firstly, the ideal MQTT2GO-preferred process incorporating guest WiFi is described. Then the alternative ways of adding devices are introduced.
 </p>
@@ -142,13 +142,14 @@ The list below represents the devices fully compatible with the MQTT2GO conventi
 * [Sonoff S26](https://github.com/mqtt2go/devices/tree/master/Sonoff%20S26)
 * [Sonoff TH16](https://github.com/mqtt2go/devices/tree/master/Sonoff%20TH16)
 
-# MQTT2GO Compatible Controllers - e.g. a TV Dashboard
+# MQTT2GO Compatible Controllers
+### TV Dashboard
 <p align="justify">
     TV Dashboard app specifically designed to be used on TVs and STBs with remote control navigation, providing an immersive experience with any MQTT2GO enabled Smart Home or Video Monitoring Solution.
 
 </p>
 
-* [A1 TV Dashboard](https://github.com/mqtt2go/tv-dashboard)
+* [TV Dashboard](https://github.com/mqtt2go/tv-dashboard)
 
 <p align="center" >
     <img src="dashboard.png" alt="A1 TV Dashboard.">
