@@ -142,7 +142,7 @@ The list below represents the devices fully compatible with the MQTT2GO conventi
 * [Sonoff S26](https://github.com/mqtt2go/devices/tree/master/Sonoff%20S26)
 * [Sonoff TH16](https://github.com/mqtt2go/devices/tree/master/Sonoff%20TH16)
 
-# TV Dashboard
+# MQTT2GO Compatible Controllers - e.g. a TV Dashboard
 <p align="justify">
     TV Dashboard app specifically designed to be used on TVs and STBs with remote control navigation, providing an immersive experience with any MQTT2GO enabled Smart Home or Video Monitoring Solution.
 
