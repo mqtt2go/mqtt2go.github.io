@@ -100,7 +100,7 @@ MQTT2GO standard defines a special group of devices, called MQTT Controllers. Th
 </p>
 
 
-#  <a name="add-devices"></a>Process of Adding New Devices
+#  <a name="add-devices"></a>Process of Adding New MQTT Devices and Controllers
 <p align="justify">
 In this chapter, we are going to present few ways how to add a new device into the MQTT2GO ecosystem. Firstly, the ideal MQTT2GO-preferred process incorporating guest WiFi is described. Then the alternative ways of adding devices are introduced.
 </p>
