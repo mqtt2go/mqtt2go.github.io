@@ -144,7 +144,8 @@ The list below represents the devices fully compatible with the MQTT2GO conventi
 
 # TV Dashboard
 <p align="justify">
-    TV Dashboard app specifically designed to be used with A1 STB remote control, providing an immersive experience from your smart home solution.
+    TV Dashboard app specifically designed to be used on TVs and STBs with remote control navigation, providing an immersive experience with any MQTT2GO enabled Smart Home or Video Monitoring Solution.
+
 </p>
 
 * [A1 TV Dashboard](https://github.com/mqtt2go/tv-dashboard)
