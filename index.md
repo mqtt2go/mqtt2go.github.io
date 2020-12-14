@@ -143,16 +143,22 @@ The list below represents the devices fully compatible with the MQTT2GO conventi
 * [Sonoff TH16](https://github.com/mqtt2go/devices/tree/master/Sonoff%20TH16)
 
 # MQTT2GO Compatible Controllers
-### TV Dashboard
+### TV Dashboards
 <p align="justify">
-    TV Dashboard app specifically designed to be used on TVs and STBs with remote control navigation, providing an immersive experience with any MQTT2GO enabled Smart Home or Video Monitoring Solution.
+    TV Dashboard apps specifically designed to be used on TVs and STBs with remote control navigation, providing an immersive experience with any MQTT2GO enabled Smart Home or Video Monitoring Solution.
 
 </p>
 
-* [TV Dashboard](https://github.com/mqtt2go/tv-dashboard)
+* [Smart Home TV Dashboard](https://github.com/mqtt2go/tv-dashboard)
 
 <p align="center" >
     <img src="dashboard.png" alt="A1 TV Dashboard.">
+</p>
+
+### Anomaly Reporting & AI Notifications
+<p align="justify">
+    The benefits of artificial intelligence and machine learning can also be easily and straightforwardly leveraged with MQTT2GO by reinterpreting the MQTT traffic of subscribed Topics, which is generated anyway as part of normal operations, with these technologies to detect anomalies and generate information gain and value add by notifying users in a timely manner. 
+
 </p>
 
 # References
