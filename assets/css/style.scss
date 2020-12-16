@@ -6,6 +6,22 @@
 .page-header{
 	background-color: #da291c;
 	background-image: none;
+	padding: 2rem 6rem;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,.16);
+}
+
+.project-name{
+	color: #da291c;
+}
+
+.btn{
+	background-color: #DA291C;
+	 color: rgba(255,255,255,0.85);
+}
+
+.btn:hover{
+	background-color: #DA291C;
+	 color: rgba(255,255,255,0.95);
 }
 
 
@@ -15,4 +31,8 @@
 
 p, td {
 	color: #333333;
+}
+
+.project-tagline{
+	color: #666666;
 }
