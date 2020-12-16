@@ -1,0 +1,18 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.page-header{
+	background-color: #da291c;
+	background-image: none;
+}
+
+
+h1, h2, h3, h4, h5 {
+	color: #da291c;
+}
+
+p, td {
+	color: #333333;
+}
