@@ -160,8 +160,10 @@ The list below represents the devices fully compatible with the MQTT2GO conventi
 ### Anomaly Reporting & AI Notifications
 <p align="justify">
     The benefits of artificial intelligence and machine learning can also be easily and straightforwardly leveraged with MQTT2GO by reinterpreting the MQTT traffic generated anyway as part of normal operations of subscribed topics with these technologies to detect anomalies and generate information gain and value add by notifying users in a timely manner. 
-
 </p>
+
+* [Anomaly Reporting Demo App](https://github.com/mqtt2go/mqtt-data-mining-demo)
+* [Time Series Builder Demo App](https://github.com/mqtt2go/mqtt-data-mining-build-model-demo)
 
 # References
 <a name="ref1"></a>[1] MQTT Topics & Best Practices - MQTT Essentials: Part 5. Available from: [https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/)
