@@ -60,10 +60,10 @@ This proposal is a complete guide for an MQTT-enabled smart home setup. It was c
 </p>
 
 <p align="center" >
-	<img src="mqtt_architecture.svg" alt="Architecture of MQTT2GO System.">
+    <img src="mqtt_architecture.svg" alt="Architecture of MQTT2GO System.">
 </p>
 <p align="center" >
-	<em><strong>Fig. 1:</strong> Architecture of MQTT2GO System.</em>
+    <em><strong>Fig. 1:</strong> Architecture of MQTT2GO System.</em>
 </p>
 
 ## Multipurpose Smart Home Enabler
@@ -100,18 +100,19 @@ MQTT2GO standard defines a special group of devices, called MQTT Controllers. Th
 </p>
 
 
-#  <a name="add-devices"></a>Process of Adding New Devices
+#  <a name="add-devices"></a>Process of Adding New Devices and Controllers
 <p align="justify">
 In this chapter, we are going to present few ways how to add a new device into the MQTT2GO ecosystem. Firstly, the ideal MQTT2GO-preferred process incorporating guest WiFi is described. Then the alternative ways of adding devices are introduced.
 </p>
 
+### Devices
 * [Setup via Guest WiFi](./add-wifi.md)
 * [Setup via WPS](./add-wps.md)
 * [Setup via Remote MQTT Broker](./mqtt2go-remote-broker.md)
 * [Setup of New MQTT2GO Non-Compliant Devices](./add-non-compliant.md)
-* [Setup of New MQTT2GO Controller App](./add-controller.md)
-* [Setup of New MQTT2GO Virtual Device](./add-virtual-device.md)
 
+### Controllers
+* [Setup of New MQTT2GO Controller App](./add-controller.md)
 
 # <a name="data-structure"></a>MQTT2GO Data Structure
 <p align="justify">
@@ -143,15 +144,23 @@ The list below represents the devices fully compatible with the MQTT2GO conventi
 * [Sonoff S26](https://github.com/mqtt2go/devices/tree/master/Sonoff%20S26)
 * [Sonoff TH16](https://github.com/mqtt2go/devices/tree/master/Sonoff%20TH16)
 
-# TV Dashboard
+# MQTT2GO Compatible Controllers
+### TV Dashboards
 <p align="justify">
-    TV Dashboard app specifically designed to be used with A1 STB remote control, providing an immersive experience from your smart home solution.
+    TV Dashboard apps specifically designed to be used on TVs and STBs with remote control navigation, providing an immersive experience with any MQTT2GO enabled Smart Home or Video Monitoring Solution.
+
 </p>
 
-* [A1 TV Dashboard](https://github.com/mqtt2go/tv-dashboard)
+* [Smart Home TV Dashboard](https://github.com/mqtt2go/tv-dashboard)
 
 <p align="center" >
     <img src="dashboard.png" alt="A1 TV Dashboard.">
+</p>
+
+### Anomaly Reporting & AI Notifications
+<p align="justify">
+    The benefits of artificial intelligence and machine learning can also be easily and straightforwardly leveraged with MQTT2GO by reinterpreting the MQTT traffic generated anyway as part of normal operations of subscribed topics with these technologies to detect anomalies and generate information gain and value add by notifying users in a timely manner. 
+
 </p>
 
 # References
