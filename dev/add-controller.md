@@ -52,17 +52,17 @@ The MQTT2GO controller creation process can be initialized only if at least one 
 This procedure is presented as the ideal implementation of the controller creation. If the user wants to utilize third party MQTT client, the green part (Authentication) that is exploited for, broker IP and certificate obtaining has to be implemented or used separately (i.e., using the web browser). 
 </p>
 
-### User authentication
+## <a name="authentication"></a>User authentication
 <p align="justify" >
 The user authentication operation inside MQTT2GO controller creation is utilizing the HTTPS API and therefore does not follow the MQTT2GO topic naming convention. The reason for this is to simplify the access process of a service, which will be utilized only several times. 
 </p>
 
-## HTTPS API message structure
+### HTTPS API message structure
 <p align="justify" >
 Even though the HTTPS API is not adhering to the topic naming convention, it still utilizes the JSON data structure of the messages. This section provides examples of all utilized messages.
 </p>
 
-### user_login
+### <a name="user-login"></a>user_login (request)
 <p align="justify" >
 This message contains information about the user credentials. Its structure is following:
 </p>
@@ -73,6 +73,33 @@ This message contains information about the user credentials. Its structure is f
 	"password": "pwd"
 }
 ```
+
+### <a name="get-credentials-request"></a>get_credentials (request)
+<p align="justify" >
+This request contains SMS activation code. Its structure is following:
+</p>
+
+```json
+{ 
+  "code": "sms activation code"
+}
+```
+
+### <a name="get-credentials-response"></a>get_credentials (response)
+<p align="justify" >
+This message contains User ID, Broker IP/URL, Certificate, Login, Password. Its structure is following:
+</p>
+
+```json
+{ 
+  "user_id": "user id",
+  "broker": "broker IP/URL",
+  "certificate": "Client certificate",
+  "login": "user login",
+  "password": "user password"
+}
+```
+
 
 ## Configuration
 <p align="justify">
