@@ -81,7 +81,7 @@ This request contains SMS activation code. Its structure is following:
 
 ```json
 { 
-  "code": "sms activation code"
+  "code": "SMS activation code"
 }
 ```
 
@@ -94,7 +94,7 @@ This message contains User ID, Broker IP/URL, Certificate, Login, Password. Its 
 { 
   "user_id": "user id",
   "broker": "broker IP/URL",
-  "certificate": "Client certificate",
+  "certificate": "client certificate",
   "login": "user login",
   "password": "user password"
 }
