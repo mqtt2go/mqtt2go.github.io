@@ -24,7 +24,7 @@ The new MQTT2GO account creation process utilizes credentials provided by the MQ
 	<a name="create-account-fig"></a><em><strong>Fig. 1:</strong> Process of creating new MQTT2GO account.</em>
 </p>
 
-## Setup of new MQTT2GO controller
+## <a name="setup-controller"></a>Setup of new MQTT2GO controller
 <p align="justify" >
 The MQTT2GO controller creation process can be initialized only if at least one MQTT2GO account creation was successful. If this requirement is satisfied, created user is able to add a new MQTT2GO controllers and users to the system. It is also worthwhile to be noted, that in theory users can use the same username for multiple logins, but to deal with this problem is not in scope of the MQTT2GO standard. The MQTT2GO creation process is again utilizing the Management Server for user authentication. The reason to utilize it together with the MQTT2GO cloud broker is mainly the security. The process itself can be described in following steps:
 </p>
