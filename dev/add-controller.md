@@ -101,7 +101,7 @@ This message contains User ID, Broker IP/URL, Certificate, Login, Password. Its 
 ```
 
 
-## Configuration
+## <a name="configuration"></a>Configuration
 <p align="justify">
 This section is utilizing the standard MQTT2GO topic naming structure together with standard MQTT2GO messages. They are described in following section.
 </p>
@@ -111,7 +111,7 @@ This section is utilizing the standard MQTT2GO topic naming structure together w
 In this specific implementation, there is only one MQTT2GO command and its primary goal is to request all device topics to which the controller have to subscribe. This secures the controller to be able to control all devices, to which the selected user has access. The command structure is based on the structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. The numbering in this section is coherent with the numbering in <a href="#add-devices-fig">Fig. 2</a>.
 </p>
 
-#### Get Entities
+#### <a name="get-entities-command"></a>Get Entities
 ```
 <home_id>/<gw_id>/in
 ```
