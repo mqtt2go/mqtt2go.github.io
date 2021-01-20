@@ -9,6 +9,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Set On
 ```json
 {
+    "type": "set",
 	"timestamp": 1567677926,
 	"value": "on"
 }
@@ -17,6 +18,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Set Off
 ```json
 {
+    "type": "set",
 	"timestamp": 1567677926,
 	"value": "off"
 }
@@ -25,6 +27,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Query Temperature
 ```json
 {
+    "type": "query",
 	"timestamp": 1567677926,
 	"value": "temperature"
 }
@@ -33,6 +36,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Query Humidity
 ```json
 {
+	"type": "query",
 	"timestamp": 1567677926,
 	"value": "humidity"
 }
@@ -41,6 +45,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Query Motion
 ```json
 {
+	"type": "query",
 	"timestamp": 1567677926,
 	"value": "motion"
 }
@@ -49,6 +54,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Query Smoke
 ```json
 {
+	"type": "query",
 	"timestamp": 1567677926,
 	"value": "smoke"
 }
@@ -57,6 +63,7 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ### Query Water
 ```json
 {
+	"type": "query",
 	"timestamp": 1567677926,
 	"value": "water"
 }
@@ -67,8 +74,12 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 Reports are utilized either as responses to the commands or to report periodic or critical event.
 
 ### State Report
+```
+<home_id>/<gw_id>/<device_id>/state/out
+```
 ```json
 {
+	"type": "report_type",
 	"priority_level": 2,
 	"timestamp": 1567677956,
 	"report": "on"
@@ -77,6 +88,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ```json
 {
+	"type": "report_type",
 	"priority_level": 2,
 	"timestamp": 1567677956,
 	"report": "off"
@@ -85,6 +97,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ```json
 {
+	"type": "report_type",
 	"priority_level": 2,
 	"timestamp": 1567677956,
 	"report": "repair_needed"
@@ -93,8 +106,13 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ### Temperature Report
 
+```
+<home_id>/<gw_id>/<device_id>/temperature/out
+```
+
 ```json
 {
+	"type": "report_type",
 	"priority_level": 2,
 	"timestamp": 1567677956,
 	"report": {
@@ -107,8 +125,13 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ### Humidity Report
 
+```
+<home_id>/<gw_id>/<device_id>/humidity/out
+```
+
 ```json
 {
+	"type": "report_type",
 	"priority_level": 2,
 	"timestamp": 1567677956,
 	"report": {
@@ -121,8 +144,13 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ### Motion Report
 
+```
+<home_id>/<gw_id>/<device_id>/motion/out
+```
+
 ```json
 {
+	"type": "report_type",
 	"priority_level": 2,
 	"timestamp": 1567677956,
 	"report": "motion"
@@ -132,8 +160,13 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ### Smoke Report
 
+```
+<home_id>/<gw_id>/<device_id>/smoke/out
+```
+
 ```json
 {
+	"type": "report_type",
 	"priority_level": 2,
 	"timestamp": 1567677956,
 	"report": "smoke"
@@ -143,8 +176,13 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ### Water Report
 
+```
+<home_id>/<gw_id>/<device_id>/water/out
+```
+
 ```json
 {
+	"type": "report_type",
 	"priority_level": 2,
 	"timestamp": 1567677956,
 	"report": "water"
