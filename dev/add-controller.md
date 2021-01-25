@@ -55,6 +55,8 @@ This procedure is presented as the ideal implementation of the controller creati
 ## <a name="authentication"></a>User authentication
 <p align="justify" >
 The user authentication operation inside MQTT2GO controller creation is utilizing the HTTPS API and therefore does not follow the MQTT2GO topic naming convention. The reason for this is to simplify the access process of a service, which will be utilized only several times. 
+
+The whole user authentication process can be substituted by any similar procedure that securely exchanges the necessary information (certificate, broker IP/address, user ID, login and password). If the authentication procedure is changed to custom implementation, all involved parties <b>HAS TO BE NOTIFIED</b> about it.
 </p>
 
 ### HTTPS API message structure
