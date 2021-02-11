@@ -7,6 +7,11 @@ To control the multi sensors, a user have to follow the MQTT2GO convention. To e
 As specified by the MQTT2GO convention, the commands are utilized for device control. In the following subsection, we present the standardized way which is following the convention.
 
 ### Set On
+
+```
+<home_id>/<gw_id>/<device_id>/switch/in
+```
+
 ```json
 {
     "type": "set",
@@ -16,12 +21,21 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```
 
 ### Set Off
+
+```
+<home_id>/<gw_id>/<device_id>/switch/in
+```
+
 ```json
 {
     "type": "set",
 	"timestamp": 1567677926,
 	"value": "off"
 }
+```
+
+```
+<home_id>/<gw_id>/<device_id>/temperature/in
 ```
 
 ### Query Temperature
@@ -33,6 +47,10 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 }
 ```
 
+```
+<home_id>/<gw_id>/<device_id>/humidity/in
+```
+
 ### Query Humidity
 ```json
 {
@@ -40,6 +58,10 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 	"timestamp": 1567677926,
 	"value": "humidity"
 }
+```
+
+```
+<home_id>/<gw_id>/<device_id>/motion/in
 ```
 
 ### Query Motion
@@ -51,6 +73,10 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 }
 ```
 
+```
+<home_id>/<gw_id>/<device_id>/smoke/in
+```
+
 ### Query Smoke
 ```json
 {
@@ -58,6 +84,10 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 	"timestamp": 1567677926,
 	"value": "smoke"
 }
+```
+
+```
+<home_id>/<gw_id>/<device_id>/water/in
 ```
 
 ### Query Water

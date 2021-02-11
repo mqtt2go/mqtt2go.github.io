@@ -52,6 +52,13 @@ The MQTT2GO controller creation process can be initialized only if at least one 
 This procedure is presented as the ideal implementation of the controller creation. If the user wants to utilize third party MQTT client, the green part (Authentication) that is exploited for, broker IP and certificate obtaining has to be implemented or used separately (i.e., using the web browser). 
 </p>
 
+<p align="center" >
+	<img src="mqtt_controller_login_QR.svg" alt="Process of login into MQTT2GO account with QR code">
+</p>
+<p align="center" >
+	<a name="add-devices-fig-qr"></a><em><strong>Fig. 3:</strong> Process of login into MQTT2GO account with QR code.</em>
+</p>
+
 ## <a name="authentication"></a>User authentication
 <p align="justify" >
 The user authentication operation inside MQTT2GO controller creation is utilizing the HTTPS API and therefore does not follow the MQTT2GO topic naming convention. The reason for this is to simplify the access process of a service, which will be utilized only several times. 
