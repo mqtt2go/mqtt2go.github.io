@@ -26,7 +26,10 @@ The new MQTT2GO account creation process utilizes credentials provided by the MQ
 
 ## <a name="setup-controller"></a>Setup of new MQTT2GO controller
 <p align="justify" >
-The MQTT2GO controller creation process can be initialized only if at least one MQTT2GO account creation was successful. If this requirement is satisfied, created user is able to add a new MQTT2GO controllers and users to the system. It is also worthwhile to be noted, that in theory users can use the same username for multiple logins, but to deal with this problem is not in scope of the MQTT2GO standard. The MQTT2GO creation process is again utilizing the Management Server for user authentication. The reason to utilize it together with the MQTT2GO cloud broker is mainly the security. The process itself can be described in following steps:
+The MQTT2GO controller creation process can be initialized only if at least one MQTT2GO account creation was successful. If this requirement is satisfied, created user is able to add a new MQTT2GO controllers and users to the system. It is also worthwhile to be noted, that in theory users can use the same username for multiple logins, but to deal with this problem is not in scope of the MQTT2GO standard. The MQTT2GO creation process is again utilizing the Management Server for user authentication. The reason to utilize it together with the MQTT2GO cloud broker is mainly the security. In the following sections, two login procedure options are described.
+
+### SMS login process of MQTT2GO controller
+The process of the SMS login can be described in following steps:
 </p>
 
 1. The MQTT2GO app tries to connect to __HTTPS: /user_login__ using the user credentials (username and password).
@@ -57,8 +60,8 @@ If the adopter prefer a novelty way of the login, a QR code option is available.
 
 1. The MQTT2GO Controller initializes the login procedure by contacting the management server and establishing WebSocket connection.
 1. The MQTT2GO Controller sends __get_qr_code__ over the WebSocket connection on which the Management server replies with generated QR code that contains a login token in __qr_code__ message.
-1. The MQTT2GO Mobile App scans the QR code on the MQTT2GO Controller and sends it __phone number__ and __encrypted token__ to the Management Server. The MQTT2GO Controller then resends these values together with the original __token__ and __user_id__ to the MQTT2GO Cloud Broker.
-1. The MQTT2GO Cloud Broker verifies if the token is correct (decrypts it with own certificate) and the User ID is valid.
+1. The MQTT2GO Mobile App scans the QR code on the MQTT2GO Controller and sends back to it the user's __phone number__ and __encrypted token__ to the Management Server. To obtain the __encrypted_token__ the MQTT2GO Mobile App utilizes user certificate that is tied to currently logged-in user account. The MQTT2GO Controller then resends these values together with the original __token__ and __user_id__ to the MQTT2GO Cloud Broker.
+1. The MQTT2GO Cloud Broker verifies if the token is correct (decrypts it with the public key of the respective user) and the User ID is valid.
 1. The MQTT2GO Cloud Broker sends the __UserID, Certificate, Login, and Password__ back to the Management server, which then sends it via the WebSocket to the MQTT2GO Controller application.
 1. The WebSocket Connection is closed, and the procedure is continuing with the configuration as in the previous example.
 
