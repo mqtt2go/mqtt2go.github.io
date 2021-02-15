@@ -122,7 +122,7 @@ Reports are utilized either as responses to the commands or to report periodic o
 ```
 ```json
 {
-    "type": "color_temp",
+    "type": "command_response",
     "timestamp": 1567677926,
     "value": 50
 }
