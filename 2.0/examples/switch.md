@@ -7,11 +7,6 @@ To control the smart switches, a user have to follow the MQTT2GO convention. To 
 As specified by the MQTT2GO convention, the commands are utilized for device control. In the following subsection, we present the standardized way which is following the convention.
 
 ### Turn on the switch
-
-```
-<home_id>/<gw_id>/<device_id>/switch/in
-```
-
 ```json
 { 
     "type": "set",
@@ -21,11 +16,6 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```
 
 ### Turn off the switch
-
-```
-<home_id>/<gw_id>/<device_id>/switch/in
-```
-
 ```json
 {
     "type": "set",
@@ -39,14 +29,9 @@ Reports are utilized either as responses to the commands or to report periodic o
 
 ### Turn on / off response
 
-```
-<home_id>/<gw_id>/<device_id>/switch/out
-```
-
 ```json
 {
-    "priority_level": 2,
-    "type": "response_type",
+    "type": "command_response",
     "timestamp": 1567677956,
     "value": "switch_value"
 }

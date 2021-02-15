@@ -26,7 +26,6 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```
 ```json
 {
-    "type": "set",
     "timestamp": 1567677926,
     "value": 100
 }
@@ -38,7 +37,6 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```
 ```json
 {
-    "type": "set",
     "timestamp": 1567677926,
     "value": 0
 }
@@ -50,7 +48,6 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```
 ```json
 {
-    "type": "set",
     "timestamp": 1567677926,
     "value": "stop"
 }
@@ -61,7 +58,6 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```
 ```json
 {
-    "type": "set",
     "timestamp": 1567677926,
     "value": 90
 }
@@ -73,7 +69,6 @@ As specified by the MQTT2GO convention, the commands are utilized for device con
 ```
 ```json
 {
-    "type": "set",
     "timestamp": 1567677926,
     "value": 90
 }
@@ -85,12 +80,11 @@ The set_timer command is utilized to setup the periodical action which will trig
 ```
 ```json
 {
-    "type": "set",
     "timestamp":1567677926,
     "value": {
             "unit": "hh:mm:ss",
             "time": "01:12:00",
-            "value": 100
+            "action": "up/down"
             }
 }
 ```

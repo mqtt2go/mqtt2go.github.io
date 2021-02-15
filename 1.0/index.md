@@ -9,10 +9,16 @@
         <th style="width:10%">Changelog</th>
     </tr>
     <tr>
-        <td>2020-09-30</td>
-        <td><a href="https://mqtt2go.github.io">Rev 2.0</a></td>
-        <td>A significant change in topic structure. Commands and reports are distinguished by in and out directions. Updated adding procedure of all devices. New MQTT2GO compliant devices were added.</td>
+        <td>2021-02-15</td>
+        <td><a href="https://mqtt2go.github.io">Rev 2.1</a></td>
+        <td>Added new type of virtual MQTT2GO devices and links to Smart Home TV Dashboard and Anomaly reporting Applications. Updated adding procedure of new MQTT2GO controllers by introducing QR codes log in.</td>
         <td><a href="https://mqtt2go.github.io/changelog">Changelog</a></td>
+    </tr>
+    <tr>
+        <td>2020-09-30</td>
+        <td><a href="https://mqtt2go.github.io/2.0/index">Rev 2.0</a></td>
+        <td>A significant change in topic structure. Commands and reports are distinguished by in and out directions. Updated adding procedure of all devices. New MQTT2GO compliant devices were added.</td>
+        <td><a href="https://mqtt2go.github.io/2.0/changelog">Changelog</a></td>
     </tr>
     <tr>
         <td>2020-04-02</td>

@@ -9,13 +9,13 @@
     </tr>
     <tr>
         <td>2021-02-15</td>
-        <td>Rev 2.1</td>
+        <td><a href="https://mqtt2go.github.io">Rev 2.1</a></td>
         <td>Added new type of virtual MQTT2GO devices and links to Smart Home TV Dashboard and Anomaly reporting Applications. Updated adding procedure of new MQTT2GO controllers by introducing QR codes log in.</td>
         <td><a href="https://mqtt2go.github.io/changelog">Changelog</a></td>
     </tr>
     <tr>
         <td>2020-09-30</td>
-        <td><a href="https://mqtt2go.github.io/2.0/index">Rev 2.0</a></td>
+        <td>Rev 2.0</td>
         <td>A significant change in topic structure. Commands and reports are distinguished by in and out directions. Updated adding procedure of all devices. New MQTT2GO compliant devices were added.</td>
         <td><a href="https://mqtt2go.github.io/2.0/changelog">Changelog</a></td>
     </tr>
@@ -66,10 +66,10 @@ This proposal is a complete guide for an MQTT-enabled smart home setup. It was c
 </p>
 
 <p align="center" >
-    <img src="mqtt_architecture.svg" alt="Architecture of MQTT2GO System.">
+	<img src="mqtt_architecture.svg" alt="Architecture of MQTT2GO System.">
 </p>
 <p align="center" >
-    <em><strong>Fig. 1:</strong> Architecture of MQTT2GO System.</em>
+	<em><strong>Fig. 1:</strong> Architecture of MQTT2GO System.</em>
 </p>
 
 ## Multipurpose Smart Home Enabler
@@ -78,7 +78,7 @@ This section introduces the MQTT2GO standard architecture. The two main parts ar
 </p>
 
 <p align="justify">
-The whole architecture is having an onion-like structure, where the topmost layer is the MQTT Cloud broker, which is “supervising” whole MQTT2GO ecosystem. Then, the next layer is the Smart Home itself, where the Smart Home Gateway (SH-GW) and all devices (sensors / actuators) reside. Even though the founding idea is to have a smart home controlled via centralized SH-GW (single one per local network), the Smart Home doesn’t have to be composed of only one SH-GW placed in one location - there can be multiple physical locations and SH-GWs supervised by one “family” (group of users). Also even though the ideal case is aiming at usage of the SH-GW as a primary “relay” for all connected devices, if the end device is MQTT-enabled, it can be directly connected to the MQTT2GO Cloud Broker. This option is primarily targeted at users, who do not want to own a physical (local) SH-GW, but still want to take advantage of the MQTT2GO standard.
+The whole architecture is having an onion-like structure, where the topmost layer is the MQTT Cloud broker, which is “supervising” whole MQTT2GO ecosystem. Then, the next layer is the Smart Home itself, where the Smart Home Gateway (SH-GW) and all devices (sensors / actuators) reside. The smart home doesn’t have to be composed of only one SH-GW placed in one location - there can be multiple physical locations and SH-GWs supervised by one “family” (group of users). Also even though the ideal case is aiming at usage of the SH-GW as a primary “relay” for all connected devices, if the end device is MQTT-enabled, it can be directly connected to the MQTT2GO Cloud Broker. This option is primarily targeted at users, who do not want to own a physical (local) SH-GW, but still want to take advantage of the MQTT2GO standard.
 </p>
 
 <p align="justify">
@@ -106,20 +106,17 @@ MQTT2GO standard defines a special group of devices, called MQTT Controllers. Th
 </p>
 
 
-#  <a name="add-devices"></a>Process of Adding New Devices and Controllers
+#  <a name="add-devices"></a>Process of Adding New Devices
 <p align="justify">
 In this chapter, we are going to present few ways how to add a new device into the MQTT2GO ecosystem. Firstly, the ideal MQTT2GO-preferred process incorporating guest WiFi is described. Then the alternative ways of adding devices are introduced.
 </p>
 
-### Devices
 * [Setup via Guest WiFi](./add-wifi.md)
 * [Setup via WPS](./add-wps.md)
 * [Setup via Remote MQTT Broker](./mqtt2go-remote-broker.md)
 * [Setup of New MQTT2GO Non-Compliant Devices](./add-non-compliant.md)
-* [Setup of New MQTT2GO Virtual Device](./add-virtual-device.md)
-
-### Controllers
 * [Setup of New MQTT2GO Controller App](./add-controller.md)
+
 
 # <a name="data-structure"></a>MQTT2GO Data Structure
 <p align="justify">
@@ -151,26 +148,16 @@ The list below represents the devices fully compatible with the MQTT2GO conventi
 * [Sonoff S26](https://github.com/mqtt2go/devices/tree/master/Sonoff%20S26)
 * [Sonoff TH16](https://github.com/mqtt2go/devices/tree/master/Sonoff%20TH16)
 
-# MQTT2GO Compatible Controllers
-### TV Dashboards
+# TV Dashboard
 <p align="justify">
-    TV Dashboard apps specifically designed to be used on TVs and STBs with remote control navigation, providing an immersive experience with any MQTT2GO enabled Smart Home or Video Monitoring Solution.
-
+    TV Dashboard app specifically designed to be used with A1 STB remote control, providing an immersive experience from your smart home solution.
 </p>
 
-* [Smart Home TV Dashboard](https://github.com/mqtt2go/tv-dashboard)
+* [A1 TV Dashboard](https://github.com/mqtt2go/tv-dashboard)
 
 <p align="center" >
     <img src="dashboard.png" alt="A1 TV Dashboard.">
 </p>
-
-### Anomaly Reporting & AI Notifications
-<p align="justify">
-    The benefits of artificial intelligence and machine learning can also be easily and straightforwardly leveraged with MQTT2GO by reinterpreting the MQTT traffic generated anyway as part of normal operations of subscribed topics with these technologies to detect anomalies and generate information gain and value add by notifying users in a timely manner. 
-</p>
-
-* [Anomaly Reporting Demo App](https://github.com/mqtt2go/mqtt-data-mining-demo)
-* [Time Series Builder Demo App](https://github.com/mqtt2go/mqtt-data-mining-build-model-demo)
 
 # References
 <a name="ref1"></a>[1] MQTT Topics & Best Practices - MQTT Essentials: Part 5. Available from: [https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/)

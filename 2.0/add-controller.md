@@ -24,24 +24,21 @@ The new MQTT2GO account creation process utilizes credentials provided by the MQ
 	<a name="create-account-fig"></a><em><strong>Fig. 1:</strong> Process of creating new MQTT2GO account.</em>
 </p>
 
-## <a name="setup-controller"></a>Setup of new MQTT2GO controller
+## Creation of new MQTT2GO controller
 <p align="justify" >
-The MQTT2GO controller creation process can be initialized only if at least one MQTT2GO account creation was successful. If this requirement is satisfied, created user is able to add a new MQTT2GO controllers and users to the system. It is also worthwhile to be noted, that in theory users can use the same username for multiple logins, but to deal with this problem is not in scope of the MQTT2GO standard. The MQTT2GO creation process is again utilizing the Management Server for user authentication. The reason to utilize it together with the MQTT2GO cloud broker is mainly the security. In the following sections, two login procedure options are described.
-
-### SMS login process of MQTT2GO controller
-The process of the SMS login can be described in following steps:
+The MQTT2GO controller creation process can be initialized only if at least one MQTT2GO account creation was successful. If this requirement is satisfied, created user is able to add a new MQTT2GO controllers and users to the system. It is also worthwhile to be noted, that in theory users can use the same username for multiple logins, but to deal with this problem is not in scope of the MQTT2GO standard. The MQTT2GO creation process is again utilizing the Management Server for user authentication. The reason to utilize it together with the MQTT2GO cloud broker is mainly the security. The process itself can be described in following steps:
 </p>
 
 1. The MQTT2GO app tries to connect to __HTTPS: /user_login__ using the user credentials (username and password).
-1. If the credentials are valid, the management server forwards this request to the __HTTPS: / login_user__ of the MQTT2GO cloud broker and initializes the login process.
+1. If the credentials are valid, the management server forwards this request to the __HTTPS: / login_user__ of the MQTT2GO cloud broker and initializes the login login process.
 1. The MQTT2GO cloud broker then sends activation code via the SMS for client verification.
-1. User enters this code into the third party platform, which then sends it into the __HTTPS: /get_platform_credentials__ of the management server.
+1. User enters this code into the MQTT2GO app, which then sends it into the __HTTPS: /get_credentials__ of the management server.
 1. The management server forwards the activation code to the __HTTPS: /get_credentials__ of MQTT2GO cloud broker.
 1. The MQTT2GO cloud broker then sends the certificate to the __HTTPS: /post_credentials__ of the management server.
-1. The management server then sends a response with user ID, broker IP, certificate, login, and password to the __HTTPS: /get_credentials__ from which the MQTT2GO app saves it.
+1. The management server then sends a response with user ID, broker IP, and certificate to the __HTTPS: /get_credentials__ from which the MQTT2GO app saves it.
 1. The MQTT2GO app connects to the MQTT2GO cloud broker using the provided __certificate__,  __user ID__, __login__, __password__, and __broker IP__.
-1. The MQTT2GO app subscribes to the __\<home_id\>/<gw_id\>/out__ and publishes a __QUERY_GUI_DEV__ message to __\<home_id\>/<gw_id\>/in__.
-1. The MQTT2GO cloud broker publishes to the __\<home_id\>/<gw_id\>/out__ message with all available MQTT2GO entities and its language. Based on the entities, the controller subscribes to all their topics.
+1. The MQTT2GO app subscribes to the __\<user_id\>/topics__ and publishes a __GET_USER_TOPICS__ message.
+1. The MQTT2GO cloud broker publishes to the __\<user_id\>/topics__ message with all topics the MQTT2GO app has to subscribe to.
 1. From now on, the MQTT communication follows the MQTT2GO standard.
 
 <p align="center" >
@@ -55,36 +52,17 @@ The process of the SMS login can be described in following steps:
 This procedure is presented as the ideal implementation of the controller creation. If the user wants to utilize third party MQTT client, the green part (Authentication) that is exploited for, broker IP and certificate obtaining has to be implemented or used separately (i.e., using the web browser). 
 </p>
 
-### QR code login process of MQTT2GO controller
-If the adopter prefer a novelty way of the login, a QR code option is available. The necessary steps for this login procedure are described in following text.
-
-1. The MQTT2GO Controller initializes the login procedure by contacting the management server and establishing WebSocket connection.
-1. The MQTT2GO Controller sends __get_qr_code__ over the WebSocket connection on which the Management server replies with generated QR code that contains a login token in __qr_code__ message.
-1. The MQTT2GO Mobile App scans the QR code on the MQTT2GO Controller and sends back to it the user's __phone number__ and __encrypted token__ to the Management Server. To obtain the __encrypted_token__ the MQTT2GO Mobile App utilizes user certificate that is tied to currently logged-in user account. The MQTT2GO Controller then resends these values together with the original __token__ and __user_id__ to the MQTT2GO Cloud Broker.
-1. The MQTT2GO Cloud Broker verifies if the token is correct (decrypts it with the public key of the respective user) and the User ID is valid.
-1. The MQTT2GO Cloud Broker sends the __UserID, Certificate, Login, and Password__ back to the Management server, which then sends it via the WebSocket to the MQTT2GO Controller application.
-1. The WebSocket Connection is closed, and the procedure is continuing with the configuration as in the previous example.
-
-<p align="center" >
-	<img src="mqtt_controller_login_QR.svg" alt="Process of login into MQTT2GO account with QR code">
-</p>
-<p align="center" >
-	<a name="add-devices-fig-qr"></a><em><strong>Fig. 3:</strong> Process of login into MQTT2GO account with QR code.</em>
-</p>
-
-## <a name="authentication"></a>User authentication
+### User authentication
 <p align="justify" >
 The user authentication operation inside MQTT2GO controller creation is utilizing the HTTPS API and therefore does not follow the MQTT2GO topic naming convention. The reason for this is to simplify the access process of a service, which will be utilized only several times. 
-
-The whole user authentication process can be substituted by any similar procedure that securely exchanges the necessary information (certificate, broker IP/address, user ID, login and password). If the authentication procedure is changed to custom implementation, all involved parties <b>HAS TO BE NOTIFIED</b> about it.
 </p>
 
-### HTTPS API message structure
+## HTTPS API message structure
 <p align="justify" >
 Even though the HTTPS API is not adhering to the topic naming convention, it still utilizes the JSON data structure of the messages. This section provides examples of all utilized messages.
 </p>
 
-### <a name="user-login"></a>user_login (request)
+### user_login
 <p align="justify" >
 This message contains information about the user credentials. Its structure is following:
 </p>
@@ -96,34 +74,7 @@ This message contains information about the user credentials. Its structure is f
 }
 ```
 
-### <a name="get-credentials-request"></a>get_credentials (request)
-<p align="justify" >
-This request contains SMS activation code. Its structure is following:
-</p>
-
-```json
-{ 
-  "code": "SMS activation code"
-}
-```
-
-### <a name="get-credentials-response"></a>get_credentials (response)
-<p align="justify" >
-This message contains User ID, Broker IP/URL, Certificate, Login, Password. Its structure is following:
-</p>
-
-```json
-{ 
-  "user_id": "user id",
-  "broker": "broker IP/URL",
-  "certificate": "client certificate",
-  "login": "user login",
-  "password": "user password"
-}
-```
-
-
-## <a name="configuration"></a>Configuration
+## Configuration
 <p align="justify">
 This section is utilizing the standard MQTT2GO topic naming structure together with standard MQTT2GO messages. They are described in following section.
 </p>
@@ -133,7 +84,7 @@ This section is utilizing the standard MQTT2GO topic naming structure together w
 In this specific implementation, there is only one MQTT2GO command and its primary goal is to request all device topics to which the controller have to subscribe. This secures the controller to be able to control all devices, to which the selected user has access. The command structure is based on the structure from <a href="./mqtt2go-commands#mqtt_commands">MQTT Commands</a>. The numbering in this section is coherent with the numbering in <a href="#add-devices-fig">Fig. 2</a>.
 </p>
 
-#### <a name="get-entities-command"></a>Get Entities
+#### Get Entities
 ```
 <home_id>/<gw_id>/in
 ```
@@ -162,8 +113,7 @@ This report is utilized for requesting all necessary information from the smarth
 {
     "timestamp": "timestamp_value",
     "type": "command_response",
-    "home_prefix": "baseline_topic_value",
-    "language": "language",
+    "base_topic": "baseline_topic_value",
     "value": {
         "scenes":[
             {
