@@ -18,7 +18,7 @@ This section describes the procedure of creating a new MQTT2GO virtual device. E
 1. The third party platform connects to the MQTT2GO cloud broker using the provided __certificate__,  __access ID__, __login__, __password__, and __broker IP__.
 1. The third party platform subscribes to the __homes/\<access_id\>/in__ and publishes a __QUERY_HOMES__ message to __homes/access_id/out__.
 1. The MQTT2GO cloud broker publishes to the __homes/\<access_id\>/in__ message with all available MQTT2GO homes and their respective gateways. 
-1. The third party platform subscribes to the __\<home_id\>/\<gw_id\>/add_virtual_device/in__ and publish message with device ID, device type, name, entities to the __\<home_id\>/\<gw_id\>/add_virtual_device/out__.
+1. The third party platform subscribes to the __\<home_id\>/\<gw_id\>/add_virtual_device/in__ and publish a message with device ID, device type, name, entities to the __\<home_id\>/\<gw_id\>/add_virtual_device/out__.
 1. The third party platform receives setup result, device id, and groups. Then it publishes device_id and group name to __\<home_id\>/\<gw_id\>/add_virtual_device/out__.
 1. Based on the entities, the controller subscribes to all their topics. From now on, the MQTT communication follows the MQTT2GO standard.
 
@@ -28,3 +28,5 @@ This section describes the procedure of creating a new MQTT2GO virtual device. E
 <p align="center" >
 	<a name="create-device-fig"></a><em><strong>Fig. 1:</strong> Process of creating new MQTT2GO Virtual Device.</em>
 </p>
+
+Similarly to the process of setting up a new controller, the Authentication part of the adding procedure can be substituted by any similar technique utilized for verification of the users (i.e., QR code verification).

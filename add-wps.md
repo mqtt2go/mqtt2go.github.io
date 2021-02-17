@@ -6,17 +6,17 @@ The process of adding a new device using the WPS (WiFi Protected Setup) is very 
 
 ## Setup Steps
 1.	MQTT Controller (Mobile/Web App) initiates the process of adding a new device by subscribing to __/\<home_id\>/\<gw_id\>/add_device/in__. Then it publishes an activation request containing __activation code, device id__, and __device type__ to __/\<home_id\>/\<gw_id\>/add_device/out__. The __activation code__ and __device id__ codes can be found on the newly installed device as two unique numbers identifying the device (placed on a device label or inside a QR code).
-2.	The user is prompted to activate WPS by pressing buttons SH-GW.
+2.	The user is prompted to activate WPS by pressing button on the SH-GW.
 3.	MQTT ED then connects to the Home Wi-Fi and further utilizes mDNS (multicast DNS) to resolve address __MQTT2GO.local__ (\_mqtt.\_tcp.local.) and port, which equal to the address and port of local MQTT broker, respectively.
 4.	The MQTT ED then connects to the local MQTT broker under the initialization account (only a pre-loaded certificate is used for login). The MQTT ED contains a pre-loaded certificate fingerprint of trustworthy CA (Certification Authority), which is used to establish TLS (Transport Layer Security) communication with the MQTT broker. The chain of trust must be on both sides. Thus, the SH-GW (MQTT broker) has to contain a certificate issued by the same CA as it is contained in the MQTT ED. If these certificates do not match, the TLS communication cannot be established, and the device will be refused as a non-trustworthy.
 5.	When the TLS communication is established the MQTT ED subscribes to the __\<activation_code\>/activation/in__ topic and publishes _GET_CREDENTIALS_ request to __\<activation_code\>/activation/out__.
 6.	As a response, SH-GW (local MQTT broker) generates a new set of certificates that will be used for ongoing communication and publishes its CA certificate, login, and password to the MQTT ED.
 7.	When the MQTT ED receives the certificate and MQTT credentials from the __\<activation_code\>/activation/in__ topic, connection under the initialization account to the local broker is closed.
 8.	Further MQTT ED connects to the local MQTT broker with a certificate and credentials obtained in the step 6 and subscribes to __\<dev_id\>/home/in__. The certificate from the step 6 is directly connected to the __device id__. Thus only the device with proper __device id__ value can utilize this certificate. This approach brings additional security to the device configuration process.
-9.	In the next step, the MQTT ED publishes request of the _home_prefix_ type to __\<dev_id\>/home/in__ topic that contains all entities the ED provides with additional information on its data type and unit. 
+9.	In the next step, the MQTT ED publishes request of the _home_prefix_ type to __\<dev_id\>/home/out__ topic that contains all entities the ED provides with additional information on its data type and unit. 
 10. The SH-GW publishes _home_id_ and _gw_id_ to __\<dev_id\>/home/in__. The MQTT2GO ED uses these prefixes to generate unique topics for each of its entities. As the local MQTT broker possesses information about all ED entities, it can generate topics on the local broker side.
 11.	As a result, MQTT broker publishes the message to __\<home_id\>/\<gw_id\>/add_device/in__ topic with __device id__ information to distinguish individual devices. This message indicates to the controller that new ED was added to the system, and it is necessary to set a human-readable name and assign ED to the group(s).
-12.	MQTT local broker then expects a message from MQTT Controller with the end device __name__, __group__, and __device_id__.
+12.	MQTT local broker then expects a message from MQTT Controller with the end device __name__, __group__, and __device_id__ in __\<home_id\>/\<gw_id\>/add_device/out__ topic.
 13.	In what follows, the MQTT end device subscribes to its topic, and all ongoing communication happens according to the MQTT2GO standard.
 
 
@@ -83,7 +83,7 @@ This report (3) is utilized to deliver a newly generated certificate, password, 
 
 ## Device Configuration
 <p align="justify">
-The device configuration is happening over topics that are unique to this only process. To secure that the configuration will be done to the intended device, a unique <strong>device_ids</strong> is utilized during the process. 
+The device configuration is happening over topics that are unique to this process only. To secure that the configuration will be done to the intended device, a unique <strong>device_ids</strong> is utilized during the process. 
 </p>
 
 ### Topics Structure
