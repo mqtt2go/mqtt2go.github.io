@@ -164,6 +164,13 @@ The list below represents the devices fully compatible with the MQTT2GO conventi
     <img src="dashboard.png" alt="A1 TV Dashboard.">
 </p>
 
+# MQTT2GO Service Discovery Plugin
+<p align="justify">
+    To ensure full functionality of the TV Dashboard, the Service Discovery plugin provides a web interface for the zeroconf system service. It is an intermediate layer between high-level web browser requests and low-level network access required by the zeroconf services. It allows access to zeroconf services even for strictly limited web applications via traditional HTTP requests.
+</p>
+
+* [Service Discovery API](https://github.com/xploretv2go/zeroconf-api-service)
+
 ### Anomaly Reporting & AI Notifications
 <p align="justify">
     The benefits of artificial intelligence and machine learning can also be easily and straightforwardly leveraged with MQTT2GO by reinterpreting the MQTT traffic generated anyway as part of normal operations of subscribed topics with these technologies to detect anomalies and generate information gain and value add by notifying users in a timely manner. 
