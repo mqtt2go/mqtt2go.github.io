@@ -171,7 +171,7 @@ The list below represents the devices fully compatible with the MQTT2GO conventi
 
 * [Service Discovery API](https://github.com/xploretv2go/zeroconf-api-service)
 
-### Anomaly Reporting & AI Notifications
+# Anomaly Reporting & AI Notifications
 <p align="justify">
     The benefits of artificial intelligence and machine learning can also be easily and straightforwardly leveraged with MQTT2GO by reinterpreting the MQTT traffic generated anyway as part of normal operations of subscribed topics with these technologies to detect anomalies and generate information gain and value add by notifying users in a timely manner. 
 </p>
