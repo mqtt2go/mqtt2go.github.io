@@ -8,7 +8,7 @@
         <th style="width:10%">Changelog</th>
     </tr>
     <tr>
-        <td>2021-02-15</td>
+        <td>2021-02-15 (Updated 2022-01-26)</td>
         <td>Rev 2.1</td>
         <td>Added new type of virtual MQTT2GO devices and links to Smart Home TV Dashboard and Anomaly reporting Applications. Updated adding procedure of new MQTT2GO controllers by introducing QR codes log in.</td>
         <td><a href="https://mqtt2go.github.io/changelog">Changelog</a></td>
@@ -163,6 +163,14 @@ The list below represents the devices fully compatible with the MQTT2GO conventi
 <p align="center" >
     <img src="dashboard.png" alt="A1 TV Dashboard.">
 </p>
+
+#### Kiosk Mode
+<p align="justify">
+    Unique mode of single-purpose application for Raspberry PI computes mimicking the A1 set-top-box behavior. The kiosk mode is automatically launched after system boot and supports HDIM CEC protocol for convenient control via conventional TV remote controls.
+
+</p>
+
+* [Kiosk mode](https://github.com/mqtt2go/tv-dashboard)
 
 # MQTT2GO Service Discovery Plugin
 <p align="justify">

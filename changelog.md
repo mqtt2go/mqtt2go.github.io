@@ -2,6 +2,9 @@
 
 # Changelog
 
+* Update 2022-01-26
+	* Added description of a kiosk mode demonstrator.
+
 * Added new type of virtual MQTT2GO devices
 	* Intended for third party devices with MQTT2GO compatibility ensured by translating API.
 	* Devices can be purely software.
